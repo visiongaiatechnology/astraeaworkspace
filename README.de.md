@@ -16,7 +16,7 @@
   <a href="#-architektur--technologie-deep-tech"><img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TS%205.8-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19"></a>
   <a href="#-sicherheit--kryptografie-military-grade--pqc"><img src="https://img.shields.io/badge/Security-AES--256--GCM%20%2B%20Kyber%20PQC-7C4DFF?style=for-the-badge&logo=shield&logoColor=white" alt="Security"></a>
   <a href="#-sicherheit--kryptografie-military-grade--pqc"><img src="https://img.shields.io/badge/Telemetry-Zero%20%2F%20Air--Gapped-FF5252?style=for-the-badge&logo=adguard&logoColor=white" alt="Zero Telemetry"></a>
-  <a href="#-lizenz--vision"><img src="https://img.shields.io/badge/License-Apache%202.0-00B0FF?style=for-the-badge" alt="License"></a>
+  <a href="#-lizenz--vision"><img src="https://img.shields.io/badge/License-AGPLv3-00B0FF?style=for-the-badge" alt="License"></a>
 </p>
 
 ---
@@ -65,7 +65,7 @@ Traditionelle Cloud-Lösungen wie Microsoft 365 oder Google Workspace speichern 
 | :--- | :--- |
 | ❌ **Deine Daten liegen auf fremden Servern** (Cloud-Act, DSGVO-Risiken, US-Jurisdiktion). | ✅ **Vollständige Datensouveränität:** Deine Daten verlassen deinen Rechner nur, wenn du sie explizit per Air-Gap oder Ende-zu-Ende verschlüsselt teilst. |
 | ❌ **Versteckte Telemetrie & KI-Scraping:** Inhalte werden zur Modell-Optimierung analysiert. | ✅ **Garantierte Zero-Telemetry:** NetGate blockiert jeden unautorisierten Netzwerkverkehr vor dem DNS-Lookup. |
-| ❌ **Monatliche Lizenzgebühren (Abo-Falle):** Wer nicht zahlt, verliert den Zugriff auf seine Dokumente. | ✅ **Freie Open-Source-Software (Apache 2.0):** Einmal heruntergeladen, gehört die Arbeitsumgebung dauerhaft dir. |
+| ❌ **Monatliche Lizenzgebühren (Abo-Falle):** Wer nicht zahlt, verliert den Zugriff auf seine Dokumente. | ✅ **Freie Open-Source-Software (AGPLv3):** Einmal heruntergeladen, gehört die Arbeitsumgebung dauerhaft dir. |
 | ❌ **Träge Web-Oberflächen / Electron-Bloat:** Gigabytes an Arbeitsspeicher für simple Editoren. | ✅ **Blitzschneller nativer Rust-Kern:** Minimaler Speicherbedarf, flüssiges 60/120fps Scrolling und echte Offline-Geschwindigkeit. |
 | ❌ **Proprietäre Container & Vendor Lock-in:** Schwere Migration zu alternativen Plattformen. | ✅ **VWC v3 & offene Standards:** Sichere native Container, vollständiger Im- und Export für DOCX, XLSX, PPTX, PDF, CSV und Markdown. |
 
@@ -181,7 +181,7 @@ Detaillierte Ausarbeitungen, Sicherheitsanalysen und Fachpublikationen zum Downl
 | **Offline-Funktionalität** | ⚡ **100% Autonom** | ⚠️ Eingeschränkt / Sync-Zwang | ❌ Kaum nutzbar | ⚡ 100% Autonom |
 | **Netzwerk-Firewall (App-Ebene)** | 🛡️ **NetGate Pre-DNS Deny** | ❌ Keine | ❌ Keine | ❌ Keine |
 | **Integrierte Werkzeuge** | 💎 **20 All-in-One Apps** | 📦 ~6 Hauptprogramme | 📦 ~5 Web-Apps | 📦 6 Programme |
-| **Lizenzmodell** | 📜 **Open Source (Apache 2.0)** | 💳 Teures Monatsabo | 💳 Teures Monatsabo | 📜 Open Source (MPL) |
+| **Lizenzmodell** | 📜 **Open Source (AGPLv3)** | 💳 Teures Monatsabo | 💳 Teures Monatsabo | 📜 Open Source (MPL) |
 | **Moderne Benutzeroberfläche** | 🎨 **Modern (React 19 / Glass)** | 🪟 Überladen / Werbung | 🌐 Standard Web-UI | 🏛️ Veraltet / 90er-Look |
 | **Ressourcenverbrauch (RAM)** | 🚀 **~100–150 MB (Rust Core)** | 🐢 1.5–3.0 GB | 🐢 Hoher Browser-RAM | ⚖️ ~300–600 MB |
 
@@ -320,7 +320,7 @@ Astraea Workspace hat mit dem Checkpoint **2026-09-26** den Masterplan vollstän
 
 ## 📜 Lizenz & Vision
 
-Astraea Workspace wird unter der freien **Apache License 2.0** bereitgestellt. 
+Astraea Workspace wird unter der freien **GNU Affero General Public License v3.0 (AGPLv3)** bereitgestellt. 
 
 ### Die VGT-Philosophie (VisionGaiaTechnology)
 Wir glauben an eine Zukunft, in der Software den Menschen ermächtigt, anstatt ihn zu überwachen. Digitale Souveränität, absolute Privatsphäre und kompromisslose Leistungsfähigkeit sind Grundrechte jedes Nutzers und jedes Unternehmens. 
@@ -331,5 +331,5 @@ Wir glauben an eine Zukunft, in der Software den Menschen ermächtigt, anstatt i
 
 <p align="center">
   <strong>Astraea Workspace</strong> — Your Mind. Your Work. Your Sovereignty.<br>
-  <sub>© 2026 VisionGaiaTechnology. Alle Rechte vorbehalten. Lizenziert unter Apache-2.0.</sub>
+  <sub>© 2026 VisionGaiaTechnology. Alle Rechte vorbehalten. Lizenziert unter AGPL-3.0.</sub>
 </p>

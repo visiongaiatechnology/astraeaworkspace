@@ -16,7 +16,7 @@
   <a href="#-architettura-e-tecnologia-deep-tech"><img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TS%205.8-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19"></a>
   <a href="#-sicurezza-e-crittografia-military-grade--pqc"><img src="https://img.shields.io/badge/Sicurezza-AES--256--GCM%20%2B%20Kyber%20PQC-7C4DFF?style=for-the-badge&logo=shield&logoColor=white" alt="Sicurezza"></a>
   <a href="#-sicurezza-e-crittografia-military-grade--pqc"><img src="https://img.shields.io/badge/Telemetria-Zero%20%2F%20Air--Gapped-FF5252?style=for-the-badge&logo=adguard&logoColor=white" alt="Zero Telemetria"></a>
-  <a href="#-licenza-e-visione"><img src="https://img.shields.io/badge/Licenza-Apache%202.0-00B0FF?style=for-the-badge" alt="Licenza"></a>
+  <a href="#-licenza-e-visione"><img src="https://img.shields.io/badge/Licenza-AGPLv3-00B0FF?style=for-the-badge" alt="Licenza"></a>
 </p>
 
 ---
@@ -65,7 +65,7 @@ Le suite tradizionali basate sul cloud come Microsoft 365 o Google Workspace arc
 | :--- | :--- |
 | ❌ **I dati risiedono su server esteri** (soggetti a Cloud Act, rischi privacy, blackout). | ✅ **Sovranità Totale sui Dati:** Nessun file esce dal dispositivo, a meno che tu non decida esplicitamente di condividerlo via air-gap o P2P crittografato. |
 | ❌ **Telemetria invasiva e scraping per IA:** I contenuti aziendali vengono analizzati da algoritmi terzi. | ✅ **Zero Telemetria Garantita:** Il firewall sandbox NetGate blocca ogni tentativo di connessione prima del lookup DNS. |
-| ❌ **Abbonamenti mensili obbligatori:** Se interrompi il pagamento perdi l'accesso al tuo lavoro. | ✅ **Open Source Gratuito (Apache 2.0):** Una volta scaricato, il software appartiene per sempre a te. |
+| ❌ **Abbonamenti mensili obbligatori:** Se interrompi il pagamento perdi l'accesso al tuo lavoro. | ✅ **Open Source Gratuito (AGPLv3):** Una volta scaricato, il software appartiene per sempre a te. |
 | ❌ **Applicazioni web lente e pesanti:** Consumo enorme di RAM per visualizzare semplici testi. | ✅ **Backend Rust Nativo Ultra-performante:** Avvio fulmineo, rendering fluido a 60/120 fps e velocità offline immediata. |
 | ❌ **Formati proprietari e lock-in:** Esportazioni difficili e migrazioni complesse. | ✅ **VWC v3 e Standard Aperti:** Pieno supporto di importazione ed esportazione per DOCX, XLSX, PPTX, PDF, CSV e Markdown. |
 
@@ -181,7 +181,7 @@ Approfondimenti tecnici ad alta risoluzione, analisi di sicurezza e pubblicazion
 | **Autonomia Offline** | ⚡ **100% Autonomo** | ⚠️ Limitato / Dipendente da sync | ❌ Molto limitato | ⚡ 100% Autonomo |
 | **Firewall Sandbox App** | 🛡️ **NetGate Pre-DNS Deny** | ❌ Assente | ❌ Assente | ❌ Assente |
 | **App Incluse** | 💎 **20 App All-in-One** | 📦 ~6 App Principali | 📦 ~5 Web App | 📦 6 App |
-| **Modello di Licenza** | 📜 **Open Source (Apache 2.0)** | 💳 Abbonamento mensile | 💳 Abbonamento mensile | 📜 Open Source (MPL) |
+| **Modello di Licenza** | 📜 **Open Source (AGPLv3)** | 💳 Abbonamento mensile | 💳 Abbonamento mensile | 📜 Open Source (MPL) |
 | **Interfaccia Utente** | 🎨 **Moderna (React 19 / Glass)** | 🪟 Appesantita / Pubblicità | 🌐 Web UI Standard | 🏛️ Stile datato anni '90 |
 | **Utilizzo RAM (Idle)** | 🚀 **~100–150 MB (Rust Core)** | 🐢 1.5–3.0 GB | 🐢 Elevata memoria browser| ⚖️ ~300–600 MB |
 
@@ -300,7 +300,7 @@ Con il checkpoint **2026-09-26**, Astraea Workspace ha completato l'intero progr
 
 ## 📜 Licenza e Visione
 
-Astraea Workspace è distribuito con licenza **Apache License 2.0**.
+Astraea Workspace è distribuito con licenza **GNU Affero General Public License v3.0 (AGPLv3)**.
 
 ### La Filosofia VGT (VisionGaiaTechnology)
 Crediamo che il software debba potenziare l'individuo anziché sorvegliarlo. Privacy reale, sovranità digitale e prestazioni senza compromessi sono diritti fondamentali.
@@ -311,5 +311,5 @@ Crediamo che il software debba potenziare l'individuo anziché sorvegliarlo. Pri
 
 <p align="center">
   <strong>Astraea Workspace</strong> — Your Mind. Your Work. Your Sovereignty.<br>
-  <sub>© 2026 VisionGaiaTechnology. Tutti i diritti riservati. Licenza Apache-2.0.</sub>
+  <sub>© 2026 VisionGaiaTechnology. Tutti i diritti riservati. Licenza AGPL-3.0.</sub>
 </p>

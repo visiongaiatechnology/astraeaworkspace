@@ -16,7 +16,7 @@
   <a href="#-arquitectura-y-tecnología-deep-tech"><img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TS%205.8-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19"></a>
   <a href="#-seguridad-y-criptografía-military-grade--pqc"><img src="https://img.shields.io/badge/Seguridad-AES--256--GCM%20%2B%20Kyber%20PQC-7C4DFF?style=for-the-badge&logo=shield&logoColor=white" alt="Seguridad"></a>
   <a href="#-seguridad-y-criptografía-military-grade--pqc"><img src="https://img.shields.io/badge/Telemetría-Cero%20%2F%20Air--Gapped-FF5252?style=for-the-badge&logo=adguard&logoColor=white" alt="Cero Telemetría"></a>
-  <a href="#-licencia-y-visión"><img src="https://img.shields.io/badge/Licencia-Apache%202.0-00B0FF?style=for-the-badge" alt="Licencia"></a>
+  <a href="#-licencia-y-visión"><img src="https://img.shields.io/badge/Licencia-AGPLv3-00B0FF?style=for-the-badge" alt="Licencia"></a>
 </p>
 
 ---
@@ -65,7 +65,7 @@ Las suites tradicionales en la nube como Microsoft 365 o Google Workspace almace
 | :--- | :--- |
 | ❌ **Tus datos están en servidores extranjeros** (expuestos al Cloud Act, fugas y cortes). | ✅ **Soberanía Total de Datos:** Tu información nunca sale de tu equipo a menos que tú decidas compartirla explícitamente vía air-gap o P2P cifrado. |
 | ❌ **Telemetría y scraping para IA:** Los contenidos corporativos se analizan automáticamente. | ✅ **Cero Telemetría Garantizada:** El cortafuegos NetGate bloquea el tráfico de red antes del lookup DNS. |
-| ❌ **Suscripción mensual continua:** Deja de pagar y perderás el acceso a tus propios documentos. | ✅ **Código Abierto Gratuito (Apache 2.0):** Una vez descargado, el software te pertenece para siempre. |
+| ❌ **Suscripción mensual continua:** Deja de pagar y perderás el acceso a tus propios documentos. | ✅ **Código Abierto Gratuito (AGPLv3):** Una vez descargado, el software te pertenece para siempre. |
 | ❌ **Interfaces web lentas y pesadas:** Consumo desmedido de memoria para editar texto básico. | ✅ **Núcleo Rust Nativo:** Desplazamiento ultrafluido a 60/120 fps, inicio instantáneo y rapidez absoluta sin conexión. |
 | ❌ **Formatos privativos y bloqueo de proveedor:** Dificultad para exportar y migrar tus datos. | ✅ **Contenedores VWC v3 y Estándares Abiertos:** Importación y exportación total de DOCX, XLSX, PPTX, PDF, CSV y Markdown. |
 
@@ -181,7 +181,7 @@ Publicaciones técnicas de alta resolución, esquemas arquitectónicos y anális
 | **Funcionamiento Offline** | ⚡ **100% Autónomo** | ⚠️ Limitado / Exige sincronizar | ❌ Muy dependiente | ⚡ 100% Autónomo |
 | **Aislamiento Sandbox de Red**| 🛡️ **NetGate Pre-DNS Deny** | ❌ Ninguno | ❌ Ninguno | ❌ Ninguno |
 | **Aplicaciones Integradas** | 💎 **20 Apps All-in-One** | 📦 ~6 Apps Principales | 📦 ~5 Apps Web | 📦 6 Programas |
-| **Modelo de Licencia** | 📜 **Código Abierto (Apache 2.0)** | 💳 Cuota mensual obligatoria | 💳 Cuota mensual obligatoria | 📜 Código Abierto (MPL) |
+| **Modelo de Licencia** | 📜 **Código Abierto (AGPLv3)** | 💳 Cuota mensual obligatoria | 💳 Cuota mensual obligatoria | 📜 Código Abierto (MPL) |
 | **Diseño e Interfaz** | 🎨 **Moderno (React 19 / Glass)**| 🪟 Sobrecargado / Anuncios | 🌐 Web UI Básica | 🏛️ Antiguo (años 90) |
 | **Consumo de Memoria RAM** | 🚀 **~100–150 MB (Rust Core)** | 🐢 1.5–3.0 GB | 🐢 Alto consumo navegador | ⚖️ ~300–600 MB |
 
@@ -287,7 +287,7 @@ En la auditoría del **2026-09-26**, Astraea Workspace ha completado el 100% de 
 
 ## 📜 Licencia y Visión
 
-Astraea Workspace está publicado bajo la licencia **Apache License 2.0**.
+Astraea Workspace está publicado bajo la licencia **GNU Affero General Public License v3.0 (AGPLv3)**.
 
 ### La Filosofía VGT (VisionGaiaTechnology)
 Creemos que el software debe empoderar al ser humano en lugar de vigilarlo. La privacidad incondicional, la soberanía digital y el rendimiento sin concesiones son derechos inalienables.
@@ -298,5 +298,5 @@ Creemos que el software debe empoderar al ser humano en lugar de vigilarlo. La p
 
 <p align="center">
   <strong>Astraea Workspace</strong> — Your Mind. Your Work. Your Sovereignty.<br>
-  <sub>© 2026 VisionGaiaTechnology. Todos los derechos reservados. Licencia Apache-2.0.</sub>
+  <sub>© 2026 VisionGaiaTechnology. Todos los derechos reservados. Licencia AGPL-3.0.</sub>
 </p>

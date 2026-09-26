@@ -16,7 +16,7 @@
   <a href="#-architecture--technology-deep-tech"><img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TS%205.8-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19"></a>
   <a href="#-security--cryptography-military-grade--pqc"><img src="https://img.shields.io/badge/Security-AES--256--GCM%20%2B%20Kyber%20PQC-7C4DFF?style=for-the-badge&logo=shield&logoColor=white" alt="Security"></a>
   <a href="#-security--cryptography-military-grade--pqc"><img src="https://img.shields.io/badge/Telemetry-Zero%20%2F%20Air--Gapped-FF5252?style=for-the-badge&logo=adguard&logoColor=white" alt="Zero Telemetry"></a>
-  <a href="#-license--vision"><img src="https://img.shields.io/badge/License-Apache%202.0-00B0FF?style=for-the-badge" alt="License"></a>
+  <a href="#-license--vision"><img src="https://img.shields.io/badge/License-AGPLv3-00B0FF?style=for-the-badge" alt="License"></a>
 </p>
 
 ---
@@ -65,7 +65,7 @@ Traditional cloud suites like Microsoft 365 or Google Workspace store every docu
 | :--- | :--- |
 | ❌ **Data resides on foreign cloud servers** (subject to Cloud Act, privacy risks, outages). | ✅ **Total Data Sovereignty:** Your data never leaves your computer unless you explicitly share it via air-gap or encrypted P2P. |
 | ❌ **Telemetry, tracking & automated AI training:** Private corporate content is routinely inspected. | ✅ **Guaranteed Zero-Telemetry:** NetGate sandbox blocks any unauthorized traffic before DNS lookup. |
-| ❌ **Recurring subscription lock-in:** Stop paying and you lose access to your own work. | ✅ **Open Source (Apache 2.0):** Free forever. Once downloaded, it is permanently yours. |
+| ❌ **Recurring subscription lock-in:** Stop paying and you lose access to your own work. | ✅ **Open Source (AGPLv3):** Free forever. Once downloaded, it is permanently yours. |
 | ❌ **Sluggish browser UI / Electron memory bloat:** Hundreds of megabytes per open tab. | ✅ **High-Performance Rust Core:** Instant startup, buttery 60/120 fps scrolling, native speed. |
 | ❌ **Proprietary formats & vendor lock-in:** Painful migration and data export friction. | ✅ **Encrypted VWC v3 & Open Interop:** Full import/export support for DOCX, XLSX, PPTX, PDF, CSV, and Markdown. |
 
@@ -181,7 +181,7 @@ Explore our high-resolution technical whitepapers and architectural publications
 | **Offline Independence** | ⚡ **100% Autonomous** | ⚠️ Limited / Sync-dependent | ❌ Browser-dependent | ⚡ 100% Autonomous |
 | **Network Firewall Sandbox**| 🛡️ **NetGate Pre-DNS Deny** | ❌ None | ❌ None | ❌ None |
 | **Integrated Suite Scope** | 💎 **20 All-in-One Apps** | 📦 ~6 Core Apps | 📦 ~5 Web Apps | 📦 6 Apps |
-| **License Model** | 📜 **Open Source (Apache 2.0)** | 💳 Expensive Monthly Sub | 💳 Expensive Monthly Sub | 📜 Open Source (MPL) |
+| **License Model** | 📜 **Open Source (AGPLv3)** | 💳 Expensive Monthly Sub | 💳 Expensive Monthly Sub | 📜 Open Source (MPL) |
 | **Modern User Interface** | 🎨 **Modern (React 19 / Glass)** | 🪟 Cluttered / Ads | 🌐 Standard Web UI | 🏛️ Legacy 90s Style |
 | **RAM Footprint (Idle)** | 🚀 **~100–150 MB (Rust Core)** | 🐢 1.5–3.0 GB | 🐢 High Browser Memory | ⚖️ ~300–600 MB |
 
@@ -319,7 +319,7 @@ Astraea Workspace has reached full completion under the **2026-09-26** masterpla
 
 ## 📜 License & Vision
 
-Astraea Workspace is proudly licensed under the **Apache License 2.0**.
+Astraea Workspace is proudly licensed under the **GNU Affero General Public License v3.0 (AGPLv3)**.
 
 ### The VGT Philosophy (VisionGaiaTechnology)
 We believe software should empower humans rather than monitor them. True privacy, digital sovereignty, and uncompromised productivity are fundamental rights.
@@ -330,5 +330,5 @@ We believe software should empower humans rather than monitor them. True privacy
 
 <p align="center">
   <strong>Astraea Workspace</strong> — Your Mind. Your Work. Your Sovereignty.<br>
-  <sub>© 2026 VisionGaiaTechnology. All rights reserved. Licensed under Apache-2.0.</sub>
+  <sub>© 2026 VisionGaiaTechnology. All rights reserved. Licensed under AGPL-3.0.</sub>
 </p>
