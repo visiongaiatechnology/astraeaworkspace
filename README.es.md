@@ -28,8 +28,44 @@
 
 ---
 
+## 📦 Ediciones: Astraea Open-Core (Gratis) vs. Astraea Premium (Pro)
+
+Este repositorio alberga **Astraea Open-Core**, el núcleo 100% gratuito y de código abierto bajo licencia **GNU AGPLv3**. Para organizaciones, equipos y gobernanza avanzada de datos, **Astraea Premium** amplía la suite con bases de datos relacionales, gestión avanzada de proyectos y sincronización mesh cifrada de extremo a extremo:
+
+```text
+┌────────────────────────────────────────────────────────┐
+│               ASTRAEA OPEN-CORE (FREE)                │
+│             "The Sovereign Personal Office"            │
+│                                                        │
+│  1. Astraea Writer     (.vdoc)  — Procesador Completo │
+│  2. Astraea Grid       (.vgrid) — Hoja de Cálculo     │
+│  3. Astraea Present    (.vpresent) — Diapositivas Vect│
+│  4. Astraea Notes      (.vnote) — Zettelkasten & MD   │
+│  5. Astraea PDF Studio (.vpdf)  — Lector PDF y Notas  │
+│  6. Astraea Tasks      (.vtask) — Tareas Personales   │
+│  7. Astraea Whiteboard (.vboard) — Pizarra Infinita   │
+│  8. Astraea Vault      (.vvault) — Bóveda Segura Local│
+└────────────────────────────────────────────────────────┘
+                           │
+                           ▼ Vía de Actualización
+┌────────────────────────────────────────────────────────┐
+│             ASTRAEA PREMIUM / PRO (PAID)               │
+│        "Enterprise Governance, Data & Collaboration"   │
+│                                                        │
+│  9. Astraea Projects   (.vproj) — Gantt, CPM y Fases  │
+│ 10. Astraea Planner    (.vplan) — Kanban de Equipo&WIP│
+│ 11. Astraea Database   (.vdb)   — BD Relacional & Esqu│
+│ 12. Astraea Forms      (.vform) — Creador Formularios │
+│ 13. Astraea Spaces     (.vspace) — Espacios y Roles   │
+│ 14. GaiaCom Bridge     (.vgcom) — Sync E2EE P2P&Malla │
+└────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## 📑 Tabla de Contenidos
 
+0. [📦 Ediciones Open-Core vs. Premium](#-ediciones-astraea-open-core-gratis-vs-astraea-premium-pro)
 1. [🌟 ¿Qué es Astraea Workspace? (Explicación sencilla)](#-qué-es-astraea-workspace-explicación-sencilla)
 2. [💡 ¿Por qué Astraea? Ventajas sobre Microsoft 365 y Google](#-por-qué-astraea-ventajas-sobre-microsoft-365-y-google)
 3. [🚀 Las 20 Aplicaciones Soberanas Integradas](#-las-20-aplicaciones-soberanas-integradas)
