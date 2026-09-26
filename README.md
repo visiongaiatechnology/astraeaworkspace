@@ -32,34 +32,30 @@
 
 This repository provides **Astraea Open-Core**, the 100% free and open-source foundation licensed under **GNU AGPLv3**. For organizations, teams, and enterprise data governance, **Astraea Premium** extends the suite with relational database modeling, advanced project portfolio scheduling, and encrypted multi-device mesh synchronization:
 
-```text
-┌────────────────────────────────────────────────────────┐
-│               ASTRAEA OPEN-CORE (FREE)                │
-│             "The Sovereign Personal Office"            │
-│                                                        │
-│  1. Astraea Writer     (.vdoc)  — Full Word Processing │
-│  2. Astraea Grid       (.vgrid) — Full Spreadsheet    │
-│  3. Astraea Present    (.vpresent) — Vector Slides    │
-│  4. Astraea Notes      (.vnote) — Zettelkasten & MD   │
-│  5. Astraea PDF Studio (.vpdf)  — PDF Viewer & Annot. │
-│  6. Astraea Tasks      (.vtask) — Personal Tasks      │
-│  7. Astraea Whiteboard (.vboard) — Infinite Canvas    │
-│  8. Astraea Vault      (.vvault) — Local Safe         │
-└────────────────────────────────────────────────────────┘
-                           │
-                           ▼ Upgrade Path
-┌────────────────────────────────────────────────────────┐
-│             ASTRAEA PREMIUM / PRO (PAID)               │
-│        "Enterprise Governance, Data & Collaboration"   │
-│                                                        │
-│  9. Astraea Projects   (.vproj) — Gantt, CPM & Phases │
-│ 10. Astraea Planner    (.vplan) — Team Kanban & WIP   │
-│ 11. Astraea Database   (.vdb)   — Relational DB Schema│
-│ 12. Astraea Forms      (.vform) — Form & Survey Gen   │
-│ 13. Astraea Spaces     (.vspace) — Team Spaces & RBAC │
-│ 14. GaiaCom Bridge     (.vgcom) — E2EE P2P Sync & Mesh│
-└────────────────────────────────────────────────────────┘
-```
+| Application / Feature | Open-Core (Free) <br><sub>*Sovereign Personal Office*</sub> | Premium / Pro (Paid) <br><sub>*Enterprise Governance & Sync*</sub> | File Format | Scope & Core Capabilities |
+| :--- | :---: | :---: | :---: | :--- |
+| 📝 **Astraea Writer** | ✅ **Included** | ✅ Included | `.vdoc` | Full Word Processing, Typography, Dynamic Tables & DOCX/PDF |
+| 📊 **Astraea Grid** | ✅ **Included** | ✅ Included | `.vgrid` | Full Multi-Sheet Spreadsheet, Math Formulas & XLSX/CSV |
+| 📽️ **Astraea Present** | ✅ **Included** | ✅ Included | `.vpresent` | Vector Slide Presentations, Transitions & PPTX/PDF |
+| 🧠 **Astraea Notes** | ✅ **Included** | ✅ Included | `.vnote` | Zettelkasten PKM, Bidirectional Graph & Markdown |
+| 📄 **Astraea PDF Studio** | ✅ **Included** | ✅ Included | `.vpdf` | Structured PDF Viewer, Annotations, Signatures & Redaction |
+| ✅ **Astraea Tasks** | ✅ **Included** | ✅ Included | `.vtask` | Personal Task Management, Recurrence & Work Item Links |
+| 🎨 **Astraea Whiteboard** | ✅ **Included** | ✅ Included | `.vboard` | Infinite Creative Canvas, Diagrams, Shapes & Mindmaps |
+| 🛡️ **Astraea Vault** | ✅ **Included** | ✅ Included | `.vvault` | Local Military-Grade Encrypted Credential & File Safe |
+| 🚀 **Astraea Projects** | 🔒 *Upgrade to Pro* | ⭐ **Included** | `.vproj` | Gantt Charts, Critical Path Method (CPM) & Phase Planning |
+| 📋 **Astraea Planner** | 🔒 *Upgrade to Pro* | ⭐ **Included** | `.vplan` | Team Kanban Boards, WIP Limits & Workload Allocation |
+| 🗄️ **Astraea Database** | 🔒 *Upgrade to Pro* | ⭐ **Included** | `.vdb` | Relational No-Code DB, Typed Schemas & Writer Linking |
+| 📝 **Astraea Forms** | 🔒 *Upgrade to Pro* | ⭐ **Included** | `.vform` | Dynamic Form & Survey Builder with Conditional Logic |
+| 🌐 **Astraea Spaces** | 🔒 *Upgrade to Pro* | ⭐ **Included** | `.vspace` | Multi-Tenant Team Spaces & Granular RBAC Roles |
+| 📡 **GaiaCom Bridge** | 🔒 *Upgrade to Pro* | ⭐ **Included** | `.vgcom` | E2EE Peer-to-Peer Mesh Sync (LAN / BLE / Air-Gapped) |
+
+| Edition Comparison | **Astraea Open-Core** | **Astraea Premium / Pro** |
+| :--- | :--- | :--- |
+| **Target Audience** | Individuals, Researchers, Sovereign Thinkers | Teams, Enterprises, Regulated Organizations |
+| **Pricing** | **100% Free Forever** | **Commercial License / Pro Subscription** |
+| **License** | GNU Affero General Public License v3.0 (AGPLv3) | Proprietary Commercial / Enterprise License |
+| **Telemetry** | **Zero Telemetry (100% Air-Gapped)** | **Zero Telemetry (100% Air-Gapped)** |
+| **Data Storage** | 100% Local-First Storage | Local-First + Encrypted E2EE Multi-Device Mesh |
 
 ---
 

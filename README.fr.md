@@ -32,34 +32,30 @@
 
 Ce dépôt héberge **Astraea Open-Core**, le socle 100 % libre et open source sous licence **GNU AGPLv3**. Pour les organisations, les équipes et la gouvernance avancée des données, **Astraea Premium** enrichit la plateforme avec des bases de données relationnelles, la gestion de projet avancée et la synchronisation mesh chiffrée de bout en bout :
 
-```text
-┌────────────────────────────────────────────────────────┐
-│               ASTRAEA OPEN-CORE (FREE)                │
-│             "The Sovereign Personal Office"            │
-│                                                        │
-│  1. Astraea Writer     (.vdoc)  — Traitement de Texte │
-│  2. Astraea Grid       (.vgrid) — Tableur Complet     │
-│  3. Astraea Present    (.vpresent) — Présentations Vec│
-│  4. Astraea Notes      (.vnote) — Zettelkasten & MD   │
-│  5. Astraea PDF Studio (.vpdf)  — PDF Viewer & Annotat│
-│  6. Astraea Tasks      (.vtask) — Tâches Personnelles │
-│  7. Astraea Whiteboard (.vboard) — Tableau Infini     │
-│  8. Astraea Vault      (.vvault) — Coffre-Fort Local  │
-└────────────────────────────────────────────────────────┘
-                           │
-                           ▼ Voie de Mise à Niveau
-┌────────────────────────────────────────────────────────┐
-│             ASTRAEA PREMIUM / PRO (PAID)               │
-│        "Enterprise Governance, Data & Collaboration"   │
-│                                                        │
-│  9. Astraea Projects   (.vproj) — Gantt, CPM & Phases │
-│ 10. Astraea Planner    (.vplan) — Kanban d'Équipe&WIP │
-│ 11. Astraea Database   (.vdb)   — BD Relationnelle&Sch│
-│ 12. Astraea Forms      (.vform) — Formulaires&Sondage │
-│ 13. Astraea Spaces     (.vspace) — Espaces & Rôles    │
-│ 14. GaiaCom Bridge     (.vgcom) — Sync E2EE P2P & Mesh│
-└────────────────────────────────────────────────────────┘
-```
+| Application / Fonctionnalité | Open-Core (Gratuit) <br><sub>*Sovereign Personal Office*</sub> | Premium / Pro (Paid) <br><sub>*Enterprise Governance & Sync*</sub> | Format Natif | Capacités et Fonctionnalités Clés |
+| :--- | :---: | :---: | :---: | :--- |
+| 📝 **Astraea Writer** | ✅ **Inclus** | ✅ Inclus | `.vdoc` | Traitement de texte professionnel, typographie et DOCX/PDF |
+| 📊 **Astraea Grid** | ✅ **Inclus** | ✅ Inclus | `.vgrid` | Tableur multi-feuilles puissant, formules et XLSX/CSV |
+| 📽️ **Astraea Present** | ✅ **Inclus** | ✅ Inclus | `.vpresent` | Présentations de diapositives vectorielles et PPTX/PDF |
+| 🧠 **Astraea Notes** | ✅ **Inclus** | ✅ Inclus | `.vnote` | Gestion de connaissances Zettelkasten, graphe et Markdown |
+| 📄 **Astraea PDF Studio** | ✅ **Inclus** | ✅ Inclus | `.vpdf` | Visionneuse PDF structurée, annotations, signature et caviardage |
+| ✅ **Astraea Tasks** | ✅ **Inclus** | ✅ Inclus | `.vtask` | Gestion des tâches individuelles, sous-tâches et priorités |
+| 🎨 **Astraea Whiteboard** | ✅ **Inclus** | ✅ Inclus | `.vboard` | Tableau blanc infini pour le brainstorming et les schémas |
+| 🛡️ **Astraea Vault** | ✅ **Inclus** | ✅ Inclus | `.vvault` | Coffre-fort local chiffré pour mots de passe et fichiers secrets |
+| 🚀 **Astraea Projects** | 🔒 *Passer à Pro* | ⭐ **Inclus** | `.vproj` | Diagrammes de Gantt, chemin critique (CPM) et gestion de jalons |
+| 📋 **Astraea Planner** | 🔒 *Passer à Pro* | ⭐ **Inclus** | `.vplan` | Tableaux Kanban d'équipe, limites WIP et charge de travail |
+| 🗄️ **Astraea Database** | 🔒 *Passer à Pro* | ⭐ **Inclus** | `.vdb` | Base de données relationnelle no-code et liaison avec Writer |
+| 📝 **Astraea Forms** | 🔒 *Passer à Pro* | ⭐ **Inclus** | `.vform` | Créateur de formulaires et sondages avec logique conditionnelle |
+| 🌐 **Astraea Spaces** | 🔒 *Passer à Pro* | ⭐ **Inclus** | `.vspace` | Espaces d'équipe multi-projets et permissions RBAC granulaires |
+| 📡 **GaiaCom Bridge** | 🔒 *Passer à Pro* | ⭐ **Inclus** | `.vgcom` | Synchronisation mesh P2P chiffrée E2EE (LAN/BLE/Air-Gap) |
+
+| Comparatif des Éditions | **Astraea Open-Core** | **Astraea Premium / Pro** |
+| :--- | :--- | :--- |
+| **Public Cible** | Particuliers, chercheurs, professionnels exigeants | Équipes, entreprises, secteurs régulés |
+| **Tarification** | **100% Gratuit à vie** | **Licence commerciale / Abonnement Pro** |
+| **Licence** | GNU Affero General Public License v3.0 (AGPLv3) | Licence commerciale propriétaire Enterprise |
+| **Télémétrie** | **Zéro Télémétrie (100% Air-Gapped)** | **Zéro Télémétrie (100% Air-Gapped)** |
+| **Stockage des Données** | 100% Stockage Local | Stockage Local + Synchronisation Mesh E2EE |
 
 ---
 
