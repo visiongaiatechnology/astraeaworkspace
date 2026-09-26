@@ -39,6 +39,7 @@
 7. [⚡ Быстрый старт и установка](#-быстрый-старт-и-установка)
 8. [📊 Статус генерального плана (100% Финал)](#-статус-генерального-плана-100-финал)
 9. [📜 Лицензия и философия](#-лицензия-и-философия)
+10. [📚 Официальные Whitepaper и PDF-документация](#-официальные-whitepaper-и-pdf-документация)
 
 ---
 
@@ -135,6 +136,36 @@ graph TD
 - ⚡ **Astraea Automate (`.vauto`)**: Детерминированный локальный движок автоматизации процессов (автономный аналог Zapier/IFTTT) без внешних серверов.
 - 🔒 **Astraea Admin (`.vadmin`)**: Панель безопасности для настройки аппаратных ключей, журналов аудита и профилей защищенности.
 - 📡 **Astraea GaiaCom (`.vgcom`)**: Одноранговый P2P-мост с оконечным E2EE-шифрованием для чата, обмена файлами и синхронизации через LAN, BLE или QR-код.
+
+---
+
+## 📚 Официальные Whitepaper и PDF-документация
+
+Технические отчеты высокого разрешения, схемы архитектуры и исследования безопасности:
+
+| Название документа | Язык | Тип | Прямая ссылка |
+| :--- | :---: | :---: | :---: |
+| **01. Что такое Astraea Workspace? (Концепция и видение)** | 🇷🇺 Русский | Официальная брошюра | [📥 Скачать PDF](./01_Astraea_Workspace_What_It_Is_RU.pdf) |
+| **02. Премиальная безопасность и суверенитет (Технический анализ)** | 🇷🇺 Русский | Технический Whitepaper | [📥 Скачать PDF](./02_Astraea_Workspace_Premium_Security_Sovereignty_RU.pdf) |
+
+<details>
+<summary><b>🌐 Посмотреть документы на других языках (EN, DE, IT, ES, FR)</b></summary>
+
+| Название документа | Язык | Ссылка на скачивание |
+| :--- | :---: | :---: |
+| 01. What is Astraea Workspace? | 🇬🇧 English | [📥 Download PDF](./01_Astraea_Workspace_What_It_Is_EN.pdf) |
+| 02. Premium Security & Sovereignty | 🇬🇧 English | [📥 Download PDF](./02_Astraea_Workspace_Premium_Security_Sovereignty_EN.pdf) |
+| 01. Was ist Astraea Workspace? | 🇩🇪 Deutsch | [📥 Download PDF](./01_Astraea_Workspace_Was_es_ist_DE.pdf) |
+| 02. Premium Sicherheit & Souveränität | 🇩🇪 Deutsch | [📥 Download PDF](./02_Astraea_Workspace_Premium_Sicherheit_Souveraenitaet_DE.pdf) |
+| 03. Produktivität & Datenfluss | 🇩🇪 Deutsch | [📥 Download PDF](./03_Astraea_Workspace_Premium_Produktivitaet_Datenfluss_DE.pdf) |
+| 01. Che cos'è Astraea Workspace? | 🇮🇹 Italiano | [📥 Download PDF](./01_Astraea_Workspace_Che_Cose_IT.pdf) |
+| 02. Sicurezza Premium & Sovranità | 🇮🇹 Italiano | [📥 Download PDF](./02_Astraea_Workspace_Premium_Sicurezza_Sovranita_IT.pdf) |
+| 01. ¿Qué es Astraea Workspace? | 🇪🇸 Español | [📥 Download PDF](./01_Astraea_Workspace_Que_Es_ES.pdf) |
+| 02. Seguridad Premium & Soberanía | 🇪🇸 Español | [📥 Download PDF](./02_Astraea_Workspace_Premium_Seguridad_Soberania_ES.pdf) |
+| 01. Qu'est-ce qu'Astraea Workspace ? | 🇫🇷 Français | [📥 Download PDF](./01_Astraea_Workspace_Ce_Que_Cest_FR.pdf) |
+| 02. Sécurité Premium & Souveraineté | 🇫🇷 Français | [📥 Download PDF](./02_Astraea_Workspace_Premium_Securite_Souverainete_FR.pdf) |
+
+</details>
 
 ---
 
