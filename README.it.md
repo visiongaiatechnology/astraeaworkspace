@@ -57,6 +57,19 @@ Questo repository fornisce **Astraea Open-Core**, la base 100% libera e open-sou
 | **Telemetria** | **Zero Telemetria (100% Air-Gapped)** | **Zero Telemetria (100% Air-Gapped)** |
 | **Archiviazione Dati** | 100% Archiviazione Locale | Archiviazione Locale + Sync Mesh E2EE Multi-Device |
 
+### 💰 Prezzi e Modello di Licenza (Acquisto Singolo — Nessun Abbonamento)
+
+| Edizione / Licenza | Disponibilità | Acquisto Singolo | Aggiornamenti Major (v2.0+) |
+| :--- | :---: | :---: | :---: |
+| **Astraea Open-Core** | Open Source (AGPLv3) | **0,00 €** *(Gratis per sempre)* | **Gratis per sempre** |
+| **Astraea Premium (Beta Early-Bird)** | **Novembre 2026 – Febbraio 2027** | **39,99 €** <br><sub>*(Sconto lancio ~42%)*</sub> | **~45,99 €** <br><sub>*(33% sconto fedeltà)*</sub> |
+| **Astraea Premium (Regolare)** | Da Marzo 2027 | **69,00 €** | **~45,99 €** <br><sub>*(33% sconto fedeltà)*</sub> |
+| **Astraea Non-Profit & Education** | Scuole, Università, No-Profit | **36,99 €** | **9,99 €** |
+
+> [!TIP]
+> **Nessun vincolo di abbonamento**: Tutte le licenze sono **acquisti una tantum a vita** (Perpetual License). Nessun costo mensile o annuale ricorrente. Al rilascio di future major release (v2.0+), i clienti esistenti beneficiano di uno **sconto fedeltà del 33%** (9,99 € per il non-profit), o possono continuare a utilizzare per sempre la versione acquistata.
+
+
 ---
 
 ## 📑 Indice dei Contenuti

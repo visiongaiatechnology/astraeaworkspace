@@ -57,6 +57,19 @@ Ce dépôt héberge **Astraea Open-Core**, le socle 100 % libre et open source s
 | **Télémétrie** | **Zéro Télémétrie (100% Air-Gapped)** | **Zéro Télémétrie (100% Air-Gapped)** |
 | **Stockage des Données** | 100% Stockage Local | Stockage Local + Synchronisation Mesh E2EE |
 
+### 💰 Tarification et Modèle de Licence (Achat Unique — Aucun Abonnement)
+
+| Édition / Licence | Disponibilité | Achat Unique | Mises à Niveau Majeures (v2.0+) |
+| :--- | :---: | :---: | :---: |
+| **Astraea Open-Core** | Open Source (AGPLv3) | **0,00 €** *(Gratuit à vie)* | **Gratuit à vie** |
+| **Astraea Premium (Beta Early-Bird)** | **Novembre 2026 – Février 2027** | **39,99 €** <br><sub>*(Réduction de ~42%)*</sub> | **~45,99 €** <br><sub>*(33% de réduction fidélité)*</sub> |
+| **Astraea Premium (Standard)** | À partir de Mars 2027 | **69,00 €** | **~45,99 €** <br><sub>*(33% de réduction fidélité)*</sub> |
+| **Astraea Non-Profit & Éducation** | ONG, Écoles, Universités | **36,99 €** | **9,99 €** |
+
+> [!TIP]
+> **Aucun abonnement contraignant** : Toutes les licences sont des **achats uniques perpétuels** (Perpetual License). Sans aucun frais mensuel ou annuel récurrent. Lors de la sortie de futures versions majeures (v2.0+), les clients existants bénéficient d'une **réduction de fidélité de 33 %** (9,99 € pour les organismes à but non lucratif), ou peuvent continuer à utiliser leur version indéfiniment.
+
+
 ---
 
 ## 📑 Table des Matières
