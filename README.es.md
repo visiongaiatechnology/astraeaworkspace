@@ -83,8 +83,9 @@ Este repositorio alberga **Astraea Open-Core**, el núcleo 100% gratuito y de c�
 6. [🏗️ Arquitectura y Tecnología (Deep Tech)](#-arquitectura-y-tecnología-deep-tech)
 7. [⚡ Inicio Rápido e Instalación](#-inicio-rápido-e-instalación)
 8. [📊 Estado del Plan Maestro (100% Final)](#-estado-del-plan-maestro-100-final)
-9. [📜 Licencia y Visión](#-licencia-y-visión)
-10. [📚 Libros Blancos Oficiales y Documentación PDF](#-libros-blancos-oficiales-y-documentación-pdf)
+9. [🧩 Sistemas Integrados, Dependencias y Licencias de Terceros (SBOM)](#-sistemas-integrados-dependencias-y-licencias-de-terceros-sbom)
+10. [📜 Licencia y Visión](#-licencia-y-visión)
+11. [📚 Libros Blancos Oficiales y Documentación PDF](#-libros-blancos-oficiales-y-documentación-pdf)
 
 ---
 
@@ -288,6 +289,20 @@ Publicaciones técnicas de alta resolución, esquemas arquitectónicos y anális
 > [!NOTE]
 > Para conocer al detalle los 42 crates en Rust, los 110 comandos IPC y los flujos de datos del sistema, consulta [`ARCHITECTURE.md`](./ARCHITECTURE.md).
 
+### Gobernanza de Dependencias y Arquitectura de Cadena de Suministro
+
+Con el fin de reducir al mínimo la superficie de ataque en la cadena de suministro de software (*Supply-Chain Attack Surface*), Astraea Workspace aplica una estricta **estrategia de núcleo propio (First-Party Core)**: todos los subsistemas críticos — incluidos el **Workspace Object Model (WOM)**, los 20 editores de aplicaciones, los motores de cálculo y diseño, el índice de búsqueda léxica **BM25** (`vgt-search`), el motor determinista **Automation IR** (`vgt-automation`), el **motor de políticas** (`vgt-policy`) y la **interoperabilidad OOXML/ODF/PDF** (`vgt-interop`) — están desarrollados íntegramente como código nativo propio. Las bibliotecas externas se limitan exclusivamente a puentes del sistema operativo (Tauri v2) y primitivas matemáticas criptográficas auditadas.
+
+| Dimensión Arquitectónica | Suites Web / Electron Convencionales | **Astraea Workspace** | Implicación de Seguridad e Ingeniería |
+| :--- | :---: | :---: | :--- |
+| **Paquetes directos de ejecución Frontend** | 120 – 350+ paquetes NPM | **5 paquetes** (+ 1 worker PDF local) | Grafo mínimo de dependencias transitivas en la capa UI; sin gestores de estado ni SDKs de telemetría |
+| **Motores externos de edición y documentos** | 8 – 15 frameworks de terceros | **0** (100 % WOM y editores propios) | Sin dependencia de ciclos de vida de terceros; modelo de datos determinista en las 20 aplicaciones |
+| **Motores de búsqueda, Interop y reglas** | Máquinas virtuales y parsers externos | **100 % Crates Rust propios** | Ejecución nativa segura en memoria sin motores de scripting de terceros incrustados |
+| **Primitivas criptográficas y PQC** | Biblioteca TLS estándar única | **~18 crates especializados y auditados** | Uso deliberado de primitivas de tiempo constante auditadas para PQC híbrido de 5 vías y cascada de 4 capas |
+| **Verificabilidad de cadena de suministro** | Árboles transitivos opacos y complejos | **SPDX 2.3 SBOM y SLSA v1 Provenance** | Árbol de dependencias 100 % compatible con AGPLv3, totalmente operativo en Air-Gap y auditable |
+
+*(Consulta el inventario completo de subsistemas, versiones y licencias en la [Sección 9: Sistemas Integrados, Dependencias y Licencias de Terceros (SBOM)](#-sistemas-integrados-dependencias-y-licencias-de-terceros-sbom).)*
+
 ---
 
 ## ⚡ Inicio Rápido e Instalación
@@ -330,9 +345,126 @@ En la auditoría del **2026-09-26**, Astraea Workspace ha completado el 100% de 
 
 ---
 
+## 🧩 Sistemas Integrados, Dependencias y Licencias de Terceros (SBOM)
+
+Para garantizar una transparencia total en la cadena de suministro, auditorías de seguridad reproducibles y el cumplimiento estricto de licencias de código abierto, esta sección documenta todos los subsistemas propios, componentes empaquetados (*vendored*), bibliotecas de terceros y sus respectivas licencias integradas en **Astraea Workspace**.
+
+### 1. Integraciones Primarias de VGT (Subsistemas Propios)
+
+Astraea Workspace integra dos motores tecnológicos centrales de VGT directamente en su árbol de código fuente:
+
+| Subsistema Integrado | Ruta en el Repositorio | Origen / Versión / Commit | Lenguaje | Licencia | Función en Astraea Workspace |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| **VGT Infinity Cryptographic Core** (`vgt-infinity-core`) | `vendor/infinity` | Snapshot Git-Mirror `55b05a697a189d0ec583cdcf340beeba1efc9130` (`v0.2.0`) | Rust | **AGPL-3.0-only** | Criptografía Post-Cuántica híbrida de 5 vías (PQC KEM), cascada simétrica de 4 capas (*Modo Top Secret* `0x04`) y paquetes de doble firma |
+| **Astraea Embedded GaiaCom Node** (`gaiacom/backend`) | `native/gaiacom-node` | Árbol Go Companion integrado (Go `1.25.0`) | Go | **AGPL-3.0-only** | Nodo local de sincronización mesh P2P sin nube, descubrimiento LAN mDNS, transporte Bluetooth LE, transporte relay y replicación CRDT |
+| **Astraea Rust Workspace Core** (21 crates `vgt-*`) | `crates/vgt-*` | Workspace Release `v0.1.0` (Edición Rust `2021`) | Rust | **AGPL-3.0-only** | Modelo documental WOM, contenedores VWC v3, KeyVault, motor de búsqueda léxica local BM25, Automation IR determinista, motor de políticas, Interop y shell Tauri |
+
+---
+
+### 2. Componentes de Terceros Empaquetados (Vendored Assets) y Proveedores Aislados
+
+Para garantizar un funcionamiento 100 % sin conexión (**Air-Gap**) sin solicitudes a redes CDN externas, ciertos componentes de terceros se empaquetan localmente o se ejecutan mediante adaptadores de procesos aislados (*sidecars*):
+
+| Componente | Ruta / Integración | Versión / Referencia | Licencia | Uso y Aislamiento de Seguridad |
+| :--- | :--- | :---: | :---: | :--- |
+| **Mozilla PDF.js Worker** (`pdfjs-dist`) | `.vendor/pdfjs-dist` & `ui/public/vendor/pdfjs/pdf.worker.min.mjs` | `5.5.207` (SHA-256: `a8d200fdf60c6644...56824269`) | **Apache-2.0** | Renderizado local de lienzos PDF sin conexión y extracción de capa de texto en **Astraea PDF Studio** (cero solicitudes de red) |
+| **PQClean / `pqcrypto` (`pqcrypto-hqc`)** | Proveedor opcional FFI / Sidecar en `vendor/infinity` | `0.4.0` (Referencia C de PQClean) | **MIT / Public Domain** | Encapsulación de claves post-cuántica basada en códigos **HQC-256** para el perfil *Top Secret* (aislado por defecto mediante proceso sidecar) |
+| **PQMagic / `pqmagic` (`AIGIS-ENC`)** | Proveedor opcional Sidecar (`vgt-infinity-pqmagic-sidecar`) | `1.0.7` (PQMagic High-Performance PQC) | **MIT / Apache-2.0** | Encapsulación de claves reticular asimétrica **AIGIS-ENC-4** en el KEM híbrido de 5 vías (ejecutado en un proceso sidecar independiente por seguridad de memoria) |
+
+---
+
+### 3. Dependencias del Núcleo Rust y Desktop-Shell (Ecosistema Cargo)
+
+Todas las dependencias de Rust declaradas en `Cargo.toml` y `vendor/infinity/Cargo.toml` utilizan licencias de código abierto permisivas 100 % compatibles con **GNU AGPLv3**:
+
+#### 🔐 Criptografía, Post-Quantum y Primitivas de Seguridad
+| Crate / Biblioteca | Versión | Licencia | Propósito en Astraea Workspace |
+| :--- | :---: | :---: | :--- |
+| `aes-gcm` | `0.10.3` | **Apache-2.0 OR MIT** | Cifrado autenticado `AES-256-GCM` para fragmentos de contenedores VWC v3 y bóvedas KeyVault |
+| `argon2` | `0.5.3` | **Apache-2.0 OR MIT** | Derivación de claves resistente a memoria para contraseñas y frases de paso (`Argon2id`) |
+| `blake3` | `1.8.7` | **CC0-1.0 OR Apache-2.0 OR Apache-2.0 WITH LLVM-exception** | Hashing ultrarrápido de árboles Merkle-DAG, integridad de instantáneas y etiquetas de compromiso de clave |
+| `sha2` & `hkdf` | `0.10.x` / `0.12.x` | **Apache-2.0 OR MIT** | Resúmenes `SHA-256` / `SHA-512` y derivación jerárquica de claves `HKDF-SHA256` / `HKDF-SHA512` |
+| `x25519-dalek` | `2.0.x` | **BSD-3-Clause** | Acuerdo clásico de claves Diffie-Hellman de curva elíptica (`X25519`) |
+| `ed25519-dalek` | `2.1.x` | **BSD-3-Clause** | Firmas digitales clásicas `Ed25519` para contenedores VWC, manifiestos de versiones y sobres GaiaCom |
+| `ml-dsa` | `0.1.1` | **Apache-2.0 OR MIT** | Firmas digitales post-cuánticas NIST FIPS-204 (`ML-DSA-65` / `ML-DSA-87`, anteriormente Dilithium) |
+| `ml-kem`, `frodo-kem-rs`, `slh-dsa` | Infinity Core | **Apache-2.0 OR MIT** | NIST FIPS-203 (`ML-KEM-1024`), LWE no estructurado (`FrodoKEM-1344-AES`) y firmas basadas en hash sin estado (`SLH-DSA-SHAKE-256f`) |
+| `serpent`, `twofish`, `eax`, `chacha20poly1305`, `aes-gcm-siv`, `sha3` | Infinity Core | **Apache-2.0 OR MIT** | Cascada simétrica de 4 capas (`XChaCha20-Poly1305` → `Serpent-256-EAX` → `Twofish-256-EAX` → `AES-256-GCM-SIV`) y `SHA3-512` en el modo *Top Secret* |
+| `zeroize` & `subtle` | `1.8.x` / `2.6.1` | **Apache-2.0 OR MIT** / **BSD-3-Clause** | Borrado determinista seguro de claves secretas en memoria RAM (`ZeroizeOnDrop`) y comparaciones en tiempo constante |
+| `rand` | `0.8.x` | **Apache-2.0 OR MIT** | Generador de números aleatorios criptográficamente seguro (`OsRng` / `ChaCha20Rng`) |
+
+#### 🖥️ Desktop Shell, Sistema, Compresión y Serialización
+| Crate / Biblioteca | Versión | Licencia | Propósito en Astraea Workspace |
+| :--- | :---: | :---: | :--- |
+| `tauri` & `tauri-build` | `2.x` (`2.10.3`) | **Apache-2.0 OR MIT** | Shell de escritorio nativo multiplataforma, puente de comandos IPC y empaquetado de instaladores |
+| `wry` & `tao` | `0.55.1` / `0.33.x` | **Apache-2.0 OR MIT** | Abstracción de renderizado WebView multiplataforma y gestión nativa de ventanas (vía Tauri v2) |
+| `serde` & `serde_json` | `1.0.x` | **Apache-2.0 OR MIT** | Serialización determinista para documentos WOM, cargas útiles IPC y manifiestos |
+| `thiserror` | `1.0.69` | **Apache-2.0 OR MIT** | Gestión estructurada de errores en los 21 crates del espacio de trabajo Rust |
+| `flate2` & `crc32fast` | `1.1.10` / `1.5.1` | **Apache-2.0 OR MIT** | Compresión DEFLATE/Zlib y sumas de verificación CRC32 aceleradas por SIMD para OOXML (`.docx`, `.xlsx`, `.pptx`) y ODF |
+| `url` & `if-addrs` | `2.5.8` / `0.13.x` | **Apache-2.0 OR MIT** / **MIT OR BSD-3-Clause** | Validación estricta de URL en `vgt-netgate` y detección de interfaces de red locales para sincronización LAN |
+| `uuid`, `chrono`, `base64`, `hex` | `1.26.1` / `0.4.x` / `0.22.1` / `0.4.x` | **Apache-2.0 OR MIT** | Identificadores únicos de objetos (`UUIDv4`), marcas de tiempo ISO-8601 y codificaciones binarias |
+| `windows-sys` & `winreg` | `0.59.0` / `0.55.0` | **MIT OR Apache-2.0** / **MIT** | Enlaces nativos de la API de Windows (`CryptProtectData` DPAPI, Credential Manager, Named Pipes) |
+| `libc` | `0.2.x` | **MIT OR Apache-2.0** | Llamadas al sistema POSIX de bajo nivel, permisos estrictos de archivo (`chmod 0600`) y señales de procesos en Linux/macOS |
+| `webkit2gtk`, `gtk`, `glib`, `soup3` | `2.0.2` / `0.18.2` | **MIT** | Integración de ventanas y WebView en escritorio Linux (vinculado dinámicamente a bibliotecas del sistema bajo **LGPL-2.1+**) |
+| `tempfile` | `3.23.0` | **Apache-2.0 OR MIT** | Directorios temporales aislados para escrituras atómicas de archivos y pruebas de integración |
+
+---
+
+### 4. Dependencias del Entorno Go Companion (`native/gaiacom-node`)
+
+El nodo integrado **GaiaCom Node** (`go.mod`) utiliza los siguientes paquetes de código abierto para la sincronización mesh P2P local y el almacenamiento persistente:
+
+| Módulo Go | Versión | Licencia | Propósito en GaiaCom Node |
+| :--- | :---: | :---: | :--- |
+| `github.com/cloudflare/circl` | `v1.6.3` | **BSD-3-Clause** | Biblioteca criptográfica de Cloudflare para operaciones híbridas post-cuánticas y de curva elíptica en el protocolo mesh |
+| `golang.org/x/crypto` | `v0.52.0` | **BSD-3-Clause** | Primitivas criptográficas extendidas de Go (`ChaCha20-Poly1305`, `X25519`, `Ed25519`, `HKDF`, `Argon2`) |
+| `modernc.org/sqlite` | `v1.42.2` | **BSD-3-Clause** | Implementación pura en Go (sin CGO) de SQLite (Dominio Público) para el registro local de eventos y colas de sincronización |
+| `golang.org/x/sys`, `x/text`, `x/sync`, `x/exp` | `v0.47.0` / `v0.40.0` / `v0.22.0` | **BSD-3-Clause** | Primitivas del sistema operativo, normalización Unicode y trabajadores de sincronización concurrentes |
+| `golang.org/x/mobile` | `v0.0.0-20260217...` | **BSD-3-Clause** | Enlaces multiplataforma y puentes de compatibilidad móvil / Bluetooth LE |
+| `github.com/google/uuid` | `v1.6.0` | **BSD-3-Clause** | Generación de UUID para sobres de mensajes, salas y trabajos de sincronización |
+| `github.com/dustin/go-humanize`, `mattn/go-isatty`, `ncruces/go-strftime`, `remyoudompheng/bigfft` | `v1.0.1` / `v0.0.20` / `v0.1.9` | **MIT** / **BSD-3-Clause** | Bibliotecas de soporte para el motor SQLite puro en Go (`modernc.org/sqlite`) |
+
+---
+
+### 5. Dependencias de Frontend, UI y Herramientas de Compilación (`ui/package.json`)
+
+El frontend en `ui/` prescinde deliberadamente de gestores de estado pesados o SDKs de telemetría externos y utiliza exclusivamente los siguientes paquetes:
+
+| Paquete NPM | Versión | Tipo | Licencia | Propósito en el Frontend |
+| :--- | :---: | :---: | :---: | :--- |
+| `react` & `react-dom` | `^19.0.0` | Runtime | **MIT** | Renderizado declarativo de componentes para las 20 Aplicaciones Soberanas y el shell de trabajo |
+| `lucide-react` | `^1.16.0` | Runtime | **ISC** | Sistema de iconos vectoriales coherente en todos los editores, barras de herramientas e inspectores |
+| `clsx` & `tailwind-merge` | `^2.1.1` / `^3.0.2` | Runtime | **MIT** | Composición determinista de clases CSS y resolución de estados de tokens de temas |
+| `typescript` | `^5.7.3` | Dev / Build | **Apache-2.0** | Verificación estricta de tipos estáticos en todo el modelo WOM y el frontend |
+| `vite` & `@vitejs/plugin-react` | `^6.1.0` / `^4.3.4` | Dev / Build | **MIT** | Empaquetador frontend de alta velocidad con división determinista de fragmentos |
+| `vitest` | `^5.0.0` | Dev / Test | **MIT** | Ejecutor de pruebas unitarias, de interoperabilidad, paridad y extremo a extremo para la capa UI |
+| `tailwindcss`, `postcss`, `autoprefixer` | `^3.4.17` / `^8.4.49` / `^10.4.20` | Dev / Build | **MIT** | Generación de CSS en tiempo de compilación y utilidades del sistema de diseño |
+| `@types/react` & `@types/react-dom` | `^19.0.8` / `^19.0.3` | Dev / Build | **MIT** | Definiciones de tipos TypeScript para React 19 |
+
+---
+
+### 6. Integraciones Nativas del Sistema Operativo y Plataforma
+
+Astraea Workspace interactúa directamente con las primitivas de seguridad nativas del sistema operativo sin intermediarios en la nube:
+- **Windows:** Windows Data Protection API (**DPAPI** vía `CryptProtectData` / `CryptUnprotectData`), **Administrador de Credenciales de Windows**, Named Pipes y **WebView2** (Edge Chromium Runtime).
+- **macOS:** **macOS Keychain Services** (`/usr/bin/security`), **Secure Enclave** (protección de claves por hardware), Unix Domain Sockets y **WKWebView**.
+- **Linux:** **Freedesktop Secret Service API** (`secret-tool` / `libsecret` para GNOME Keyring y KWallet), Unix Domain Sockets y **WebKitGTK 4.1+**.
+- **Estándares de Navegador / WebView:** **W3C WebCrypto API** nativa (`crypto.subtle` para AES-GCM / PBKDF2 local en modo navegador) e **IndexedDB v4** (`astraea-workspace-db`).
+
+---
+
+### 7. Pipeline Automatizado de SBOM, Procedencia y Verificación de Licencias
+
+Cada lanzamiento oficial de Astraea Workspace genera automáticamente artefactos de cumplimiento verificables criptográficamente mediante `scripts/generate-release-evidence.py`:
+- **`dependency-license-inventory.json`** — Inventario completo legible por máquina de todas las dependencias de Cargo, NPM, Go y componentes empaquetados, incluida su clasificación de licencia.
+- **`sbom.spdx.json`** — Lista de materiales de software (SBOM) estandarizada conforme a **SPDX 2.3** (licencia de datos `CC0-1.0`).
+- **`build-provenance.intoto.json`** — Atestación de procedencia de compilación **SLSA v1 / in-toto**.
+- **`SHA256SUMS.txt` & `signed-release-manifest.json`** — Manifiesto de lanzamiento firmado con `Ed25519` para verificación de integridad previa a la ejecución.
+
+---
+
 ## 📜 Licencia y Visión
 
-Astraea Workspace está publicado bajo la licencia **GNU Affero General Public License v3.0 (AGPLv3)**.
+Astraea Workspace (Open-Core), así como sus subsistemas propios de VGT integrados (`vgt-infinity-core` y `gaiacom/backend`), se publican bajo la licencia libre **GNU Affero General Public License v3.0 (AGPL-3.0-only)** (véanse `LICENSE` y `NOTICE` en el repositorio principal). Todas las bibliotecas y dependencias de terceros incorporadas se distribuyen bajo licencias de código abierto compatibles con AGPLv3 (`MIT`, `Apache-2.0`, `BSD-3-Clause`, `ISC`, `CC0-1.0` / `Dominio Público`).
 
 ### La Filosofía VGT (VisionGaiaTechnology)
 Creemos que el software debe empoderar al ser humano en lugar de vigilarlo. La privacidad incondicional, la soberanía digital y el rendimiento sin concesiones son derechos inalienables.
@@ -345,3 +477,4 @@ Creemos que el software debe empoderar al ser humano en lugar de vigilarlo. La p
   <strong>Astraea Workspace</strong> — Your Mind. Your Work. Your Sovereignty.<br>
   <sub>© 2026 VisionGaiaTechnology. Todos los derechos reservados. Licencia AGPL-3.0.</sub>
 </p>
+
