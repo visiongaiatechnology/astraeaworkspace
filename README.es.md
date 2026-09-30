@@ -1,480 +1,653 @@
-# <p align="center"><img src="./astraeaworkspace1.png" alt="Astraea Workspace Logo" width="680"/></p>
-
 <p align="center">
-  <a href="./README.md">English</a> | <a href="./README.de.md">Deutsch</a> | <a href="./README.it.md">Italiano</a> | <b>Español</b> | <a href="./README.fr.md">Français</a> | <a href="./README.ru.md">Русский</a>
+  <img src="./astraeaworkspace1.png" alt="Astraea Workspace" width="680"/>
 </p>
 
 <p align="center">
-  <strong>El sistema operativo soberano de oficina y productividad con total autonomía de datos.</strong><br>
-  <em>Local-First · Cero Telemetría · Cifrado Militar VWC · Post-Quantum Ready · 20 Aplicaciones Soberanas Nativas</em>
+  <a href="./README.md">English</a> ·
+  <a href="./README.de.md">Deutsch</a> ·
+  <a href="./README.it.md">Italiano</a> ·
+  <b>Español</b> ·
+  <a href="./README.fr.md">Français</a> ·
+  <a href="./README.ru.md">Русский</a>
 </p>
 
 <p align="center">
-  <a href="#-inicio-rápido-e-instalación"><img src="https://img.shields.io/badge/Estado-100%25%20FINAL%20(3334%2F3334)-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Estado"></a>
-  <a href="#-arquitectura-y-tecnología-deep-tech"><img src="https://img.shields.io/badge/Core-Rust%202021-DEA584?style=for-the-badge&logo=rust&logoColor=white" alt="Rust Core"></a>
-  <a href="#-arquitectura-y-tecnología-deep-tech"><img src="https://img.shields.io/badge/Shell-Tauri%20v2-24C8D8?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri v2"></a>
-  <a href="#-arquitectura-y-tecnología-deep-tech"><img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TS%205.8-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19"></a>
-  <a href="#-seguridad-y-criptografía-military-grade--pqc"><img src="https://img.shields.io/badge/Seguridad-AES--256--GCM%20%2B%20Kyber%20PQC-7C4DFF?style=for-the-badge&logo=shield&logoColor=white" alt="Seguridad"></a>
-  <a href="#-seguridad-y-criptografía-military-grade--pqc"><img src="https://img.shields.io/badge/Telemetría-Cero%20%2F%20Air--Gapped-FF5252?style=for-the-badge&logo=adguard&logoColor=white" alt="Cero Telemetría"></a>
-  <a href="#-licencia-y-visión"><img src="https://img.shields.io/badge/Licencia-AGPLv3-00B0FF?style=for-the-badge" alt="Licencia"></a>
+  <strong>Un espacio de trabajo productivo, soberano y local, diseñado para la propiedad absoluta de los datos.</strong><br>
+  <em>Local-first · Cero telemetría de producto por diseño · Contenedores cifrados autenticados · Seguridad preparada para la era poscuántica · Open Core</em>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Public%20Beta%20Pre--Release-FFB300?style=for-the-badge" alt="Public Beta Pre-Release"/>
+  <img src="https://img.shields.io/badge/Core%20Hito-3334%2F3334-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Core hito 3334/3334"/>
+  <img src="https://img.shields.io/badge/Core-Rust%202021-DEA584?style=for-the-badge&logo=rust&logoColor=white" alt="Rust Core"/>
+  <img src="https://img.shields.io/badge/Shell-Tauri%20v2-24C8D8?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri v2"/>
+  <img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React y TypeScript"/>
+  <img src="https://img.shields.io/badge/Licencia-AGPLv3-00B0FF?style=for-the-badge" alt="AGPLv3"/>
 </p>
 
 ---
 
 > [!IMPORTANT]
-> ### 🚀 Próximo Lanzamiento Oficial
-> **Astraea Workspace se encuentra en su fase final de preparación para el lanzamiento público.**
-> Los paquetes oficiales e instaladores binarios precompilados para **Windows**, **macOS** y **Linux** se publicarán aquí muy pronto. ¡Añade una **estrella ⭐ (Star)** y sigue **👀 (Watch)** este repositorio para recibir una notificación inmediata tan pronto como esté disponible la descarga pública!
+> ## Estado del lanzamiento público
+>
+> **Astraea Workspace se encuentra en su fase final de endurecimiento previa al lanzamiento.**
+>
+> El hito de implementación del núcleo está completo. La fase actual se centra en la separación de ediciones, verificación de flujos de trabajo de extremo a extremo, Workspace Explorer, coherencia de diseño, accesibilidad, localización, evidencias de seguridad, empaquetado y pruebas de regresión finales.
+>
+> Los paquetes oficiales de distribución se publicarán únicamente tras superar los controles de calidad (release gates). Hasta entonces, un hito de lista de control interna no debe confundirse con una versión pública lanzada y verificada.
 
 ---
 
-## 📦 Ediciones: Astraea Open-Core (Gratis) vs. Astraea Premium (Pro)
+## ¿Qué es Astraea Workspace?
 
-Este repositorio alberga **Astraea Open-Core**, el núcleo 100% gratuito y de código abierto bajo licencia **GNU AGPLv3**. Para organizaciones, equipos y gobernanza avanzada de datos, **Astraea Premium** amplía la suite con bases de datos relacionales, gestión avanzada de proyectos y sincronización mesh cifrada de extremo a extremo:
+Astraea Workspace es una suite de productividad de escritorio diseñada en torno a un principio elemental:
 
-| Aplicación / Capacidad | Open-Core (Gratis) <br><sub>*Sovereign Personal Office*</sub> | Premium / Pro (Paid) <br><sub>*Enterprise Governance & Sync*</sub> | Formato Archivo | Alcance y Capacidades Principales |
-| :--- | :---: | :---: | :---: | :--- |
-| 📝 **Astraea Writer** | ✅ **Incluido** | ✅ Incluido | `.vdoc` | Procesador de textos avanzado, tipografía y DOCX/PDF |
-| 📊 **Astraea Grid** | ✅ **Incluido** | ✅ Incluido | `.vgrid` | Hoja de cálculo multicapa de alto rendimiento y XLSX/CSV |
-| 📽️ **Astraea Present** | ✅ **Incluido** | ✅ Incluido | `.vpresent` | Presentaciones vectoriales, transiciones y PPTX/PDF |
-| 🧠 **Astraea Notes** | ✅ **Incluido** | ✅ Incluido | `.vnote` | Gestión de conocimiento Zettelkasten, grafo y Markdown |
-| 📄 **Astraea PDF Studio** | ✅ **Incluido** | ✅ Incluido | `.vpdf` | Visor/editor de PDF, anotaciones, firma y tachado seguro |
-| ✅ **Astraea Tasks** | ✅ **Incluido** | ✅ Incluido | `.vtask` | Gestión de tareas personales con subtareas y prioridades |
-| 🎨 **Astraea Whiteboard** | ✅ **Incluido** | ✅ Incluido | `.vboard` | Pizarra infinita para lluvia de ideas y diagramas |
-| 🛡️ **Astraea Vault** | ✅ **Incluido** | ✅ Incluido | `.vvault` | Bóveda local con cifrado militar para secretos y claves |
-| 🚀 **Astraea Projects** | 🔒 *Actualizar a Pro*| ⭐ **Incluido** | `.vproj` | Diagramas de Gantt, ruta crítica (CPM) y fases de proyecto |
-| 📋 **Astraea Planner** | 🔒 *Actualizar a Pro*| ⭐ **Incluido** | `.vplan` | Tableros Kanban de equipo, límites WIP y reparto de carga |
-| 🗄️ **Astraea Database** | 🔒 *Actualizar a Pro*| ⭐ **Incluido** | `.vdb` | Base de datos relacional no-code, esquemas e informes |
-| 📝 **Astraea Forms** | 🔒 *Actualizar a Pro*| ⭐ **Incluido** | `.vform` | Generador de encuestas y formularios con ramificación lógica |
-| 🌐 **Astraea Spaces** | 🔒 *Actualizar a Pro*| ⭐ **Incluido** | `.vspace` | Espacios compartidos para equipos y roles RBAC granulares |
-| 📡 **GaiaCom Bridge** | 🔒 *Actualizar a Pro*| ⭐ **Incluido** | `.vgcom` | Sincronización mesh P2P con cifrado E2EE (LAN/BLE/Air-Gap) |
+**Tu trabajo debe seguir siendo utilizable, comprensible y estar bajo tu control incluso cuando no haya ningún servicio en la nube disponible.**
 
-| Comparativa de Ediciones | **Astraea Open-Core** | **Astraea Premium / Pro** |
-| :--- | :--- | :--- |
-| **Audiencia** | Usuarios individuales, investigadores, privacidad | Equipos, empresas, sectores regulados |
-| **Precio** | **100% Gratis para siempre** | **Licencia comercial / Suscripción Pro** |
-| **Licencia** | GNU Affero General Public License v3.0 (AGPLv3) | Licencia comercial propietaria Enterprise |
-| **Telemetría** | **Cero Telemetría (100% Air-Gapped)** | **Cero Telemetría (100% Air-Gapped)** |
-| **Almacenamiento** | 100% Local-First en tu disco | Local-First + Sincronización Mesh E2EE multidispositivo |
+Combina edición ofimática, gestión del conocimiento, herramientas creativas, automatización, búsqueda local, almacenamiento cifrado y objetos de trabajo transversales dentro de un único entorno de escritorio.
 
-### 💰 Precios y Modelo de Licencia (Pago Único — Sin Suscripciones)
+Los flujos de trabajo principales son **local-first**. Las funciones de red son capacidades explícitas y no un requisito para abrir o editar tus documentos.
 
-| Edición / Licencia | Disponibilidad | Pago Único | Actualizaciones Mayores (v2.0+) |
-| :--- | :---: | :---: | :---: |
-| **Astraea Open-Core** | Open Source (AGPLv3) | **0,00 €** *(Gratis para siempre)* | **Gratis para siempre** |
-| **Astraea Premium (Beta Early-Bird)** | **Noviembre 2026 – Febrero 2027** | **39,99 €** <br><sub>*(Descuento ~42%)*</sub> | **~45,99 €** <br><sub>*(33% descuento fidelidad)*</sub> |
-| **Astraea Premium (Regular)** | A partir de Marzo 2027 | **69,00 €** | **~45,99 €** <br><sub>*(33% descuento fidelidad)*</sub> |
-| **Astraea Non-Profit & Education** | Escuelas, Universidades, ONGs | **36,99 €** | **9,99 €** |
+Astraea no es una simple colección de editores inconexos con un nuevo diseño exterior. Sus aplicaciones comparten un **Workspace Object Model (WOM)** unificado, de modo que los objetos compatibles puedan referenciarse, incrustarse, buscarse, automatizarse y reutilizarse en toda la suite.
 
-> [!TIP]
-> **Sin trampas de suscripción**: Todas las licencias son de **pago único de por vida** (Perpetual License). Sin pagos mensuales ni anuales recurrentes. Al lanzarse futuras versiones mayores (v2.0+), los clientes disponen de un **33% de descuento garantizado por fidelidad** (9,99 € para entidades sin ánimo de lucro), o pueden seguir usando indefinidamente la versión adquirida.
+### Principios del producto
 
+- **Local-first por defecto** — los documentos y el estado del espacio de trabajo permanecen locales a menos que el usuario active deliberadamente una función de red.
+- **Cero telemetría de producto por diseño** — no se requiere ninguna infraestructura de análisis de comportamiento para el funcionamiento normal del espacio de trabajo.
+- **Capacidad offline y air-gap** — los flujos de trabajo fundamentales están diseñados para operar sin cuenta en la nube ni conexión permanente a Internet.
+- **Open Core, libre para siempre** — Astraea Open Core está bajo licencia GNU AGPLv3 y constituye la base permanentemente gratuita del producto.
+- **Límite explícito de Premium** — Premium añade organización, datos empresariales estructurados, planificación, espacios y colaboración cifrada. No existe para hacer que la edición gratuita sea intencionadamente incompleta.
+- **Objetos transversales entre aplicaciones** — Writer, Grid, Whiteboard, Publish, Insight, Automate y las demás aplicaciones pueden compartir objetos compatibles en lugar de forzar todo mediante copiar y pegar.
+- **Seguridad descrita por controles concretos** — las primitivas criptográficas, la gestión de claves, las políticas de red y las evidencias de lanzamiento se documentan directamente sin recurrir a etiquetas de marketing ambiguas.
 
 ---
 
-## 📑 Tabla de Contenidos
+# Ediciones
 
-0. [📦 Ediciones Open-Core vs. Premium](#-ediciones-astraea-open-core-gratis-vs-astraea-premium-pro)
-1. [🌟 ¿Qué es Astraea Workspace? (Explicación sencilla)](#-qué-es-astraea-workspace-explicación-sencilla)
-2. [💡 ¿Por qué Astraea? Ventajas sobre Microsoft 365 y Google](#-por-qué-astraea-ventajas-sobre-microsoft-365-y-google)
-3. [🚀 Las 20 Aplicaciones Soberanas Integradas](#-las-20-aplicaciones-soberanas-integradas)
-4. [⚖️ Gran Comparativa: Astraea vs. M365 vs. Google vs. LibreOffice](#-gran-comparativa-astraea-vs-m365-vs-google-vs-libreoffice)
-5. [🛡️ Seguridad y Criptografía (Military-Grade & PQC)](#-seguridad-y-criptografía-military-grade--pqc)
-6. [🏗️ Arquitectura y Tecnología (Deep Tech)](#-arquitectura-y-tecnología-deep-tech)
-7. [⚡ Inicio Rápido e Instalación](#-inicio-rápido-e-instalación)
-8. [📊 Estado del Plan Maestro (100% Final)](#-estado-del-plan-maestro-100-final)
-9. [🧩 Sistemas Integrados, Dependencias y Licencias de Terceros (SBOM)](#-sistemas-integrados-dependencias-y-licencias-de-terceros-sbom)
-10. [📜 Licencia y Visión](#-licencia-y-visión)
-11. [📚 Libros Blancos Oficiales y Documentación PDF](#-libros-blancos-oficiales-y-documentación-pdf)
+## Astraea Open Core — Libre para siempre
 
----
+Astraea Open Core es la base para la productividad personal de la plataforma.
 
-## 🌟 ¿Qué es Astraea Workspace? (Explicación sencilla)
+Es **software libre y de código abierto bajo GNU AGPLv3**.
 
-Imagina una suite completa de ofimática, conocimiento y creatividad — con procesamiento de textos avanzado, hojas de cálculo multicapa, presentaciones vectoriales, notas, visor/editor PDF, gestión de proyectos, pizarras infinitas y bases de datos relacionales — que se ejecuta **íntegramente en tu propio ordenador**.
+Las aplicaciones incluidas en Open Core permanecerán integradas en la edición gratuita. Los desarrollos futuros de Premium podrán incorporar nuevas capacidades organizativas, pero el propósito de Open Core es mantenerse como un producto real y completo, no como una demostración temporal.
 
-**Sin dependencia de la nube, sin rastreo de vigilancia, sin suscripciones obligatorias.**
+## Astraea Premium — Organización, datos y colaboración
 
-Las suites tradicionales en la nube como Microsoft 365 o Google Workspace almacenan cada archivo en servidores extranjeros, supervisan tus hábitos de trabajo y alimentan modelos de entrenamiento de IA con tus contenidos privados.
+Astraea Premium es el superconjunto comercial.
 
-**Astraea Workspace transforma la productividad digital:**
-- 🏠 **100% Local-First:** Todos tus documentos, proyectos y bases de datos se guardan cifrados únicamente en tu disco local. Trabaja en un avión, en un refugio o en la montaña sin conexión a Internet.
-- 🔒 **Cero Telemetría:** Ningún bit de análisis, telemetría o pulsaciones de teclado sale jamás de tu equipo.
-- 🗃️ **Modelo de Objetos Unificado (WOM):** En lugar de programas aislados, las 20 aplicaciones comparten una estructura documental viva. Hojas de cálculo, formularios o tareas se pueden incrustar reactivamente dentro de cualquier texto.
-- ⚡ **Ligero y ultrarrápido:** Gracias a su motor nativo en **Rust** y **Tauri v2**, consume menos de 120 MB de memoria RAM en reposo — frente a los gigabytes que devoran las aplicaciones Electron o las pestañas del navegador.
+Incluye todo el contenido de Open Core y añade las seis aplicaciones orientadas a la ejecución de proyectos, datos empresariales estructurados, espacios de equipo y colaboración cifrada multidispositivo.
 
----
+> **Open Core es la oficina personal soberana. Premium conecta la organización a su alrededor.**
 
-## 💡 ¿Por qué Astraea? Ventajas sobre Microsoft 365 y Google
+### Matriz de ediciones
 
-| Suites Tradicionales en la Nube (M365, Google) | La Promesa de Astraea Workspace |
-| :--- | :--- |
-| ❌ **Tus datos están en servidores extranjeros** (expuestos al Cloud Act, fugas y cortes). | ✅ **Soberanía Total de Datos:** Tu información nunca sale de tu equipo a menos que tú decidas compartirla explícitamente vía air-gap o P2P cifrado. |
-| ❌ **Telemetría y scraping para IA:** Los contenidos corporativos se analizan automáticamente. | ✅ **Cero Telemetría Garantizada:** El cortafuegos NetGate bloquea el tráfico de red antes del lookup DNS. |
-| ❌ **Suscripción mensual continua:** Deja de pagar y perderás el acceso a tus propios documentos. | ✅ **Código Abierto Gratuito (AGPLv3):** Una vez descargado, el software te pertenece para siempre. |
-| ❌ **Interfaces web lentas y pesadas:** Consumo desmedido de memoria para editar texto básico. | ✅ **Núcleo Rust Nativo:** Desplazamiento ultrafluido a 60/120 fps, inicio instantáneo y rapidez absoluta sin conexión. |
-| ❌ **Formatos privativos y bloqueo de proveedor:** Dificultad para exportar y migrar tus datos. | ✅ **Contenedores VWC v3 y Estándares Abiertos:** Importación y exportación total de DOCX, XLSX, PPTX, PDF, CSV y Markdown. |
+| Aplicación | Open Core | Premium | Formato | Función principal |
+|---|:---:|:---:|:---:|---|
+| **Astraea Writer** | ✅ | ✅ | `.vdoc` | Procesamiento de textos, documentos estructurados, tablas, referencias y exportación |
+| **Astraea Grid** | ✅ | ✅ | `.vgrid` | Hojas de cálculo multilibro, fórmulas, análisis y gráficos |
+| **Astraea Present** | ✅ | ✅ | `.vpresent` | Presentaciones con diapositivas, escenas, medios y flujos de ponente |
+| **Astraea Notes** | ✅ | ✅ | `.vnote` | Notas, gestión del conocimiento personal (PKM) y conocimiento vinculado |
+| **Astraea PDF Studio** | ✅ | ✅ | `.vpdf` | Visualización de PDF, anotaciones, firmas y flujos de redacción/censura |
+| **Astraea Tasks** | ✅ | ✅ | `.vtask` | Gestión de tareas personales, recurrencia, prioridades y enlaces al espacio de trabajo |
+| **Astraea Whiteboard** | ✅ | ✅ | `.vboard` | Lienzo infinito, diagramas, mapas mentales y objetos de trabajo en vivo |
+| **Astraea Vault** | ✅ | ✅ | `.vvault` | Credenciales cifradas, archivos protegidos y datos sensibles |
+| **Astraea Draw** | ✅ | ✅ | `.vdraw` | Dibujo vectorial, gráficos por capas y flujos de trabajo SVG |
+| **Astraea Publish** | ✅ | ✅ | `.vpub` | Autoedición (DTP) para maquetación editorial estructurada y salida impresa |
+| **Astraea Insight** | ✅ | ✅ | `.vinsight` | Paneles locales de control, métricas y vistas analíticas |
+| **Astraea Connect** | ✅ | ✅ | `.vconnect` | Integraciones externas protegidas y límites definidos de conexión |
+| **Astraea Automate** | ✅ | ✅ | `.vauto` | Automatización determinista y local de flujos de trabajo |
+| **Astraea Admin & Policy** | ✅* | ✅ | `.vpolicy` | Políticas locales, administración y configuración relevante para la seguridad |
+| **Astraea Projects** | 🔒 | ✅ | `.vproj` | Proyectos, fases, dependencias, diagramas de Gantt y planificación de riesgos |
+| **Astraea Planner** | 🔒 | ✅ | `.vplan` | Tableros Kanban, carga de trabajo, calendario y planificación colaborativa |
+| **Astraea Database** | 🔒 | ✅ | `.vdb` | Modelos de datos relacionales sin código tipizados y vistas integradas |
+| **Astraea Forms** | 🔒 | ✅ | `.vform` | Diseño de formularios y encuestas, flujos condicionales y respuestas estructuradas |
+| **Astraea Spaces** | 🔒 | ✅ | `.vspace` | Espacios de equipo, roles, contexto de políticas y fronteras organizativas |
+| **Astraea GaiaCom** | 🔒 | ✅ | `.vgcom` | Comunicación cifrada, sincronización mesh y transporte de colaboración |
 
----
+\* Open Core incluye las interfaces de administración y políticas correspondientes a la propia edición Open Core. Las funciones de políticas operativas exclusivas de Premium se mantienen en Premium.
 
-## 🚀 Las 20 Aplicaciones Soberanas Integradas
+### Superficies de plataforma compartidas
 
-Astraea Workspace ofrece un completo ecosistema integrado de **20 herramientas de productividad**:
+Las siguientes características son componentes de la plataforma del espacio de trabajo y no aplicaciones independientes de pago:
 
-```mermaid
-graph TD
-    A[Astraea Workspace Hub] --> B[Oficina & Publicación]
-    A --> C[Conocimiento & Creatividad]
-    A --> D[Proyectos & Tareas]
-    A --> E[Datos, Formularios & BI]
-    A --> F[Seguridad & Conexión]
-
-    B --> B1[Writer .vdoc]
-    B --> B2[Grid .vgrid]
-    B --> B3[Present .vpresent]
-    B --> B4[Publish .vpub]
-
-    C --> C1[Notes .vnote]
-    C --> C2[Whiteboard .vboard]
-    C --> C3[Draw .vdraw]
-    C --> C4[PDF Studio .vpdf]
-
-    D --> D1[Tasks .vtask]
-    D --> D2[Planner .vplan]
-    D --> D3[Projects .vproj]
-
-    E --> E1[Forms .vform]
-    E --> E2[Database .vdb]
-    E --> E3[Insight .vinsight]
-
-    F --> F1[Vault .vvault]
-    F --> F2[Spaces .vspace]
-    F --> F3[Connect .vconn]
-    F --> F4[Automate .vauto]
-    F --> F5[Admin .vadmin]
-    F --> F6[GaiaCom .vgcom]
-```
-
-### 1. Oficina y Publicación
-- 📝 **Astraea Writer (`.vdoc`)**: Procesador de textos profesional con tipografía avanzada, estilos, encabezados/pies, tablas dinámicas, índice automático y exportación DOCX/PDF.
-- 📊 **Astraea Grid (`.vgrid`)**: Hoja de cálculo multicapa de alto rendimiento con cientos de funciones, tablas dinámicas, gráficos reactivos y compatibilidad XLSX/CSV.
-- 📽️ **Astraea Present (`.vpresent`)**: Presentaciones de diapositivas vectoriales con capas, transiciones cinemáticas, pantalla de presentador e intercambio PPTX/PDF.
-- 📖 **Astraea Publish (`.vpub`)**: Autoedición y maquetación editorial (DTP) para folletos, catálogos, revistas y carteles con rejillas y marcas de corte.
-
-### 2. Conocimiento, Creatividad e Ideación
-- 🧠 **Astraea Notes (`.vnote`)**: Gestión del conocimiento personal (PKM) con enlaces wiki bidireccionales (`[[Nota]]`), grafo de conocimiento 2D/3D interactivo y Markdown.
-- 🎨 **Astraea Whiteboard (`.vboard`)**: Pizarra vectorial infinita para lluvias de ideas, diagramas de flujo y notas adhesivas. Exportación directa a Astraea Present.
-- 🖌️ **Astraea Draw (`.vdraw`)**: Estudio de dibujo vectorial con curvas de Bézier, estándar SVG nativo, capas y herramientas de precisión milimétrica.
-- 📄 **Astraea PDF Studio (`.vpdf`)**: Visor y editor de PDF ultrarrápido con anotaciones enriquecidas, firma vectorial y redacción/tachado de seguridad auditado.
-
-### 3. Organización y Proyectos
-- ✅ **Astraea Tasks (`.vtask`)**: Gestor universal de tareas con subtareas, recurrencias, niveles de prioridad y vinculación directa a documentos de trabajo.
-- 📋 **Astraea Planner (`.vplan`)**: Tableros visuales Kanban con límites WIP (trabajo en curso), swimlanes, calendario y distribución de carga laboral.
-- 🚀 **Astraea Projects (`.vproj`)**: Planificación de proyectos profesional con fases, hitos, diagramas de Gantt interactivos, rutas críticas y mapas de riesgo.
-
-### 4. Datos, Formularios e Inteligencia
-- 📝 **Astraea Forms (`.vform`)**: Diseñador visual de formularios y encuestas con lógica condicional. Las respuestas se almacenan en Grid o Database sin intermediarios.
-- 🗄️ **Astraea Database (`.vdb`)**: Base de datos relacional no-code con esquemas tipados, vistas de tabla, galería o Kanban y enlace a informes de Writer.
-- 📈 **Astraea Insight (`.vinsight`)**: Plataforma local de cuadros de mando e inteligencia de negocio. Visualiza tendencias y métricas clave sin servicios analíticos en la nube.
-
-### 5. Seguridad, Automatización y Red
-- 🛡️ **Astraea Vault (`.vvault`)**: Bóveda de máxima seguridad para contraseñas, claves API, contratos y archivos confidenciales con verificación SHA-256.
-- 🌐 **Astraea Spaces (`.vspace`)**: Espacios de trabajo aislados para proyectos personales, empresariales y clientes con control de acceso basado en roles (RBAC).
-- 🔌 **Astraea Connect (`.vconn`)**: Pasarela de conectores y WebHooks externos confinados bajo la estricta política de aislamiento NetGate.
-- ⚡ **Astraea Automate (`.vauto`)**: Motor de flujos de trabajo deterministas (alternativa local a Zapier/IFTTT) sin servidores de terceros.
-- 🔒 **Astraea Admin (`.vadmin`)**: Panel de control para políticas de seguridad de dispositivos, claves hardware, auditorías y perfiles de cumplimiento.
-- 📡 **Astraea GaiaCom (`.vgcom`)**: Puente de comunicación P2P con cifrado de extremo a extremo para mensajería, intercambio de archivos y sincronización aislada vía LAN, BLE o QR.
+- **Workspace Explorer / Library** — descubrir, organizar, previsualizar y reutilizar documentos existentes.
+- **Búsqueda** — búsqueda local integrada entre aplicaciones.
+- **Configuración** — preferencias reales y persistidas del espacio de trabajo y de las aplicaciones.
+- **Guías** — tutoriales interactivos de primer inicio y guías por aplicación.
+- **Recuperación / Diagnóstico** — interfaces locales de recuperación y resolución de incidencias.
+- **Paleta de comandos y navegación shell** — plano de control unificado del espacio de trabajo.
 
 ---
 
-## 📚 Libros Blancos Oficiales y Documentación PDF
+# Workspace Explorer
 
-Publicaciones técnicas de alta resolución, esquemas arquitectónicos y análisis de seguridad:
+Astraea Workspace incluye un **Workspace Explorer** centralizado para que los usuarios no necesiten recordar qué aplicación tiene abierto un documento antes de reutilizarlo.
 
-| Título del Documento | Idioma | Tipo | Descarga Directa |
-| :--- | :---: | :---: | :---: |
-| **01. ¿Qué es Astraea Workspace? (Visión y Concepto)** | 🇪🇸 Español | Folleto Oficial | [📥 Descargar PDF](./01_Astraea_Workspace_Que_Es_ES.pdf) |
-| **02. Seguridad Premium y Soberanía (Análisis Técnico)** | 🇪🇸 Español | Libro Blanco Técnico | [📥 Descargar PDF](./02_Astraea_Workspace_Premium_Seguridad_Soberania_ES.pdf) |
-
-<details>
-<summary><b>🌐 Ver Libros Blancos en otros idiomas (EN, DE, IT, FR, RU)</b></summary>
-
-| Título del Documento | Idioma | Enlace de Descarga |
-| :--- | :---: | :---: |
-| 01. What is Astraea Workspace? | 🇬🇧 English | [📥 Download PDF](./01_Astraea_Workspace_What_It_Is_EN.pdf) |
-| 02. Premium Security & Sovereignty | 🇬🇧 English | [📥 Download PDF](./02_Astraea_Workspace_Premium_Security_Sovereignty_EN.pdf) |
-| 01. Was ist Astraea Workspace? | 🇩🇪 Deutsch | [📥 Download PDF](./01_Astraea_Workspace_Was_es_ist_DE.pdf) |
-| 02. Premium Sicherheit & Souveränität | 🇩🇪 Deutsch | [📥 Download PDF](./02_Astraea_Workspace_Premium_Sicherheit_Souveraenitaet_DE.pdf) |
-| 03. Produktivität & Datenfluss | 🇩🇪 Deutsch | [📥 Download PDF](./03_Astraea_Workspace_Premium_Produktivitaet_Datenfluss_DE.pdf) |
-| 01. Che cos'è Astraea Workspace? | 🇮🇹 Italiano | [📥 Download PDF](./01_Astraea_Workspace_Che_Cose_IT.pdf) |
-| 02. Sicurezza Premium & Sovranità | 🇮🇹 Italiano | [📥 Download PDF](./02_Astraea_Workspace_Premium_Sicurezza_Sovranita_IT.pdf) |
-| 01. Qu'est-ce qu'Astraea Workspace ? | 🇫🇷 Français | [📥 Download PDF](./01_Astraea_Workspace_Ce_Que_Cest_FR.pdf) |
-| 02. Sécurité Premium & Souveraineté | 🇫🇷 Français | [📥 Download PDF](./02_Astraea_Workspace_Premium_Securite_Souverainete_FR.pdf) |
-| 01. Что такое Astraea Workspace? | 🇷🇺 Русский | [📥 Download PDF](./01_Astraea_Workspace_What_It_Is_RU.pdf) |
-| 02. Премиальная безопасность и суверенитет | 🇷🇺 Русский | [📥 Download PDF](./02_Astraea_Workspace_Premium_Security_Sovereignty_RU.pdf) |
-
-</details>
-
----
-
-## ⚖️ Gran Comparativa: Astraea vs. M365 vs. Google vs. LibreOffice
-
-| Criterio | Astraea Workspace | Microsoft 365 | Google Workspace | LibreOffice |
-| :--- | :---: | :---: | :---: | :---: |
-| **Almacenamiento** | 🔒 **100% Local** | ☁️ Nube de Microsoft | ☁️ Nube de Google | 💻 Local |
-| **Telemetría y Rastreo** | 🚫 **Cero (Air-Gapped)** | ⚠️ Muy invasiva | ⚠️ Extrema | ⚪ Mínima / Desactivable |
-| **Cifrado en Reposo** | 🛡️ **AES-256-GCM + PQC Kyber** | 🔑 En manos del proveedor | 🔑 En manos del proveedor | ⚠️ Contraseña simple |
-| **Funcionamiento Offline** | ⚡ **100% Autónomo** | ⚠️ Limitado / Exige sincronizar | ❌ Muy dependiente | ⚡ 100% Autónomo |
-| **Aislamiento Sandbox de Red**| 🛡️ **NetGate Pre-DNS Deny** | ❌ Ninguno | ❌ Ninguno | ❌ Ninguno |
-| **Aplicaciones Integradas** | 💎 **20 Apps All-in-One** | 📦 ~6 Apps Principales | 📦 ~5 Apps Web | 📦 6 Programas |
-| **Modelo de Licencia** | 📜 **Código Abierto (AGPLv3)** | 💳 Cuota mensual obligatoria | 💳 Cuota mensual obligatoria | 📜 Código Abierto (MPL) |
-| **Diseño e Interfaz** | 🎨 **Moderno (React 19 / Glass)**| 🪟 Sobrecargado / Anuncios | 🌐 Web UI Básica | 🏛️ Antiguo (años 90) |
-| **Consumo de Memoria RAM** | 🚀 **~100–150 MB (Rust Core)** | 🐢 1.5–3.0 GB | 🐢 Alto consumo navegador | ⚖️ ~300–600 MB |
-
----
-
-## 🛡️ Seguridad y Criptografía (Military-Grade & PQC)
-
-### 1. Virtual Workspace Container (VWC v3)
-- **Cifrado Simétrico:** **AES-256-GCM** (acelerado por hardware AES-NI) o **ChaCha20-Poly1305**.
-- **Derivación de Clave:** **Argon2id** con alta exigencia de memoria y procesamiento para resistir ataques por fuerza bruta con GPU o ASIC.
-- **Protección de Integridad:** Comprobación HMAC / SHA-256 en cada bloque para detectar corrupción de datos o alteraciones.
-
-### 2. Criptografía Post-Cuántica (PQC Ready)
-- **Intercambio de Claves:** **ML-KEM-768 (Kyber)** en modo híbrido con X25519.
-- **Firma Digital:** **ML-DSA-65 (Dilithium)** para validación inmutable de documentos y paquetes de actualización.
-
-### 3. NetGate: Sandbox de Red con Denegación Pre-DNS
-- Ningún componente de Astraea tiene salida a Internet por defecto. Las peticiones se cortan a nivel de socket antes de consultar ningún servidor DNS.
-- El tráfico solo se abre bajo consentimiento manual y explícito del usuario.
-
-### 4. Integración con Hardware
-- **Windows:** DPAPI + Credential Guard.
-- **macOS:** Apple Keychain con protección en el enclave seguro.
-- **Linux:** Freedesktop Secret Service con cierre estricto en caso de fallo.
-
----
-
-## 🏗️ Arquitectura y Tecnología (Deep Tech)
+El Explorer permite encontrar el trabajo guardado en toda la suite:
 
 ```text
-┌────────────────────────────────────────────────────────────────────────┐
-│                   Astraea Desktop Shell (Tauri v2)                    │
-│                                                                        │
-│   ┌────────────────────────────────────────────────────────────────┐   │
-│   │               React 19 / TypeScript 5.8 UI Layer               │   │
-│   │  • 20 Vistas Soberanas (Writer, Grid, Present, Notes, etc.)    │   │
-│   │  • Unified Workspace Object Model (WOM) Reactive State         │   │
-│   │  • Lucide Icons & Tailwind CSS Design Tokens                   │   │
-│   └───────────────────────────────┬────────────────────────────────┘   │
-│                                   │                                    │
-│                    110 Type-Safe IPC Endpoints                         │
-│                    (Tauri Native Command Bus)                          │
-│                                   │                                    │
-│   ┌───────────────────────────────▼────────────────────────────────┐   │
-│   │                 Rust Workspace Core (42 Crates)                │   │
-│   │  • VWC Container & Argon2id Crypto Engine                      │   │
-│   │  • PQC Module (ML-KEM / ML-DSA Post-Quantum)                   │   │
-│   │  • Formula Calculation Engine & Pivot Matrix Processor        │   │
-│   │  • BM25 ACL-Filtered Lexical Search Index Engine (Módulo 39)   │   │
-│   │  • Deterministic Automation IR Engine (Módulo 40)              │   │
-│   │  • NetGate Pre-DNS Zero-Trust Sandboxing Gateway               │   │
-│   │  • High-Performance OOXML / PDF Streaming Parsers             │   │
-│   └────────────────────────────────────────────────────────────────┘   │
-└───────────────────────────────────┬────────────────────────────────────┘
-                                    ▼
-       Native OS File System / Hardware Keystores (DPAPI / Keychain)
+Todos los archivos
+Recientes
+Abiertos
+Favoritos
+Colecciones
+Búsqueda
+Vista previa
+Abrir origen
+Insertar desde Workspace
+Arrastrar y soltar (Drag & Drop)
 ```
 
-> [!NOTE]
-> Para conocer al detalle los 42 crates en Rust, los 110 comandos IPC y los flujos de datos del sistema, consulta [`ARCHITECTURE.md`](./ARCHITECTURE.md).
+La distinción esencial es semántica.
 
-### Gobernanza de Dependencias y Arquitectura de Cadena de Suministro
+Un archivo `.vgrid` arrastrado dentro de Writer no se procesa como un archivo binario genérico. Astraea ofrece las operaciones apropiadas para ese origen y destino:
 
-Con el fin de reducir al mínimo la superficie de ataque en la cadena de suministro de software (*Supply-Chain Attack Surface*), Astraea Workspace aplica una estricta **estrategia de núcleo propio (First-Party Core)**: todos los subsistemas críticos — incluidos el **Workspace Object Model (WOM)**, los 20 editores de aplicaciones, los motores de cálculo y diseño, el índice de búsqueda léxica **BM25** (`vgt-search`), el motor determinista **Automation IR** (`vgt-automation`), el **motor de políticas** (`vgt-policy`) y la **interoperabilidad OOXML/ODF/PDF** (`vgt-interop`) — están desarrollados íntegramente como código nativo propio. Las bibliotecas externas se limitan exclusivamente a puentes del sistema operativo (Tauri v2) y primitivas matemáticas criptográficas auditadas.
+```text
+Rango en vivo (Live range)
+Instantánea fija (Frozen snapshot)
+Copiar como tabla de Writer
+Abrir origen
+```
 
-| Dimensión Arquitectónica | Suites Web / Electron Convencionales | **Astraea Workspace** | Implicación de Seguridad e Ingeniería |
-| :--- | :---: | :---: | :--- |
-| **Paquetes directos de ejecución Frontend** | 120 – 350+ paquetes NPM | **5 paquetes** (+ 1 worker PDF local) | Grafo mínimo de dependencias transitivas en la capa UI; sin gestores de estado ni SDKs de telemetría |
-| **Motores externos de edición y documentos** | 8 – 15 frameworks de terceros | **0** (100 % WOM y editores propios) | Sin dependencia de ciclos de vida de terceros; modelo de datos determinista en las 20 aplicaciones |
-| **Motores de búsqueda, Interop y reglas** | Máquinas virtuales y parsers externos | **100 % Crates Rust propios** | Ejecución nativa segura en memoria sin motores de scripting de terceros incrustados |
-| **Primitivas criptográficas y PQC** | Biblioteca TLS estándar única | **~18 crates especializados y auditados** | Uso deliberado de primitivas de tiempo constante auditadas para PQC híbrido de 5 vías y cascada de 4 capas |
-| **Verificabilidad de cadena de suministro** | Árboles transitivos opacos y complejos | **SPDX 2.3 SBOM y SLSA v1 Provenance** | Árbol de dependencias 100 % compatible con AGPLv3, totalmente operativo en Air-Gap y auditable |
-
-*(Consulta el inventario completo de subsistemas, versiones y licencias en la [Sección 9: Sistemas Integrados, Dependencias y Licencias de Terceros (SBOM)](#-sistemas-integrados-dependencias-y-licencias-de-terceros-sbom).)*
+El mismo modelo admite objetos compatibles entre Writer, Grid, Present, Whiteboard, Publish, Insight, Automate y las demás aplicaciones del entorno.
 
 ---
 
-## ⚡ Inicio Rápido e Instalación
+# Local-first no significa aislado
 
-### Requisitos del Sistema
-- **Sistema Operativo:** Windows 10/11 (64-bit / ARM64), macOS 12+ (Apple Silicon / Intel) o distribuciones Linux modernas (Ubuntu 22.04+, Fedora 38+, Arch Linux).
-- **RAM:** Mínimo 4 GB (8 GB recomendados).
-- **Disco:** ~250 MB para el binario.
+Astraea está concebido para trabajar en local de forma prioritaria, pero local-first no es equivalente a "no comunicarse nunca".
 
-### Compilación para Desarrolladores
+Open Core conserva toda su utilidad sin necesidad de una cuenta en la nube.
+
+Premium puede incorporar sincronización cifrada, espacios y colaboración GaiaCom cuando el usuario o la organización los habiliten expresamente.
+
+Las funciones con capacidad de red permanecen delimitadas por políticas y no alteran el modelo de propiedad de los documentos locales.
+
+---
+
+# Arquitectura de seguridad
+
+Astraea Workspace sigue un diseño de **computación local bajo el modelo Zero-Trust**.
+
+El proyecto documenta mecanismos concretos de seguridad en lugar de utilizar afirmaciones indefinidas como "seguridad de grado militar".
+
+## Contenedores cifrados VWC
+
+Los documentos nativos del espacio de trabajo se almacenan mediante la arquitectura de contenedores de Astraea.
+
+Los controles destacados incluyen:
+
+- Cifrado autenticado utilizando esquemas AEAD modernos como **AES-256-GCM** y **ChaCha20-Poly1305**, donde sea aplicable;
+- **Argon2id** para la derivación de claves basada en contraseñas, cuando se utilice una frase de paso en la cadena de claves;
+- Verificaciones de integridad y autenticación sobre los datos del contenedor;
+- Análisis sintáctico y validación acotados en los límites de confianza de los archivos;
+- Versionado explícito y rutas de migración definidas.
+
+Los algoritmos y perfiles exactos son detalles de implementación documentados en la arquitectura y en las evidencias de lanzamiento, sin reducirlos a reclamos comerciales.
+
+## VGT Infinity Cryptographic Core
+
+Astraea Workspace integra el **VGT Infinity Cryptographic Core** como un subsistema de seguridad nativo de primera parte.
+
+En la arquitectura actual del repositorio, Infinity reside en:
+
+```text
+vendor/infinity
+```
+
+y proporciona los componentes criptográficos avanzados empleados por los perfiles de seguridad de Astraea, tales como:
+
+- Perfiles híbridos clásicos / poscuánticos para el intercambio de claves;
+- Compatibilidad estandarizada con **ML-KEM** en los perfiles correspondientes;
+- **ML-DSA** y primitivas de firma adicionales en los perfiles compatibles;
+- Construcciones de cifrado simétrico autenticado;
+- Perfiles compuestos de alta seguridad capaces de combinar múltiples primitivas independientes;
+- Separación explícita de claves, verificación de integridad y gestión de memoria protegida implementadas por el subsistema Infinity;
+- Aislamiento del proveedor criptográfico cuando una primitiva se proporciona mediante un límite delimitado de proveedor/sidecar.
+
+La integración actual de Infinity en el repositorio contiene perfiles poscuánticos y compuestos especializados más allá de la línea base mínima ML-KEM / ML-DSA. Los algoritmos activados, versiones de proveedores y la composición de perfiles se tratan como **hechos comprobados en el lanzamiento**: el SBOM final, los archivos de bloqueo, el documento de arquitectura y el manifiesto de versión son la fuente autorizada para cada compilación.
+
+Esta distinción es esencial: Astraea no afirma que apilar algoritmos cree una seguridad mágica o matemáticamente irrompible. Infinity se utiliza como una capa criptográfica nativa adicional cuyos perfiles se seleccionan y verifican explícitamente.
+
+## Soporte poscuántico
+
+Mediante la integración de Infinity y la pila de seguridad nativa de Astraea, el espacio de trabajo admite componentes criptográficos aptos para la era poscuántica, incluidas las familias estandarizadas **ML-KEM** y **ML-DSA** en los perfiles aplicables.
+
+La criptografía poscuántica reduce riesgos criptográficos específicos a largo plazo; **no** se presenta como una garantía absoluta frente a cualquier amenaza futura.
+
+## NetGate
+
+El acceso a la red se articula mediante políticas explícitas en lugar de una salida libre por defecto.
+
+Donde aplique la política de NetGate, el tráfico saliente se gestiona mediante listas blancas y puede denegarse antes de cualquier comunicación a nivel de aplicación. Los conectores y transportes de colaboración deben superar los límites de política fijados.
+
+## Protección de claves respaldada por el sistema operativo
+
+Astraea se integra con los servicios de protección de credenciales del sistema operativo cuando están disponibles:
+
+- **Windows:** DPAPI / Administrador de credenciales de Windows
+- **macOS:** Servicios de llavero (Keychain), con respaldo por hardware donde lo admita el equipo y su configuración
+- **Linux:** Secret Service / almacenes compatibles con libsecret según disponibilidad
+
+La protección por hardware depende de las prestaciones del equipo y no se asume en todos los sistemas.
+
+## Evidencias de seguridad (Security Evidence)
+
+Las versiones oficiales se entregan acompañadas de artefactos de verificación:
+
+- Inventario de dependencias y licencias;
+- SPDX SBOM;
+- Hashes de la versión (SHA-256);
+- Manifiesto de lanzamiento firmado;
+- Evidencias de trazabilidad y compilación (provenance) generadas en la canalización de lanzamiento.
+
+El conjunto de artefactos publicado con una versión es la fuente vinculante para dicha entrega.
+
+---
+
+# Arquitectura
+
+Astraea combina un núcleo en Rust con una interfaz de escritorio en Tauri y una experiencia de usuario en React y TypeScript.
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                    Astraea Desktop Shell                    │
+│                         Tauri v2                            │
+│                                                             │
+│  ┌───────────────────────────────────────────────────────┐  │
+│  │              React / TypeScript UI                   │  │
+│  │                                                       │  │
+│  │  Workspace Shell · Explorer · Editores · Config.     │  │
+│  │  Guías · Búsqueda · Superficies de Objetos Cruzados   │  │
+│  └─────────────────────────┬─────────────────────────────┘  │
+│                            │ IPC tipificada                 │
+│  ┌─────────────────────────▼─────────────────────────────┐  │
+│  │                    Rust Core                          │  │
+│  │                                                       │  │
+│  │  WOM · VWC · Búsqueda · Policy · Interop · Recuper.  │  │
+│  │  Crypto · Automatización · NetGate · Integr. Nativa  │  │
+│  └─────────────────────────┬─────────────────────────────┘  │
+└────────────────────────────┼────────────────────────────────┘
+                             │
+                SO nativo / almacenamiento local /
+                almacenes de claves del SO / conectores
+```
+
+### ¿Por qué Tauri?
+
+Tauri aprovecha la WebView del sistema operativo en lugar de empaquetar un entorno de navegación completo e independiente con cada aplicación. Esto minimiza el tamaño de descarga a la vez que preserva un núcleo de aplicación nativo y robusto en Rust.
+
+Consulta la documentación técnica oficial de Tauri:  
+https://tauri.app/concept/architecture/
+
+### Estrategia de control nativo (First-Party)
+
+Astraea mantiene intencionadamente bajo control directo los aspectos críticos del espacio de trabajo:
+
+- Workspace Object Model
+- Editores del espacio de trabajo
+- Semántica de documentos y referencias
+- Integración de búsqueda local
+- Motor de políticas (Policy Engine)
+- Entorno de ejecución de automatizaciones
+- Orquestación de interoperabilidad
+- Contenedores cifrados del espacio de trabajo
+- Integración de **VGT Infinity Cryptographic Core** para perfiles de seguridad avanzados
+
+Se recurre a bibliotecas externas cuando representan la mejor decisión de ingeniería, especialmente para primitivas criptográficas auditadas, integración con el sistema operativo y componentes de renderizado delimitados.
+
+El árbol de dependencias exacto corresponde al SBOM generado y no a textos descriptivos de marketing.
+
+---
+
+# Rendimiento y uso de recursos
+
+Astraea está concebido para prescindir de duplicidades innecesarias en tiempo de ejecución.
+
+El uso de la WebView del sistema por parte de Tauri implica que Astraea no empaqueta un Chromium independiente como suele ocurrir en aplicaciones convencionales de Electron. Esta decisión reduce la sobrecarga de empaquetado y consumo de procesos, si bien el uso efectivo de memoria dependerá del sistema operativo, documentos abiertos, versión de WebView, previsualizaciones, índices de búsqueda y aplicaciones en uso.
+
+## Observación actual previa al lanzamiento
+
+En la compilación de referencia previa para Windows, las pruebas internas registraron aproximadamente:
+
+**~100–150 MB de memoria RAM en reposo (idle) sin documentos de trabajo abiertos**
+
+Este dato representa una **medición interna previa al lanzamiento** y no una garantía invariable. Las mediciones definitivas se publicarán especificando sistema operativo, compilación, versión de WebView, estado de los documentos y metodología aplicada.
+
+## Por qué no publicamos cifras engañosas de RAM de la competencia
+
+Comparar la memoria RAM entre distintas suites ofimáticas puede inducir a error con facilidad.
+
+Microsoft Word con un documento en blanco, un navegador con Google Docs, LibreOffice con Base (Java) y un editor de escritorio multiproceso suponen cargas de trabajo heterogéneas.
+
+Por esta razón, la siguiente tabla recoge los **requisitos de sistema oficiales publicados por los fabricantes**, no comparativas artificiales de consumo en reposo:
+
+| Producto | Requisito de memoria oficial / Referencia | Funcionamiento de escritorio offline | Fuente |
+|---|---:|:---:|---|
+| **Astraea Workspace** | Medición interna pre-lanzamiento: ~100–150 MB en reposo; se recomiendan 4 GB de RAM para un uso fluido | ✅ | Medición interna VGT |
+| **Microsoft 365 Apps** | 4 GB de RAM según requisitos actuales de Windows / macOS | ✅ Aplicaciones de escritorio | [Microsoft](https://support.microsoft.com/es-es/office/requisitos-del-sistema-para-microsoft-365-para-el-hogar-71423642-bbbb-4811-93e3-add3ff2d3192) |
+| **LibreOffice** | 256 MB de RAM mínimo, 512 MB recomendados en Windows/Linux | ✅ | [LibreOffice](https://es.libreoffice.org/descarga/requisitos-del-sistema/) |
+| **ONLYOFFICE Desktop Editors** | 2 GB de RAM o superior | ✅ | [ONLYOFFICE](https://helpcenter.onlyoffice.com/es/desktop/installation/desktop-sys-reqs-windows.aspx) |
+| **Google Docs / Sheets / Slides** | En función del navegador; sin cifra autónoma de escritorio directamente equiparable | ⚠️ Modo offline disponible tras configuración | [Google](https://support.google.com/docs/answer/6388102?hl=es) |
+
+> **Importante:** la memoria RAM mínima de un sistema y el conjunto de trabajo (working set) de una aplicación son métricas distintas. La tabla se ofrece a modo de contexto, sin pretender que sean intercambiables.
+
+Un banco de pruebas reproducible para Astraea debe registrar al menos:
+
+```text
+Inicio en frío (Cold launch)
+Consumo en reposo tras estabilización
+Carga con documento de Writer
+Carga con cálculos en Grid
+Carga con documentos PDF
+Estado de indexación de búsqueda
+Peak working set
+Private working set
+Uso de CPU en reposo
+SO de prueba / WebView / hash de compilación
+```
+
+---
+
+# Una comparación ecuánime con otras suites ofimáticas
+
+Astraea no necesita argumentos infundados sobre otros productos para explicar su propuesta.
+
+Las aplicaciones de escritorio de Microsoft 365 permiten guardar archivos localmente o en OneDrive / SharePoint. Google Docs, Sheets y Slides admiten modo sin conexión tras activarlo. LibreOffice y ONLYOFFICE Desktop Editors trabajan de manera predeterminada con archivos locales sin conexión.
+
+Por consiguiente, la diferencia que plantea Astraea no se resume en "las demás soluciones obligan a usar la nube".
+
+Radica en la **combinación** de propiedad local de la información, un modelo de objetos común entre herramientas, políticas de red explícitas, contenedores cifrados integrados, una edición Open Core libre y una interfaz unificada que abarca ofimática, conocimiento, seguridad y automatización.
+
+| Característica | Astraea Workspace | Microsoft 365 | Google Workspace | LibreOffice | ONLYOFFICE Desktop |
+|---|---|---|---|---|---|
+| **Modelo principal** | Espacio de trabajo local-first | Escritorio + servicios en la nube | Suite web cloud-first | Suite de escritorio local | Suite de escritorio local + nube opcional |
+| **Flujos con archivos locales** | ✅ De primer nivel | ✅ Admitidos | ⚠️ Modo offline para editores admitidos | ✅ | ✅ |
+| **Cuenta en la nube obligatoria para edición local** | No | Según producto/licencia | Servicio basado en cuenta | No | No |
+| **Base de escritorio de código abierto** | ✅ Open Core, AGPLv3 | No | No | ✅ MPLv2 | ✅ AGPLv3 |
+| **Modelo de objetos compartido Astraea** | ✅ WOM | Arquitectura diferente | Arquitectura diferente | Arquitectura diferente | Arquitectura diferente |
+| **Contenedores cifrados Astraea** | ✅ | Arquitectura diferente | Arquitectura diferente | Arquitectura diferente | Arquitectura diferente |
+| **Cero telemetría por diseño en Astraea** | ✅ | Según proveedor | Según proveedor | Según proyecto | Según proveedor |
+| **Expansión comercial para equipos/datos** | ✅ Premium | ✅ | ✅ | Ecosistema / terceros | ✅ |
+
+Referencias oficiales consultadas para la comparativa:
+
+- Almacenamiento local y en la nube en Microsoft: https://support.microsoft.com/es-es/office/guardar-archivos-en-microsoft-365-70da744d-0f4d-472e-9f6d-b6480b556942
+- Edición sin conexión en Google: https://support.google.com/docs/answer/6388102?hl=es
+- Requisitos de sistema de LibreOffice: https://es.libreoffice.org/descarga/requisitos-del-sistema/
+- Operación de escritorio sin conexión en ONLYOFFICE: https://helpcenter.onlyoffice.com/es/desktop/getting-started.aspx
+
+---
+
+# Las 20 aplicaciones integradas
+
+## Ofimática y publicación
+
+### Astraea Writer — `.vdoc`
+Edición profesional de documentos, tipografía, estilos, tablas, citas bibliográficas, contenido estructurado y exportación.
+
+### Astraea Grid — `.vgrid`
+Hojas de cálculo multilibro, fórmulas matemáticas, análisis, gráficos y tratamiento de datos tabulares.
+
+### Astraea Present — `.vpresent`
+Presentaciones vectoriales, diseño de diapositivas, contenido multimedia y modos de ponente.
+
+### Astraea Publish — `.vpub`
+Autoedición editorial (DTP) para catálogos, folletos, maquetación multipágina y artes gráficas orientadas a impresión.
+
+## Conocimiento, ideación y creatividad
+
+### Astraea Notes — `.vnote`
+Gestión del conocimiento personal (PKM), notas interconectadas, soporte Markdown y relaciones semánticas.
+
+### Astraea Whiteboard — `.vboard`
+Lienzo infinito, diagramas de flujo, mapas conceptuales, planificación visual y objetos interactivos en vivo.
+
+### Astraea Draw — `.vdraw`
+Dibujo vectorial, capas, curvas Bézier y recursos orientados al formato SVG.
+
+### Astraea PDF Studio — `.vpdf`
+Visualización y manipulación de documentos PDF con anotaciones, firmas y censura/redacción de seguridad.
+
+## Tareas, planificación y ejecución
+
+### Astraea Tasks — `.vtask`
+Gestión de tareas personales, recurrencias, prioridades, subtareas y vínculos directos a elementos del espacio de trabajo.
+
+### Astraea Planner — `.vplan` — Premium
+Tableros Kanban, asignación de carga de trabajo, cronogramas y coordinación de equipos.
+
+### Astraea Projects — `.vproj` — Premium
+Fases de proyecto, hitos, dependencias, diagramas de Gantt y control de riesgos.
+
+## Datos, formularios y analítica
+
+### Astraea Forms — `.vform` — Premium
+Creación de formularios y encuestas, lógica condicional y recogida estructurada de respuestas.
+
+### Astraea Database — `.vdb` — Premium
+Modelos de datos relacionales sin código tipizados, registros estructurados y vistas enlazadas al espacio de trabajo.
+
+### Astraea Insight — `.vinsight`
+Cuadros de mando locales, indicadores clave (KPI), paneles y analítica derivada del espacio de trabajo.
+
+## Seguridad, automatización y conectividad
+
+### Astraea Vault — `.vvault`
+Caja fuerte para credenciales cifradas, archivos confidenciales y datos protegidos.
+
+### Astraea Spaces — `.vspace` — Premium
+Espacios para equipos y organizaciones con roles de acceso y contexto de directivas.
+
+### Astraea Connect — `.vconnect`
+Conectores externos controlados y límites definidos de integración.
+
+### Astraea Automate — `.vauto`
+Automatización local y determinista de flujos de trabajo.
+
+### Astraea Admin & Policy — `.vpolicy`
+Gestión de seguridad, administración de directivas y configuración ajustada a la edición instalada.
+
+### Astraea GaiaCom — `.vgcom` — Premium
+Comunicaciones cifradas y sincronización mesh para entornos de colaboración protegidos.
+
+---
+
+# Precios y licenciamiento
+
+## Open Core
+
+| Edición | Precio | Licencia | Disponibilidad |
+|---|---:|---|---|
+| **Astraea Open Core** | **0 €** | **GNU AGPLv3** | Libre para siempre |
+
+Open Core no caduca ni requiere ninguna suscripción periódica.
+
+## Licenciamiento comercial Premium planificado
+
+Astraea Premium se distribuirá mediante una **licencia comercial perpetua**, sin suscripciones recurrentes forzadas.
+
+| Edición | Disponibilidad prevista | Precio único previsto | Actualización mayor prevista |
+|---|---:|---:|---:|
+| **Premium Beta Early-Bird** | Nov 2026 – Feb 2027 | **39,99 €** | **~45,99 €** |
+| **Premium Regular** | Desde marzo 2027 | **69,00 €** | **~45,99 €** |
+| **Entidades sin ánimo de lucro y educación** | Organizaciones elegibles | **36,99 €** | **9,99 €** |
+
+> [!NOTE]
+> La edición Premium aún no ha iniciado su comercialización. Las condiciones mostradas corresponden a las previsiones actuales y se consideran tarifas preliminares hasta la apertura oficial de la compra y expedición de licencias.
+
+---
+
+# Instalación
+
+## Archivos binarios públicos
+
+Los instaladores oficiales y paquetes de distribución se publicarán en **GitHub Releases** una vez superados los controles de calidad del lanzamiento público.
+
+Plataformas de destino:
+
+```text
+Windows
+macOS
+Linux
+```
+
+La disponibilidad puede variar según la plataforma si alguna verificación específica para un sistema operativo sigue en proceso.
+
+## Compilación desde el código fuente
+
+### Requisitos previos
+
+- Node.js 20 LTS o 22 LTS
+- Rust / Cargo
+- Tauri CLI v2
+- Dependencias de compilación propias de la plataforma para Tauri
+
+### Interfaz de usuario (UI)
 
 ```bash
-# 1. Compilar interfaz gráfica
 cd ui
 npm ci
 npm run typecheck
 npm run build
+```
 
-# 2. Iniciar versión de escritorio
+### Entorno de escritorio
+
+```bash
 cd crates/vgt-desktop
 cargo tauri dev
+```
+
+Generación del paquete de producción:
+
+```bash
 cargo tauri build
 ```
 
----
-
-## 📊 Estado del Plan Maestro (100% Final)
-
-En la auditoría del **2026-09-26**, Astraea Workspace ha completado el 100% de sus objetivos:
-
-| Área de Módulos | Alcance | Estado |
-| :--- | :---: | :---: |
-| **Sistemas Base (00–30)** | Arquitectura Central, Shell, WOM, 14 Apps de Oficina | **100% COMPLETADO** |
-| **Seguridad y Cripto (31–34)** | Contenedores VWC, KeyVault, PQC, Sandbox NetGate | **100% COMPLETADO** |
-| **Almacenamiento y Sync (35–38)**| Snapshots, Recuperación ante Caídas, GaiaCom P2P | **100% COMPLETADO** |
-| **Motor de Búsqueda (39)** | Índice Léxico Local BM25 con Filtros de Permisos | **100% COMPLETADO** |
-| **Motor de Automatización (40)**| IR de Automatización Nativa Determinista | **100% COMPLETADO** |
-| **Políticas y Recursos (41–42)**| Motor Nativo de Políticas, Catálogo de Temas | **100% COMPLETADO** |
-| **Puntuación Global** | **3334 de 3334 Puntos de Implementación** | 🏆 **100.00% FINAL** |
+> Los comandos de compilación y las versiones de herramientas deben ajustarse a los archivos lockfile del repositorio y a la documentación de lanzamiento vigente si difieren de los ejemplos anteriores.
 
 ---
 
-## 🧩 Sistemas Integrados, Dependencias y Licencias de Terceros (SBOM)
+# Requisitos del sistema
 
-Para garantizar una transparencia total en la cadena de suministro, auditorías de seguridad reproducibles y el cumplimiento estricto de licencias de código abierto, esta sección documenta todos los subsistemas propios, componentes empaquetados (*vendored*), bibliotecas de terceros y sus respectivas licencias integradas en **Astraea Workspace**.
+Objetivo preliminar de la versión:
 
-### 1. Integraciones Primarias de VGT (Subsistemas Propios)
+- **RAM:** 4 GB de memoria principal como mínimo; 8 GB recomendados para flujos con múltiples documentos abiertos
+- **Almacenamiento:** El tamaño de instalación final se indicará con el paquete definitivo
+- **Pantalla:** Monitor de escritorio estándar; la interfaz soporta escalado adaptativo de accesibilidad
+- **Internet:** No requerida para la edición local; solo necesaria para funciones de red habilitadas voluntariamente por el usuario, actualizaciones o conectores externos
 
-Astraea Workspace integra dos motores tecnológicos centrales de VGT directamente en su árbol de código fuente:
-
-| Subsistema Integrado | Ruta en el Repositorio | Origen / Versión / Commit | Lenguaje | Licencia | Función en Astraea Workspace |
-| :--- | :--- | :--- | :---: | :---: | :--- |
-| **VGT Infinity Cryptographic Core** (`vgt-infinity-core`) | `vendor/infinity` | Snapshot Git-Mirror `55b05a697a189d0ec583cdcf340beeba1efc9130` (`v0.2.0`) | Rust | **AGPL-3.0-only** | Criptografía Post-Cuántica híbrida de 5 vías (PQC KEM), cascada simétrica de 4 capas (*Modo Top Secret* `0x04`) y paquetes de doble firma |
-| **Astraea Embedded GaiaCom Node** (`gaiacom/backend`) | `native/gaiacom-node` | Árbol Go Companion integrado (Go `1.25.0`) | Go | **AGPL-3.0-only** | Nodo local de sincronización mesh P2P sin nube, descubrimiento LAN mDNS, transporte Bluetooth LE, transporte relay y replicación CRDT |
-| **Astraea Rust Workspace Core** (21 crates `vgt-*`) | `crates/vgt-*` | Workspace Release `v0.1.0` (Edición Rust `2021`) | Rust | **AGPL-3.0-only** | Modelo documental WOM, contenedores VWC v3, KeyVault, motor de búsqueda léxica local BM25, Automation IR determinista, motor de políticas, Interop y shell Tauri |
+Las versiones específicas de los sistemas operativos admitidos se publicarán junto con los artefactos de distribución.
 
 ---
 
-### 2. Componentes de Terceros Empaquetados (Vendored Assets) y Proveedores Aislados
+# Estado de preparación para el lanzamiento (Release Readiness)
 
-Para garantizar un funcionamiento 100 % sin conexión (**Air-Gap**) sin solicitudes a redes CDN externas, ciertos componentes de terceros se empaquetan localmente o se ejecutan mediante adaptadores de procesos aislados (*sidecars*):
+El plan maestro original para la implementación del núcleo alcanzó:
 
-| Componente | Ruta / Integración | Versión / Referencia | Licencia | Uso y Aislamiento de Seguridad |
-| :--- | :--- | :---: | :---: | :--- |
-| **Mozilla PDF.js Worker** (`pdfjs-dist`) | `.vendor/pdfjs-dist` & `ui/public/vendor/pdfjs/pdf.worker.min.mjs` | `5.5.207` (SHA-256: `a8d200fdf60c6644...56824269`) | **Apache-2.0** | Renderizado local de lienzos PDF sin conexión y extracción de capa de texto en **Astraea PDF Studio** (cero solicitudes de red) |
-| **PQClean / `pqcrypto` (`pqcrypto-hqc`)** | Proveedor opcional FFI / Sidecar en `vendor/infinity` | `0.4.0` (Referencia C de PQClean) | **MIT / Public Domain** | Encapsulación de claves post-cuántica basada en códigos **HQC-256** para el perfil *Top Secret* (aislado por defecto mediante proceso sidecar) |
-| **PQMagic / `pqmagic` (`AIGIS-ENC`)** | Proveedor opcional Sidecar (`vgt-infinity-pqmagic-sidecar`) | `1.0.7` (PQMagic High-Performance PQC) | **MIT / Apache-2.0** | Encapsulación de claves reticular asimétrica **AIGIS-ENC-4** en el KEM híbrido de 5 vías (ejecutado en un proceso sidecar independiente por seguridad de memoria) |
+```text
+3334 / 3334
+```
 
----
+Esta cifra certifica la compleción de la lista de tareas de la implementación central.
 
-### 3. Dependencias del Núcleo Rust y Desktop-Shell (Ecosistema Cargo)
+Por sí sola, **no** equivale a que el lanzamiento público esté concluido.
 
-Todas las dependencias de Rust declaradas en `Cargo.toml` y `vendor/infinity/Cargo.toml` utilizan licencias de código abierto permisivas 100 % compatibles con **GNU AGPLv3**:
+La beta pública se somete a una fase específica de consolidación que comprende:
 
-#### 🔐 Criptografía, Post-Quantum y Primitivas de Seguridad
-| Crate / Biblioteca | Versión | Licencia | Propósito en Astraea Workspace |
-| :--- | :---: | :---: | :--- |
-| `aes-gcm` | `0.10.3` | **Apache-2.0 OR MIT** | Cifrado autenticado `AES-256-GCM` para fragmentos de contenedores VWC v3 y bóvedas KeyVault |
-| `argon2` | `0.5.3` | **Apache-2.0 OR MIT** | Derivación de claves resistente a memoria para contraseñas y frases de paso (`Argon2id`) |
-| `blake3` | `1.8.7` | **CC0-1.0 OR Apache-2.0 OR Apache-2.0 WITH LLVM-exception** | Hashing ultrarrápido de árboles Merkle-DAG, integridad de instantáneas y etiquetas de compromiso de clave |
-| `sha2` & `hkdf` | `0.10.x` / `0.12.x` | **Apache-2.0 OR MIT** | Resúmenes `SHA-256` / `SHA-512` y derivación jerárquica de claves `HKDF-SHA256` / `HKDF-SHA512` |
-| `x25519-dalek` | `2.0.x` | **BSD-3-Clause** | Acuerdo clásico de claves Diffie-Hellman de curva elíptica (`X25519`) |
-| `ed25519-dalek` | `2.1.x` | **BSD-3-Clause** | Firmas digitales clásicas `Ed25519` para contenedores VWC, manifiestos de versiones y sobres GaiaCom |
-| `ml-dsa` | `0.1.1` | **Apache-2.0 OR MIT** | Firmas digitales post-cuánticas NIST FIPS-204 (`ML-DSA-65` / `ML-DSA-87`, anteriormente Dilithium) |
-| `ml-kem`, `frodo-kem-rs`, `slh-dsa` | Infinity Core | **Apache-2.0 OR MIT** | NIST FIPS-203 (`ML-KEM-1024`), LWE no estructurado (`FrodoKEM-1344-AES`) y firmas basadas en hash sin estado (`SLH-DSA-SHAKE-256f`) |
-| `serpent`, `twofish`, `eax`, `chacha20poly1305`, `aes-gcm-siv`, `sha3` | Infinity Core | **Apache-2.0 OR MIT** | Cascada simétrica de 4 capas (`XChaCha20-Poly1305` → `Serpent-256-EAX` → `Twofish-256-EAX` → `AES-256-GCM-SIV`) y `SHA3-512` en el modo *Top Secret* |
-| `zeroize` & `subtle` | `1.8.x` / `2.6.1` | **Apache-2.0 OR MIT** / **BSD-3-Clause** | Borrado determinista seguro de claves secretas en memoria RAM (`ZeroizeOnDrop`) y comparaciones en tiempo constante |
-| `rand` | `0.8.x` | **Apache-2.0 OR MIT** | Generador de números aleatorios criptográficamente seguro (`OsRng` / `ChaCha20Rng`) |
+```text
+Separación física del código fuente de ambas ediciones
+Definición de límites funcionales entre Open Core y Premium
+Workspace Explorer / Library
+Flujos de inserción y arrastrar y soltar entre aplicaciones
+Renovación integral del sistema de diseño
+Verificación de temas en todas las interfaces
+Guías interactivas integradas
+Conexión de las preferencias de configuración
+Localización idiomática
+Accesibilidad
+Evidencias formales de seguridad
+Pruebas de ciclo completo (roundtrips)
+Regresión de importación y exportación
+Comportamiento de recuperación de fallos
+Rendimiento
+Empaquetado de instaladores
+Generación de SBOM / hashes / trazabilidad de compilación
+Revisión de defectos visibles previa a la publicación
+```
 
-#### 🖥️ Desktop Shell, Sistema, Compresión y Serialización
-| Crate / Biblioteca | Versión | Licencia | Propósito en Astraea Workspace |
-| :--- | :---: | :---: | :--- |
-| `tauri` & `tauri-build` | `2.x` (`2.10.3`) | **Apache-2.0 OR MIT** | Shell de escritorio nativo multiplataforma, puente de comandos IPC y empaquetado de instaladores |
-| `wry` & `tao` | `0.55.1` / `0.33.x` | **Apache-2.0 OR MIT** | Abstracción de renderizado WebView multiplataforma y gestión nativa de ventanas (vía Tauri v2) |
-| `serde` & `serde_json` | `1.0.x` | **Apache-2.0 OR MIT** | Serialización determinista para documentos WOM, cargas útiles IPC y manifiestos |
-| `thiserror` | `1.0.69` | **Apache-2.0 OR MIT** | Gestión estructurada de errores en los 21 crates del espacio de trabajo Rust |
-| `flate2` & `crc32fast` | `1.1.10` / `1.5.1` | **Apache-2.0 OR MIT** | Compresión DEFLATE/Zlib y sumas de verificación CRC32 aceleradas por SIMD para OOXML (`.docx`, `.xlsx`, `.pptx`) y ODF |
-| `url` & `if-addrs` | `2.5.8` / `0.13.x` | **Apache-2.0 OR MIT** / **MIT OR BSD-3-Clause** | Validación estricta de URL en `vgt-netgate` y detección de interfaces de red locales para sincronización LAN |
-| `uuid`, `chrono`, `base64`, `hex` | `1.26.1` / `0.4.x` / `0.22.1` / `0.4.x` | **Apache-2.0 OR MIT** | Identificadores únicos de objetos (`UUIDv4`), marcas de tiempo ISO-8601 y codificaciones binarias |
-| `windows-sys` & `winreg` | `0.59.0` / `0.55.0` | **MIT OR Apache-2.0** / **MIT** | Enlaces nativos de la API de Windows (`CryptProtectData` DPAPI, Credential Manager, Named Pipes) |
-| `libc` | `0.2.x` | **MIT OR Apache-2.0** | Llamadas al sistema POSIX de bajo nivel, permisos estrictos de archivo (`chmod 0600`) y señales de procesos en Linux/macOS |
-| `webkit2gtk`, `gtk`, `glib`, `soup3` | `2.0.2` / `0.18.2` | **MIT** | Integración de ventanas y WebView en escritorio Linux (vinculado dinámicamente a bibliotecas del sistema bajo **LGPL-2.1+**) |
-| `tempfile` | `3.23.0` | **Apache-2.0 OR MIT** | Directorios temporales aislados para escrituras atómicas de archivos y pruebas de integración |
+El estado del repositorio pasará de **Pre-Release** a **Beta** únicamente cuando estas condiciones estén plenamente evidenciadas en el árbol de publicación real.
 
 ---
 
-### 4. Dependencias del Entorno Go Companion (`native/gaiacom-node`)
+# Documentación
 
-El nodo integrado **GaiaCom Node** (`go.mod`) utiliza los siguientes paquetes de código abierto para la sincronización mesh P2P local y el almacenamiento persistente:
+Documentación técnica y descriptiva disponible:
 
-| Módulo Go | Versión | Licencia | Propósito en GaiaCom Node |
-| :--- | :---: | :---: | :--- |
-| `github.com/cloudflare/circl` | `v1.6.3` | **BSD-3-Clause** | Biblioteca criptográfica de Cloudflare para operaciones híbridas post-cuánticas y de curva elíptica en el protocolo mesh |
-| `golang.org/x/crypto` | `v0.52.0` | **BSD-3-Clause** | Primitivas criptográficas extendidas de Go (`ChaCha20-Poly1305`, `X25519`, `Ed25519`, `HKDF`, `Argon2`) |
-| `modernc.org/sqlite` | `v1.42.2` | **BSD-3-Clause** | Implementación pura en Go (sin CGO) de SQLite (Dominio Público) para el registro local de eventos y colas de sincronización |
-| `golang.org/x/sys`, `x/text`, `x/sync`, `x/exp` | `v0.47.0` / `v0.40.0` / `v0.22.0` | **BSD-3-Clause** | Primitivas del sistema operativo, normalización Unicode y trabajadores de sincronización concurrentes |
-| `golang.org/x/mobile` | `v0.0.0-20260217...` | **BSD-3-Clause** | Enlaces multiplataforma y puentes de compatibilidad móvil / Bluetooth LE |
-| `github.com/google/uuid` | `v1.6.0` | **BSD-3-Clause** | Generación de UUID para sobres de mensajes, salas y trabajos de sincronización |
-| `github.com/dustin/go-humanize`, `mattn/go-isatty`, `ncruces/go-strftime`, `remyoudompheng/bigfft` | `v1.0.1` / `v0.0.20` / `v0.1.9` | **MIT** / **BSD-3-Clause** | Bibliotecas de soporte para el motor SQLite puro en Go (`modernc.org/sqlite`) |
-
----
-
-### 5. Dependencias de Frontend, UI y Herramientas de Compilación (`ui/package.json`)
-
-El frontend en `ui/` prescinde deliberadamente de gestores de estado pesados o SDKs de telemetría externos y utiliza exclusivamente los siguientes paquetes:
-
-| Paquete NPM | Versión | Tipo | Licencia | Propósito en el Frontend |
-| :--- | :---: | :---: | :---: | :--- |
-| `react` & `react-dom` | `^19.0.0` | Runtime | **MIT** | Renderizado declarativo de componentes para las 20 Aplicaciones Soberanas y el shell de trabajo |
-| `lucide-react` | `^1.16.0` | Runtime | **ISC** | Sistema de iconos vectoriales coherente en todos los editores, barras de herramientas e inspectores |
-| `clsx` & `tailwind-merge` | `^2.1.1` / `^3.0.2` | Runtime | **MIT** | Composición determinista de clases CSS y resolución de estados de tokens de temas |
-| `typescript` | `^5.7.3` | Dev / Build | **Apache-2.0** | Verificación estricta de tipos estáticos en todo el modelo WOM y el frontend |
-| `vite` & `@vitejs/plugin-react` | `^6.1.0` / `^4.3.4` | Dev / Build | **MIT** | Empaquetador frontend de alta velocidad con división determinista de fragmentos |
-| `vitest` | `^5.0.0` | Dev / Test | **MIT** | Ejecutor de pruebas unitarias, de interoperabilidad, paridad y extremo a extremo para la capa UI |
-| `tailwindcss`, `postcss`, `autoprefixer` | `^3.4.17` / `^8.4.49` / `^10.4.20` | Dev / Build | **MIT** | Generación de CSS en tiempo de compilación y utilidades del sistema de diseño |
-| `@types/react` & `@types/react-dom` | `^19.0.8` / `^19.0.3` | Dev / Build | **MIT** | Definiciones de tipos TypeScript para React 19 |
+| Documento | Idioma | Tipo |
+|---|:---:|---|
+| [What is Astraea Workspace?](./01_Astraea_Workspace_What_It_Is_EN.pdf) | Inglés | Producto / concepto |
+| [Premium Security & Sovereignty](./02_Astraea_Workspace_Premium_Security_Sovereignty_EN.pdf) | Inglés | Whitepaper técnico |
+| [Was ist Astraea Workspace?](./01_Astraea_Workspace_Was_es_ist_DE.pdf) | Alemán | Producto / concepto |
+| [Premium Sicherheit & Souveränität](./02_Astraea_Workspace_Premium_Sicherheit_Souveraenitaet_DE.pdf) | Alemán | Whitepaper técnico |
+| [Produktivität & Datenfluss](./03_Astraea_Workspace_Premium_Produktivitaet_Datenfluss_DE.pdf) | Alemán | Arquitectura de producto |
+| [Che cos'è Astraea Workspace?](./01_Astraea_Workspace_Che_Cose_IT.pdf) | Italiano | Producto / concepto |
+| [Sicurezza Premium & Sovranità](./02_Astraea_Workspace_Premium_Sicurezza_Sovranita_IT.pdf) | Italiano | Whitepaper técnico |
+| [¿Qué es Astraea Workspace?](./01_Astraea_Workspace_Que_Es_ES.pdf) | Español | Producto / concepto |
+| [Seguridad Premium & Soberanía](./02_Astraea_Workspace_Premium_Seguridad_Soberania_ES.pdf) | Español | Whitepaper técnico |
+| [Qu'est-ce qu'Astraea Workspace ?](./01_Astraea_Workspace_Ce_Que_Cest_FR.pdf) | Francés | Producto / concepto |
+| [Sécurité Premium & Souveraineté](./02_Astraea_Workspace_Premium_Securite_Souverainete_FR.pdf) | Francés | Whitepaper técnico |
+| [Что такое Astraea Workspace?](./01_Astraea_Workspace_What_It_Is_RU.pdf) | Ruso | Producto / concepto |
+| [Премиальная безопасность и суверенитет](./02_Astraea_Workspace_Premium_Security_Sovereignty_RU.pdf) | Ruso | Whitepaper técnico |
 
 ---
 
-### 6. Integraciones Nativas del Sistema Operativo y Plataforma
+# Transparencia de la cadena de suministro (Supply Chain)
 
-Astraea Workspace interactúa directamente con las primitivas de seguridad nativas del sistema operativo sin intermediarios en la nube:
-- **Windows:** Windows Data Protection API (**DPAPI** vía `CryptProtectData` / `CryptUnprotectData`), **Administrador de Credenciales de Windows**, Named Pipes y **WebView2** (Edge Chromium Runtime).
-- **macOS:** **macOS Keychain Services** (`/usr/bin/security`), **Secure Enclave** (protección de claves por hardware), Unix Domain Sockets y **WKWebView**.
-- **Linux:** **Freedesktop Secret Service API** (`secret-tool` / `libsecret` para GNOME Keyring y KWallet), Unix Domain Sockets y **WebKitGTK 4.1+**.
-- **Estándares de Navegador / WebView:** **W3C WebCrypto API** nativa (`crypto.subtle` para AES-GCM / PBKDF2 local en modo navegador) e **IndexedDB v4** (`astraea-workspace-db`).
+El procedimiento de publicación de Astraea está estructurado para permitir la verificación independiente de las compilaciones entregadas:
+
+Las evidencias oficiales de distribución incluirán, según se generen en la fase final:
+
+```text
+Inventario de dependencias y licencias
+SPDX SBOM
+Hashes de distribución SHA-256
+Manifiesto de lanzamiento firmado
+Trazabilidad de compilación (provenance)
+```
+
+Los artefactos resultantes constituyen la referencia definitiva en materia de dependencias y versiones.
+
+Este documento prescinde deliberadamente de mantener una tabla manual de librerías propensa a desajustes frente a `Cargo.lock`, `package-lock.json`, `go.sum` y el SBOM procesado.
+
+---
+
+# Licencia
+
+**Astraea Workspace Open Core se distribuye bajo la licencia GNU Affero General Public License v3.0 (AGPL-3.0).**
+
+Consúltese:
+
+- [`LICENSE`](./LICENSE)
+- [`NOTICE`](./NOTICE), donde figure
+- Los avisos propios de cada dependencia y el SBOM de la versión
+
+Astraea Premium se comercializa y distribuye por separado bajo su licencia propietaria.
 
 ---
 
-### 7. Pipeline Automatizado de SBOM, Procedencia y Verificación de Licencias
+# Visión
 
-Cada lanzamiento oficial de Astraea Workspace genera automáticamente artefactos de cumplimiento verificables criptográficamente mediante `scripts/generate-release-evidence.py`:
-- **`dependency-license-inventory.json`** — Inventario completo legible por máquina de todas las dependencias de Cargo, NPM, Go y componentes empaquetados, incluida su clasificación de licencia.
-- **`sbom.spdx.json`** — Lista de materiales de software (SBOM) estandarizada conforme a **SPDX 2.3** (licencia de datos `CC0-1.0`).
-- **`build-provenance.intoto.json`** — Atestación de procedencia de compilación **SLSA v1 / in-toto**.
-- **`SHA256SUMS.txt` & `signed-release-manifest.json`** — Manifiesto de lanzamiento firmado con `Ed25519` para verificación de integridad previa a la ejecución.
+Las herramientas de software deben facilitar la creación, la planificación, el análisis y la colaboración sin exigir a las personas que renuncien al control de su espacio de trabajo.
 
----
+Astraea Workspace se fundamenta en ese compromiso:
 
-## 📜 Licencia y Visión
-
-Astraea Workspace (Open-Core), así como sus subsistemas propios de VGT integrados (`vgt-infinity-core` y `gaiacom/backend`), se publican bajo la licencia libre **GNU Affero General Public License v3.0 (AGPL-3.0-only)** (véanse `LICENSE` y `NOTICE` en el repositorio principal). Todas las bibliotecas y dependencias de terceros incorporadas se distribuyen bajo licencias de código abierto compatibles con AGPLv3 (`MIT`, `Apache-2.0`, `BSD-3-Clause`, `ISC`, `CC0-1.0` / `Dominio Público`).
-
-### La Filosofía VGT (VisionGaiaTechnology)
-Creemos que el software debe empoderar al ser humano en lugar de vigilarlo. La privacidad incondicional, la soberanía digital y el rendimiento sin concesiones son derechos inalienables.
-
-*Desarrollado con dedicación para una auténtica independencia digital.*
-
----
+**local cuando trabajar en local basta; explícito cuando la red es necesaria; abierto donde rige el principio de Open Core; e interoperable en todo el conjunto en lugar de disgregado en utilidades aisladas.**
 
 <p align="center">
-  <strong>Astraea Workspace</strong> — Your Mind. Your Work. Your Sovereignty.<br>
-  <sub>© 2026 VisionGaiaTechnology. Todos los derechos reservados. Licencia AGPL-3.0.</sub>
+  <strong>Astraea Workspace</strong><br>
+  <em>Your Mind. Your Work. Your Sovereignty.</em><br><br>
+  <sub>© 2026 VisionGaiaTechnology · Open Core licenciado bajo AGPL-3.0</sub>
 </p>
-
