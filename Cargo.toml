@@ -1,0 +1,49 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/vgt-crypto",
+    "crates/vgt-keyvault",
+    "crates/vgt-top-secret",
+    "crates/vgt-object-model",
+    "crates/vgt-container",
+    "crates/vgt-formula",
+    "crates/vgt-netgate",
+    "crates/vgt-plugin-runtime",
+    "crates/vgt-workspace-fabric",
+    "crates/vgt-diagnostics-release",
+    "crates/vgt-automation-runtime",
+    "crates/vgt-core",
+    "crates/vgt-operations",
+    "crates/vgt-syncgraph",
+    "crates/vgt-sandbox",
+    "crates/vgt-test-harness",
+    "crates/vgt-search",
+    "crates/vgt-policy",
+    "crates/vgt-theme-assets",
+    "crates/vgt-cli",
+    "crates/vgt-ipc",
+    "crates/vgt-desktop",
+]
+
+[workspace.package]
+version = "0.1.0-alpha.1"
+edition = "2021"
+authors = ["VisionGaiaTechnology <dev@visiongaia.tech>"]
+license = "AGPL-3.0-only"
+
+[workspace.dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+rand = "0.8"
+blake3 = "1.5"
+aes-gcm = "0.10"
+argon2 = "0.5"
+hkdf = "0.12"
+hmac = "0.12"
+sha2 = "0.10"
+uuid = { version = "1.8", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+x25519-dalek = { version = "2.0", features = ["static_secrets"] }
+subtle = "2.6.1"
+zeroize = "1.8"

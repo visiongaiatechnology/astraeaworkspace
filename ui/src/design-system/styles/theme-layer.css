@@ -1,0 +1,119 @@
+/* Workspace theme layer: theme only shell chrome and shared controls; authored document, chart and canvas colors stay owned by their content. */
+[data-astraea-shell-root="true"] {
+  background-color: var(--vgt-surface-z0, #07050d);
+  color: var(--vgt-text-primary, #f8fafc);
+}
+
+[data-astraea-shell-root="true"] :is([class~="bg-slate-950"], [class~="bg-gray-950"], [class~="bg-zinc-950"], [class*="bg-[#07050d]"]):not(main[data-content-color-policy="content-owned"] *) {
+  background-color: var(--vgt-surface-z0, #07050d);
+}
+
+[data-astraea-shell-root="true"] :is([class~="bg-slate-900"], [class~="bg-slate-800"], [class~="bg-slate-700"], [class~="bg-gray-900"], [class~="bg-zinc-900"], [class*="bg-[#0a0714]"]):not(main[data-content-color-policy="content-owned"] *) {
+  background-color: var(--vgt-surface-z1, #0c0817);
+}
+
+[data-astraea-shell-root="true"] [class*="bg-[#100d1c]"]:not(main[data-content-color-policy="content-owned"] *) {
+  background-color: var(--vgt-surface-z2, #120c22);
+}
+
+[data-astraea-shell-root="true"] :is([class*="bg-slate-950/"], [class*="bg-slate-900/"], [class*="bg-slate-800/"], [class*="bg-gray-950/"], [class*="bg-gray-900/"], [class*="bg-zinc-950/"], [class*="bg-zinc-900/"]):not(main[data-content-color-policy="content-owned"] *) {
+  background-color: color-mix(in srgb, var(--vgt-surface-z1, #0c0817) 82%, transparent);
+}
+
+[data-astraea-shell-root="true"] :is([class*="text-slate-50"], [class*="text-slate-100"], [class*="text-slate-200"], [class*="text-zinc-50"], [class*="text-zinc-100"], [class*="text-zinc-200"]):not(main[data-content-color-policy="content-owned"] *) {
+  color: var(--vgt-text-primary, #f8fafc);
+}
+
+[data-astraea-shell-root="true"] :is([class*="text-slate-300"], [class*="text-zinc-300"]):not(main[data-content-color-policy="content-owned"] *) {
+  color: var(--vgt-text-secondary, #cbd5e1);
+}
+
+[data-astraea-shell-root="true"] :is([class*="text-slate-400"], [class*="text-slate-500"], [class*="text-zinc-400"], [class*="text-zinc-500"]):not(main[data-content-color-policy="content-owned"] *) {
+  color: var(--vgt-text-muted, #94a3b8);
+}
+
+[data-astraea-shell-root="true"] :is([class*="text-purple-"], [class*="text-violet-"], [class*="text-indigo-"]):not(main[data-content-color-policy="content-owned"] *) {
+  color: var(--vgt-accent-strong, #8b5cf6);
+}
+
+[data-astraea-shell-root="true"] :is(h1, h2, h3, h4, h5, h6, p)[class~="text-white"]:not(main[data-content-color-policy="content-owned"] *) {
+  color: var(--vgt-text-primary, #f8fafc);
+}
+
+[data-astraea-shell-root="true"] [class*="border-white/"]:not(main[data-content-color-policy="content-owned"] *) {
+  border-color: var(--vgt-neutral-border, rgba(148, 163, 184, 0.18));
+}
+
+[data-astraea-shell-root="true"] :is([class*="border-purple-"], [class*="border-violet-"], [class*="border-indigo-"]):not(main[data-content-color-policy="content-owned"] *) {
+  border-color: var(--glass-border, rgba(124, 58, 237, 0.22));
+}
+
+[data-astraea-shell-root="true"] :is([class*="bg-purple-50/"], [class*="bg-purple-500/"], [class*="bg-purple-600/"], [class*="bg-purple-800/"], [class*="bg-purple-900/"], [class*="bg-purple-950/"], [class*="bg-violet-400/"], [class*="bg-violet-500/"], [class*="bg-violet-600/"], [class*="bg-violet-950/"], [class*="bg-indigo-400/"], [class*="bg-indigo-500/"], [class*="bg-indigo-600/"], [class*="bg-indigo-900/"], [class*="bg-indigo-950/"]):not(main[data-content-color-policy="content-owned"] *),
+[data-astraea-shell-root="true"] :is([class~="bg-purple-800"], [class~="bg-purple-900"], [class~="bg-purple-950"], [class~="bg-violet-800"], [class~="bg-violet-900"], [class~="bg-violet-950"], [class~="bg-indigo-800"], [class~="bg-indigo-900"], [class~="bg-indigo-950"]):not(main[data-content-color-policy="content-owned"] *) {
+  background-color: var(--vgt-accent-soft, rgba(124, 58, 237, 0.18));
+}
+
+[data-astraea-shell-root="true"] :is([class~="bg-purple-500"], [class~="bg-purple-600"], [class~="bg-violet-500"], [class~="bg-violet-600"], [class~="bg-violet-700"], [class~="bg-indigo-500"], [class~="bg-indigo-600"], [class~="bg-indigo-700"]):not(main[data-content-color-policy="content-owned"] *) {
+  background-color: var(--vgt-accent-solid, #7c3aed);
+}
+
+[data-astraea-shell-root="true"] :is([class~="bg-purple-300"], [class~="bg-purple-400"], [class~="bg-violet-300"], [class~="bg-violet-400"], [class~="bg-indigo-300"], [class~="bg-indigo-400"]):not(main[data-content-color-policy="content-owned"] *) {
+  background-color: var(--vgt-accent-strong, #8b5cf6);
+}
+
+[data-astraea-shell-root="true"] :is([class*="from-purple-"], [class*="from-violet-"], [class*="from-indigo-"]):not(main[data-content-color-policy="content-owned"] *) {
+  --tw-gradient-from: var(--vgt-accent-solid, #7c3aed) var(--tw-gradient-from-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+[data-astraea-shell-root="true"] :is([class*="to-purple-"], [class*="to-violet-"], [class*="to-indigo-"]):not(main[data-content-color-policy="content-owned"] *) {
+  --tw-gradient-to: color-mix(in srgb, var(--vgt-accent-solid, #7c3aed) 72%, white) var(--tw-gradient-to-position);
+}
+
+[data-astraea-shell-root="true"] :is(.glass-panel, .glass-dropdown, .glass-pill, .vgt-input, .vgt-button-primary):not(main[data-content-color-policy="content-owned"] *) {
+  border-color: var(--glass-border, rgba(124, 58, 237, 0.22));
+}
+
+[data-astraea-shell-root="true"] :where(input, select, textarea):not(main[data-content-color-policy="content-owned"] *) {
+  color-scheme: inherit;
+}
+
+.workspace-settings-overlay {
+  background: color-mix(in srgb, #02030a 42%, transparent);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.workspace-settings-dialog {
+  background-color: var(--as-bg-modal, var(--vgt-surface-z1, #090b12));
+  border-color: var(--as-border-control, var(--glass-border, rgb(169 178 200 / 20%)));
+  color: var(--as-text-primary, var(--vgt-text-primary, #f5f7ff));
+}
+
+.workspace-settings-sidebar {
+  background-color: var(--as-bg-sidebar, var(--vgt-surface-z2, #0d1018));
+  border-color: var(--as-border-subtle, var(--glass-border, rgb(169 178 200 / 12%)));
+}
+
+/* RGB status hues (success/warning/danger) stay semantic and are intentionally outside the accent remapping above. */
+@media (forced-colors: active) {
+  [data-vgt-present-root="true"],
+  [data-vgt-present-root="true"] * {
+    forced-color-adjust: auto;
+  }
+  [data-vgt-present-root="true"] button,
+  [data-vgt-present-root="true"] input,
+  [data-vgt-present-root="true"] select,
+  [data-vgt-present-root="true"] textarea,
+  [data-vgt-present-root="true"] [role="button"] {
+    border: 1px solid ButtonText;
+  }
+  [data-vgt-present-root="true"] [data-present-object="true"] {
+    outline: 1px solid CanvasText;
+  }
+  [data-vgt-present-root="true"] :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+

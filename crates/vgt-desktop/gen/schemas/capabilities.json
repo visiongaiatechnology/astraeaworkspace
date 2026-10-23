@@ -1,0 +1,1 @@
+{"main-capability":{"identifier":"main-capability","description":"Main-window capability with only event subscription permissions; all sensitive operations use scoped custom commands.","local":true,"windows":["main"],"permissions":["core:event:allow-listen","core:event:allow-unlisten"]}}

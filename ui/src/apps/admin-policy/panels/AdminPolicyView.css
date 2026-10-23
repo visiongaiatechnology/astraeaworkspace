@@ -1,0 +1,5 @@
+/* STATUS: PLATIN — ordered cascade facade; rule bytes remain in scoped modules. */
+@import "./AdminPolicyViewChrome.css";
+@import "./AdminPolicyViewNavigation.css";
+@import "./AdminPolicyViewPanels.css";
+@import "./AdminPolicyViewResponsive.css";

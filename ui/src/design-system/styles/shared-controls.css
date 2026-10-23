@@ -1,0 +1,152 @@
+/* Theme-aware shared controls. Every value derives from the selected palette so
+   light and dark presets use the same component rules without fixed dark fills. */
+:root {
+  --vgt-control-surface: var(--as-bg-control, var(--vgt-surface-z2, #131724));
+  --vgt-control-hover: var(--as-bg-control-hover, #151927);
+  --vgt-control-active: var(--as-bg-control-active, #171b2a);
+  --vgt-control-text: var(--as-text-primary, var(--vgt-text-primary, #f5f7ff));
+  --vgt-control-muted: var(--as-text-secondary, var(--vgt-text-secondary, #bdc5d8));
+  --vgt-control-placeholder: var(--as-text-muted, var(--vgt-text-muted, #929bad));
+  --vgt-control-border: var(--as-border-control, var(--vgt-neutral-border, rgb(169 178 200 / 20%)));
+  --vgt-control-border-hover: var(--as-border-strong, rgb(169 178 200 / 34%));
+  --vgt-control-primary-bg: var(--as-primary-action-surface, var(--as-accent, var(--vgt-accent-solid, #8b63ff)));
+  --vgt-control-primary-hover: var(--as-primary-action-hover, var(--vgt-control-primary-bg));
+  --vgt-control-primary-active: var(--as-primary-action-active, var(--vgt-control-primary-bg));
+  --vgt-control-primary-border: var(--as-primary-action-border, var(--as-specular, var(--vgt-metal-edge, rgb(151 126 255 / 45%))));
+  --vgt-control-primary-text: var(--as-primary-action-text, var(--vgt-on-accent, #fff));
+  --vgt-control-disabled-opacity: .62;
+  --vgt-control-success: var(--as-success, #4bc98b);
+  --vgt-control-warning: var(--as-warning, #f0ba58);
+  --vgt-control-danger: var(--as-critical, #ff625f);
+  --vgt-control-info: var(--as-info, #68baf2);
+}
+
+:root[data-astraea-scheme="light"] {
+  --vgt-control-success: #047857;
+  --vgt-control-warning: #92400e;
+  --vgt-control-danger: #b91c1c;
+  --vgt-control-info: #1d4ed8;
+}
+
+/* Compact reusable primitives now read the same palette as the shell. */
+.vgt-input {
+  min-width: 0;
+  background-color: var(--vgt-control-surface);
+  border-color: var(--vgt-control-border);
+  border-radius: var(--vgt-radius-input, 8px);
+  color: var(--vgt-control-text);
+  color-scheme: inherit;
+  transition: background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+}
+.vgt-input::placeholder { color: var(--vgt-control-placeholder); opacity: 1; }
+.vgt-input:hover:not(:disabled) { border-color: var(--vgt-control-border-hover); }
+.vgt-input:focus:not(:focus-visible) {
+  border-color: var(--vgt-focus, var(--vgt-accent-solid, #7c3aed));
+  box-shadow: var(--as-focus-ring, 0 0 0 3px var(--vgt-accent-soft, rgba(124, 58, 237, .18)));
+}
+.vgt-input:disabled { color: var(--as-text-disabled); opacity: var(--vgt-control-disabled-opacity); }
+
+.vgt-button-primary {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--as-specular-soft, rgb(255 255 255 / .12)) 58%, transparent), transparent 78%), var(--as-primary-action-surface, var(--vgt-control-primary-bg));
+  border-color: var(--vgt-control-primary-border);
+  border-radius: var(--vgt-radius-control, 6px);
+  color: var(--vgt-control-primary-text, var(--vgt-on-accent, #fff));
+  box-shadow: inset 0 1px 0 var(--as-specular-soft, rgb(255 255 255 / .22)), var(--as-shadow-z1, 0 1px 2px rgb(0 0 0 / .16));
+  transition: box-shadow var(--as-motion-fast, 120ms) ease, border-color var(--as-motion-fast, 120ms) ease, transform var(--as-motion-fast, 120ms) ease;
+}
+.vgt-button-primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--as-specular-soft, rgb(255 255 255 / .12)) 68%, transparent), transparent 78%), var(--as-primary-action-hover, var(--vgt-control-primary-hover, var(--vgt-control-primary-bg)));
+  border-color: var(--as-primary-action-border, var(--vgt-control-primary-border));
+  box-shadow: inset 0 1px 0 var(--as-specular-soft, rgb(255 255 255 / .26)), var(--as-shadow-z2, 0 3px 9px rgb(0 0 0 / .22));
+  filter: none;
+}
+.vgt-button-primary:active:not(:disabled) { background: var(--as-primary-action-active, var(--vgt-control-primary-active, var(--vgt-control-primary-bg))); }
+.vgt-button-primary:disabled { opacity: var(--vgt-control-disabled-opacity); }
+
+.vgt-button-secondary {
+  background-color: var(--vgt-control-surface);
+  border: 1px solid var(--vgt-control-border);
+  border-radius: var(--vgt-radius-control, 6px);
+  color: var(--vgt-control-text);
+}
+.vgt-button-secondary:hover:not(:disabled) {
+  background-color: var(--vgt-control-hover);
+  border-color: var(--vgt-control-border-hover);
+  filter: none;
+}
+.vgt-button-secondary:active:not(:disabled) { background-color: var(--vgt-control-active); }
+
+/* Standard fields outside document-owned viewports use native palette-aware surfaces. */
+[data-astraea-shell-root="true"] :is(
+  input:not([type="file"]):not([type="color"]):not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea
+):not(main[data-content-color-policy="content-owned"] *) {
+  background-color: var(--vgt-control-surface);
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+  color-scheme: inherit;
+}
+[data-astraea-shell-root="true"] :is(input, select, textarea):not(main[data-content-color-policy="content-owned"] *)::placeholder {
+  color: var(--vgt-control-placeholder);
+  opacity: 1;
+}
+[data-astraea-shell-root="true"] :is(input, select, textarea):not(main[data-content-color-policy="content-owned"] *):hover:not(:disabled) {
+  border-color: var(--vgt-control-border-hover);
+}
+[data-astraea-shell-root="true"] :is(input, select, textarea):not(main[data-content-color-policy="content-owned"] *):focus:not(:focus-visible) {
+  border-color: var(--vgt-focus, var(--vgt-accent-solid, #7c3aed));
+  box-shadow: var(--as-focus-ring, 0 0 0 3px var(--vgt-accent-soft, rgba(124, 58, 237, .18)));
+}
+[data-astraea-shell-root="true"] :is(input[type="checkbox"], input[type="radio"], input[type="range"], progress):not(main[data-content-color-policy="content-owned"] *) {
+  accent-color: var(--vgt-accent-solid, #7c3aed);
+}
+[data-astraea-shell-root="true"] select:not(main[data-content-color-policy="content-owned"] *) option {
+  background-color: var(--vgt-control-surface, var(--as-bg-control, #131724));
+  color: var(--vgt-text-primary, #f8fafc);
+}
+
+/* Neutral utility-colored controls follow the theme. This selector is deliberately
+   anchored to bg-* tokens; border opacity utilities never trigger a fill override. */
+[data-astraea-shell-root="true"] :is(button, [role="button"], [role="tab"], [role="menuitem"]):is(
+  [class~="bg-slate-950"], [class~="bg-slate-900"], [class~="bg-slate-800"],
+  [class~="bg-gray-950"], [class~="bg-gray-900"], [class~="bg-zinc-950"], [class~="bg-zinc-900"],
+  [class*="bg-slate-950/"], [class*="bg-slate-900/"], [class*="bg-slate-800/"],
+  [class*="bg-gray-950/"], [class*="bg-gray-900/"], [class*="bg-zinc-950/"], [class*="bg-zinc-900/"],
+  [class*="bg-white/"]
+):not(main[data-content-color-policy="content-owned"] *) {
+  background-color: var(--vgt-control-surface);
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] :is(button, [role="button"], [role="tab"], [role="menuitem"]):is(
+  [class*="border-white/"], [class*="border-slate-"], [class*="border-gray-"], [class*="border-zinc-"]
+):not(main[data-content-color-policy="content-owned"] *) {
+  border-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] :is(button, [role="button"], [role="tab"], [role="menuitem"]):is(
+  [class*="text-slate-50"], [class*="text-slate-100"], [class*="text-slate-200"],
+  [class*="text-zinc-50"], [class*="text-zinc-100"], [class*="text-zinc-200"]
+):not(main[data-content-color-policy="content-owned"] *) {
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] :is(button, [role="button"], [role="tab"], [role="menuitem"]):is(
+  [class*="text-slate-300"], [class*="text-slate-400"], [class*="text-slate-500"],
+  [class*="text-zinc-300"], [class*="text-zinc-400"], [class*="text-zinc-500"]
+):not(main[data-content-color-policy="content-owned"] *) {
+  color: var(--vgt-control-muted);
+}
+[data-astraea-shell-root="true"] :is(button, [role="button"], [role="tab"], [role="menuitem"]):is(
+  [class*="hover:bg-white/"], [class*="hover:bg-slate-"], [class*="hover:bg-gray-"], [class*="hover:bg-zinc-"]
+):not(main[data-content-color-policy="content-owned"] *):hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--vgt-control-hover);
+  border-color: var(--vgt-control-border-hover);
+  filter: none;
+}
+[data-astraea-shell-root="true"] :is(button, [role="button"], [role="tab"], [role="menuitem"]):disabled:not(main[data-content-color-policy="content-owned"] *),
+[data-astraea-shell-root="true"] :is(button, [role="button"], [role="tab"], [role="menuitem"])[aria-disabled="true"]:not(main[data-content-color-policy="content-owned"] *) {
+  opacity: var(--vgt-control-disabled-opacity);
+  filter: none;
+  transform: none;
+}
+

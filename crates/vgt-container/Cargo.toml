@@ -1,0 +1,17 @@
+[package]
+name = "vgt-container"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+vgt-crypto = { path = "../vgt-crypto" }
+vgt-keyvault = { path = "../vgt-keyvault" }
+vgt-object-model = { path = "../vgt-object-model" }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+blake3.workspace = true
+
+[dev-dependencies]

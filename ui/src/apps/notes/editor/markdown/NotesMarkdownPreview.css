@@ -1,0 +1,51 @@
+/* The preview is a Workspace-owned reading surface; authored inline colors
+   remain inline and win over these default Markdown presentation tokens. */
+[data-notes-live-wysiwyg-preview="true"] {
+  background-color: var(--vgt-module-panel-surface, var(--vgt-surface-z1, #10131f));
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+}
+
+[data-notes-live-wysiwyg-preview="true"] :is(
+  [class~="bg-black"], [class*="bg-black/"],
+  [class~="bg-slate-950"], [class*="bg-slate-950/"],
+  [class~="bg-slate-900"], [class*="bg-slate-900/"],
+  [class~="bg-slate-800"], [class*="bg-slate-800/"],
+  [class~="bg-zinc-950"], [class*="bg-zinc-950/"], [class~="bg-zinc-900"], [class*="bg-zinc-900/"]
+):not([data-color]):not([data-swatch]):not([style*="background-color"]):not([style*="background:"]) {
+  background-color: var(--vgt-control-surface, var(--vgt-module-control-surface, #191d2c));
+  border-color: var(--vgt-control-border, var(--vgt-neutral-border, rgba(148, 163, 184, .18)));
+}
+
+[data-notes-live-wysiwyg-preview="true"] :is(p, li, td, th, blockquote, pre, code, strong, em, del):not([style*="color"]) {
+  color: var(--vgt-control-muted, var(--vgt-text-secondary, #cbd5e1));
+}
+
+[data-notes-live-wysiwyg-preview="true"] :is(h1, h3):not([style*="color"]) {
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+}
+
+[data-notes-live-wysiwyg-preview="true"] :is([class*="text-blue-"], [class*="text-cyan-"], [class*="text-purple-"], [class*="text-violet-"]) {
+  color: var(--vgt-accent-strong, var(--vgt-control-info, #60a5fa));
+}
+
+[data-notes-live-wysiwyg-preview="true"] [class*="text-slate-100"],
+[data-notes-live-wysiwyg-preview="true"] [class*="text-slate-200"],
+[data-notes-live-wysiwyg-preview="true"] [class*="text-slate-300"],
+[data-notes-live-wysiwyg-preview="true"] [class*="text-slate-400"],
+[data-notes-live-wysiwyg-preview="true"] [class*="text-slate-500"] {
+  color: var(--vgt-control-muted, var(--vgt-text-secondary, #cbd5e1));
+}
+[data-notes-live-wysiwyg-preview="true"] [class*="text-slate-600"] {
+  color: var(--vgt-control-placeholder, var(--vgt-text-muted, #94a3b8));
+}
+
+[data-notes-live-wysiwyg-preview="true"] [class*="text-emerald-"],
+[data-notes-live-wysiwyg-preview="true"] [class*="text-green-"] { color: var(--vgt-control-success, #34d399); }
+[data-notes-live-wysiwyg-preview="true"] [class*="text-amber-"],
+[data-notes-live-wysiwyg-preview="true"] [class*="text-yellow-"] { color: var(--vgt-control-warning, #fbbf24); }
+[data-notes-live-wysiwyg-preview="true"] [class*="text-red-"],
+[data-notes-live-wysiwyg-preview="true"] [class*="text-rose-"] { color: var(--vgt-control-danger, #f87171); }
+
+[data-notes-live-wysiwyg-preview="true"] [class*="border-white/"] {
+  border-color: var(--vgt-control-border, var(--vgt-neutral-border, rgba(148, 163, 184, .18)));
+}

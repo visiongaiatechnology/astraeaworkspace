@@ -1,0 +1,72 @@
+ASTRAEA WORKSPACE ALPHA 0.1 — ALPHA AGREEMENT AND TERMS OF USE (SHORT FORM)
+
+VisionGaiaTechnology (VGT) · Astraea Workspace Open Core 0.1.0-1
+Status: 2026-10-18
+
+Please read this Alpha Agreement in full. By installing and using the beta
+software you agree to the terms below. If you do not agree, cancel the
+installation and do not use the software.
+
+1. TEST AND ALPHA SOFTWARE
+   This software is an incomplete beta version (test software). It may contain
+   defects, incomplete features, display errors and data loss. It is not
+   intended for productive use with important or critical data.
+
+2. NO WARRANTY
+   The software is provided "as is" and "as available". No warranty is given for
+   availability, freedom from errors, fitness for a particular purpose or
+   correction of defects. There is no entitlement to support, updates or
+   continuation of the beta.
+
+3. DATA, BACKUP AND DATA LOSS
+   Workspace data is stored locally on your device. Create your own backups of
+   your data before use and before updates. Uninstallation does not remove
+   workspace data by default; data is only deleted if you explicitly select this
+   during uninstallation. Recovery of lost data is not promised.
+
+4. LOCAL-FIRST AND PRIVACY
+   Astraea Workspace is designed local-first: no cloud account is required and
+   no automatic telemetry is transmitted to VGT. The application includes a
+   network gateway guard that blocks known telemetry destinations. Workspace data
+   and recovery points are stored in your user profile (the application's
+   application-data directory). Network connections only occur when you trigger
+   features that require connectivity, or when you download components such as
+   runtimes.
+
+5. RIGHT OF USE AND LICENSE
+   The Open Core edition is licensed under the GNU Affero General Public License
+   v3.0 (AGPL-3.0-only). The controlling license text is the LICENSE file in the
+   project (shipped as licenses\LICENSE-AGPL-3.0.txt). Third-party components
+   remain subject to their own licenses; the notices (THIRD-PARTY-NOTICES /
+   NOTICE) are part of the distribution.
+
+6. LIMITATION OF LIABILITY
+   To the extent permitted by law, VGT is not liable for indirect damages,
+   consequential damages, data loss, business interruption or lost profits
+   arising from the use or inability to use this beta software. Liability for
+   intent, gross negligence and injury to life, body or health remains
+   unaffected. Mandatory statutory liability remains unaffected.
+
+7. FEEDBACK
+   Bug reports and feedback are welcome. Do not send confidential or personal
+   real-world data. By submitting feedback you grant VGT the right to use it to
+   improve the product.
+
+8. TERMINATION OF THE ALPHA
+   VGT may end, change or discontinue the beta at any time. When the beta ends,
+   the right to use the beta software ends; locally stored data remains your
+   responsibility.
+
+9. LEGAL NOTICE
+   This short form is a plain-language summary of the beta terms and does not
+   constitute legal advice. It does not replace individual legal review. German
+   law applies, excluding the UN Convention on Contracts for the International
+   Sale of Goods, where applicable and legally permissible.
+
+10. CONTACT
+    VisionGaiaTechnology (VGT) · Astraea Workspace Open Core project
+    Feedback: via the channel documented in the project (repository/release
+    notes).
+
+By selecting "I accept the agreement" and continuing the installation you
+confirm that you have read and understood this Alpha Agreement.

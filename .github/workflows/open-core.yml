@@ -1,0 +1,48 @@
+name: Open Core CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Rust toolchain
+        uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec
+        with:
+          components: rustfmt, clippy
+      - name: Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: ui/package-lock.json
+      - name: Install UI dependencies
+        working-directory: ui
+        run: npm ci
+      - name: UI static scan, tests, typecheck and production build
+        working-directory: ui
+        run: npm run verify
+      - name: Rust workspace tests
+        run: cargo test --workspace --all-targets
+      - name: Install dependency and supply-chain tools
+        uses: taiki-e/install-action@8cca0918f8471c33515202b73f56ab27f2bed283
+        with:
+          tool: cargo-deny,cargo-audit
+      - name: Dependency and advisory gate
+        run: |
+          cargo deny check
+          cargo audit
+          cd ui
+          npm audit --omit=dev --audit-level=high
+

@@ -1,0 +1,429 @@
+/* Astraea Notes accessibility: visible focus and OS forced-colors across editor, sidebars and modals. */
+[data-vgt-notes-root="true"] :focus-visible {
+  outline: 2px solid var(--vgt-focus, #55bded) !important;
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  [data-vgt-notes-root="true"],
+  [data-vgt-notes-root="true"] * {
+    forced-color-adjust: auto;
+  }
+  [data-vgt-notes-root="true"] button,
+  [data-vgt-notes-root="true"] input,
+  [data-vgt-notes-root="true"] select,
+  [data-vgt-notes-root="true"] textarea,
+  [data-vgt-notes-root="true"] [role="button"] {
+    border: 1px solid ButtonText;
+  }
+  [data-vgt-notes-root="true"] :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+
+/* Astraea PDF Studio accessibility: visible focus plus OS forced-colors across structured and native views. */
+[data-vgt-pdf-root="true"] :focus-visible {
+  outline: 2px solid var(--vgt-focus, #55bded) !important;
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  [data-vgt-pdf-root="true"],
+  [data-vgt-pdf-root="true"] * {
+    forced-color-adjust: auto;
+  }
+  [data-vgt-pdf-root="true"] button,
+  [data-vgt-pdf-root="true"] input,
+  [data-vgt-pdf-root="true"] select,
+  [data-vgt-pdf-root="true"] textarea,
+  [data-vgt-pdf-root="true"] [role="button"] {
+    border: 1px solid ButtonText;
+  }
+  [data-vgt-pdf-root="true"] :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+/* Astraea Tasks / Work Management accessibility: visible focus and OS forced-colors. */
+[data-vgt-tasks-root="true"] :focus-visible {
+  outline: 2px solid var(--vgt-focus, #55bded) !important;
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  [data-vgt-tasks-root="true"],
+  [data-vgt-tasks-root="true"] * {
+    forced-color-adjust: auto;
+  }
+  [data-vgt-tasks-root="true"] button,
+  [data-vgt-tasks-root="true"] input,
+  [data-vgt-tasks-root="true"] select,
+  [data-vgt-tasks-root="true"] textarea,
+  [data-vgt-tasks-root="true"] [role="button"] {
+    border: 1px solid ButtonText;
+  }
+  [data-vgt-tasks-root="true"] :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+/* Astraea Planner accessibility: Planner-specific focus and forced-colors while nested in Work Management. */
+[data-vgt-planner-root="true"] :focus-visible {
+  outline: 2px solid var(--vgt-focus, #818cf8) !important;
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  [data-vgt-planner-root="true"],
+  [data-vgt-planner-root="true"] * {
+    forced-color-adjust: auto;
+  }
+  [data-vgt-planner-root="true"] button,
+  [data-vgt-planner-root="true"] input,
+  [data-vgt-planner-root="true"] select,
+  [data-vgt-planner-root="true"] textarea,
+  [data-vgt-planner-root="true"] [role="button"] {
+    border: 1px solid ButtonText;
+  }
+  [data-vgt-planner-root="true"] :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+
+/* Astraea Projects accessibility: keyboard focus and forced-colors for dense scheduling surfaces. */
+[data-vgt-projects-root="true"] :focus-visible,
+[data-project-gantt-editor="true"] :focus-visible {
+  outline: 2px solid var(--vgt-focus, #34d399) !important;
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  [data-vgt-projects-root="true"],
+  [data-vgt-projects-root="true"] *,
+  [data-project-gantt-editor="true"],
+  [data-project-gantt-editor="true"] * {
+    forced-color-adjust: auto;
+  }
+  [data-vgt-projects-root="true"] button,
+  [data-vgt-projects-root="true"] input,
+  [data-vgt-projects-root="true"] select,
+  [data-vgt-projects-root="true"] textarea,
+  [data-vgt-projects-root="true"] [role="button"],
+  [data-project-gantt-editor="true"] [role="button"] {
+    border: 1px solid ButtonText;
+  }
+  [data-vgt-projects-root="true"] :focus-visible,
+  [data-project-gantt-editor="true"] :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+/* Astraea Whiteboard accessibility: visible focus, scalable controls and OS forced-colors. */
+[data-vgt-whiteboard-root="true"] :focus-visible {
+  outline: 2px solid var(--vgt-focus, currentColor);
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-whiteboard-root="true"] button,
+  [data-vgt-whiteboard-root="true"] input,
+  [data-vgt-whiteboard-root="true"] select,
+  [data-vgt-whiteboard-root="true"] textarea,
+  [data-vgt-whiteboard-root="true"] [role="application"],
+  [role="dialog"][aria-labelledby="whiteboard-interop-title"] {
+    forced-color-adjust: auto;
+    border-color: CanvasText !important;
+  }
+  [data-vgt-whiteboard-root="true"] :focus-visible,
+  [role="dialog"][aria-labelledby="whiteboard-interop-title"] :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+
+/* Astraea Draw accessibility: dedicated keyboard focus and OS forced-colors. */
+[data-vgt-draw-root="true"] :focus-visible {
+  outline: 2px solid var(--vgt-focus, currentColor);
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  [data-vgt-draw-root="true"],
+  [data-vgt-draw-root="true"] button,
+  [data-vgt-draw-root="true"] input,
+  [data-vgt-draw-root="true"] select,
+  [data-vgt-draw-root="true"] [role="toolbar"] {
+    forced-color-adjust: auto;
+    border-color: CanvasText !important;
+  }
+  [data-vgt-draw-root="true"] :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+/* Astraea Forms accessibility: visible focus, scalable controls and OS forced-colors. */
+[data-vgt-forms-root="true"] :focus-visible {
+  outline: 2px solid var(--vgt-focus, currentColor);
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  [data-vgt-forms-root="true"],
+  [data-vgt-forms-root="true"] button,
+  [data-vgt-forms-root="true"] input,
+  [data-vgt-forms-root="true"] select,
+  [data-vgt-forms-root="true"] textarea,
+  [data-vgt-forms-root="true"] fieldset,
+  [role="dialog"][aria-labelledby="forms-interop-title"] {
+    forced-color-adjust: auto;
+    border-color: CanvasText !important;
+  }
+  [data-vgt-forms-root="true"] :focus-visible,
+  [role="dialog"][aria-labelledby="forms-interop-title"] :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+/* Astraea Database accessibility: visible keyboard focus, scalable controls and OS forced-colors. */
+:where([data-vgt-database-root='true']) :where(button,input,select,textarea,[tabindex]):focus-visible {
+  outline: 2px solid var(--vgt-focus, currentColor);
+  outline-offset: 2px;
+}
+:where([data-vgt-database-root='true']) :where(button,input,select,textarea) {
+  min-height: 1.75rem;
+}
+@media (forced-colors: active) {
+  :where([data-vgt-database-root='true']) :where(button,input,select,textarea,table,th,td,[role='dialog'],[role='alert']) {
+    border-color: CanvasText !important;
+    forced-color-adjust: auto;
+  }
+  :where([data-vgt-database-root='true']) :where(button,input,select,textarea,[tabindex]):focus-visible {
+    outline: 2px solid Highlight !important;
+  }
+}
+
+/* Astraea Vault accessibility: visible focus, scalable controls and OS forced-colors. */
+:where([data-vgt-vault-root='true']) :where(button,input,select,textarea,[tabindex]):focus-visible {
+  outline: 2px solid var(--vgt-focus, currentColor);
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  [data-vgt-vault-root='true'] {
+    forced-color-adjust: auto;
+  }
+  :where([data-vgt-vault-root='true']) :where(button,input,select,textarea,[role='dialog'],[role='region']) {
+    border-color: ButtonText !important;
+  }
+  :where([data-vgt-vault-root='true']) :where(button,input,select,textarea,[tabindex]):focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+
+/* Astraea Spaces accessibility contract: scalable focus + forced-colors visibility. */
+:where([data-vgt-spaces-root='true']) :where(button,input,select,textarea,[tabindex]):focus-visible {
+  outline: 2px solid var(--vgt-focus, currentColor);
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  :where([data-vgt-spaces-root='true']) :where(button,input,select,textarea,table,th,td,[role='dialog'],[role='region']) {
+    border-color: ButtonText !important;
+  }
+  :where([data-vgt-spaces-root='true']) :where(button,input,select,textarea,[tabindex]):focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+/* Astraea GaiaCom accessibility: explicit keyboard focus, forced-colors and reduced-motion contract. */
+:where([data-vgt-gaiacom-root='true']) :where(button,input,select,textarea,[tabindex]):focus-visible {
+  outline: 2px solid var(--vgt-focus, currentColor);
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  [data-vgt-gaiacom-root='true'] {
+    forced-color-adjust: auto;
+  }
+  :where([data-vgt-gaiacom-root='true']) :where(button,input,select,textarea,table,th,td,[role='dialog'],[role='region']) {
+    border-color: ButtonText !important;
+  }
+  :where([data-vgt-gaiacom-root='true']) :where(button,input,select,textarea,[tabindex]):focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-vgt-gaiacom-root='true'] *,
+  [data-vgt-gaiacom-root='true'] *::before,
+  [data-vgt-gaiacom-root='true'] *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Shared Workspace shell accessibility contract. VGT chrome remains dark-first while honoring OS/user accessibility. */
+[data-astraea-shell-root="true"] :focus-visible {
+  outline: 2px solid var(--vgt-focus, #9a78ff) !important;
+  outline-offset: 2px;
+}
+.astraea-reduced-motion [data-astraea-shell-root="true"] *,
+.astraea-reduced-motion [data-astraea-shell-root="true"] *::before,
+.astraea-reduced-motion [data-astraea-shell-root="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+.astraea-high-contrast [data-astraea-shell-root="true"] :where(button, a[href], input, select, textarea, [role="button"], [role="tab"], [role="menuitem"]):not(main[data-content-color-policy="content-owned"] *) {
+  border-color: var(--as-border-strong) !important;
+}
+.astraea-high-contrast [data-astraea-shell-root="true"] :where(button, a[href], input, select, textarea, [role="button"], [role="tab"], [role="menuitem"]):focus-visible {
+  outline-width: 3px !important;
+  outline-offset: 3px !important;
+  box-shadow: none !important;
+}
+@media (forced-colors: active) {
+  [data-astraea-shell-root="true"],
+  [data-astraea-shell-root="true"] * {
+    forced-color-adjust: auto;
+  }
+  [data-astraea-shell-root="true"] button,
+  [data-astraea-shell-root="true"] input,
+  [data-astraea-shell-root="true"] select,
+  [data-astraea-shell-root="true"] textarea,
+  [data-astraea-shell-root="true"] [role="button"] {
+    border: 1px solid ButtonText;
+  }
+  [data-astraea-shell-root="true"] :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+/* VGT Top Secret: generic browser print/spool paths are fail-closed. The user must explicitly
+   downgrade/reseal before producing plaintext print output. */
+@media print {
+  body[data-vgt-top-secret-print-blocked="true"] * { visibility: hidden !important; }
+  body[data-vgt-top-secret-print-blocked="true"]::before {
+    visibility: visible !important;
+    display: block;
+    content: "VGT Top Secret printing disabled. Explicitly downgrade and reseal the document before plaintext print/export.";
+    padding: 24pt;
+    font: 12pt system-ui, sans-serif;
+  }
+}
+
+/* Platform/Core Section 17: global accessibility contract. */
+.astraea-skip-link {
+  position: fixed;
+  inset-inline-start: 0.75rem;
+  top: 0.5rem;
+  z-index: 50;
+  transform: translateY(-180%);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: Canvas;
+  color: CanvasText;
+  border: 2px solid currentColor;
+}
+.astraea-skip-link:focus { transform: translateY(0); }
+[data-astraea-shell-root="true"] { text-align: start; }
+[data-astraea-shell-root="true"] :where(button, a[href], input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--vgt-focus, currentColor) !important;
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-astraea-shell-root="true"] *,
+  [data-astraea-shell-root="true"] *::before,
+  [data-astraea-shell-root="true"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (forced-colors: active) {
+  [data-astraea-shell-root="true"] :where(button, a, input, select, textarea, [role="button"], [role="dialog"], [role="status"], [role="alert"]) {
+    forced-color-adjust: auto;
+    border-color: CanvasText !important;
+  }
+}
+
+/* Astraea Publish accessibility: keyboard focus, OS high contrast and reduced motion. */
+[data-vgt-publish-root="true"] :where(button,input,select,textarea,[contenteditable="true"],[tabindex]):focus-visible {
+  outline: 2px solid var(--vgt-focus, currentColor) !important;
+  outline-offset: 2px;
+}
+[data-vgt-publish-root="true"] { text-align: start; }
+@media (forced-colors: active) {
+  [data-vgt-publish-root="true"],
+  [data-vgt-publish-root="true"] * { forced-color-adjust: auto; }
+  [data-vgt-publish-root="true"] :where(button,input,select,textarea,[role="group"],[role="region"]) {
+    border-color: CanvasText !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-vgt-publish-root="true"] *,
+  [data-vgt-publish-root="true"] *::before,
+  [data-vgt-publish-root="true"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Astraea Automate accessibility: focus, forced colors, reduced motion. */
+[data-vgt-automate-root="true"] :where(button,input,select,textarea,[role="button"],[tabindex]):focus-visible {
+  outline: 2px solid var(--vgt-focus, currentColor) !important;
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  [data-vgt-automate-root="true"], [data-vgt-automate-root="true"] * { forced-color-adjust: auto; }
+  [data-vgt-automate-root="true"] :where(button,input,select,textarea,[role="button"],[role="application"]) { border-color: CanvasText !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-vgt-automate-root="true"] *, [data-vgt-automate-root="true"] *::before, [data-vgt-automate-root="true"] *::after {
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important;
+  }
+}
+
+/* Astraea Search accessibility contract */
+[data-vgt-search-hub="true"] :focus-visible { outline: 2px solid var(--vgt-focus, currentColor); outline-offset: 2px; }
+@media (forced-colors: active) {
+  [data-vgt-search-hub="true"] { forced-color-adjust: auto; border: 1px solid CanvasText !important; background: Canvas !important; color: CanvasText !important; }
+  [data-vgt-search-hub="true"] button, [data-vgt-search-hub="true"] select { border: 1px solid ButtonText !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-vgt-search-hub="true"], [data-vgt-search-hub="true"] * { scroll-behavior: auto !important; transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+}
+
+/* Astraea Admin & Policy accessibility */
+.vgt-admin-policy button:focus-visible,.vgt-admin-policy select:focus-visible{outline:2px solid currentColor;outline-offset:2px}.vgt-admin-policy button{border:1px solid rgba(255,255,255,.14);border-radius:.5rem;padding:.4rem .65rem}.vgt-admin-policy .card{border:1px solid rgba(255,255,255,.1);border-radius:.75rem;padding:.75rem}@media (forced-colors: active){.vgt-admin-policy button,.vgt-admin-policy .card{forced-color-adjust:auto;border-color:CanvasText}}@media (prefers-reduced-motion: reduce){.vgt-admin-policy *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Workspace Shell/Home accessibility, touch targets and content-color ownership. */
+[data-astraea-shell-root="true"] :where(button,a,input,select,textarea,[role="tab"],[role="option"]):focus-visible {
+  outline: 2px solid var(--vgt-focus, currentColor) !important;
+  outline-offset: 2px;
+}
+[data-content-color-policy="content-owned"] { color-scheme: normal; }
+@media (pointer: coarse) {
+  [data-astraea-shell-root="true"] :where(button,[role="tab"],[role="option"]) { min-height: 40px; min-width: 40px; }
+  [data-astraea-shell-root="true"] { touch-action: manipulation; }
+}
+@media (forced-colors: active) {
+  [data-astraea-shell-root="true"] { forced-color-adjust: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-astraea-shell-root="true"] *, [data-astraea-shell-root="true"] *::before, [data-astraea-shell-root="true"] *::after {
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important;
+  }
+}
+
+

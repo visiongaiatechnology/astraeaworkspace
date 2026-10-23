@@ -1,0 +1,26 @@
+img.astraea-workspace-mark {
+  filter: drop-shadow(0 0 1px rgba(248, 250, 252, 0.42));
+}
+
+html[data-astraea-scheme='light'] img.astraea-workspace-mark {
+  filter: drop-shadow(0 0 1px rgba(15, 23, 42, 0.42));
+}
+
+img.astraea-workspace-mark.astraea-app-icon--glow {
+  filter:
+    drop-shadow(0 0 1px rgba(248, 250, 252, 0.42))
+    drop-shadow(0 4px 10px rgba(76, 29, 149, 0.22));
+}
+
+html[data-astraea-scheme='light'] img.astraea-workspace-mark.astraea-app-icon--glow {
+  filter:
+    drop-shadow(0 0 1px rgba(15, 23, 42, 0.42))
+    drop-shadow(0 4px 10px rgba(76, 29, 149, 0.22));
+}
+
+@media (forced-colors: active) {
+  img.astraea-workspace-mark,
+  img.astraea-workspace-mark.astraea-app-icon--glow {
+    filter: none;
+  }
+}

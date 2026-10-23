@@ -1,0 +1,49 @@
+/*
+ * STATUS: PLATIN — Astraea Writer rich-text surface (ASTRAEA WRITER 50 V2 · M1)
+ *
+ * Only what Tailwind cannot express is here:
+ *
+ * 1. the localized, **non-persisted** placeholder of an empty paragraph. It is a
+ *    `::before` pseudo element, so it is invisible to `Range.toString()`, to the
+ *    DOM↔model adapter and to the PDF export — it can never leak into the saved
+ *    document text (WR-024).
+ * 2. the quiet active-paragraph marker of the writing surface. No card, no ring
+ *    around a block: a paragraph is marked by a 2px gutter tick that is out of the
+ *    text flow (WR-002).
+ */
+
+[data-writer-rich-surface] [data-writer-surface-paragraph][data-writer-paragraph-empty="true"]::before {
+  content: attr(data-writer-placeholder);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  color: color-mix(in srgb, currentColor 34%, transparent);
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+}
+
+/* A hint is a hint: as soon as the document has the caret, it is gone. */
+[data-writer-rich-surface]:focus-within [data-writer-surface-paragraph]::before {
+  content: none;
+}
+
+/* Read-only documents never advertise writing. */
+[data-writer-rich-surface][aria-readonly='true'] [data-writer-surface-paragraph]::before {
+  content: none;
+}
+
+[data-writer-rich-surface] [data-writer-surface-paragraph] {
+  /* The caret must be as visible as in a plain text editor. */
+  caret-color: currentColor;
+}
+
+[data-writer-rich-surface] [data-writer-surface-paragraph][data-writer-paragraph-active='true'] {
+  box-shadow: inset 2px 0 0 0 color-mix(in srgb, currentColor 22%, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-writer-rich-surface] [data-writer-surface-paragraph] {
+    transition: box-shadow 120ms ease-out;
+  }
+}

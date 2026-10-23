@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="chassis" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d283e"/>
+      <stop offset="50%" stop-color="#181524"/>
+      <stop offset="100%" stop-color="#0f0c18"/>
+    </linearGradient>
+    <linearGradient id="inner-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#150f29"/>
+      <stop offset="100%" stop-color="#07050d"/>
+    </linearGradient>
+    <linearGradient id="pri-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="sec-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a5b4fc"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    <linearGradient id="border-rim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#645b85"/>
+      <stop offset="50%" stop-color="#3b3353"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    
+    <!-- Glow Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="high-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12" result="blur1" />
+      <feGaussianBlur stdDeviation="4" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a5b4fc"/>
+    </marker>
+  </defs>
+
+  <!-- Outer Shadow & Titanium Squircle Bezel -->
+  <rect x="28" y="28" width="456" height="456" rx="116" ry="116" fill="url(#chassis)" stroke="url(#border-rim)" stroke-width="8"/>
+  
+  <!-- LED Accent Piping on Frame -->
+  <path d="M 144 32 L 368 32" stroke="#818cf8" stroke-width="4" stroke-linecap="round" opacity="0.85" filter="url(#glow)"/>
+  <path d="M 144 480 L 368 480" stroke="#818cf8" stroke-width="4" stroke-linecap="round" opacity="0.85" filter="url(#glow)"/>
+  <path d="M 32 144 L 32 368" stroke="#4f46e5" stroke-width="4" stroke-linecap="round" opacity="0.85" filter="url(#glow)"/>
+  <path d="M 480 144 L 480 368" stroke="#4f46e5" stroke-width="4" stroke-linecap="round" opacity="0.85" filter="url(#glow)"/>
+
+  <!-- Inner Dark Glassmorphic Portal -->
+  <rect x="52" y="52" width="408" height="408" rx="92" ry="92" fill="url(#inner-glass)" stroke="#231d36" stroke-width="3"/>
+  
+  <!-- Subtle Cybernetic Ambient Background Circle -->
+  <circle cx="256" cy="256" r="170" fill="none" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.25"/>
+  <circle cx="256" cy="256" r="195" fill="none" stroke="#4f46e5" stroke-width="1" opacity="0.15"/>
+
+  <!-- Central Dynamic Application Artwork -->
+  
+            <!-- 3 Kanban Columns -->
+            <rect x="136" y="146" width="68" height="220" rx="8" fill="#131433" stroke="url(#pri-grad)" stroke-width="4"/>
+            <rect x="222" y="146" width="68" height="220" rx="8" fill="#131433" stroke="url(#pri-grad)" stroke-width="4"/>
+            <rect x="308" y="146" width="68" height="220" rx="8" fill="#131433" stroke="url(#pri-grad)" stroke-width="4"/>
+            <!-- Cards in Column 1 -->
+            <rect x="144" y="166" width="52" height="34" rx="4" fill="#312e81"/>
+            <rect x="144" y="210" width="52" height="48" rx="4" fill="#312e81"/>
+            <!-- Cards in Column 2 (Active/Glow) -->
+            <rect x="230" y="166" width="52" height="58" rx="4" fill="#4f46e5" stroke="#ffffff" stroke-width="2" filter="url(#glow)"/>
+            <rect x="230" y="234" width="52" height="40" rx="4" fill="#312e81"/>
+            <!-- Cards in Column 3 (Done) -->
+            <rect x="316" y="166" width="52" height="38" rx="4" fill="#312e81"/>
+            <rect x="316" y="214" width="52" height="38" rx="4" fill="#312e81"/>
+            <!-- Flow Arrow between Lane 1 and 2 -->
+            <path d="M196 183 Q215 175 228 185" fill="none" stroke="#a5b4fc" stroke-width="3" marker-end="url(#arrow)"/>
+            <ellipse cx="256" cy="256" rx="165" ry="65" transform="rotate(-25 256 256)" fill="none" stroke="url(#pri-grad)" stroke-width="3.5" opacity="0.8"/>
+        
+
+  <!-- App Monogram/Badge -->
+  <g opacity="0.4">
+    <circle cx="78" cy="78" r="8" fill="#818cf8"/>
+    <circle cx="434" cy="78" r="8" fill="#818cf8"/>
+    <circle cx="78" cy="434" r="8" fill="#818cf8"/>
+    <circle cx="434" cy="434" r="8" fill="#818cf8"/>
+  </g>
+</svg>

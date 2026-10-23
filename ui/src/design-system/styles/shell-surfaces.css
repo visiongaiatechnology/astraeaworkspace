@@ -1,0 +1,120 @@
+/* Workspace shell surfaces: theme depth with a restrained metallic edge. */
+:root[data-astraea-scheme="light"] {
+  --vgt-shadow-raised: 0 2px 8px rgb(15 23 42 / .08);
+  --vgt-shadow-overlay: 0 18px 48px rgb(15 23 42 / .16);
+}
+[data-astraea-shell-root="true"] :is(.glass-panel, .glass-dropdown) {
+  border-color: var(--glass-border, var(--vgt-neutral-border, rgba(148, 163, 184, .18)));
+  box-shadow: inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / .08)), 0 12px 32px var(--vgt-metal-shadow, rgb(0 0 0 / .22));
+}
+[data-astraea-shell-root="true"] .glass-dropdown {
+  box-shadow: var(--vgt-shadow-overlay, 0 18px 48px rgb(0 0 0 / .28)), inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / .08));
+}
+[data-astraea-shell-root="true"] .glass-pill {
+  border-color: var(--vgt-metal-edge, var(--glass-border, rgba(124, 58, 237, .22)));
+  box-shadow: inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / .08));
+}
+[data-astraea-shell-root="true"] .glass-pill:hover {
+  border-color: var(--vgt-metal-edge, var(--vgt-control-border-hover));
+  box-shadow: inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / .12)), 0 2px 9px var(--vgt-metal-shadow, rgb(0 0 0 / .14));
+  filter: none;
+}
+
+/* Selected document tabs get a stable palette surface and fine metallic edge. */
+[data-astraea-shell-root="true"] [role="tablist"] [role="presentation"] {
+  border-color: var(--vgt-control-border);
+  box-shadow: inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / .06));
+}
+[data-astraea-shell-root="true"] [role="tablist"] [role="tab"] {
+  color: var(--vgt-control-muted);
+  border-radius: var(--vgt-radius-control, 6px);
+}
+[data-astraea-shell-root="true"] [role="tablist"] [role="tab"][aria-selected="true"] {
+  color: var(--vgt-selection-border, var(--vgt-accent-strong, #8b5cf6));
+}
+[data-astraea-shell-root="true"] [role="tablist"] [role="tab"][aria-selected="false"]:hover {
+  color: var(--vgt-control-text);
+  background-color: var(--vgt-control-hover);
+}
+@supports selector([role="presentation"]:has(> [role="tab"][aria-selected="true"])) {
+  [data-astraea-shell-root="true"] [role="tablist"] [role="presentation"]:has(> [role="tab"][aria-selected="true"]) {
+    background-color: color-mix(in srgb, var(--vgt-control-surface, #131724) 82%, var(--vgt-selection, rgb(139 99 255 / 18%)));
+    border-color: var(--vgt-selection-border, var(--vgt-metal-edge, var(--glass-border, rgb(124 58 237 / 24%))));
+    box-shadow: inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / .10)), 0 2px 9px var(--vgt-metal-shadow, rgb(0 0 0 / .18));
+  }
+}
+
+/* Content-owned pages keep authored colors. App toolbars, inspectors and dialogs
+   inside those pages still consume shared theme tokens. */
+[data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child) {
+  color: var(--vgt-control-text);
+  border-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child)
+  :is(input:not([type="file"]):not([type="color"]):not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  background-color: var(--vgt-control-surface);
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child)
+  :is(button, [role="button"], [role="tab"], [role="menuitem"]):is([class*="bg-slate-950"], [class*="bg-slate-900"], [class*="bg-slate-800"], [class*="bg-gray-950"], [class*="bg-gray-900"], [class*="bg-zinc-950"], [class*="bg-zinc-900"], [class*="bg-white/"]):not([style*="background-color"]):not([data-color]):not([data-swatch]) {
+  background-color: var(--vgt-control-surface);
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child)
+  :is(button, [role="button"], [role="tab"], [role="menuitem"]):is([class*="border-white/"], [class*="border-slate-"], [class*="border-gray-"], [class*="border-zinc-"]) {
+  border-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child)
+  :is(button, [role="button"], [role="tab"], [role="menuitem"]):is([class*="text-slate-50"], [class*="text-slate-100"], [class*="text-slate-200"], [class*="text-slate-300"], [class*="text-slate-400"], [class*="text-slate-500"], [class*="text-zinc-50"], [class*="text-zinc-100"], [class*="text-zinc-200"], [class*="text-zinc-300"], [class*="text-zinc-400"], [class*="text-zinc-500"]) {
+  color: var(--vgt-control-muted);
+}
+[data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child)
+  :is(button, [role="button"], [role="tab"], [role="menuitem"]):is([class*="bg-purple-500/"], [class*="bg-purple-600/"], [class*="bg-purple-800/"], [class*="bg-purple-900/"], [class*="bg-purple-950/"], [class*="bg-violet-400/"], [class*="bg-violet-500/"], [class*="bg-indigo-400/"], [class*="bg-indigo-500/"], [class*="bg-blue-500/"]) {
+  background-color: var(--vgt-accent-soft, rgba(124, 58, 237, .18));
+  border-color: var(--glass-border, rgba(124, 58, 237, .24));
+}
+[data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child)
+  :is(button, [role="button"], [role="tab"], [role="menuitem"]):is([class~="bg-purple-500"], [class~="bg-purple-600"], [class~="bg-violet-500"], [class~="bg-violet-600"], [class~="bg-violet-700"], [class~="bg-indigo-500"], [class~="bg-indigo-600"], [class~="bg-indigo-700"], [class~="bg-blue-500"], [class~="bg-blue-600"], [class~="bg-blue-700"]):not([style*="background-color"]):not([data-color]):not([data-swatch]) {
+  background-color: var(--vgt-control-primary-bg);
+  border-color: var(--vgt-control-primary-border);
+  color: var(--vgt-on-accent, #fff);
+}
+[data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child)
+  :is(button, [role="button"], [role="tab"], [role="menuitem"]):is([class*="text-emerald-"], [class*="text-green-"]) { color: var(--vgt-control-success); }
+[data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child)
+  :is(button, [role="button"], [role="tab"], [role="menuitem"]):is([class*="text-amber-"], [class*="text-yellow-"]) { color: var(--vgt-control-warning); }
+[data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child)
+  :is(button, [role="button"], [role="tab"], [role="menuitem"]):is([class*="text-red-"], [class*="text-rose-"]) { color: var(--vgt-control-danger); }
+[data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child)
+  :is(button, [role="button"], [role="tab"], [role="menuitem"]):is([class*="text-blue-"], [class*="text-sky-"]) { color: var(--vgt-control-info); }
+:root[data-astraea-scheme="light"] [data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child) :is(input, select, textarea) { color-scheme: light; }
+:root[data-astraea-scheme="dark"] [data-astraea-shell-root="true"] main[data-content-color-policy="content-owned"]
+  :where(.writer-a11y-root, [data-vgt-grid-root="true"], [data-vgt-present-root="true"], [data-vgt-pdf-root="true"], [data-vgt-draw-root="true"], [data-vgt-whiteboard-root="true"], [data-vgt-publish-root="true"])
+  :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child) :is(input, select, textarea) { color-scheme: dark; }
+

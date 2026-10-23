@@ -1,0 +1,75 @@
+/* STATUS: DIAMANT VGT SUPREME
+ *
+ * Werkzeugleisten-Dock — Ergänzung 7 §4 „Whiteboard hat keine überlappenden oder unzugänglichen
+ * Werkzeugleisten."
+ *
+ * Vorher: neun schwebende Panels an neun freien Booleans, ohne Ausschliessung. Zwei Paare trugen
+ * denselben Anker **und** dieselbe z-Zahl (`right-5 top-20 z-30` für Diagramm und Moderation,
+ * `left-5 top-20 z-30` für Vorlagen und Palette) — dort entschied allein die JSX-Reihenfolge, welches
+ * Panel sichtbar blieb. Und die Objektliste (`bottom-6 right-6 z-40`) deckte die Sichtsteuerung
+ * (`bottom-6 right-6 z-30`) zu, die ihre eigenen Schalter trägt.
+ *
+ * Nachher: **drei Bereiche**, je Bereich höchstens ein Panel (die Ausschliessung steht als reine
+ * Funktion in `state/whiteboardPanelDock.ts`). Die Bereiche sind geometrisch getrennt:
+ *
+ *   left-top      Panels links oben, unterhalb der Wurzelschicht
+ *   right-top     Panels rechts oben, unterhalb der Wurzelschicht
+ *   bottom-right  nur die Objektliste — **oberhalb** der Sichtsteuerung
+ *
+ * Der Anker `top` ist keine geratene Zahl mehr, sondern `--wb-dock-top` aus `canvas/WhiteboardCanvas.css`,
+ * abgeleitet aus Startpunkt und Obergrenze der Wurzelschicht. Die `z-*`-Zahl steht je Panel in der
+ * Wurzel (`z-30` / `z-31` / `z-32` / `z-40` / `z-45` / `z-50`) und wird von
+ * `testing/dock/whiteboardPanelDockReachability.test.ts` gegen die Dock-Tabelle geprüft.
+ */
+
+/* ── Bereich left-top ───────────────────────────────────────────────────────────────────────────────── */
+.whiteboard-dock--left-top {
+  top: var(--wb-dock-top, 176px);
+}
+
+.whiteboard-dock--left-top[data-whiteboard-dock='object-palette'] {
+  z-index: 30;
+}
+
+.whiteboard-dock--left-top[data-whiteboard-dock='templates'] {
+  z-index: 28;
+}
+
+.whiteboard-dock--left-top[data-whiteboard-dock='organization'] {
+  z-index: 26;
+}
+
+/* ── Bereich right-top ──────────────────────────────────────────────────────────────────────────────── */
+.whiteboard-dock--right-top {
+  top: var(--wb-dock-top, 176px);
+}
+
+.whiteboard-dock--right-top[data-whiteboard-dock='diagram'] {
+  z-index: 31;
+}
+
+.whiteboard-dock--right-top[data-whiteboard-dock='facilitation'] {
+  z-index: 32;
+}
+
+.whiteboard-dock--right-top[data-whiteboard-dock='live-objects'] {
+  z-index: 45;
+}
+
+.whiteboard-dock--right-top[data-whiteboard-dock='collaboration'] {
+  z-index: 50;
+}
+/* ── Bereich bottom-right ───────────────────────────────────────────────────────────────────────────── */
+/* Die Objektliste liegt über der Sichtsteuerung: ihre Unterkante liegt um `--wb-object-list-gap` über
+ * deren Oberkante. Die Sichtsteuerung bleibt damit frei — samt ihrer `aria-pressed`-Schalter. */
+.whiteboard-dock--bottom-right {
+  bottom: calc(var(--wb-viewport-controls-block-total, 68px) + var(--wb-object-list-gap, 8px));
+  z-index: 40;
+}
+
+/* ── Sichtsteuerung: begrenzt und selbst scrollend, damit sie in keiner Breite unerreichbar wird ────── */
+.whiteboard-viewport-controls {
+  max-height: var(--wb-viewport-controls-block-max, 44px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}

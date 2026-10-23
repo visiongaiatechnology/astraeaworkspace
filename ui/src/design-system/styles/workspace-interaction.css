@@ -1,0 +1,74 @@
+/* UIUX-119 context-aware cursors */
+:where(button, a[href], [role="button"]):not(:disabled):not([aria-disabled="true"]) { cursor: pointer; }
+:where(textarea, [contenteditable="true"], input:not([type]), input[type="text"], input[type="search"], input[type="email"], input[type="url"], input[type="tel"], input[type="password"], input[type="number"]) { cursor: text; }
+[draggable="true"] { cursor: grab; }
+[draggable="true"]:active { cursor: grabbing; }
+:where(button, input, select, textarea, [role="button"]):disabled, [aria-disabled="true"] { cursor: not-allowed; }
+[data-canvas-pan="true"] { cursor: all-scroll; }
+
+/* UIUX-100 — WCAG 2.2 minimum pointer target contract; coarse pointers receive full 44px touch targets. */
+[data-astraea-shell-root="true"] :where(
+  button,
+  input[type="checkbox"],
+  input[type="radio"],
+  select,
+  [role="button"],
+  [role="tab"],
+  [role="option"],
+  [role="menuitem"],
+  [role="switch"]
+) {
+  min-inline-size: 24px;
+  min-block-size: 24px;
+}
+@media (pointer: coarse) {
+  [data-astraea-shell-root="true"] :where(
+    button,
+    input[type="checkbox"],
+    input[type="radio"],
+    select,
+    [role="button"],
+    [role="tab"],
+    [role="option"],
+    [role="menuitem"],
+    [role="switch"]
+  ) {
+    min-inline-size: 44px;
+    min-block-size: 44px;
+  }
+}
+
+/* UIUX-149 — hidden windows freeze CSS animation work; rendering loops additionally honor document.hidden. */
+html[data-astraea-visibility="hidden"] *,
+html[data-astraea-visibility="hidden"] *::before,
+html[data-astraea-visibility="hidden"] *::after {
+  animation-play-state: paused !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* UIUX-115 — bounded state-driven checkbox/toggle micro-feedback (120ms). */
+@keyframes astraea-check-commit {
+  0% { transform: scale(.84); }
+  68% { transform: scale(1.07); }
+  100% { transform: scale(1); }
+}
+:where(input[type="checkbox"], input[type="radio"], [role="switch"]) {
+  transition: transform 120ms ease-out, background-color 120ms ease-out, border-color 120ms ease-out;
+}
+:where(input[type="checkbox"], input[type="radio"]):checked,
+[role="switch"][aria-checked="true"] {
+  animation: astraea-check-commit 120ms ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(input[type="checkbox"], input[type="radio"]):checked,
+  [role="switch"][aria-checked="true"] { animation: none !important; }
+}
+
+/* Keep long modal surfaces reachable at high zoom and short viewports. */
+.vgt-dialog-scroll-surface {
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+

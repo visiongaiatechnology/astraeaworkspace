@@ -1,0 +1,49 @@
+[package]
+name = "vgt-desktop"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[features]
+default = ["open-core"]
+open-core = []
+isolated-acceptance = []
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+sha2.workspace = true
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde.workspace = true
+serde_json.workspace = true
+base64 = "0.22"
+sha2.workspace = true
+vgt-container = { path = "../vgt-container" }
+vgt-crypto = { path = "../vgt-crypto" }
+vgt-formula = { path = "../vgt-formula" }
+vgt-keyvault = { path = "../vgt-keyvault" }
+vgt-top-secret = { path = "../vgt-top-secret" }
+vgt-netgate = { path = "../vgt-netgate" }
+vgt-object-model = { path = "../vgt-object-model" }
+vgt-operations = { path = "../vgt-operations" }
+vgt-syncgraph = { path = "../vgt-syncgraph" }
+vgt-sandbox = { path = "../vgt-sandbox" }
+rand.workspace = true
+uuid.workspace = true
+url = "2.5"
+hex = "0.4"
+ed25519-dalek = { version = "2.1", features = ["rand_core"] }
+vgt-plugin-runtime = { path = "../vgt-plugin-runtime" }
+vgt-diagnostics-release = { path = "../vgt-diagnostics-release" }
+vgt-search = { path = "../vgt-search" }
+vgt-automation-runtime = { path = "../vgt-automation-runtime" }
+vgt-policy = { path = "../vgt-policy" }
+vgt-theme-assets = { path = "../vgt-theme-assets" }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = ["Win32_Storage_FileSystem", "Win32_Foundation", "Win32_System_Threading", "Win32_UI_WindowsAndMessaging", "Win32_UI_Controls_Dialogs", "Win32_Security"] }
+

@@ -1,0 +1,49 @@
+ASTRAEA WORKSPACE ALPHA 0.1 — IMPORTANT NOTES BEFORE INSTALLATION
+
+Please read the following before continuing:
+
+1. TEST SOFTWARE
+   This is a beta version. Features may be defective, incomplete or not yet
+   accepted for release. Do not use the beta as the only storage for
+   irreplaceable data.
+
+2. BACKUP
+   Create a backup of your existing workspace data before installing and before
+   every update. The beta is not a substitute for backups.
+
+3. DATA LOCATION
+   Workspace data, recovery points and settings are stored locally in your user
+   profile:
+     %APPDATA%\technology.visiongaia.astraea.workspace.opencore
+     %LOCALAPPDATA%\technology.visiongaia.astraea.workspace.opencore
+   No cloud account is required. No automatic telemetry is sent to VGT; known
+   telemetry destinations are blocked by the built-in network gateway.
+
+4. UNINSTALLATION AND DATA
+   Uninstallation removes the program only by default. Workspace data is kept
+   unless you explicitly enable "Delete workspace data" during uninstallation.
+   That deletion is permanent.
+
+5. SYSTEM REQUIREMENTS
+   Windows 10 (build 17763) or later, 64-bit · Microsoft Edge WebView2 Runtime
+   (normally present on Windows 11) · Microsoft Visual C++ 2015–2022
+   Redistributable (x64). The installer checks both and shows missing components
+   together with official download sources. If runtimes are bundled in the
+   installation package they can be installed from the final page.
+
+6. FILE ASSOCIATIONS (OPTIONAL)
+   On the tasks page you may enable file associations for Astraea file types
+   (.vwc, .vdoc, .vgrid, .vpresent, .vnote). Associations are only registered
+   for existing Astraea types and are removed on uninstallation. Foreign Office
+   extensions (.docx, .xlsx, .pptx, .pdf) are never taken over.
+
+7. NO AUTOSTART
+   The installer does not create an autostart entry and does not install
+   services.
+
+8. REPORTING ISSUES
+   Please report defects with the build version, Windows version and a short
+   description. Do not send confidential real-world data.
+
+Click "Next" to continue. You have already accepted the full beta terms on the
+previous page.

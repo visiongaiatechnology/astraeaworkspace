@@ -1,0 +1,24 @@
+[package]
+name = "vgt-top-secret"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+sha2.workspace = true
+blake3.workspace = true
+rand.workspace = true
+base64 = "0.22"
+zeroize = { version = "1.8", features = ["derive"] }
+ml-dsa = { version = "0.1.1", features = ["zeroize"] }
+vgt-container = { path = "../vgt-container" }
+vgt-keyvault = { path = "../vgt-keyvault" }
+vgt-object-model = { path = "../vgt-object-model" }
+# Exact upstream provenance. Do not change without a suite/format review and new test vectors.
+vgt-infinity-core = { git = "https://github.com/visiongaiatechnology/infinity.git", rev = "55b05a697a189d0ec583cdcf340beeba1efc9130" }
+
+[dev-dependencies]
+tempfile = "3.23.0"

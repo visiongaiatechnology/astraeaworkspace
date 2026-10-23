@@ -1,0 +1,18 @@
+[package]
+name = "vgt-test-harness"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+vgt-crypto = { path = "../vgt-crypto" }
+vgt-keyvault = { path = "../vgt-keyvault" }
+vgt-object-model = { path = "../vgt-object-model" }
+vgt-container = { path = "../vgt-container" }
+vgt-operations = { path = "../vgt-operations" }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]

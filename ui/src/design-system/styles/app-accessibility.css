@@ -1,0 +1,54 @@
+/* Astraea Writer accessibility: honor OS high-contrast/forced-colors without hiding controls. */
+@media (forced-colors: active) {
+  .writer-a11y-root,
+  .writer-a11y-root * {
+    forced-color-adjust: auto;
+  }
+  .writer-a11y-root button,
+  .writer-a11y-root input,
+  .writer-a11y-root select,
+  .writer-a11y-root textarea,
+  [data-writer-modal-host="true"] button,
+  [data-writer-modal-host="true"] input,
+  [data-writer-modal-host="true"] select,
+  [data-writer-modal-host="true"] textarea {
+    border: 1px solid ButtonText;
+  }
+  .writer-a11y-root :focus-visible,
+  [data-writer-modal-host="true"] :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+/* Astraea Grid accessibility: preserve controls, focus and cell boundaries in OS forced-colors mode. */
+@media (forced-colors: active) {
+  [data-vgt-grid-root="true"],
+  [data-vgt-grid-root="true"] * {
+    forced-color-adjust: auto;
+  }
+  [data-vgt-grid-root="true"] [role="grid"],
+  [data-vgt-grid-root="true"] [role="gridcell"],
+  [data-vgt-grid-root="true"] [role="columnheader"],
+  [data-vgt-grid-root="true"] [role="rowheader"] {
+    border-color: CanvasText !important;
+  }
+  [data-vgt-grid-root="true"] button,
+  [data-vgt-grid-root="true"] input,
+  [data-vgt-grid-root="true"] select,
+  [data-vgt-grid-root="true"] textarea {
+    border: 1px solid ButtonText;
+  }
+  [data-vgt-grid-root="true"] :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+
+/* Astraea Present accessibility: preserve controls, focus and object boundaries in OS forced-colors mode. */
+[data-vgt-present-root="true"] :focus-visible {
+  outline: 2px solid var(--vgt-focus, #55bded) !important;
+  outline-offset: 2px;
+}
+

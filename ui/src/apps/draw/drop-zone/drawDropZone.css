@@ -1,0 +1,166 @@
+/* STATUS: PLATIN — Integration & Release, Paket 14: die sichtbare Form der Draw-Ablagezone.
+
+   Warum diese Datei existiert: die annehmende Fläche von Draw ist eine **Leinwand** (SVG-Anwendung). Eine Zone,
+   die **nur** aus Pixeln besteht, ist für einen Screenreader nicht vorhanden — deshalb ist die Zone echtes DOM
+   (`DrawDropZoneOverlay.tsx`) und braucht eine Form, die **ohne Farbton** lesbar ist.
+
+   Die **zweite Achse ohne Farbe** ist die Rahmenform (`dashed` / `solid` / `double`); die erste ist das Zeichen,
+   die dritte sind die Worte. Eine Farbe ist **nie** die einzige Aussage.
+
+   `touch-action` steht hier **absichtlich nicht**: die Entscheidung lebt im reinen Modul
+   (`drawDropZoneTouch.ts`, `manipulation`, nie `none`) und wird als Inline-Stil der Schicht gesetzt — *zwei
+   Definitionen derselben Entscheidung wären eine zu viel.*
+
+   Und die Schicht fängt **keinen** Zug: `pointer-events: none` liegt über der Zeichenfläche, nur die Knöpfe sind
+   bedienbar. *Eine Anzeige, die die Ablage abfängt, nimmt genau die Ablage weg, die sie ankündigt — und auf einer
+   Zeichenfläche zusätzlich das Zeichnen.* */
+.draw-drop-zone-layer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  padding-inline: 1rem;
+  padding-block-end: 0.5rem;
+  pointer-events: none;
+}
+
+.draw-drop-zone {
+  width: min(32rem, 100%);
+  padding: 0.75rem 0.85rem;
+  border: 2px solid var(--vgt-control-border, var(--vgt-neutral-border, rgb(148 163 184 / 0.32)));
+  border-radius: 0.9rem;
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+  background: color-mix(in srgb, var(--vgt-control-surface, #191d2c) 96%, transparent);
+  box-shadow:
+    inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / 0.09)),
+    0 12px 30px var(--vgt-metal-shadow, rgb(0 0 0 / 0.24));
+  font-size: 0.6875rem;
+  line-height: 1.35;
+  pointer-events: none;
+}
+
+/* Die zweite Achse ohne Farbe: die **Rahmenform** kommt aus der View-Phase. */
+.draw-drop-zone[data-vgt-draw-drop-zone-pattern="dashed"] {
+  border-style: dashed;
+  border-color: var(--vgt-accent-strong, #38bdf8);
+}
+
+.draw-drop-zone[data-vgt-draw-drop-zone-pattern="solid"] {
+  border-style: solid;
+  border-color: var(--vgt-accent-strong, #38bdf8);
+}
+
+.draw-drop-zone[data-vgt-draw-drop-zone-pattern="double"] {
+  border-style: double;
+  border-width: 4px;
+  border-color: var(--vgt-accent-strong, #38bdf8);
+}
+
+.draw-drop-zone__headline {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.draw-drop-zone__glyph {
+  font-family: var(--vgt-font-mono, ui-monospace, monospace);
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--vgt-accent-strong, #38bdf8);
+}
+
+.draw-drop-zone__title {
+  font-weight: 600;
+}
+
+.draw-drop-zone__surface,
+.draw-drop-zone__verdict,
+.draw-drop-zone__preview,
+.draw-drop-zone__reason,
+.draw-drop-zone__route,
+.draw-drop-zone__keys,
+.draw-drop-zone__input {
+  margin: 0.4rem 0 0;
+  color: var(--vgt-control-muted, var(--vgt-text-secondary, #cbd5e1));
+}
+
+.draw-drop-zone__preview,
+.draw-drop-zone__route {
+  padding: 0.25rem 0.4rem;
+  border: 1px solid var(--vgt-control-border, rgb(148 163 184 / 0.32));
+  border-radius: 0.4rem;
+  font-family: var(--vgt-font-mono, ui-monospace, monospace);
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+}
+
+.draw-drop-zone__preview {
+  background: color-mix(in srgb, var(--vgt-accent-soft, rgb(56 189 248 / 0.12)) 60%, transparent);
+}
+
+.draw-drop-zone__choices,
+.draw-drop-zone__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.draw-drop-zone__button {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.375rem 0.55rem;
+  border: 1px solid var(--vgt-control-border, rgb(148 163 184 / 0.32));
+  border-radius: 0.55rem;
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+  background: transparent;
+  font: inherit;
+  font-size: 0.6875rem;
+  cursor: pointer;
+  /* Nur die Knöpfe sind bedienbar — die Anzeige selbst fängt keinen Zug. */
+  pointer-events: auto;
+  transition: color 130ms ease, background-color 130ms ease, border-color 130ms ease;
+}
+
+.draw-drop-zone__button:hover,
+.draw-drop-zone__button:focus-visible {
+  border-color: var(--vgt-control-border-hover, var(--vgt-control-border, rgb(148 163 184 / 0.32)));
+  background: var(--vgt-control-hover, #252a3b);
+}
+
+.draw-drop-zone__button:focus-visible {
+  outline: 2px solid var(--vgt-focus, var(--vgt-accent-strong, #38bdf8));
+  outline-offset: 1px;
+}
+
+.draw-drop-zone__key {
+  font-family: var(--vgt-font-mono, ui-monospace, monospace);
+  color: var(--vgt-control-muted, var(--vgt-text-secondary, #cbd5e1));
+}
+
+@media (forced-colors: active) {
+  .draw-drop-zone {
+    border-color: Highlight;
+  }
+
+  .draw-drop-zone__glyph {
+    color: HighlightText;
+  }
+
+  .draw-drop-zone__button:focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw-drop-zone__button {
+    transition-duration: 0.01ms;
+  }
+}

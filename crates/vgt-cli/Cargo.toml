@@ -1,0 +1,29 @@
+[package]
+name = "vgt-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "vgt-cli"
+path = "src/main.rs"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+chrono = { workspace = true }
+vgt-crypto = { path = "../vgt-crypto" }
+vgt-keyvault = { path = "../vgt-keyvault" }
+vgt-object-model = { path = "../vgt-object-model" }
+vgt-container = { path = "../vgt-container" }
+vgt-formula = { path = "../vgt-formula" }
+vgt-netgate = { path = "../vgt-netgate" }
+vgt-core = { path = "../vgt-core" }
+vgt-operations = { path = "../vgt-operations" }
+vgt-syncgraph = { path = "../vgt-syncgraph" }
+vgt-sandbox = { path = "../vgt-sandbox" }
+vgt-test-harness = { path = "../vgt-test-harness" }
+vgt-search = { path = "../vgt-search" }
+vgt-policy = { path = "../vgt-policy" }

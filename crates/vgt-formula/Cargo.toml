@@ -1,0 +1,16 @@
+[package]
+name = "vgt-formula"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+vgt-object-model = { path = "../vgt-object-model" }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+chrono.workspace = true
+rand.workspace = true
+
+[dev-dependencies]

@@ -1,0 +1,42 @@
+.vgt-animated-accordion__trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.vgt-animated-accordion__icon {
+  flex: none;
+  transition: transform 200ms ease;
+}
+
+.vgt-animated-accordion[data-expanded="true"] .vgt-animated-accordion__icon {
+  transform: rotate(180deg);
+}
+
+.vgt-animated-accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 200ms ease;
+}
+
+.vgt-animated-accordion[data-expanded="true"] .vgt-animated-accordion__panel {
+  grid-template-rows: 1fr;
+}
+
+.vgt-animated-accordion__panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vgt-animated-accordion__panel,
+  .vgt-animated-accordion__icon {
+    transition: none;
+  }
+}
+
+
+

@@ -1,0 +1,189 @@
+/* All scrollbars, including horizontal tab and ribbon rails, read live palette tokens. */
+.vgt-horizontal-scroll {
+  scrollbar-color: var(--as-scroll-thumb, var(--vgt-scrollbar-thumb, #2b3040)) var(--as-scroll-track, var(--vgt-scrollbar-track, #080a11));
+}
+.vgt-horizontal-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--as-scroll-thumb-hover, var(--vgt-scrollbar-thumb-hover, #454c60)), var(--as-scroll-thumb, var(--vgt-scrollbar-thumb, #2b3040)));
+  border-color: var(--as-scroll-edge, var(--vgt-metal-edge, #755bd6));
+}
+
+[data-astraea-shell-root="true"] :not(main[data-content-color-policy="content-owned"] *)::selection {
+  background: var(--vgt-selection-border, var(--vgt-accent-solid, #8b63ff));
+  color: var(--vgt-selection-text, var(--vgt-control-text, #f5f7ff));
+}
+
+@media (forced-colors: active) {
+  [data-astraea-shell-root="true"] :is(button, input, select, textarea, [role="button"], [role="tab"], [role="menuitem"]) {
+    forced-color-adjust: auto;
+  }
+}
+
+/* Theme-aware module shells. Large work areas stay close to the selected
+   surface palette; Sovereign Gold keeps those planes graphite and uses gold
+   only for the live accent and the quiet metallic edge. */
+:root {
+  --vgt-module-shell-surface: var(--as-bg-environment, var(--vgt-surface-z0, #07080d));
+  --vgt-module-panel-surface: var(--as-bg-workbench, var(--vgt-surface-z1, #0b0d14));
+  --vgt-module-panel-raised: var(--as-bg-floating, var(--vgt-surface-z3, #090b12));
+  --vgt-module-control-surface: var(--as-bg-control, var(--vgt-surface-z2, #131724));
+  --vgt-module-control-hover: var(--as-bg-control-hover, #151927);
+  --vgt-module-control-active: var(--as-bg-control-active, #171b2a);
+}
+
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-admin-policy="true"], [data-vgt-search-hub="true"],
+  [data-vgt-automate-root="true"], [data-vgt-connect-root="true"], [data-vgt-database-root="true"],
+  [data-vgt-draw-root="true"], [data-vgt-forms-root="true"], [data-vgt-gaiacom-root="true"],
+  [data-vgt-grid-root="true"], [data-vgt-insight-root="true"], [data-vgt-notes-root="true"],
+  [data-vgt-pdf-root="true"], [data-vgt-planner-root="true"], [data-vgt-present-root="true"],
+  [data-vgt-projects-root="true"], [data-vgt-publish-root="true"], [data-vgt-spaces-root="true"],
+  [data-vgt-tasks-root="true"], [data-vgt-vault-root="true"], [data-vgt-whiteboard-root="true"]
+) {
+  --vgt-control-surface: var(--vgt-module-control-surface);
+  --vgt-control-hover: var(--vgt-module-control-hover);
+  --vgt-control-active: var(--vgt-module-control-active);
+  --vgt-control-border: var(--vgt-metal-edge, var(--vgt-neutral-border, rgba(148, 163, 184, .18)));
+  --vgt-control-border-hover: var(--as-border-strong, var(--vgt-control-border));
+  background-color: var(--vgt-module-shell-surface);
+  box-shadow: inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / .08));
+}
+
+/* Toolbar, inspector, navigation and dialog planes get a raised shell surface.
+   Document pages, grid cells, presentation canvases, and swatches are not targets. */
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-admin-policy="true"], [data-vgt-search-hub="true"],
+  [data-vgt-automate-root="true"], [data-vgt-connect-root="true"], [data-vgt-database-root="true"],
+  [data-vgt-draw-root="true"], [data-vgt-forms-root="true"], [data-vgt-gaiacom-root="true"],
+  [data-vgt-grid-root="true"], [data-vgt-insight-root="true"], [data-vgt-notes-root="true"],
+  [data-vgt-pdf-root="true"], [data-vgt-planner-root="true"], [data-vgt-present-root="true"],
+  [data-vgt-projects-root="true"], [data-vgt-publish-root="true"], [data-vgt-spaces-root="true"],
+  [data-vgt-tasks-root="true"], [data-vgt-vault-root="true"], [data-vgt-whiteboard-root="true"]
+) :where([role="toolbar"], [role="dialog"], aside, nav, header, .writer-a11y-root > div:first-child) {
+  background-color: var(--vgt-module-panel-surface);
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--vgt-metal-highlight, rgb(255 255 255 / .08)) 42%, transparent);
+}
+
+/* Neutral utility panels in app modules follow the active preset. The broad
+   mapping is limited to app-style modules; authored document/canvas roots and
+   explicitly tagged color swatches retain their source colors. */
+[data-astraea-shell-root="true"] :is(
+  [data-vgt-automate-root="true"], [data-vgt-connect-root="true"], [data-vgt-database-root="true"], [data-vgt-search-hub="true"],
+  [data-vgt-forms-root="true"], [data-vgt-gaiacom-root="true"], [data-vgt-insight-root="true"],
+  [data-vgt-notes-root="true"], [data-vgt-planner-root="true"], [data-vgt-projects-root="true"],
+  [data-vgt-spaces-root="true"], [data-vgt-tasks-root="true"], [data-vgt-vault-root="true"]
+) :where(
+  [class~="bg-slate-950"], [class~="bg-slate-900"], [class~="bg-slate-800"],
+  [class~="bg-gray-950"], [class~="bg-gray-900"], [class~="bg-zinc-950"], [class~="bg-zinc-900"],
+  [class*="bg-slate-950/"], [class*="bg-slate-900/"], [class*="bg-slate-800/"],
+  [class*="bg-gray-950/"], [class*="bg-gray-900/"], [class*="bg-zinc-950/"], [class*="bg-zinc-900/"]
+):not(button):not(input):not(select):not(textarea):not([role="button"]):not([data-color]):not([data-swatch]):not([contenteditable="true"]):not([style*="background-color"]):not([style*="background:"]) {
+  background-color: var(--vgt-module-panel-surface);
+}
+[data-astraea-shell-root="true"] [data-vgt-admin-policy="true"].vgt-admin-policy {
+  --admin-bg: var(--vgt-module-shell-surface);
+  --admin-surface: var(--vgt-module-panel-surface);
+  --admin-surface-raised: var(--vgt-module-panel-raised);
+  --admin-line: var(--vgt-control-border);
+  --admin-text: var(--vgt-control-text);
+  --admin-secondary: var(--vgt-control-muted);
+  --admin-muted: var(--vgt-control-placeholder);
+  --admin-accent: var(--vgt-accent-solid, #7c3aed);
+  --admin-accent-soft: var(--vgt-accent-soft, rgba(124, 58, 237, .12));
+  background-color: var(--vgt-module-shell-surface);
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] [data-vgt-admin-policy="true"] .adminPolicy__buttonPrimary {
+  color: var(--vgt-on-accent, #fff);
+}
+[data-astraea-shell-root="true"] [data-vgt-search-hub="true"] {
+  border-color: var(--vgt-metal-edge, var(--vgt-control-border));
+  color: var(--vgt-control-text);
+  box-shadow: var(--vgt-shadow-overlay, 0 18px 48px rgb(0 0 0 / .28)), inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / .08));
+}
+[data-astraea-shell-root="true"] [data-vgt-search-hub="true"] :is(input, select, textarea) {
+  background-color: var(--vgt-control-surface);
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+  color-scheme: inherit;
+}
+[data-astraea-shell-root="true"] [data-vgt-search-hub="true"] :is(button, [role="tab"], [role="option"]) {
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] [data-vgt-search-hub="true"] [role="option"] {
+  background-color: var(--vgt-module-panel-surface);
+}
+[data-astraea-shell-root="true"] [data-vgt-search-hub="true"] :is([role="tab"], [role="option"])[aria-selected="true"] {
+  background-color: var(--vgt-accent-soft, rgba(124, 58, 237, .18));
+  border-color: var(--vgt-metal-edge, var(--vgt-control-border));
+  color: var(--vgt-accent-strong, #8b5cf6);
+}
+[data-astraea-shell-root="true"] [data-vgt-search-hub="true"] :is(button, [role="tab"]):hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--vgt-control-hover);
+  border-color: var(--vgt-control-border-hover);
+}
+[data-astraea-shell-root="true"] [data-vgt-search-hub="true"] :where([class*="text-slate-50"], [class*="text-slate-100"], [class*="text-slate-200"], [class*="text-zinc-50"], [class*="text-zinc-100"], [class*="text-zinc-200"]) {
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] [data-vgt-search-hub="true"] :where([class*="text-slate-300"], [class*="text-slate-400"], [class*="text-slate-500"], [class*="text-zinc-300"], [class*="text-zinc-400"], [class*="text-zinc-500"]) {
+  color: var(--vgt-control-muted);
+}
+[data-astraea-shell-root="true"] [data-vgt-search-hub="true"] :where([class*="text-purple-"], [class*="text-violet-"], [class*="text-indigo-"], [class*="text-blue-"]) {
+  color: var(--vgt-accent-strong, #8b5cf6);
+}
+[data-astraea-shell-root="true"] :is(
+  [data-vgt-automate-root="true"], [data-vgt-connect-root="true"], [data-vgt-database-root="true"],
+  [data-vgt-forms-root="true"], [data-vgt-gaiacom-root="true"], [data-vgt-insight-root="true"],
+  [data-vgt-notes-root="true"], [data-vgt-planner-root="true"], [data-vgt-projects-root="true"],
+  [data-vgt-spaces-root="true"], [data-vgt-tasks-root="true"], [data-vgt-vault-root="true"]
+) :where([class*="border-white/"], [class*="border-slate-"], [class*="border-gray-"], [class*="border-zinc-"]):not([data-color]):not([data-swatch]):not([style*="border-color"]) {
+  border-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] :is(
+  [data-vgt-automate-root="true"], [data-vgt-connect-root="true"], [data-vgt-database-root="true"],
+  [data-vgt-forms-root="true"], [data-vgt-gaiacom-root="true"], [data-vgt-insight-root="true"],
+  [data-vgt-notes-root="true"], [data-vgt-planner-root="true"], [data-vgt-projects-root="true"],
+  [data-vgt-spaces-root="true"], [data-vgt-tasks-root="true"], [data-vgt-vault-root="true"]
+) :is([role="toolbar"], [role="dialog"], aside, nav, header)
+  :where([class*="text-slate-50"], [class*="text-slate-100"], [class*="text-slate-200"], [class*="text-zinc-50"], [class*="text-zinc-100"], [class*="text-zinc-200"], [class*="text-gray-50"], [class*="text-gray-100"], [class*="text-gray-200"]) {
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] :is(
+  [data-vgt-automate-root="true"], [data-vgt-connect-root="true"], [data-vgt-database-root="true"],
+  [data-vgt-forms-root="true"], [data-vgt-gaiacom-root="true"], [data-vgt-insight-root="true"],
+  [data-vgt-notes-root="true"], [data-vgt-planner-root="true"], [data-vgt-projects-root="true"],
+  [data-vgt-spaces-root="true"], [data-vgt-tasks-root="true"], [data-vgt-vault-root="true"]
+) :is([role="toolbar"], [role="dialog"], aside, nav, header)
+  :where([class*="text-slate-300"], [class*="text-slate-400"], [class*="text-slate-500"], [class*="text-zinc-300"], [class*="text-zinc-400"], [class*="text-zinc-500"], [class*="text-gray-300"], [class*="text-gray-400"], [class*="text-gray-500"]) {
+  color: var(--vgt-control-muted);
+}
+
+/* At 175–400% the workspace becomes a vertically scrollable document so its editor never collapses behind oversized shell chrome. */
+:root[data-astraea-scale-band="maximum"] {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+:root[data-astraea-scale-band="maximum"] body {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+:root[data-astraea-scale-band="maximum"] #root {
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
+}
+:root[data-astraea-scale-band="maximum"] [data-astraea-shell-root="true"] {
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
+}
+:root[data-astraea-scale-band="maximum"] #astraea-workspace-main {
+  flex: 1 0 auto;
+  min-height: 60vh;
+}

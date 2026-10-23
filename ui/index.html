@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
+    <link rel="icon" type="image/png" sizes="256x256" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="256x256" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astraea Workspace · Sovereign Productivity</title>
+    <meta name="description" content="Local-first productivity suite with encrypted VGT native containers and no analytics SDKs by design." />
+    <link rel="stylesheet" href="/src/app/bootstrap/bootSplash.css" />
+    <!-- Local-first application CSP: no remote CDN/font endpoints; explicit loopback Core + local dev HMR only. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' http://127.0.0.1:5042; object-src 'none'; base-uri 'none'; frame-src 'none'; form-action 'none'; frame-ancestors 'none';" />
+  </head>
+  <body class="antialiased min-h-screen overflow-hidden">
+    <div
+      id="workspace-boot-splash"
+      class="workspace-boot-splash"
+      data-min-visible-ms="600"
+      role="status"
+      aria-label="Astraea Workspace is starting"
+    >
+      <div class="workspace-boot-splash__identity">
+        <img
+          class="workspace-boot-splash__logo"
+          src="/branding/astraea-workspace-official.png"
+          alt=""
+          width="128"
+          height="128"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <p class="workspace-boot-splash__wordmark" aria-hidden="true">
+          <span class="workspace-boot-splash__letter">A</span>
+          <span class="workspace-boot-splash__letter">s</span>
+          <span class="workspace-boot-splash__letter">t</span>
+          <span class="workspace-boot-splash__letter">r</span>
+          <span class="workspace-boot-splash__letter">a</span>
+          <span class="workspace-boot-splash__letter">e</span>
+          <span class="workspace-boot-splash__letter">a</span>
+          <span class="workspace-boot-splash__letter workspace-boot-splash__letter--space">&#32;</span>
+          <span class="workspace-boot-splash__letter workspace-boot-splash__letter--workspace">W</span>
+          <span class="workspace-boot-splash__letter workspace-boot-splash__letter--workspace">o</span>
+          <span class="workspace-boot-splash__letter workspace-boot-splash__letter--workspace">r</span>
+          <span class="workspace-boot-splash__letter workspace-boot-splash__letter--workspace">k</span>
+          <span class="workspace-boot-splash__letter workspace-boot-splash__letter--workspace">s</span>
+          <span class="workspace-boot-splash__letter workspace-boot-splash__letter--workspace">p</span>
+          <span class="workspace-boot-splash__letter workspace-boot-splash__letter--workspace">a</span>
+          <span class="workspace-boot-splash__letter workspace-boot-splash__letter--workspace">c</span>
+          <span class="workspace-boot-splash__letter workspace-boot-splash__letter--workspace">e</span>
+        </p>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

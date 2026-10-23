@@ -1,0 +1,55 @@
+/* VGT compact form primitives used by contextual professional inspectors. */
+.vgt-input { background: var(--vgt-control-surface, var(--as-bg-control)); border: 1px solid var(--vgt-control-border, var(--as-border-control)); border-radius: var(--as-radius-control, .375rem); padding: .375rem .5rem; color: var(--vgt-control-text, var(--as-text-primary)); outline: none; }
+.vgt-input:focus { border-color: var(--as-border-focus, var(--vgt-focus)); box-shadow: var(--as-focus-ring); }
+.vgt-input:disabled { color: var(--as-text-disabled); opacity: .72; }
+.vgt-button-primary { background: linear-gradient(180deg, color-mix(in srgb, var(--as-specular-soft, rgb(255 255 255 / .12)) 58%, transparent), transparent 78%), var(--as-primary-action-surface, var(--vgt-control-primary-bg, var(--as-accent))); border: 1px solid var(--as-primary-action-border, var(--vgt-control-primary-border, var(--as-specular))); border-radius: var(--as-radius-control, .375rem); padding: .375rem .625rem; color: var(--as-primary-action-text, var(--vgt-control-primary-text, var(--vgt-on-accent, var(--as-accent-contrast)))); box-shadow: var(--as-shadow-z1); }
+.vgt-button-primary:hover:not(:disabled) { background: linear-gradient(180deg, color-mix(in srgb, var(--as-specular-soft, rgb(255 255 255 / .12)) 68%, transparent), transparent 78%), var(--as-primary-action-hover, var(--vgt-control-primary-hover, var(--vgt-control-primary-bg, var(--as-accent)))); box-shadow: var(--as-shadow-z2); }
+.vgt-button-primary:active:not(:disabled) { background: var(--as-primary-action-active, var(--vgt-control-primary-active, var(--vgt-control-primary-bg, var(--as-accent)))); }
+
+/* Legacy app buttons that still carry fixed purple gradient utilities resolve
+   to the same preset-led material as semantic primary controls. The selectors
+   are restricted to Workspace dialogs and known app UI roots, keeping authored
+   document, chart, cell, and canvas colors outside the override. */
+[data-astraea-shell-root="true"] :is(
+  [role="dialog"], [data-vgt-publish-root="true"], [data-vgt-automate-root="true"],
+  [data-vgt-connect-root="true"], [data-vgt-vault-root="true"],
+  [data-vgt-gaiacom-root="true"], [data-vgt-spaces-root="true"]
+) :is(button, [role="button"]):is(
+  [class*="from-purple-"], [class*="from-violet-"], [class*="from-indigo-"]
+):not([data-color]):not([data-swatch]):not([style*="background-color"]) {
+  border: 1px solid var(--as-primary-action-border, var(--vgt-control-primary-border));
+  background-color: var(--as-primary-action-surface, var(--vgt-control-primary-bg));
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--as-specular-soft, rgb(255 255 255 / .12)) 58%, transparent), transparent 78%);
+  color: var(--as-primary-action-text, var(--vgt-control-primary-text));
+  box-shadow: inset 0 1px 0 var(--as-specular-soft, rgb(255 255 255 / .12)), var(--as-shadow-z1, 0 1px 2px rgb(0 0 0 / .16));
+  transition: background-color var(--as-motion-fast, 120ms) ease, border-color var(--as-motion-fast, 120ms) ease, box-shadow var(--as-motion-fast, 120ms) ease;
+}
+[data-astraea-shell-root="true"] :is(
+  [role="dialog"], [data-vgt-publish-root="true"], [data-vgt-automate-root="true"],
+  [data-vgt-connect-root="true"], [data-vgt-vault-root="true"],
+  [data-vgt-gaiacom-root="true"], [data-vgt-spaces-root="true"]
+) :is(button, [role="button"]):is(
+  [class*="from-purple-"], [class*="from-violet-"], [class*="from-indigo-"]
+):not([data-color]):not([data-swatch]):not([style*="background-color"]):hover:not(:disabled) {
+  border-color: var(--as-primary-action-border, var(--vgt-control-primary-border));
+  background-color: var(--as-primary-action-hover, var(--vgt-control-primary-hover, var(--vgt-control-primary-bg)));
+  color: var(--as-primary-action-text, var(--vgt-control-primary-text));
+}
+[data-astraea-shell-root="true"] :is(
+  [role="dialog"], [data-vgt-publish-root="true"], [data-vgt-automate-root="true"],
+  [data-vgt-connect-root="true"], [data-vgt-vault-root="true"],
+  [data-vgt-gaiacom-root="true"], [data-vgt-spaces-root="true"]
+) :is(button, [role="button"]):is(
+  [class*="from-purple-"], [class*="from-violet-"], [class*="from-indigo-"]
+):not([data-color]):not([data-swatch]):not([style*="background-color"]):active:not(:disabled) {
+  background-color: var(--as-primary-action-active, var(--vgt-control-primary-active, var(--vgt-control-primary-bg)));
+  background-image: none;
+}
+.vgt-button-secondary { background: var(--vgt-control-surface, var(--as-bg-control)); border: 1px solid var(--vgt-control-border, var(--as-border-control)); border-radius: var(--as-radius-control, .375rem); padding: .375rem .625rem; color: var(--vgt-control-text, var(--as-text-primary)); }
+
+/* VGT Present slide transitions */
+@keyframes vgt-present-transition-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes vgt-present-transition-left { from { opacity: 0; transform: translate3d(8%,0,0); } to { opacity: 1; transform: translate3d(0,0,0); } }
+@keyframes vgt-present-transition-right { from { opacity: 0; transform: translate3d(-8%,0,0); } to { opacity: 1; transform: translate3d(0,0,0); } }
+@keyframes vgt-present-transition-zoom { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: scale(1); } }
+

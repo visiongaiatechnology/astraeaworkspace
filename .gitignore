@@ -1,0 +1,52 @@
+﻿# Build outputs and caches
+/target/
+**/target/
+/dist/
+/ui/dist/
+**/node_modules/
+**/coverage/
+**/.vite/
+**/*.tsbuildinfo
+**/bin/
+**/obj/
+/release/inno/build/
+/release/inno/dist/
+/release/inno/vendor/
+/release/inno/evidence/
+/release/inno/assets/preview/
+
+# Local credentials and environment files
+.env
+.env.*
+!*.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Local editor/operating-system state
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+*.log
+
+# Internal working notes are never published
+Next.md
+CURRENT_TASK.md
+HANDOFF.md
+SESSION_NOTES.md
+DEVELOPER_NOTES.md
+AGENT_NOTES.md
+WORKLOG.md
+
+# Local captures and scratch evidence
+/evidence/
+/audit/*
+!/audit/sbom-cargo.json
+!/audit/sbom-npm.json
+/logs/
+/uiux_evidence/
+

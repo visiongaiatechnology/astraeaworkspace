@@ -1,0 +1,38 @@
+/* Theme only Workspace-owned navigation and selection affordances explicitly marked by app components. */
+[data-vgt-app-theme-root] [data-vgt-theme-active-control="soft"] {
+  background-color: var(--vgt-selection, var(--vgt-accent-soft, rgba(124, 58, 237, .18)));
+  border-color: var(--vgt-selection-border, var(--vgt-control-border, #8b5cf6));
+  color: var(--vgt-control-text, #f5f7ff);
+}
+
+[data-vgt-app-theme-root] [data-vgt-theme-active-control="solid"] {
+  background-color: var(--vgt-accent-solid, var(--vgt-control-primary-bg, #7c3aed));
+  border-color: var(--vgt-accent-solid, var(--vgt-control-primary-border, #7c3aed));
+  color: var(--vgt-on-accent, #fff);
+}
+
+[data-vgt-app-theme-root] [data-vgt-theme-active-control="solid"] :is(svg, [class*="text-"]) {
+  color: var(--vgt-on-accent, #fff);
+}
+
+[data-vgt-app-theme-root] [data-vgt-theme-selected-surface="true"] {
+  background-color: var(--vgt-selection, var(--vgt-accent-soft, rgba(124, 58, 237, .18)));
+  border-color: var(--vgt-selection-border, var(--vgt-control-border, #8b5cf6));
+  --tw-ring-color: var(--vgt-focus, #8b5cf6);
+}
+
+[data-vgt-app-theme-root] [data-vgt-theme-selected-text="true"],
+[data-vgt-app-theme-root] [data-vgt-theme-accent-label="true"] {
+  color: var(--vgt-accent-strong, var(--vgt-control-info, #8b5cf6));
+}
+
+/* Canvas content remains untouched: only a selected-object frame and resize handle are themed. */
+[data-vgt-app-theme-root] [data-vgt-theme-selection="true"] {
+  border-color: var(--vgt-selection-border, var(--vgt-control-info, #8b5cf6));
+  --tw-ring-color: var(--vgt-focus, #8b5cf6);
+}
+
+[data-vgt-app-theme-root] [data-vgt-theme-selection-handle="true"] {
+  background-color: var(--vgt-selection-border, var(--vgt-control-primary-bg, #7c3aed));
+  color: var(--vgt-selection-text, #ffffff);
+}

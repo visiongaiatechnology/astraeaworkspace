@@ -1,0 +1,275 @@
+/* Document/canvas colors remain authored. Only neutral app controls inside explicit
+   formatting bands opt into the shared palette; canvas and page content stay untouched. */
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"],
+  input:not([type="file"]):not([type="color"]):not([type="checkbox"]):not([type="radio"]),
+  select, textarea
+) {
+  color-scheme: inherit;
+}
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  input:not([type="file"]):not([type="color"]):not([type="checkbox"]):not([type="radio"]), select, textarea
+) {
+  background-color: var(--vgt-control-surface);
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"],
+  input:not([type="file"]):not([type="color"]):not([type="checkbox"]):not([type="radio"]),
+  select, textarea
+):is([class*="bg-slate-950"], [class*="bg-slate-900"], [class*="bg-slate-800"], [class*="bg-white/"]) {
+  background-color: var(--vgt-control-surface);
+  border-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"]
+):is([class*="border-white/"], [class*="border-slate-"], [class*="border-gray-"], [class*="border-zinc-"]) {
+  border-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"]
+):is([class*="text-slate-50"], [class*="text-slate-100"], [class*="text-slate-200"], [class*="text-slate-300"], [class*="text-slate-400"], [class*="text-slate-500"], [class*="text-zinc-50"], [class*="text-zinc-100"], [class*="text-zinc-200"], [class*="text-zinc-300"], [class*="text-zinc-400"], [class*="text-zinc-500"]) {
+  color: var(--vgt-control-muted);
+}
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"]
+):is([class*="text-emerald-"], [class*="text-green-"]) { color: var(--vgt-control-success); }
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"]
+):is([class*="text-amber-"], [class*="text-yellow-"]) { color: var(--vgt-control-warning); }
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"]
+):is([class*="text-red-"], [class*="text-rose-"]) { color: var(--vgt-control-danger); }
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"]
+):is([class*="text-blue-"], [class*="text-sky-"]) { color: var(--vgt-control-info); }
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"]
+)[class~="hover:text-white"]:hover:is([class*="text-slate-"], [class*="text-zinc-"], [class*="hover:bg-white/"], [class*="hover:bg-slate-"]) {
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"]
+):is(
+  [class*="bg-purple-50/"], [class*="bg-purple-100/"], [class*="bg-purple-200/"], [class*="bg-purple-300/"], [class*="bg-purple-400/"], [class*="bg-purple-500/"], [class*="bg-purple-600/"], [class*="bg-purple-700/"], [class*="bg-purple-800/"], [class*="bg-purple-900/"], [class*="bg-purple-950/"],
+  [class*="bg-violet-50/"], [class*="bg-violet-100/"], [class*="bg-violet-200/"], [class*="bg-violet-300/"], [class*="bg-violet-400/"], [class*="bg-violet-500/"], [class*="bg-violet-600/"], [class*="bg-violet-700/"], [class*="bg-violet-800/"], [class*="bg-violet-900/"], [class*="bg-violet-950/"],
+  [class*="bg-indigo-50/"], [class*="bg-indigo-100/"], [class*="bg-indigo-200/"], [class*="bg-indigo-300/"], [class*="bg-indigo-400/"], [class*="bg-indigo-500/"], [class*="bg-indigo-600/"], [class*="bg-indigo-700/"], [class*="bg-indigo-800/"], [class*="bg-indigo-900/"], [class*="bg-indigo-950/"],
+  [class*="bg-blue-50/"], [class*="bg-blue-100/"], [class*="bg-blue-200/"], [class*="bg-blue-300/"], [class*="bg-blue-400/"], [class*="bg-blue-500/"], [class*="bg-blue-600/"], [class*="bg-blue-700/"], [class*="bg-blue-800/"], [class*="bg-blue-900/"], [class*="bg-blue-950/"],
+  [class~="bg-purple-50"], [class~="bg-purple-100"], [class~="bg-purple-200"], [class~="bg-purple-300"], [class~="bg-purple-400"], [class~="bg-purple-700"], [class~="bg-purple-800"], [class~="bg-purple-900"], [class~="bg-purple-950"],
+  [class~="bg-violet-50"], [class~="bg-violet-100"], [class~="bg-violet-200"], [class~="bg-violet-300"], [class~="bg-violet-400"], [class~="bg-violet-800"], [class~="bg-violet-900"], [class~="bg-violet-950"],
+  [class~="bg-indigo-50"], [class~="bg-indigo-100"], [class~="bg-indigo-200"], [class~="bg-indigo-300"], [class~="bg-indigo-400"], [class~="bg-indigo-800"], [class~="bg-indigo-900"], [class~="bg-indigo-950"],
+  [class~="bg-blue-50"], [class~="bg-blue-100"], [class~="bg-blue-200"], [class~="bg-blue-300"], [class~="bg-blue-400"], [class~="bg-blue-800"], [class~="bg-blue-900"], [class~="bg-blue-950"]
+) {
+  background-color: var(--vgt-accent-soft, rgba(124, 58, 237, .18));
+  border-color: var(--glass-border, rgba(124, 58, 237, .24));
+}
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"]
+):is([class~="bg-purple-500"], [class~="bg-purple-600"], [class~="bg-violet-500"], [class~="bg-violet-600"], [class~="bg-violet-700"], [class~="bg-indigo-500"], [class~="bg-indigo-600"], [class~="bg-indigo-700"], [class~="bg-blue-500"], [class~="bg-blue-600"], [class~="bg-blue-700"]) {
+  background-color: var(--vgt-control-primary-bg);
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--as-specular-soft, rgb(255 255 255 / .12)) 58%, transparent), transparent 78%);
+  border-color: var(--vgt-control-primary-border);
+  color: var(--vgt-control-primary-text, var(--vgt-on-accent, #fff));
+}
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"]
+):is([class*="text-purple-"], [class*="text-violet-"], [class*="text-indigo-"], [class*="text-blue-"]) { color: var(--vgt-accent-strong, #8b5cf6); }
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"]
+):is([class*="border-purple-"], [class*="border-violet-"], [class*="border-indigo-"], [class*="border-blue-"]) { border-color: var(--glass-border, rgba(124, 58, 237, .24)); }
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"]
+):is([class*="hover:bg-white/"], [class*="hover:bg-slate-"], [class*="hover:bg-purple-"], [class*="hover:bg-violet-"], [class*="hover:bg-indigo-"]):hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--vgt-control-hover);
+  border-color: var(--vgt-control-border-hover);
+  filter: none;
+}
+[data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(
+  button, [role="button"], [role="tab"], [role="menuitem"], input, select, textarea
+):is(:disabled, [aria-disabled="true"]) {
+  opacity: var(--vgt-control-disabled-opacity);
+  filter: none;
+  transform: none;
+}
+
+/* The light appearance needs native form chrome to match its controls. */
+:root[data-astraea-scheme="light"] [data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(input, select, textarea) { color-scheme: light; }
+:root[data-astraea-scheme="dark"] [data-astraea-shell-root="true"] :is(
+  .writer-a11y-root,
+  [data-vgt-grid-root="true"],
+  [data-vgt-present-root="true"],
+  [data-vgt-pdf-root="true"],
+  [data-vgt-draw-root="true"],
+  [data-vgt-whiteboard-root="true"],
+  [data-vgt-publish-root="true"]
+) :is([role="toolbar"], .writer-a11y-root > div:first-child, [data-vgt-pdf-root="true"] > header:first-child) :is(input, select, textarea) { color-scheme: dark; }
+
+/* Writer chrome is separate from its authored paper. Explicit markers keep the
+   theme on the review, inspector, status, and ruler surfaces without recoloring
+   text or formatting authored inside a page. */
+[data-astraea-shell-root="true"] .writer-a11y-root [data-vgt-workspace-chrome] {
+  background-color: var(--vgt-module-panel-surface, var(--vgt-surface-z1, #10131f));
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+  box-shadow: inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / .08));
+}
+[data-astraea-shell-root="true"] .writer-a11y-root [data-vgt-workspace-chrome-layer="true"] {
+  background-color: var(--vgt-module-shell-surface, var(--vgt-surface-z0, #080911));
+  border-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] .writer-a11y-root [data-vgt-workspace-chrome] :is(
+  [class~="bg-slate-950"], [class~="bg-slate-900"], [class~="bg-slate-800"],
+  [class~="bg-gray-950"], [class~="bg-gray-900"], [class~="bg-zinc-950"], [class~="bg-zinc-900"],
+  [class*="bg-slate-950/"], [class*="bg-slate-900/"], [class*="bg-slate-800/"],
+  [class*="bg-gray-950/"], [class*="bg-gray-900/"], [class*="bg-zinc-950/"], [class*="bg-zinc-900/"],
+  [class*="bg-white/"]
+) {
+  background-color: var(--vgt-module-control-surface, var(--vgt-control-surface));
+  border-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] .writer-a11y-root [data-vgt-workspace-chrome] :is(
+  [class*="text-slate-50"], [class*="text-slate-100"], [class*="text-slate-200"],
+  [class*="text-zinc-50"], [class*="text-zinc-100"], [class*="text-zinc-200"]
+) { color: var(--vgt-control-text); }
+[data-astraea-shell-root="true"] .writer-a11y-root [data-vgt-workspace-chrome] :is(
+  [class*="text-slate-300"], [class*="text-slate-400"], [class*="text-slate-500"], [class*="text-slate-600"],
+  [class*="text-zinc-300"], [class*="text-zinc-400"], [class*="text-zinc-500"], [class*="text-zinc-600"]
+) { color: var(--vgt-control-muted); }
+

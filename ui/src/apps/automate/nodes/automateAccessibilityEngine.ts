@@ -1,0 +1,4 @@
+// STATUS: DIAMANT VGT SUPREME — accessibility contract checks for Automate documents.
+import type { AutomateDocumentModel } from '../model/types';
+export interface AutomateAccessibilityIssue{code:string;nodeId?:string;severity:'error'|'warning';}
+export function auditAutomateAccessibility(model:AutomateDocumentModel):AutomateAccessibilityIssue[]{const issues:AutomateAccessibilityIssue[]=[];for(const node of model.nodes){if(!node.title.trim())issues.push({code:'node-accessible-name-missing',nodeId:node.id,severity:'error'});if(node.type==='approval'&&typeof node.config.prompt!=='string')issues.push({code:'approval-prompt-missing',nodeId:node.id,severity:'error'});if(node.type==='action'&&node.category==='RPA'&&node.config.selectorKind==='coordinate')issues.push({code:'rpa-coordinate-fragile',nodeId:node.id,severity:'warning'});}if(model.designer.zoom<.25||model.designer.zoom>3)issues.push({code:'designer-zoom-out-of-range',severity:'error'});return issues;}

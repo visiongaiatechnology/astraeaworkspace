@@ -1,0 +1,184 @@
+/* STATUS: PLATIN — Connect-owned mail/calendar/contact chrome consumes Workspace theme tokens. */
+:root [data-vgt-connect-root="true"] {
+  color: var(--vgt-text-primary, #f8fafc);
+  background-color: var(--vgt-surface-z0, #07050d);
+}
+
+:root [data-vgt-connect-root="true"] :is(
+  [class*="bg-[#07050d]"], [class*="bg-[#090611]"],
+  [class*="bg-[#0a0715]"], [class*="bg-[#0c0817]"]
+) {
+  background-color: var(--vgt-surface-z1, #0c0817);
+}
+
+:root [data-vgt-connect-root="true"] [class*="bg-[#07050d]"] {
+  background-color: var(--vgt-surface-z0, #07050d);
+}
+
+:root [data-vgt-connect-root="true"] :is([class*="bg-[#0e0a1b]"], [class*="bg-[#120c22]"]) {
+  background-color: var(--vgt-surface-z2, #120c22);
+}
+
+:root [data-vgt-connect-root="true"] :is([class*="bg-[#140e24]"], [class*="bg-[#150f24]"]) {
+  background-color: var(--vgt-control-surface, var(--vgt-surface-z2, #120c22));
+}
+
+:root [data-vgt-connect-root="true"] :is(
+  [class*="text-slate-50"], [class*="text-slate-100"], [class*="text-slate-200"],
+  [class*="text-zinc-50"], [class*="text-zinc-100"], [class*="text-zinc-200"]
+) {
+  color: var(--vgt-text-primary, #f8fafc);
+}
+
+:root [data-vgt-connect-root="true"] :is([class*="text-slate-300"], [class*="text-zinc-300"]) {
+  color: var(--vgt-text-secondary, #cbd5e1);
+}
+
+:root [data-vgt-connect-root="true"] :is(
+  [class*="text-slate-400"], [class*="text-slate-500"],
+  [class*="text-zinc-400"], [class*="text-zinc-500"]
+) {
+  color: var(--vgt-text-muted, #94a3b8);
+}
+
+:root [data-vgt-connect-root="true"] :is([class*="text-purple-"], [class*="text-violet-"], [class*="text-indigo-"]) {
+  color: var(--vgt-accent-strong, #8b5cf6);
+}
+
+:root [data-vgt-connect-root="true"] :is([class*="border-purple-"], [class*="border-violet-"], [class*="border-indigo-"]) {
+  border-color: var(--vgt-metal-edge, var(--glass-border, rgba(124, 58, 237, 0.22)));
+}
+
+:root [data-vgt-connect-root="true"] :is([class*="bg-purple-"], [class*="bg-violet-"], [class*="bg-indigo-"]) {
+  background-color: var(--vgt-accent-soft, rgba(124, 58, 237, 0.18));
+}
+
+:root [data-vgt-connect-root="true"] :is(
+  [class~="bg-purple-500"], [class~="bg-purple-600"], [class~="bg-purple-700"],
+  [class~="bg-violet-500"], [class~="bg-violet-600"], [class~="bg-violet-700"],
+  [class~="bg-indigo-500"], [class~="bg-indigo-600"], [class~="bg-indigo-700"]
+) {
+  background-color: var(--vgt-accent-solid, #7c3aed);
+}
+
+:root [data-vgt-connect-root="true"] [class~="text-white"] {
+  color: var(--vgt-text-primary, #f8fafc);
+}
+
+:root [data-vgt-connect-root="true"] [class~="text-white"]:is([class*="bg-purple-"], [class*="bg-violet-"], [class*="bg-indigo-"], [class*="from-purple-"], [class*="from-violet-"], [class*="from-indigo-"]) {
+  color: var(--vgt-control-primary-text, var(--vgt-on-accent, #fff));
+}
+
+:root [data-vgt-connect-root="true"] button[class*="from-purple-"],
+:root [data-vgt-connect-root="true"] button[class*="from-violet-"],
+:root [data-vgt-connect-root="true"] button[class*="from-indigo-"] {
+  border: 1px solid var(--vgt-control-primary-border, var(--vgt-control-border));
+  background-color: var(--vgt-control-primary-bg, var(--vgt-accent-solid, #7c3aed));
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--as-specular-soft, rgb(255 255 255 / .12)) 58%, transparent), transparent 78%);
+  color: var(--vgt-control-primary-text, var(--vgt-on-accent, #fff));
+  box-shadow: inset 0 1px 0 var(--as-specular-soft, rgb(255 255 255 / .12)), var(--as-shadow-z1, 0 1px 2px rgb(0 0 0 / .16));
+}
+
+:root [data-vgt-connect-root="true"] button[class*="from-purple-"]:hover:not(:disabled),
+:root [data-vgt-connect-root="true"] button[class*="from-violet-"]:hover:not(:disabled),
+:root [data-vgt-connect-root="true"] button[class*="from-indigo-"]:hover:not(:disabled) {
+  background-color: var(--vgt-control-primary-hover, var(--vgt-control-hover, var(--vgt-control-primary-bg)));
+}
+
+:root [data-vgt-connect-root="true"] [class*="hover:bg-purple-"]:hover,
+:root [data-vgt-connect-root="true"] [class*="hover:bg-violet-"]:hover,
+:root [data-vgt-connect-root="true"] [class*="hover:bg-indigo-"]:hover {
+  background-color: var(--vgt-control-hover, var(--vgt-surface-z3, #18102d));
+}
+
+:root [data-vgt-connect-root="true"] [class*="hover:border-purple-"]:hover,
+:root [data-vgt-connect-root="true"] [class*="hover:border-violet-"]:hover,
+:root [data-vgt-connect-root="true"] [class*="hover:border-indigo-"]:hover {
+  border-color: var(--vgt-control-border-hover, var(--vgt-accent-strong, #8b5cf6));
+}
+
+:root [data-vgt-connect-root="true"] [class*="hover:text-white"]:hover {
+  color: var(--vgt-text-primary, #f8fafc);
+}
+
+:root [data-vgt-connect-root="true"] [class*="border-white/"] {
+  border-color: var(--vgt-neutral-border, rgba(148, 163, 184, 0.18));
+}
+
+:root [data-vgt-connect-root="true"] :where(input, select, textarea) {
+  background-color: var(--vgt-control-surface, var(--vgt-surface-z2, #120c22));
+  border-color: var(--vgt-control-border, var(--glass-border, rgba(124, 58, 237, 0.22)));
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+}
+
+:root [data-vgt-connect-root="true"] :where(input, select, textarea)::placeholder {
+  color: var(--vgt-control-placeholder, var(--vgt-text-muted, #94a3b8));
+}
+
+:root [data-vgt-connect-root="true"] :is(button, a, input, select, textarea, [role="button"], [tabindex]):focus-visible {
+  outline: 2px solid var(--vgt-focus, var(--vgt-accent-strong, #8b5cf6));
+  outline-offset: 2px;
+}
+
+:root [data-vgt-connect-root="true"] [class*="shadow-purple-"] {
+  box-shadow: 0 12px 26px var(--vgt-metal-shadow, rgb(0 0 0 / 0.22)), inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / 0.08));
+}
+
+/* Keep mail panes readable when the Workspace text scale leaves less effective width. */
+:root[data-astraea-scale-band="maximum"] [data-vgt-connect-root="true"] {
+  align-items: stretch;
+  flex-direction: column;
+  block-size: auto;
+  min-block-size: 0;
+  overflow: visible;
+}
+
+:root[data-astraea-scale-band="maximum"] [data-vgt-connect-root="true"] > [role="toolbar"] {
+  position: static;
+  inset: auto;
+  align-self: flex-end;
+  inline-size: max-content;
+  max-inline-size: calc(100% - 1rem);
+  margin: 0.5rem 0.5rem 0;
+}
+
+:root[data-astraea-scale-band="maximum"] [data-vgt-connect-root="true"] > .w-56,
+:root[data-astraea-scale-band="maximum"] [data-vgt-connect-root="true"] > .w-80 {
+  box-sizing: border-box;
+  inline-size: 100%;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  border-inline-end: 0;
+  border-block-end: 1px solid var(--vgt-divider, var(--glass-border, rgb(124 58 237 / 0.22)));
+}
+
+:root[data-astraea-scale-band="maximum"] [data-vgt-connect-root="true"] > .w-80 {
+  flex: 0 1 auto;
+  block-size: min(34rem, 55vh);
+  min-block-size: min(14rem, 38vh);
+  max-block-size: 55vh;
+}
+
+:root[data-astraea-scale-band="maximum"] [data-vgt-connect-root="true"] > .flex-1 {
+  flex: 0 0 auto;
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+
+@media (forced-colors: active) {
+  :root [data-vgt-connect-root="true"] *,
+  :root [data-vgt-connect-root="true"] *::before,
+  :root [data-vgt-connect-root="true"] *::after { forced-color-adjust: auto; }
+  :root [data-vgt-connect-root="true"] :is(button, input, select, textarea, [role="button"]) { border: 1px solid ButtonText; }
+}
+
+/* !important is required to suppress component and utility transitions for the reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  :root [data-vgt-connect-root="true"] *,
+  :root [data-vgt-connect-root="true"] *::before,
+  :root [data-vgt-connect-root="true"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

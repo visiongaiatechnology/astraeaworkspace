@@ -1,0 +1,22 @@
+/** Edition-neutral document discriminator. Keep this file free of app schemas and implementations. */
+export type DocumentKind =
+  | 'Writer'
+  | 'Grid'
+  | 'Present'
+  | 'Notes'
+  | 'PdfStudio'
+  | 'Draw'
+  | 'Whiteboard'
+  | 'Forms'
+  | 'Database'
+  | 'Publish'
+  | 'Insight'
+  | 'Tasks'
+  | 'Planner'
+  | 'Projects'
+  | 'Vault'
+  | 'Spaces'
+  | 'Connect'
+  | 'Automate'
+  | 'AdminPolicy'
+  | 'GaiaCom';

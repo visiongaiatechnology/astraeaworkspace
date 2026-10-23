@@ -1,0 +1,123 @@
+/* Theme only PDF Studio's application chrome. The viewport and page model stay document-owned. */
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] > [data-pdf-studio-toolbar="true"] [data-pdf-brand-label="true"] {
+  color: var(--vgt-text-primary);
+}
+
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] > [data-pdf-studio-toolbar="true"] [data-pdf-tool-band="true"] {
+  background-color: var(--vgt-control-surface);
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] > [data-pdf-studio-toolbar="true"] [data-pdf-tool-band="true"] [class~="text-slate-400"] {
+  color: var(--vgt-control-muted);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] > [data-pdf-studio-toolbar="true"] [data-pdf-tool-band="true"] button:not([aria-pressed="true"]):hover:not(:disabled) {
+  background-color: var(--vgt-control-hover);
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] > [data-pdf-studio-toolbar="true"] [data-pdf-tool-band="true"] button:not([aria-pressed="true"]):hover:not(:disabled) [class~="text-slate-400"] {
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] > [data-pdf-studio-toolbar="true"] [data-pdf-tool-band="true"] [class*="bg-white/10"] {
+  background-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] > [data-pdf-studio-toolbar="true"] [data-pdf-tool-band="true"] [data-pdf-tool="select"][aria-pressed="true"] {
+  background-color: var(--vgt-accent-solid);
+  border-color: var(--vgt-accent-solid);
+  color: var(--vgt-on-accent);
+}
+
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="pages"] {
+  background-color: var(--vgt-module-panel-surface, var(--vgt-surface-z1));
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="pages"] > div:first-child {
+  border-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="pages"] [data-pdf-sidebar-heading] [class~="text-slate-400"],
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="pages"] [data-pdf-sidebar-hint] {
+  color: var(--vgt-control-muted);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="pages"] [data-pdf-sidebar-action="add-page"] {
+  background-color: var(--vgt-accent-soft);
+  border: 1px solid var(--vgt-control-border);
+  color: var(--vgt-control-info);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="pages"] [data-pdf-sidebar-action="add-page"]:hover {
+  background-color: var(--vgt-control-hover);
+  color: var(--vgt-accent-strong);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="pages"] [data-pdf-page-selected="true"] {
+  background-color: var(--vgt-accent-soft);
+  border-color: var(--vgt-accent-solid);
+  box-shadow: 0 0 0 1px var(--vgt-accent-solid), 0 8px 20px color-mix(in srgb, var(--vgt-accent-solid) 12%, transparent);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="pages"] [data-pdf-page-selected="true"] > div:not([data-pdf-thumbnail-page]) [class~="text-slate-400"],
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="pages"] [data-pdf-page-selected="true"] > div:not([data-pdf-thumbnail-page]) [class~="text-slate-500"] {
+  color: var(--vgt-control-muted);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="pages"] [data-pdf-page-selected="true"] > div:last-child [class~="text-blue-300"] {
+  color: var(--vgt-accent-strong);
+}
+
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] {
+  background-color: var(--vgt-module-panel-surface, var(--vgt-surface-z1));
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] > div:first-child {
+  border-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] :is(
+  [class~="bg-slate-950"], [class~="bg-slate-900"], [class~="bg-slate-800"],
+  [class*="bg-slate-950/"], [class*="bg-slate-900/"], [class*="bg-slate-800/"]
+) {
+  background-color: var(--vgt-control-surface);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] article {
+  background-color: var(--vgt-module-panel-raised, var(--vgt-surface-z2));
+  border-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] :is(
+  [class*="border-white/"], [class*="border-slate-"], [class*="border-gray-"], [class*="border-zinc-"]
+) {
+  border-color: var(--vgt-control-border);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] :is(
+  [class~="text-slate-50"], [class~="text-slate-100"], [class~="text-slate-200"],
+  [class~="text-slate-300"], [class~="text-slate-400"], [class~="text-slate-500"], [class~="text-slate-600"]
+) {
+  color: var(--vgt-control-text);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] :is(
+  [class~="text-slate-300"], [class~="text-slate-400"], [class~="text-slate-500"], [class~="text-slate-600"]
+) {
+  color: var(--vgt-control-muted);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] :is(
+  [class~="text-blue-200"], [class~="text-blue-300"], [class~="text-blue-400"], [class~="text-sky-200"], [class~="text-sky-300"], [class~="text-sky-400"],
+  [class~="text-cyan-200"], [class~="text-cyan-300"], [class~="text-cyan-400"]
+) { color: var(--vgt-control-info); }
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] :is(
+  [class~="text-amber-200"], [class~="text-amber-300"], [class~="text-amber-400"], [class~="text-yellow-200"], [class~="text-yellow-300"], [class~="text-yellow-400"]
+) { color: var(--vgt-control-warning); }
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] :is(
+  [class~="text-red-200"], [class~="text-red-300"], [class~="text-red-400"], [class~="text-rose-200"], [class~="text-rose-300"], [class~="text-rose-400"]
+) { color: var(--vgt-control-danger); }
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] :is(
+  [class~="text-emerald-200"], [class~="text-emerald-300"], [class~="text-emerald-400"], [class~="text-green-200"], [class~="text-green-300"], [class~="text-green-400"]
+) { color: var(--vgt-control-success); }
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] :is(input, select, textarea) {
+  background-color: var(--vgt-control-surface);
+  border-color: var(--vgt-control-border);
+  color: var(--vgt-control-text);
+  color-scheme: inherit;
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] button:hover:not(:disabled),
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] [class*="hover:bg-white/"]:hover {
+  background-color: var(--vgt-control-hover);
+}
+[data-astraea-shell-root="true"] [data-vgt-pdf-root="true"] aside[data-pdf-studio-sidebar="review"] [class*="hover:text-white"]:hover {
+  color: var(--vgt-control-text);
+}

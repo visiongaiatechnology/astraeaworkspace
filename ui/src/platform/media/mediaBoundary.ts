@@ -1,0 +1,40 @@
+// STATUS: DIAMANT VGT SUPREME — bounded hostile-media inspection boundary
+import type { MediaBoundaryLimits, MediaDimensions, MediaProbe } from './mediaTypes';
+
+export class MediaBoundaryError extends Error { constructor(public readonly code:string){super('Media input rejected.');this.name='MediaBoundaryError';} }
+export const MEDIA_LIMITS:MediaBoundaryLimits={
+  maxBytes:256*1024*1024,maxDimensionPx:16_384,maxPixels:120_000_000,maxEstimatedDecodedBytes:640*1024*1024,
+  maxSvgElements:100_000,maxSvgDepth:96,maxMetadataBytes:1024*1024,maxDurationMs:24*60*60*1000,
+};
+const td=new TextDecoder('utf-8',{fatal:false});
+const starts=(b:Uint8Array,v:readonly number[],o=0)=>v.every((x,i)=>b[o+i]===x);
+const ascii=(b:Uint8Array,o:number,n:number)=>td.decode(b.subarray(o,Math.min(b.length,o+n)));
+const u16be=(b:Uint8Array,o:number)=>(b[o]<<8)|b[o+1];
+const u24le=(b:Uint8Array,o:number)=>b[o]|(b[o+1]<<8)|(b[o+2]<<16);
+const u32be=(b:Uint8Array,o:number)=>((b[o]*0x1000000)+(b[o+1]<<16)+(b[o+2]<<8)+b[o+3])>>>0;
+const finitePositiveInt=(v:number)=>Number.isSafeInteger(v)&&v>0;
+function assertDimensions(d:MediaDimensions|undefined,limits:MediaBoundaryLimits):void{if(!d)return;const p=d.widthPx*d.heightPx;if(!finitePositiveInt(d.widthPx)||!finitePositiveInt(d.heightPx)||d.widthPx>limits.maxDimensionPx||d.heightPx>limits.maxDimensionPx||!Number.isSafeInteger(p)||p>limits.maxPixels||p*4>limits.maxEstimatedDecodedBytes)throw new MediaBoundaryError('dimension-boundary');}
+function pngDimensions(b:Uint8Array):MediaDimensions|undefined{if(b.length<24||ascii(b,12,4)!=='IHDR')return undefined;return{widthPx:u32be(b,16),heightPx:u32be(b,20)};}
+function jpegDimensions(b:Uint8Array):MediaDimensions|undefined{let p=2,steps=0;while(p+8<b.length&&steps++<4096){if(b[p]!==0xff){p++;continue;}while(p<b.length&&b[p]===0xff)p++;if(p>=b.length)break;const m=b[p++];if(m===0xd9||m===0xda)break;if(m===0x01||(m>=0xd0&&m<=0xd7))continue;if(p+1>=b.length)break;const len=u16be(b,p);if(len<2||p+len>b.length)break;if([0xc0,0xc1,0xc2,0xc3,0xc5,0xc6,0xc7,0xc9,0xca,0xcb,0xcd,0xce,0xcf].includes(m)&&len>=7)return{heightPx:u16be(b,p+3),widthPx:u16be(b,p+5)};p+=len;}return undefined;}
+function webpDimensions(b:Uint8Array):MediaDimensions|undefined{if(b.length<25)return undefined;const kind=ascii(b,12,4);if(kind==='VP8X'&&b.length>=30)return{widthPx:u24le(b,24)+1,heightPx:u24le(b,27)+1};if(kind==='VP8 '&&b.length>=30&&b[23]===0x9d&&b[24]===0x01&&b[25]===0x2a)return{widthPx:(b[26]|(b[27]<<8))&0x3fff,heightPx:(b[28]|(b[29]<<8))&0x3fff};if(kind==='VP8L'&&b[20]===0x2f)return{widthPx:1+((b[21]|(b[22]<<8))&0x3fff),heightPx:1+(((b[22]>>6)|(b[23]<<2)|(b[24]<<10))&0x3fff)};return undefined;}
+function svgDimensions(s:string):MediaDimensions|undefined{const head=s.slice(0,8192);const w=/\bwidth\s*=\s*["']\s*([0-9]+(?:\.[0-9]+)?)(?:px)?\s*["']/i.exec(head);const h=/\bheight\s*=\s*["']\s*([0-9]+(?:\.[0-9]+)?)(?:px)?\s*["']/i.exec(head);if(!w||!h)return undefined;return{widthPx:Math.max(1,Math.round(Number(w[1]))),heightPx:Math.max(1,Math.round(Number(h[1])))};}
+export function sanitizeMediaSvg(source:string,limits:MediaBoundaryLimits=MEDIA_LIMITS):string{if(typeof source!=='string'||!source.trim()||source.length>limits.maxBytes)throw new MediaBoundaryError('svg-size-boundary');if(/<!DOCTYPE|<!ENTITY|<(?:script|foreignObject|iframe|object|embed|audio|video)\b/i.test(source)||/\son[a-z]+\s*=\s*/i.test(source)||/(?:href|xlink:href|src)\s*=\s*["']\s*(?:javascript:|https?:|file:|data:text\/html)/i.test(source)||/url\s*\(\s*["']?\s*(?:https?:|file:|javascript:)/i.test(source))throw new MediaBoundaryError('svg-active-content');let depth=0,elements=0;for(const tag of source.match(/<[^>]+>/g)??[]){if(/^<\//.test(tag)){depth=Math.max(0,depth-1);continue;}if(/^<\?|^<!/.test(tag))continue;if(++elements>limits.maxSvgElements)throw new MediaBoundaryError('svg-element-boundary');if(!/\/\s*>$/.test(tag)&&++depth>limits.maxSvgDepth)throw new MediaBoundaryError('svg-depth-boundary');}return source;}
+function isoBrand(b:Uint8Array):string|undefined{return b.length>=12&&ascii(b,4,4)==='ftyp'?ascii(b,8,4):undefined;}
+function probeKind(b:Uint8Array):Omit<MediaProbe,'byteSize'>|undefined{
+  if(starts(b,[0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a]))return{kind:'image',mimeType:'image/png',dimensions:pngDimensions(b)};
+  if(starts(b,[0xff,0xd8,0xff]))return{kind:'image',mimeType:'image/jpeg',dimensions:jpegDimensions(b)};
+  if(b.length>=12&&ascii(b,0,4)==='RIFF'&&ascii(b,8,4)==='WEBP')return{kind:'image',mimeType:'image/webp',dimensions:webpDimensions(b)};
+  if(starts(b,[0x49,0x49,0x2a,0x00])||starts(b,[0x4d,0x4d,0x00,0x2a]))return{kind:'image',mimeType:'image/tiff'};
+  const brand=isoBrand(b);if(brand&&['avif','avis'].includes(brand))return{kind:'image',mimeType:'image/avif',containerBrand:brand};if(brand&&['heic','heix','hevc','hevx','mif1','msf1'].includes(brand))return{kind:'image',mimeType:'image/heif',containerBrand:brand};
+  const h=td.decode(b.subarray(0,Math.min(b.length,8192))).replace(/^\uFEFF/,'').trimStart();if(/^<svg\b/i.test(h)||/^<\?xml[^>]*>\s*<svg\b/i.test(h)){const svg=sanitizeMediaSvg(td.decode(b));return{kind:'svg',mimeType:'image/svg+xml',dimensions:svgDimensions(svg),svgSanitized:svg};}
+  if(b.length>=12&&ascii(b,0,4)==='RIFF'&&ascii(b,8,4)==='WAVE')return{kind:'audio',mimeType:'audio/wav'};
+  if(starts(b,[0x49,0x44,0x33])||starts(b,[0xff,0xfb])||starts(b,[0xff,0xf3])||starts(b,[0xff,0xf2]))return{kind:'audio',mimeType:'audio/mpeg'};
+  if(starts(b,[0x66,0x4c,0x61,0x43]))return{kind:'audio',mimeType:'audio/flac'};
+  if(starts(b,[0x4f,0x67,0x67,0x53]))return{kind:'audio',mimeType:'audio/ogg'};
+  if(b.length>=4&&starts(b,[0x1a,0x45,0xdf,0xa3]))return{kind:'video',mimeType:'video/webm'};
+  if(brand)return{kind:'video',mimeType:'video/mp4',containerBrand:brand};
+  return undefined;
+}
+export function probeMediaBoundary(bytes:Uint8Array,declaredMime?:string,limits:MediaBoundaryLimits=MEDIA_LIMITS,signal?:AbortSignal):MediaProbe{if(signal?.aborted)throw new MediaBoundaryError('cancelled');if(!(bytes instanceof Uint8Array)||bytes.byteLength<4||bytes.byteLength>limits.maxBytes)throw new MediaBoundaryError('size-boundary');const p=probeKind(bytes);if(!p)throw new MediaBoundaryError('format-unsupported');const declared=(declaredMime??'').trim().toLowerCase();if(declared&&declared!=='application/octet-stream'&&declared!==p.mimeType)throw new MediaBoundaryError('mime-mismatch');if(p.kind==='image'&&!p.dimensions)throw new MediaBoundaryError('dimension-unavailable-before-decode');assertDimensions(p.dimensions,limits);if(signal?.aborted)throw new MediaBoundaryError('cancelled');return{...p,byteSize:bytes.byteLength};}
+export function validateDecoderMetadata(probe:MediaProbe,metadata:{widthPx?:number;heightPx?:number;durationMs?:number},limits:MediaBoundaryLimits=MEDIA_LIMITS):MediaProbe{const dimensions=metadata.widthPx!==undefined||metadata.heightPx!==undefined?{widthPx:metadata.widthPx??0,heightPx:metadata.heightPx??0}:probe.dimensions;assertDimensions(dimensions,limits);if(metadata.durationMs!==undefined&&(!Number.isFinite(metadata.durationMs)||metadata.durationMs<0||metadata.durationMs>limits.maxDurationMs))throw new MediaBoundaryError('duration-boundary');return{...probe,dimensions,durationMs:metadata.durationMs??probe.durationMs};}
+export function sanitizeMediaMetadata(input:Readonly<Record<string,unknown>>,limits:MediaBoundaryLimits=MEDIA_LIMITS):Readonly<Record<string,string|number|boolean>>{const out:Record<string,string|number|boolean>={};let used=0,count=0;for(const [rawKey,raw] of Object.entries(input)){if(count++>=256)break;const key=rawKey.replace(/[^A-Za-z0-9_.:-]/g,'_').slice(0,96);if(!key||/password|secret|token|credential|cookie/i.test(key))continue;let v:string|number|boolean;if(typeof raw==='string')v=raw.slice(0,4096);else if(typeof raw==='number'&&Number.isFinite(raw))v=raw;else if(typeof raw==='boolean')v=raw;else continue;used+=key.length+String(v).length;if(used>limits.maxMetadataBytes)break;out[key]=v;}return out;}

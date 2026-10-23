@@ -1,0 +1,9 @@
+# Build-Ausgaben des Inno-Setup-Builds (reproduzierbar aus den Quellen)
+build/
+dist/
+
+# Optional geladene Laufzeit-Bootstrapper (nicht einchecken; Hashes bleiben in SHA256SUMS.txt)
+vendor/*.exe
+
+# Von Windows/Inno erzeugte temporäre Dateien
+*.tmp

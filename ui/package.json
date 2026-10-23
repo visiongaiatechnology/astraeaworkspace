@@ -1,0 +1,41 @@
+{
+  "name": "vgt-workspace-ui",
+  "private": true,
+  "version": "0.1.0-alpha.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --mode open-core",
+    "build": "npm run build:open-core",
+    "build:open-core": "tsc -b && vite build --mode open-core && npm run audit:open-core",
+    "test": "vitest run",
+    "test:headings": "node ../scripts/audit-uiux-heading-hierarchy.cjs && vitest run src/components/headingHierarchy.test.tsx",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "verify": "npm run security:static && npm run test && npm run typecheck && npm run build:open-core",
+    "verify:open-core": "npm run security:static && npm run test && npm run typecheck && npm run build:open-core",
+    "audit:open-core": "node ../scripts/audit-open-core-artifacts.mjs",
+    "security:static": "node ../scripts/security/static-scan.mjs",
+    "bundle:init-smoke": "node scripts/bundle-init-smoke.mjs",
+    "cycles:smoke": "node scripts/import-cycle-smoke.mjs"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.12.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.16.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "happy-dom": "^21.0.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0",
+    "vitest": "^5.0.0"
+  }
+}

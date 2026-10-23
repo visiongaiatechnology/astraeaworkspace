@@ -1,0 +1,13 @@
+{
+  "comment": "Reviewed allowlist for scripts/security/static-scan.mjs. Each entry is a production file whose HTML sink was manually audited: every interpolated value is escaped, and the contract test in ui/src/testing/release/securityHardening.contract.test.tsx guards that property. A new sink id in the same file still fails, so this cannot hide a second sink.",
+  "entries": [
+    {
+      "path": "ui/src/apps/tasks/interchange/taskPrintExport.ts",
+      "reason": "Print popup writes a fully html()-escaped task table (sink:document.write); contract test asserts escaping of title/id/values."
+    },
+    {
+      "path": "ui/src/apps/notes/interchange/notesCanvasPrint.ts",
+      "reason": "Print popup writes an XML-escaped SVG canvas model (sink:document.write); every text/attribute value passes xml()/safeDataImage/sanitizeNoteInkSvg."
+    }
+  ]
+}

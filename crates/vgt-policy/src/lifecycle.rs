@@ -1,0 +1,18 @@
+// 💠 DIAMANT VGT SUPREME STATUS
+use crate::{audit::PolicyAudit,model::*, engine::validate_policy_set, PolicyError};
+use std::collections::{BTreeMap,BTreeSet};
+
+pub const MAX_POLICY_VERSIONS: usize=256;
+#[derive(Debug,Clone,PartialEq,Eq,serde::Serialize,serde::Deserialize)]pub struct PolicyDiff{pub added:Vec<String>,pub removed:Vec<String>,pub changed:Vec<String>}
+#[derive(Debug,Clone,PartialEq,Eq,serde::Serialize,serde::Deserialize)]pub struct SimulationResult{pub total:u64,pub allow:u64,pub deny:u64,pub require_approval:u64}
+#[derive(Debug,Default)]pub struct PolicyRegistry{versions:BTreeMap<u64,PolicySet>,published:Option<u64>,audit:PolicyAudit}
+impl PolicyRegistry{
+ pub fn insert(&mut self,set:PolicySet)->Result<(),PolicyError>{validate_policy_set(&set)?;if self.versions.len()>=MAX_POLICY_VERSIONS&&!self.versions.contains_key(&set.version){return Err(PolicyError::InvalidInput("version-limit".into()));}let id=set.policy_id.clone();let ver=set.version;self.versions.insert(set.version,set);self.audit.record_change(&id,ver,"POLICY_VERSION_STORED",chrono::Utc::now().timestamp_millis());Ok(())}
+ pub fn publish(&mut self,version:u64)->Result<(),PolicyError>{let s=self.versions.get_mut(&version).ok_or(PolicyError::VersionMissing)?;s.state=PolicyVersionState::Published;let id=s.policy_id.clone();self.published=Some(version);self.audit.record_change(&id,version,"POLICY_VERSION_PUBLISHED",chrono::Utc::now().timestamp_millis());Ok(())}
+ pub fn rollback(&mut self,version:u64)->Result<(),PolicyError>{if !self.versions.contains_key(&version){return Err(PolicyError::VersionMissing);}for s in self.versions.values_mut(){if s.state==PolicyVersionState::Published{s.state=PolicyVersionState::Test;}}let target=self.versions.get_mut(&version).ok_or(PolicyError::VersionMissing)?;target.state=PolicyVersionState::Published;let id=target.policy_id.clone();self.published=Some(version);self.audit.record_change(&id,version,"POLICY_VERSION_ROLLED_BACK",chrono::Utc::now().timestamp_millis());Ok(())}
+ pub fn audit(&self)->&PolicyAudit{&self.audit}
+ pub fn published(&self)->Option<&PolicySet>{self.published.and_then(|v|self.versions.get(&v))}
+ pub fn diff(&self,a:u64,b:u64)->Result<PolicyDiff,PolicyError>{let a=self.versions.get(&a).ok_or(PolicyError::VersionMissing)?;let b=self.versions.get(&b).ok_or(PolicyError::VersionMissing)?;let ma:BTreeMap<_,_>=a.rules.iter().map(|r|(r.id.as_str(),r)).collect();let mb:BTreeMap<_,_>=b.rules.iter().map(|r|(r.id.as_str(),r)).collect();let ka:BTreeSet<_>=ma.keys().copied().collect();let kb:BTreeSet<_>=mb.keys().copied().collect();Ok(PolicyDiff{added:kb.difference(&ka).map(|s|(*s).to_string()).collect(),removed:ka.difference(&kb).map(|s|(*s).to_string()).collect(),changed:ka.intersection(&kb).filter(|id|ma.get(**id)!=mb.get(**id)).map(|s|(*s).to_string()).collect()})}
+}
+pub fn simulate(set:&PolicySet,events:&[PolicyRequest])->Result<SimulationResult,PolicyError>{simulate_cancellable(set,events,&NeverCancel)}
+pub fn simulate_cancellable(set:&PolicySet,events:&[PolicyRequest],cancel:&dyn PolicyCancellationCheck)->Result<SimulationResult,PolicyError>{if events.len()>10_000{return Err(PolicyError::InvalidInput("simulation-limit".into()));}let mut out=SimulationResult{total:0,allow:0,deny:0,require_approval:0};for e in events{if cancel.cancelled(){return Err(PolicyError::Cancelled);}let mut published=set.clone();published.state=PolicyVersionState::Published;let d=crate::engine::evaluate_cancellable(&published,e,cancel)?;out.total+=1;match d.effect{PolicyEffect::Allow=>out.allow+=1,PolicyEffect::Deny=>out.deny+=1,PolicyEffect::RequireApproval=>out.require_approval+=1}}Ok(out)}

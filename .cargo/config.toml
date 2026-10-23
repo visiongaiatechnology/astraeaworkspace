@@ -1,0 +1,6 @@
+# Reproducible Windows release baseline.
+#
+# The MSVC linker otherwise stamps a random CodeView GUID into each build, which changes PE bytes
+# and makes a build-hash comparison impossible. `/Brepro` disables those random linker inputs.
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "link-arg=/Brepro"]

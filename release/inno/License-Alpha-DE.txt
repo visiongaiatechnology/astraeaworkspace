@@ -1,0 +1,78 @@
+ASTRAEA WORKSPACE ALPHA 0.1 — ALPHA-VEREINBARUNG UND NUTZUNGSBEDINGUNGEN (KURZFASSUNG)
+
+VisionGaiaTechnology (VGT) · Astraea Workspace Open Core 0.1.0-1
+Stand: 2026-10-18
+
+Bitte lesen Sie diese Alpha-Vereinbarung vollständig. Mit der Installation und
+Nutzung der Alpha-Software erklären Sie sich mit den nachfolgenden Bedingungen
+einverstanden. Wenn Sie nicht einverstanden sind, brechen Sie die Installation
+ab und nutzen Sie die Software nicht.
+
+1. TEST- UND ALPHA-SOFTWARE
+   Diese Software ist eine unfertige Alpha-Version (Testsoftware). Sie kann
+   Fehler, unvollständige Funktionen, Darstellungsfehler und Datenverluste
+   enthalten. Sie ist nicht für den produktiven Einsatz mit wichtigen oder
+   kritischen Daten bestimmt.
+
+2. KEINE GEWÄHRLEISTUNG
+   Die Software wird "wie besehen" ("as is") und "wie verfügbar" bereitgestellt.
+   Es besteht keine Zusage für Verfügbarkeit, Fehlerfreiheit, Eignung für einen
+   bestimmten Zweck oder die Behebung von Fehlern. Es besteht kein Anspruch auf
+   Support, Aktualisierung oder Fortführung der Alpha.
+
+3. DATEN, BACKUP UND DATENVERLUST
+   Arbeitsdaten werden lokal auf Ihrem Gerät gespeichert. Erstellen Sie vor dem
+   Einsatz und vor Updates eigene Sicherungen (Backups) Ihrer Daten. Die
+   Deinstallation entfernt standardmäßig keine Arbeitsdaten; eine Löschung
+   erfolgt nur, wenn Sie dies bei der Deinstallation ausdrücklich auswählen.
+   Eine Wiederherstellung verlorener Daten wird nicht zugesagt.
+
+4. LOKAL-FIRST UND DATENSCHUTZ
+   Astraea Workspace ist lokal-first ausgelegt: Es ist kein Cloud-Konto
+   erforderlich, und es findet keine automatische Telemetrie-Übermittlung an
+   VGT statt. Die Anwendung verfügt über eine Netzwerk-Gateway-Sperre, die
+   bekannte Telemetrie-Ziele blockiert. Arbeitsdaten und Wiederherstellungspunkte
+   liegen in Ihrem Benutzerprofil (Anwendungsdatenverzeichnis der Anwendung).
+   Netzwerkverbindungen entstehen nur, wenn Sie selbst Funktionen auslösen, die
+   eine Verbindung benötigen, oder wenn Sie Komponenten (z. B. Laufzeitumgebungen)
+   herunterladen.
+
+5. NUTZUNGSRECHT UND LIZENZ
+   Die Open-Core-Ausgabe steht unter der GNU Affero General Public License v3.0
+   (AGPL-3.0-only). Maßgeblich ist der Lizenztext im Projekt
+   (Datei LICENSE, mitgeliefert unter licenses\LICENSE-AGPL-3.0.txt). Rechte an
+   Drittanbieter-Komponenten richten sich nach deren Lizenzen; die Hinweise
+   (THIRD-PARTY-NOTICES / NOTICE) sind Bestandteil der Distribution.
+
+6. HAFTUNGSBESCHRÄNKUNG
+   Soweit gesetzlich zulässig, haftet VGT nicht für mittelbare Schäden,
+   Folgeschäden, Datenverluste, Betriebsunterbrechungen oder entgangenen Gewinn,
+   die aus der Nutzung oder Nichtnutzung dieser Alpha-Software entstehen. Die
+   Haftung für Vorsatz und grobe Fahrlässigkeit sowie für Schäden aus der
+   Verletzung von Leben, Körper oder Gesundheit bleibt unberührt. Zwingende
+   gesetzliche Haftung bleibt unberührt.
+
+7. RÜCKMELDUNGEN
+   Fehlerberichte und Rückmeldungen sind willkommen. Bitte senden Sie keine
+   vertraulichen oder personenbezogenen Echtdaten. Durch das Einsenden von
+   Rückmeldungen räumen Sie VGT das Recht ein, diese zur Verbesserung des
+   Produkts zu verwenden.
+
+8. BEENDIGUNG DER ALPHA
+   VGT kann die Alpha jederzeit beenden, ändern oder einstellen. Mit Beendigung
+   der Alpha entfällt das Nutzungsrecht an der Alpha-Software; lokal gespeicherte
+   Daten bleiben in Ihrem Verantwortungsbereich.
+
+9. RECHTSHINWEIS
+   Diese Kurzfassung ist eine verständliche Zusammenfassung der Alpha-Bedingungen
+   und stellt keine Rechtsberatung dar. Sie ersetzt keine individuelle rechtliche
+   Prüfung. Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts, soweit
+   anwendbar und gesetzlich zulässig.
+
+10. KONTAKT
+    VisionGaiaTechnology (VGT) · Open-Core-Projekt Astraea Workspace
+    Feedback: über den im Projekt genannten Weg (Repository/Release-Hinweise).
+
+Durch Auswahl von "Ich akzeptiere die Vereinbarung" und Fortsetzung der
+Installation bestätigen Sie, diese Alpha-Vereinbarung gelesen und verstanden zu
+haben.

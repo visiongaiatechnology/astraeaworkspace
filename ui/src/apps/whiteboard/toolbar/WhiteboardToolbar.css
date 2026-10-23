@@ -1,0 +1,333 @@
+/* STATUS: PLATIN — Whiteboard toolbar region: in-flow rows, grouped, collapsible, never overlapping.
+ *
+ * User report: three horizontal toolbars overlapped each other and the top one covered the ruler bar.
+ * The old layer was `position: absolute` over the canvas and its action surface wrapped without a bound.
+ * New contract:
+ *
+ *   .whiteboard-toolbar-region  normal flex column between the tabs and the canvas (no absolute/negative
+ *                               margins), so canvas + rulers always begin *below* it;
+ *   .whiteboard-toolbar__bar    primary row, grouped with dividers, wraps on narrow widths;
+ *   .whiteboard-toolbar__more   secondary row, shown inline under the primary row when expanded
+ *                               (aria-expanded on the disclosure button), never a floating popover;
+ *   .whiteboard-toolbar__context contextual rows (manipulation/ink/text) live in the same region; they
+ *                               wrap and scroll vertically instead of being clipped or stacked on top of
+ *                               the primary row.
+ *
+ * GLASS/Astraea: graphite surfaces, restrained violet accent, --vgt-* variables, no neon grid effects.
+ * Reduced motion is respected. All buttons keep their accessible names when compact mode hides labels.
+ */
+
+.whiteboard-toolbar-region {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+  padding: 0.5rem 0.75rem 0.35rem;
+  position: relative;
+  z-index: 20;
+  container-name: whiteboard-toolbar;
+  container-type: inline-size;
+}
+
+.whiteboard-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+/* ── Primary row ─────────────────────────────────────────────────────────────────────────────────── */
+.whiteboard-toolbar__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid var(--vgt-control-border, var(--vgt-neutral-border, rgb(148 163 184 / 0.2)));
+  border-radius: 1rem;
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--vgt-surface-z2, #171c28) 94%, transparent), color-mix(in srgb, var(--vgt-surface-z1, #0f131d) 94%, transparent));
+  box-shadow:
+    inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / 0.08)),
+    0 10px 24px var(--vgt-metal-shadow, rgb(0 0 0 / 0.22));
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.whiteboard-toolbar__bar:focus-within {
+  border-color: color-mix(in srgb, var(--vgt-focus, var(--vgt-accent-solid, #7c3aed)) 55%, transparent);
+}
+
+.whiteboard-toolbar__group {
+  display: inline-flex;
+  min-width: 0;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.15rem;
+  padding-inline: 0.1rem;
+}
+
+.whiteboard-toolbar__spacer {
+  flex: 1 1 auto;
+  min-width: 0.25rem;
+}
+
+/* ── Collapsible secondary row (More tools) ──────────────────────────────────────────────────────── */
+.whiteboard-toolbar__more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 0.35rem 0.45rem;
+  border: 1px solid var(--vgt-control-border, var(--vgt-neutral-border, rgb(148 163 184 / 0.18)));
+  border-radius: 0.9rem;
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+  background: color-mix(in srgb, var(--vgt-surface-z2, #171c28) 92%, transparent);
+  box-shadow: inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / 0.07));
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.whiteboard-toolbar__more[data-open="false"] {
+  display: none;
+}
+
+.whiteboard-toolbar__more-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.2rem;
+  min-width: 0;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.7rem;
+  background: color-mix(in srgb, var(--vgt-surface-z1, #0f131d) 55%, transparent);
+}
+
+.whiteboard-toolbar__more-group + .whiteboard-toolbar__more-group {
+  margin-inline-start: 0.15rem;
+}
+
+.whiteboard-toolbar__more-title {
+  padding-inline: 0.4rem 0.15rem;
+  color: var(--vgt-text-secondary, #94a3b8);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.whiteboard-toolbar__more-toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2rem;
+  padding: 0.4rem 0.65rem;
+  border: 1px solid var(--vgt-control-border, rgb(148 163 184 / 0.22));
+  border-radius: 0.7rem;
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+  background: color-mix(in srgb, var(--vgt-accent-soft, rgb(124 58 237 / 0.14)) 70%, transparent);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 130ms ease, border-color 130ms ease;
+}
+
+.whiteboard-toolbar__more-toggle:hover {
+  border-color: var(--vgt-metal-edge, var(--vgt-accent-strong, #8b5cf6));
+}
+
+.whiteboard-toolbar__more-toggle[data-open="true"] {
+  border-color: var(--vgt-metal-edge, var(--vgt-accent-strong, #8b5cf6));
+  background: var(--vgt-accent-soft, rgb(124 58 237 / 0.18));
+}
+
+.whiteboard-toolbar__chevron {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: 0 0 auto;
+  transition: transform 150ms ease;
+}
+
+.whiteboard-toolbar__more-toggle[data-open="true"] .whiteboard-toolbar__chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Contextual rows: manipulation / ink / text, rendered in the same flow region ─────────────────── */
+.whiteboard-toolbar__context {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+  max-width: 100%;
+  max-height: min(32vh, 12rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.35rem 0.45rem;
+  border: 1px solid var(--vgt-control-border, var(--vgt-neutral-border, rgb(148 163 184 / 0.2)));
+  border-radius: 1rem;
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+  background: color-mix(in srgb, var(--vgt-surface-z2, #171c28) 93%, transparent);
+  box-shadow:
+    inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / 0.08)),
+    0 8px 20px var(--vgt-metal-shadow, rgb(0 0 0 / 0.2));
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.whiteboard-toolbar__context--hint {
+  align-self: flex-start;
+}
+
+/* ── Buttons, swatches, dividers ─────────────────────────────────────────────────────────────────── */
+.whiteboard-toolbar__button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 2rem;
+  padding: 0.4rem 0.62rem;
+  border: 1px solid transparent;
+  border-radius: 0.7rem;
+  color: var(--vgt-control-muted, var(--vgt-text-secondary, #cbd5e1));
+  background: transparent;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 130ms ease,
+    border-color 130ms ease,
+    color 130ms ease,
+    box-shadow 130ms ease;
+}
+
+.whiteboard-toolbar__button:hover:not(:disabled) {
+  border-color: var(--vgt-control-border-hover, var(--vgt-control-border, rgb(148 163 184 / 0.28)));
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+  background: var(--vgt-control-hover, var(--vgt-surface-z3, #202634));
+}
+
+.whiteboard-toolbar__button:focus-visible,
+.whiteboard-toolbar__swatch:focus-visible,
+.whiteboard-toolbar__more-toggle:focus-visible {
+  outline: 2px solid var(--vgt-focus, var(--vgt-accent-solid, #7c3aed));
+  outline-offset: 2px;
+}
+
+.whiteboard-toolbar__button[data-active="true"] {
+  border-color: var(--vgt-metal-edge, var(--vgt-accent-strong, #8b5cf6));
+  color: var(--vgt-accent-strong, var(--vgt-control-text, #f8fafc));
+  background: var(--vgt-accent-soft, rgb(124 58 237 / 0.18));
+  box-shadow: inset 0 1px 0 var(--vgt-metal-highlight, rgb(255 255 255 / 0.1));
+}
+
+.whiteboard-toolbar__button[data-critical="true"] {
+  color: var(--vgt-control-danger, #f87171);
+}
+
+.whiteboard-toolbar__button[data-critical="true"]:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--vgt-control-danger, #f87171) 48%, transparent);
+  color: var(--vgt-control-danger, #f87171);
+  background: color-mix(in srgb, var(--vgt-control-danger, #f87171) 14%, transparent);
+}
+
+.whiteboard-toolbar__button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.whiteboard-toolbar__icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: 0 0 auto;
+}
+
+.whiteboard-toolbar__divider {
+  width: 1px;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  margin-inline: 0.2rem;
+  background: var(--vgt-control-border, rgb(148 163 184 / 0.2));
+}
+
+.whiteboard-toolbar__sticky-group {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.15rem;
+  border: 1px solid var(--vgt-control-border, rgb(148 163 184 / 0.18));
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--vgt-surface-z1, #0c0817) 66%, transparent);
+}
+
+.whiteboard-toolbar__swatches {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding-inline: 0.35rem;
+}
+
+.whiteboard-toolbar__swatch {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: 0 0 auto;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.whiteboard-toolbar__swatch[aria-pressed="true"] {
+  outline: 2px solid var(--vgt-focus, var(--vgt-accent-solid, #7c3aed));
+  outline-offset: 2px;
+}
+
+.whiteboard-toolbar__swatch--yellow { background: #fcd34d; }
+.whiteboard-toolbar__swatch--cyan { background: #67e8f9; }
+.whiteboard-toolbar__swatch--purple { background: #c4b5fd; }
+
+.whiteboard-toolbar__visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Narrow host: icon-first controls (accessible names stay via aria-label), rows wrap instead of clipping. */
+@container whiteboard-toolbar (max-width: 46rem) {
+  .whiteboard-toolbar__bar .whiteboard-toolbar__label {
+    display: none;
+  }
+  .whiteboard-toolbar__bar .whiteboard-toolbar__button {
+    padding-inline: 0.5rem;
+  }
+  .whiteboard-toolbar__more-title {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whiteboard-toolbar__button,
+  .whiteboard-toolbar__chevron,
+  .whiteboard-toolbar__more-toggle {
+    transition-duration: 0.01ms;
+  }
+}

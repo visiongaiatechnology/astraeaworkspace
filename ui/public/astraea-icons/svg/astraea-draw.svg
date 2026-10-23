@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+ <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#312e81"/><stop offset="1" stop-color="#0f172a"/></linearGradient><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22d3ee"/><stop offset="1" stop-color="#6366f1"/></linearGradient><filter id="g"><feGaussianBlur stdDeviation="5" result="x"/><feMerge><feMergeNode in="x"/><feMergeNode in="SourceGraphic"/></feMerge></filter><marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#67e8f9"/></marker></defs>
+ <rect x="28" y="28" width="456" height="456" rx="116" fill="#111827" stroke="url(#a)" stroke-width="8"/><rect x="52" y="52" width="408" height="408" rx="92" fill="url(#b)" stroke="#334155" stroke-width="3"/>
+ <path d="M170 190H270M320 224V300M270 330H196" fill="none" stroke="#67e8f9" stroke-width="8" stroke-linecap="round" marker-end="url(#m)" filter="url(#g)"/>
+ <rect x="104" y="142" width="130" height="92" rx="20" fill="#172554" stroke="#22d3ee" stroke-width="6"/><text x="169" y="194" text-anchor="middle" fill="#e0f2fe" font-family="sans-serif" font-size="24" font-weight="700">A</text>
+ <path d="M322 142l62 46-62 46-62-46z" fill="#312e81" stroke="#818cf8" stroke-width="6"/><text x="322" y="196" text-anchor="middle" fill="#eef2ff" font-family="sans-serif" font-size="24" font-weight="700">?</text>
+ <rect x="278" y="286" width="130" height="92" rx="20" fill="#172554" stroke="#22d3ee" stroke-width="6"/><text x="343" y="340" text-anchor="middle" fill="#e0f2fe" font-family="sans-serif" font-size="24" font-weight="700">B</text>
+ <circle cx="118" cy="352" r="24" fill="#0f172a" stroke="#818cf8" stroke-width="6"/><path d="M132 334L188 276" stroke="#818cf8" stroke-width="7" stroke-linecap="round"/>
+</svg>

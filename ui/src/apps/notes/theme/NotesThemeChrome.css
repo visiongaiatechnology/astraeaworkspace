@@ -1,0 +1,118 @@
+/* The editor pane is Workspace chrome; Markdown children retain their authored colors. */
+[data-vgt-notes-root="true"] [data-vgt-notes-chrome="editor-surface"] {
+  background-color: var(--vgt-module-panel-surface, var(--vgt-surface-z1, #10131f));
+}
+
+/* Notes navigation is Workspace chrome; the page body and user-defined tag colors stay owned by Notes data. */
+[data-vgt-notes-root="true"] [data-vgt-notes-chrome="sidebar"] {
+  background-color: var(--vgt-surface-z1, #10131f);
+  border-color: var(--vgt-control-border, var(--vgt-neutral-border, rgb(148 163 184 / .18)));
+  box-shadow: inset -1px 0 0 var(--vgt-metal-highlight, rgb(255 255 255 / .06));
+}
+
+/* Preserve editor width at 175–400% scale; fixed rem panes otherwise consume the viewport. */
+:root[data-astraea-scale-band="maximum"] [data-vgt-notes-root="true"] [data-vgt-notes-chrome="sidebar"],
+:root[data-astraea-scale-band="maximum"] [data-vgt-notes-root="true"] [data-vgt-notes-chrome="page-list"] {
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+:root[data-astraea-scale-band="maximum"] [data-vgt-notes-root="true"] [data-vgt-notes-chrome="sidebar"] {
+  width: min(18vw, 15rem);
+  flex-basis: min(18vw, 15rem);
+}
+
+:root[data-astraea-scale-band="maximum"] [data-vgt-notes-root="true"] [data-vgt-notes-chrome="page-list"] {
+  width: min(22vw, 18rem);
+  flex-basis: min(22vw, 18rem);
+  overflow: hidden;
+}
+
+:root[data-astraea-scale-band="maximum"] [data-vgt-notes-root="true"] [data-vgt-notes-chrome="editor-surface"] {
+  min-width: 0;
+  flex-basis: 0;
+}
+
+:root[data-astraea-scale-band="maximum"] [data-vgt-notes-root="true"] [data-vgt-notes-chrome="sidebar"] > .flex-1.overflow-y-auto,
+:root[data-astraea-scale-band="maximum"] [data-vgt-notes-root="true"] [data-vgt-notes-chrome="page-list"] > .flex-1.overflow-y-auto {
+  min-height: 0;
+}
+
+@media (max-width: 800px) {
+  :root[data-astraea-scale-band="maximum"] [data-vgt-notes-root="true"] {
+    height: auto;
+    min-height: 100vh;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  :root[data-astraea-scale-band="maximum"] [data-vgt-notes-root="true"] [data-vgt-notes-chrome="sidebar"],
+  :root[data-astraea-scale-band="maximum"] [data-vgt-notes-root="true"] [data-vgt-notes-chrome="page-list"] {
+    width: 100%;
+    max-width: 100%;
+    max-height: 30vh;
+    flex: 0 0 auto;
+    overflow: hidden;
+    border-right: 0;
+    border-bottom: 1px solid var(--vgt-control-border, var(--vgt-neutral-border, rgb(148 163 184 / .18)));
+  }
+
+  :root[data-astraea-scale-band="maximum"] [data-vgt-notes-root="true"] [data-vgt-notes-chrome="editor-surface"] {
+    width: 100%;
+    height: auto;
+    min-height: 70vh;
+    flex: 0 0 auto;
+  }
+}
+
+/* At 250–400%, give the editor the full row and keep navigation panels independently scrollable. */
+:root:is([data-astraea-scale-percent="250"], [data-astraea-scale-percent="300"], [data-astraea-scale-percent="400"]) [data-vgt-notes-root="true"] {
+  height: auto;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow: visible;
+}
+
+:root:is([data-astraea-scale-percent="250"], [data-astraea-scale-percent="300"], [data-astraea-scale-percent="400"]) [data-vgt-notes-root="true"] [data-vgt-notes-chrome="sidebar"],
+:root:is([data-astraea-scale-percent="250"], [data-astraea-scale-percent="300"], [data-astraea-scale-percent="400"]) [data-vgt-notes-root="true"] [data-vgt-notes-chrome="page-list"] {
+  width: 100%;
+  max-width: 100%;
+  max-height: min(30vh, 9rem);
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-right: 0;
+  border-bottom: 1px solid var(--vgt-control-border, var(--vgt-neutral-border, rgb(148 163 184 / .18)));
+}
+
+:root:is([data-astraea-scale-percent="250"], [data-astraea-scale-percent="300"], [data-astraea-scale-percent="400"]) [data-vgt-notes-root="true"] [data-vgt-notes-chrome="editor-surface"] {
+  width: 100%;
+  height: auto;
+  min-height: 70vh;
+  flex: 0 0 auto;
+}
+
+[data-vgt-notes-root="true"] [data-vgt-notes-chrome="sidebar"] :is(
+  [class~="text-blue-200"], [class~="text-blue-300"], [class~="text-blue-400"],
+  [class~="text-purple-200"], [class~="text-purple-300"], [class~="text-purple-400"],
+  [class~="text-violet-200"], [class~="text-violet-300"], [class~="text-violet-400"],
+  [class~="text-cyan-200"], [class~="text-cyan-300"], [class~="text-cyan-400"]
+) {
+  color: var(--vgt-accent-strong, var(--vgt-control-info, #8b5cf6));
+}
+
+[data-vgt-notes-root="true"] [data-vgt-notes-chrome="sidebar"] :is(
+  [class~="border-blue-500/30"], [class~="border-blue-500/40"], [class~="border-blue-500/50"],
+  [class~="border-purple-500/15"], [class~="border-purple-500/20"], [class~="border-purple-500/25"],
+  [class~="border-purple-500/30"], [class~="border-cyan-500/15"], [class~="border-cyan-500/20"],
+  [class~="border-cyan-500/25"]
+) {
+  border-color: var(--vgt-metal-edge, var(--vgt-control-border, var(--vgt-neutral-border, rgb(148 163 184 / .18))));
+}
+
+[data-vgt-notes-root="true"] [data-vgt-notes-chrome="sidebar"] :is(
+  [class~="bg-blue-600/15"], [class~="bg-blue-600/20"], [class~="bg-blue-600/30"],
+  [class~="bg-cyan-500/[0.03]"], [class~="bg-cyan-500/15"], [class~="bg-cyan-600/25"],
+  [class~="bg-purple-500/[0.03]"], [class~="bg-purple-600/20"]
+) {
+  background-color: var(--vgt-accent-soft, rgb(124 58 237 / .18));
+}

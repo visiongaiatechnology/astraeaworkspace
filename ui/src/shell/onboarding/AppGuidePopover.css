@@ -1,0 +1,267 @@
+[data-vgt-app-guide-highlighted="true"] {
+  outline: 3px solid var(--vgt-accent-strong, #a78bfa);
+  outline-offset: 3px;
+  border-radius: max(4px, var(--vgt-control-radius, 6px));
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--vgt-accent-strong, #a78bfa) 18%, transparent);
+  scroll-margin: 5rem;
+}
+
+.vgt-app-guide-popover {
+  position: fixed;
+  z-index: 90;
+  max-height: min(26rem, calc(100dvh - 24px));
+  overflow-y: auto;
+  border: 1px solid var(--vgt-metal-edge, rgba(192, 132, 252, 0.34));
+  border-radius: 0.9rem;
+  padding: 1rem;
+  color: var(--vgt-text-primary, #f8fafc);
+  background: var(--vgt-surface-z1, #120d1e);
+  box-shadow: 0 18px 56px rgba(0, 0, 0, 0.58), 0 0 28px color-mix(in srgb, var(--vgt-accent-strong, #a78bfa) 14%, transparent);
+  animation: vgt-guide-enter 140ms ease-out both;
+}
+
+.vgt-app-guide-popover::before {
+  position: absolute;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-top: 1px solid var(--vgt-metal-edge, rgba(192, 132, 252, 0.34));
+  border-left: 1px solid var(--vgt-metal-edge, rgba(192, 132, 252, 0.34));
+  background: var(--vgt-surface-z1, #120d1e);
+  content: "";
+  left: clamp(1rem, 18%, 3rem);
+  transform: rotate(45deg);
+}
+
+.vgt-app-guide-popover[data-placement="below"]::before {
+  top: -0.36rem;
+}
+
+.vgt-app-guide-popover[data-placement="above"]::before {
+  bottom: -0.36rem;
+  transform: rotate(225deg);
+}
+
+.vgt-app-guide-popover[data-placement="right"]::before {
+  top: calc(50% - 0.325rem);
+  left: -0.36rem;
+  transform: rotate(-45deg);
+}
+
+.vgt-app-guide-popover[data-placement="left"]::before {
+  top: calc(50% - 0.325rem);
+  right: -0.36rem;
+  left: auto;
+  transform: rotate(135deg);
+}
+
+.vgt-app-guide-popover__eyebrow,
+.vgt-app-guide-popover__footer,
+.vgt-app-guide-popover__actions,
+.vgt-app-guide-popover__confirmation > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.vgt-app-guide-popover__eyebrow {
+  color: var(--vgt-accent-strong, #c4b5fd);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vgt-app-guide-popover__progress {
+  height: 0.3rem;
+  margin-top: 0.65rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--vgt-control-surface, rgba(255, 255, 255, 0.08));
+}
+
+.vgt-app-guide-popover__progress > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--vgt-accent-strong, #a78bfa);
+  transition: width 160ms ease-out;
+}
+
+.vgt-app-guide-popover__title {
+  margin: 0.8rem 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.vgt-app-guide-popover__description {
+  margin: 0.45rem 0 0;
+  color: var(--vgt-text-secondary, #cbd5e1);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.vgt-app-guide-popover__action-confirmation {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+  border: 1px solid var(--vgt-metal-edge, rgba(255, 255, 255, 0.14));
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.65rem;
+  color: var(--vgt-text-secondary, #cbd5e1);
+  background: var(--vgt-control-surface, rgba(255, 255, 255, 0.06));
+  font-size: 0.74rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.vgt-app-guide-popover__action-confirmation input {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0.08rem 0 0;
+  accent-color: var(--vgt-accent-strong, #a78bfa);
+}
+
+.vgt-app-guide-popover__action-confirmation:hover,
+.vgt-app-guide-popover__action-confirmation:focus-within {
+  border-color: var(--vgt-accent-strong, #a78bfa);
+}
+
+.vgt-app-guide-popover__target {
+  margin: 0.65rem 0 0;
+  color: var(--vgt-text-muted, #94a3b8);
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.68rem;
+}
+
+.vgt-app-guide-popover__target-warning,
+.vgt-app-guide-popover__confirmation {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.75rem;
+  border: 1px solid color-mix(in srgb, #fbbf24 36%, transparent);
+  border-radius: 0.65rem;
+  padding: 0.65rem;
+  color: var(--vgt-text-secondary, #cbd5e1);
+  background: color-mix(in srgb, #fbbf24 8%, transparent);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.vgt-app-guide-popover__target-warning button {
+  justify-self: start;
+  color: var(--vgt-accent-strong, #c4b5fd);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.vgt-app-guide-popover__confirmation > div {
+  justify-content: flex-start;
+}
+
+.vgt-app-guide-popover__footer {
+  flex-wrap: wrap;
+  margin-top: 0.85rem;
+  border-top: 1px solid var(--vgt-metal-edge, rgba(255, 255, 255, 0.12));
+  padding-top: 0.75rem;
+}
+
+.vgt-app-guide-popover__actions {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.vgt-app-guide-popover__primary,
+.vgt-app-guide-popover__secondary {
+  min-height: 2.4rem;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 650;
+  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+.vgt-app-guide-popover__primary {
+  color: var(--vgt-on-accent, #10091b);
+  background: var(--vgt-accent-strong, #c4b5fd);
+}
+
+.vgt-app-guide-popover__primary:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.vgt-app-guide-popover__primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.vgt-app-guide-popover__secondary {
+  border: 1px solid var(--vgt-metal-edge, rgba(255, 255, 255, 0.14));
+  color: var(--vgt-text-secondary, #cbd5e1);
+}
+
+.vgt-app-guide-popover__secondary:hover:not(:disabled) {
+  color: var(--vgt-text-primary, #fff);
+  background: var(--vgt-control-surface, rgba(255, 255, 255, 0.08));
+}
+
+.vgt-app-guide-popover__secondary:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.vgt-app-guide-popover__optout {
+  max-width: 100%;
+  color: var(--vgt-text-muted, #94a3b8);
+  font-size: 0.68rem;
+  line-height: 1.35;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.vgt-app-guide-popover__warning {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-top: 0.55rem;
+  color: #fbbf24;
+  font-size: 0.7rem;
+}
+
+.vgt-app-guide-popover__warning button {
+  flex: 0 0 auto;
+  border: 1px solid var(--vgt-metal-edge, rgba(255, 255, 255, 0.18));
+  border-radius: 0.35rem;
+  padding: 0.25rem 0.45rem;
+  color: var(--vgt-text-primary, #fff);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15rem;
+}
+
+.vgt-app-guide-popover__warning button:hover {
+  background: var(--vgt-control-surface, rgba(255, 255, 255, 0.08));
+}
+
+.vgt-app-guide-popover :is(button, input, [tabindex]):focus-visible {
+  outline: 2px solid var(--vgt-accent-strong, #c4b5fd);
+  outline-offset: 2px;
+}
+
+@keyframes vgt-guide-enter {
+  from { opacity: 0; transform: translateY(0.35rem) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vgt-app-guide-popover,
+  .vgt-app-guide-popover__progress > span {
+    animation: none;
+    transition: none;
+  }
+}

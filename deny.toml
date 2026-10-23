@@ -1,0 +1,40 @@
+# cargo-deny policy for the 0.1 beta release (added in the W7 security audit round).
+# Scope: advisory triage, license policy and source pinning for the shipped Windows workspace.
+# Note: passing this check is supply-chain hygiene evidence, not legal advice.
+
+[advisories]
+version = 2
+ignore = [
+    { id = "RUSTSEC-2024-0370", reason = "proc-macro-error is unmaintained; it is a build-only macro dependency (via tauri tooling) and contributes no runtime code to the Windows binary. Removal is tracked with the upstream tauri release." },
+    { id = "RUSTSEC-2024-0429", reason = "glib VariantStrIter unsoundness is Linux-only (GTK backend). The shipped Windows build does not compile or link glib; the advisory stays visible in CI for the Linux target." },
+]
+
+[licenses]
+version = 2
+allow = [
+    "0BSD", "MIT", "MIT-0", "Apache-2.0", "Apache-2.0 WITH LLVM-exception",
+    "BSD-1-Clause", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Zlib",
+    "Unicode-3.0", "CC0-1.0", "Unlicense", "MPL-2.0", "AGPL-3.0-only", "AGPL-3.0",
+]
+confidence-threshold = 0.9
+exceptions = []
+[[licenses.clarify]]
+crate = "vgt-infinity-core"
+expression = "AGPL-3.0-only"
+license-files = []
+
+[bans]
+multiple-versions = "warn"
+# Workspace-internal path dependencies intentionally omit a version (they are never published to\n# crates.io). Their wildcard hit is reported as a warning; registry wildcards would still be visible.\nwildcards = "warn"
+# The workspace crates reference each other as path dependencies without a version wildcard in
+# the published sense; only registry wildcards are a supply-chain risk.
+allow-wildcard-paths = true
+highlight = "all"
+workspace-default-features = "allow"
+external-default-features = "allow"
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+allow-git = ["https://github.com/visiongaiatechnology/infinity.git"]

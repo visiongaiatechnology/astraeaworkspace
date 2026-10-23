@@ -1,0 +1,279 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Astraea Workspace Open Core",
+  "version": "0.1.0-alpha.1",
+  "identifier": "technology.visiongaia.astraea.workspace.opencore",
+  "build": {
+    "beforeDevCommand": {
+      "script": "npm run dev -- --mode open-core",
+      "cwd": "../../ui"
+    },
+    "devUrl": "http://localhost:5173",
+    "beforeBuildCommand": {
+      "script": "npm run build:open-core",
+      "cwd": "../../ui"
+    },
+    "frontendDist": "../../ui/dist/open-core"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "Astraea Workspace Alpha 0.1",
+        "width": 1440,
+        "height": 900,
+        "minWidth": 1024,
+        "minHeight": 700,
+        "resizable": true,
+        "fullscreen": false,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' asset: data: blob:; media-src 'self' asset: data: blob:; font-src 'self' data:; worker-src 'self' blob:; connect-src 'self' ipc: http://ipc.localhost; object-src 'none'; base-uri 'none'; frame-src 'none'; form-action 'none'; frame-ancestors 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.png",
+      "icons/icon.ico"
+    ],
+    "targets": "all",
+    "category": "Productivity",
+    "shortDescription": "Sovereign local-first productivity suite",
+    "longDescription": "Astraea Workspace Beta is a local-first productivity suite with encrypted native containers and no required cloud account.",
+    "fileAssociations": [
+      {
+        "ext": [
+          "vwc"
+        ],
+        "name": "Astraea Workspace Container",
+        "description": "Encrypted Astraea Workspace container",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vwc",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vwc",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vdoc"
+        ],
+        "name": "Astraea Writer Document",
+        "description": "Encrypted Astraea Writer document",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vdoc",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vdoc",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vgrid"
+        ],
+        "name": "Astraea Grid Workbook",
+        "description": "Encrypted Astraea Grid workbook",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vgrid",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vgrid",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vpresent"
+        ],
+        "name": "Astraea Presentation",
+        "description": "Encrypted Astraea presentation",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vpresent",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vpresent",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vnote"
+        ],
+        "name": "Astraea Notebook",
+        "description": "Encrypted Astraea notes document",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vnote",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vnote",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vpdf"
+        ],
+        "name": "Astraea PDF Document",
+        "description": "Encrypted Astraea PDF Studio document",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vpdf",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vpdf",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vboard"
+        ],
+        "name": "Astraea Whiteboard",
+        "description": "Encrypted Astraea whiteboard",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vboard",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vboard",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vtask"
+        ],
+        "name": "Astraea Tasks",
+        "description": "Encrypted Astraea task document",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vtask",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vtask",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vvault"
+        ],
+        "name": "Astraea Vault",
+        "description": "Encrypted Astraea vault",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vvault",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vvault",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vdraw"
+        ],
+        "name": "Astraea Draw Document",
+        "description": "Encrypted Astraea Draw diagram",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vdraw",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vdraw",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vpolicy"
+        ],
+        "name": "Astraea Admin Policy",
+        "description": "Encrypted Astraea Admin policy document",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vpolicy",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vpolicy",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vpub"
+        ],
+        "name": "Astraea Publish Document",
+        "description": "Encrypted Astraea Publish layout",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vpub",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vpub",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vinsight"
+        ],
+        "name": "Astraea Insight Report",
+        "description": "Encrypted Astraea Insight analytics report",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vinsight",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vinsight",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vconnect"
+        ],
+        "name": "Astraea Connect Store",
+        "description": "Encrypted Astraea Connect communication store",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vconnect",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vconnect",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "vauto"
+        ],
+        "name": "Astraea Automate Flow",
+        "description": "Encrypted Astraea Automate workflow",
+        "role": "Editor",
+        "mimeType": "application/x-astraea-vauto",
+        "exportedType": {
+          "identifier": "technology.visiongaia.astraea.vauto",
+          "conformsTo": [
+            "public.data"
+          ]
+        }
+      }
+    ],
+    "resources": []
+  }
+}

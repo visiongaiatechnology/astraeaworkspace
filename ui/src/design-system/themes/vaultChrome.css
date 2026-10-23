@@ -1,0 +1,120 @@
+/* STATUS: GOLD — Vault and GaiaCom app chrome follows the Workspace material tokens. */
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(
+  [class*="bg-black/"],
+  [class~="bg-black"],
+  [class*="bg-[#0b0714]"],
+  [class*="bg-[#0c0817]"],
+  [class*="bg-[#090614]"],
+  [class*="bg-[#0e0a1a]"],
+  [class*="bg-purple-950/"],
+  [class~="bg-purple-950"]
+) {
+  background-color: var(--vgt-module-panel-surface, var(--as-bg-workbench));
+  background-image: linear-gradient(145deg, color-mix(in srgb, var(--vgt-metal-highlight, white) 5%, transparent), transparent 58%);
+  border-color: var(--vgt-control-border, var(--as-border-control));
+}
+
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(
+  [class*="border-purple-"], [class*="border-violet-"], [class*="border-indigo-"], [class*="border-blue-"]
+):not([data-color]):not([data-swatch]):not([style*="border-color"]) {
+  border-color: var(--vgt-control-border, var(--as-border-control));
+}
+
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(
+  [class*="text-purple-"], [class*="text-violet-"], [class*="text-indigo-"], [class*="text-blue-"]
+):not([data-color]):not([data-swatch]) {
+  color: var(--vgt-accent-strong, var(--as-accent-strong));
+}
+
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(
+  [class*="bg-purple-500/"], [class*="bg-purple-600/"], [class*="bg-violet-500/"],
+  [class*="bg-indigo-500/"], [class*="bg-blue-500/"]
+):not(button):not([data-color]):not([data-swatch]) {
+  background-color: var(--vgt-accent-soft, var(--as-accent-soft));
+}
+
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-purple-500"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-purple-600"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-purple-700"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-violet-500"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-violet-600"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-violet-700"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-indigo-500"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-indigo-600"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-indigo-700"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-blue-500"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-blue-600"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-blue-700"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-cyan-600"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-cyan-700"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-teal-600"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-teal-700"],
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class~="bg-purple-600/80"] {
+  border-color: var(--vgt-control-primary-border, var(--vgt-control-border));
+  background-color: var(--vgt-control-primary-bg, var(--vgt-accent-solid));
+  color: var(--vgt-control-primary-text, var(--vgt-on-accent, #fff));
+}
+
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(input, select, textarea)[class] {
+  border-color: var(--vgt-control-border, var(--as-border-control));
+  background-color: var(--vgt-module-control-surface, var(--as-bg-control));
+  color: var(--vgt-control-text, var(--as-text-primary));
+}
+
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(input, select, textarea)[class]::placeholder {
+  color: var(--vgt-control-muted, var(--as-text-muted));
+  opacity: 1;
+}
+
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(button, input, select, textarea)[class]:focus-visible {
+  outline: 2px solid var(--vgt-focus, var(--as-focus));
+  outline-offset: 2px;
+  box-shadow: var(--as-focus-ring);
+}
+
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(button, input, select, textarea)[class]:disabled {
+  filter: none;
+}
+
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(button, [role="button"], [role="tab"])[class]:hover:not(:disabled):not([aria-disabled="true"]) {
+  border-color: var(--vgt-control-border-hover, var(--vgt-control-border));
+}
+
+:is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) button[class]:disabled {
+  border-color: var(--vgt-control-border, var(--as-border-control));
+  background-color: var(--vgt-module-control-surface, var(--as-bg-control));
+  color: var(--vgt-control-muted, var(--as-text-muted));
+  opacity: 1;
+}
+
+:root[data-astraea-scheme="light"] :is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(
+  [class*="text-emerald-"], [class*="text-green-"], [class*="text-amber-"], [class*="text-yellow-"],
+  [class*="text-rose-"], [class*="text-red-"], [class*="text-cyan-"], [class*="text-sky-"], [class*="text-blue-"]
+) {
+  color: var(--vgt-control-success, var(--as-success));
+}
+
+:root[data-astraea-scheme="light"] :is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(
+  [class*="text-amber-"], [class*="text-yellow-"]
+) {
+  color: var(--vgt-control-warning, var(--as-warning));
+}
+
+:root[data-astraea-scheme="light"] :is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(
+  [class*="text-rose-"], [class*="text-red-"]
+) {
+  color: var(--vgt-control-danger, var(--as-critical));
+}
+
+:root[data-astraea-scheme="light"] :is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(
+  [class*="text-cyan-"], [class*="text-sky-"], [class*="text-blue-"]
+) {
+  color: var(--vgt-control-info, var(--as-info));
+}
+
+@media (forced-colors: active) {
+  :is([data-vgt-vault-root="true"], [data-vgt-gaiacom-root="true"]) :is(button, input, select, textarea)[class] {
+    forced-color-adjust: auto;
+    border-color: ButtonText;
+  }
+}

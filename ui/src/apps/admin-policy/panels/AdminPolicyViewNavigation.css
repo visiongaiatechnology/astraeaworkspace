@@ -1,0 +1,171 @@
+.vgt-admin-policy .adminPolicy__layout {
+  display: grid;
+  grid-template-columns: minmax(14em, 17.5em) minmax(0, 1fr);
+  align-items: start;
+  gap: 1.15em;
+  padding-top: 1.15em;
+}
+
+.vgt-admin-policy .adminPolicy__sidebar {
+  display: grid;
+  gap: 1em;
+  min-width: 0;
+}
+
+.vgt-admin-policy .adminPolicy__scope {
+  padding: 1.05em 1.05em 0.85em;
+  border: 1px solid var(--admin-line);
+  border-radius: 0.75em;
+  background: var(--admin-surface);
+}
+
+.vgt-admin-policy .adminPolicy__scopeMode {
+  margin: 0 0 0.8em;
+  color: var(--admin-text);
+  font-size: 1.05em;
+  font-weight: 650;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  text-transform: capitalize;
+}
+
+.vgt-admin-policy .adminPolicy__scopeAccess {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 0.75em 0;
+  border-top: 1px solid var(--admin-line);
+  border-bottom: 1px solid var(--admin-line);
+}
+
+.vgt-admin-policy .adminPolicy__stateMark {
+  flex: 0 0 auto;
+  width: 0.52em;
+  height: 0.52em;
+  border-radius: 50%;
+  background: var(--admin-muted);
+}
+
+.vgt-admin-policy .adminPolicy__scopeAccess[data-access="allowed"] .adminPolicy__stateMark,
+.vgt-admin-policy .adminPolicy__finding[data-tone="clear"] .adminPolicy__stateMark {
+  background: var(--admin-good);
+}
+
+.vgt-admin-policy .adminPolicy__scopeAccess[data-access="restricted"] .adminPolicy__stateMark,
+.vgt-admin-policy .adminPolicy__finding[data-tone="warning"] .adminPolicy__stateMark {
+  background: var(--admin-warn);
+}
+
+.vgt-admin-policy .adminPolicy__scopeAccess > div {
+  display: grid;
+  gap: 0.2em;
+}
+
+.vgt-admin-policy .adminPolicy__factLabel,
+.vgt-admin-policy .adminPolicy__scopeCounts dt {
+  color: var(--admin-muted);
+  font-size: 0.72em;
+}
+
+.vgt-admin-policy .adminPolicy__scopeAccess strong {
+  color: var(--admin-text);
+  font-size: 0.86em;
+  font-weight: 650;
+}
+
+.vgt-admin-policy .adminPolicy__scopeCounts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5em 1em;
+  margin: 0;
+  padding-top: 0.75em;
+}
+
+.vgt-admin-policy .adminPolicy__scopeCounts > div {
+  display: grid;
+  gap: 0.22em;
+}
+
+.vgt-admin-policy .adminPolicy__scopeCounts dt,
+.vgt-admin-policy .adminPolicy__scopeCounts dd {
+  margin: 0;
+}
+
+.vgt-admin-policy .adminPolicy__scopeCounts dd {
+  color: var(--admin-text);
+  font-size: 1.06em;
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+}
+
+.vgt-admin-policy .adminPolicy__navigation {
+  min-width: 0;
+  padding: 0.8em 0.4em 0.4em;
+}
+
+.vgt-admin-policy .adminPolicy__navigation > .adminPolicy__eyebrow {
+  padding-inline: 0.5em;
+}
+
+.vgt-admin-policy .adminPolicy__tabList {
+  display: grid;
+  gap: 0.22em;
+}
+
+.vgt-admin-policy .adminPolicy__tab {
+  display: grid;
+  grid-template-columns: 2.1em minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.55em;
+  width: 100%;
+  min-height: 2.7em;
+  padding: 0.5em 0.6em;
+  border: 1px solid transparent;
+  border-radius: 0.55em;
+  background: transparent;
+  color: var(--admin-secondary);
+  font: inherit;
+  font-size: 0.82em;
+  font-weight: 570;
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.vgt-admin-policy .adminPolicy__tab:hover {
+  border-color: var(--admin-line);
+  background: var(--admin-surface);
+  color: var(--admin-text);
+}
+
+.vgt-admin-policy .adminPolicy__tab[aria-selected="true"] {
+  border-color: var(--glass-border, #46385f);
+  background: var(--admin-accent-soft);
+  color: var(--admin-text);
+}
+
+.vgt-admin-policy .adminPolicy__tabIndex {
+  color: var(--admin-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82em;
+  font-variant-numeric: tabular-nums;
+}
+
+.vgt-admin-policy .adminPolicy__tab[aria-selected="true"] .adminPolicy__tabIndex {
+  color: var(--admin-accent);
+}
+
+.vgt-admin-policy .adminPolicy__tabArrow {
+  color: var(--admin-accent);
+  opacity: 0;
+  transform: translate(-0.15em, 0.15em);
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.vgt-admin-policy .adminPolicy__tab:hover .adminPolicy__tabArrow,
+.vgt-admin-policy .adminPolicy__tab[aria-selected="true"] .adminPolicy__tabArrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+

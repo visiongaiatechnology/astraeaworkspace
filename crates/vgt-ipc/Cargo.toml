@@ -1,0 +1,17 @@
+[package]
+name = "vgt-ipc"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+vgt-container = { path = "../vgt-container" }
+vgt-formula = { path = "../vgt-formula" }
+vgt-keyvault = { path = "../vgt-keyvault" }
+vgt-netgate = { path = "../vgt-netgate" }
+vgt-object-model = { path = "../vgt-object-model" }
+vgt-search = { path = "../vgt-search" }

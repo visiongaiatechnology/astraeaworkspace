@@ -1,0 +1,21 @@
+{
+  "repository": "https://github.com/visiongaiatechnology/infinity.git",
+  "commit": "55b05a697a189d0ec583cdcf340beeba1efc9130",
+  "suite": "VGT-INFINITY-1",
+  "format_version": 2,
+  "magic": "VGTINF02",
+  "domain": "VGT/INFINITY/1",
+  "source_blobs": {
+    "crypto.rs": "7af90c2b71326e5acf8e616c5ede036adec4472a",
+    "vault.rs": "6d84d0dbea64c8fd260864999621dc900019a1c6",
+    "model.rs": "7e7ecd932d4e665914228f60a344b64001c8fde5",
+    "provider.rs": "2425d5d12177f4f40deac845d717478f3253423c",
+    "identity.rs": "cd1741669ca8f53f150b62948e9c32867379f470",
+    "FORMAT_SPECIFICATION.md": "de27f137863ad01f94605df6c3df8dcfec1265f7"
+  },
+  "kem": ["ML-KEM-1024", "FRODOKEM-1344-SHAKE", "HQC-256", "AIGIS-ENC-4", "X25519"],
+  "combiner": ["KMAC256", "HKDF-SHA3-512"],
+  "layers": ["SERPENT-256-EAX", "TWOFISH-256-EAX", "XCHACHA20-POLY1305", "AES-256-GCM-SIV"],
+  "signatures": ["ML-DSA-87", "SLH-DSA-SHAKE-256s"],
+  "signature_context": "VGT/INFINITY/1/CONTAINER"
+}

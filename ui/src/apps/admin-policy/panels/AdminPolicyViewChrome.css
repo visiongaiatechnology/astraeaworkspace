@@ -1,0 +1,149 @@
+.vgt-admin-policy.adminPolicy {
+  --admin-bg: var(--vgt-surface-z0, #0c0a10);
+  --admin-surface: var(--vgt-surface-z1, #13111a);
+  --admin-surface-raised: var(--vgt-surface-z2, #191621);
+  --admin-line: var(--vgt-neutral-border, #302c39);
+  --admin-text: var(--vgt-text-primary, #f3eff9);
+  --admin-secondary: var(--vgt-text-secondary, #b8b1c4);
+  --admin-muted: var(--vgt-text-muted, #8b8498);
+  --admin-accent: var(--vgt-accent-solid, #7c3aed);
+  --admin-accent-soft: var(--vgt-accent-soft, rgba(124, 58, 237, 0.12));
+  --admin-good: var(--vgt-success, #79d7ae);
+  --admin-warn: var(--vgt-warning, #e9bd73);
+  min-height: 0;
+  background: var(--admin-bg);
+  color: var(--admin-text);
+}
+
+.vgt-admin-policy .adminPolicy__frame {
+  width: min(100%, 116rem);
+  margin-inline: auto;
+  padding: 1.5em clamp(1em, 2.1vw, 2.25em) 2.25em;
+}
+
+.vgt-admin-policy .adminPolicy__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5em;
+  padding-bottom: 1.3em;
+  border-bottom: 1px solid var(--admin-line);
+}
+
+.vgt-admin-policy .adminPolicy__identity {
+  min-width: 0;
+}
+
+.vgt-admin-policy .adminPolicy__eyebrow {
+  margin: 0 0 0.65em;
+  color: var(--admin-muted);
+  font-size: 0.68em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.vgt-admin-policy .adminPolicy__identity > .adminPolicy__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+}
+
+.vgt-admin-policy .adminPolicy__identity > .adminPolicy__eyebrow > span {
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  background: var(--admin-accent);
+  box-shadow: 0 0 0 0.28em var(--admin-accent-soft);
+}
+
+.vgt-admin-policy .adminPolicy__title {
+  margin: 0;
+  color: var(--admin-text);
+  font-size: clamp(1.65em, 2.35em, 2.4em);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.vgt-admin-policy .adminPolicy__subtitle {
+  max-width: 54em;
+  margin: 0.65em 0 0;
+  color: var(--admin-secondary);
+  font-size: 0.9em;
+  line-height: 1.55;
+}
+
+.vgt-admin-policy .adminPolicy__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.vgt-admin-policy .adminPolicy__historyControls {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+}
+
+.vgt-admin-policy .adminPolicy__button {
+  min-height: 2.55em;
+  padding: 0.55em 0.9em;
+  border: 1px solid var(--admin-line);
+  border-radius: 0.55em;
+  background: var(--admin-surface);
+  color: var(--admin-text);
+  font: inherit;
+  font-size: 0.82em;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease;
+}
+
+.vgt-admin-policy .adminPolicy__button:hover:not(:disabled) {
+  border-color: var(--admin-accent);
+  background: var(--admin-surface-raised);
+}
+
+.vgt-admin-policy .adminPolicy__button:disabled {
+  color: var(--admin-muted);
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.vgt-admin-policy .adminPolicy__buttonPrimary {
+  border-color: var(--admin-accent);
+  background: var(--admin-accent);
+  color: #fff;
+}
+
+.vgt-admin-policy .adminPolicy__buttonPrimary:hover:not(:disabled) {
+  border-color: var(--vgt-focus, #c2adff);
+  background: var(--admin-accent);
+}
+
+.vgt-admin-policy .adminPolicy__scale {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  color: var(--admin-secondary);
+  font-size: 0.78em;
+  font-weight: 600;
+}
+
+.vgt-admin-policy .adminPolicy__select {
+  min-height: 2.5em;
+  max-width: 100%;
+  padding: 0.45em 2.2em 0.45em 0.7em;
+  border: 1px solid var(--admin-line);
+  border-radius: 0.5em;
+  background-color: var(--admin-surface);
+  color: var(--admin-text);
+  font: inherit;
+  font-size: 0.82em;
+}
+

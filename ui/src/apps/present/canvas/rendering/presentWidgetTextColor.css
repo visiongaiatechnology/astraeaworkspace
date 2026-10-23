@@ -1,0 +1,13 @@
+/*
+ * Round 42 — explicit text-colour token for Present widgets.
+ *
+ * Widget layouts use their own Tailwind slate/accent classes for labels, values, subtitles and
+ * badges; plain CSS inheritance therefore never reached the authored `presentStyle.textColor`
+ * (the user reported "Schriftfarbe greift nicht"). When a text colour is authored, the frame gets
+ * `.present-widget-text-themed` and this one rule wins for every text descendant. Without the
+ * authored colour the class is absent and the historical widget look is untouched.
+ */
+.present-widget-text-themed,
+.present-widget-text-themed * {
+  color: var(--present-widget-text) !important;
+}

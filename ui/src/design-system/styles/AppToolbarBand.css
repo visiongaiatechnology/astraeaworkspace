@@ -1,0 +1,104 @@
+/* App-owned toolbar chrome inherits the active Workspace palette without
+   recoloring document, slide, or spreadsheet content surfaces. */
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] {
+  background-color: var(--vgt-module-panel-surface, var(--vgt-surface-z1, #10131f));
+  border-color: var(--vgt-control-border, var(--vgt-neutral-border, rgba(148, 163, 184, .18)));
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(
+  [class~="bg-black"], [class*="bg-black/"],
+  [class~="bg-slate-950"], [class*="bg-slate-950/"],
+  [class~="bg-slate-900"], [class*="bg-slate-900/"],
+  [class~="bg-slate-800"], [class*="bg-slate-800/"],
+  [class~="bg-gray-950"], [class*="bg-gray-950/"],
+  [class~="bg-gray-900"], [class*="bg-gray-900/"],
+  [class~="bg-zinc-950"], [class*="bg-zinc-950/"],
+  [class~="bg-zinc-900"], [class*="bg-zinc-900/"]
+):not([data-color]):not([data-swatch]):not([style*="background-color"]):not([style*="background:"]) {
+  background-color: var(--vgt-module-control-surface, var(--vgt-control-surface, #191d2c));
+  border-color: var(--vgt-control-border, var(--vgt-neutral-border, rgba(148, 163, 184, .18)));
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(
+  input:not([type="file"]):not([type="color"]):not([type="checkbox"]):not([type="radio"]),
+  select, textarea
+):not([class~="bg-transparent"]) {
+  background-color: var(--vgt-control-surface, var(--vgt-module-control-surface, #191d2c));
+  border-color: var(--vgt-control-border, var(--vgt-neutral-border, rgba(148, 163, 184, .18)));
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(
+  [class~="text-white"], [class~="text-slate-50"], [class~="text-slate-100"],
+  [class~="text-zinc-50"], [class~="text-zinc-100"]
+) {
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(
+  [class~="text-slate-200"], [class~="text-slate-300"], [class~="text-slate-400"],
+  [class~="text-slate-500"], [class~="text-slate-600"],
+  [class~="text-zinc-200"], [class~="text-zinc-300"], [class~="text-zinc-400"],
+  [class~="text-zinc-500"], [class~="text-zinc-600"]
+) {
+  color: var(--vgt-control-muted, var(--vgt-text-secondary, #cbd5e1));
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(
+  [class*="border-white/"], [class*="border-slate-"], [class*="border-zinc-"]
+) {
+  border-color: var(--vgt-control-border, var(--vgt-neutral-border, rgba(148, 163, 184, .18)));
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(div, span)[class*="bg-white/"] {
+  background-color: var(--vgt-control-border, var(--vgt-neutral-border, rgba(148, 163, 184, .18)));
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(button, [role="button"])[class*="hover:bg-white/"]:hover:not(:disabled) {
+  background-color: var(--vgt-control-hover, var(--vgt-module-control-hover, #252a3b));
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(button, [role="button"])[class*="hover:text-white"]:hover:not(:disabled) {
+  color: var(--vgt-control-text, var(--vgt-text-primary, #f8fafc));
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(button, [role="button"]):is(
+  [class~="bg-blue-500"], [class~="bg-blue-600"], [class~="bg-blue-700"],
+  [class~="bg-indigo-500"], [class~="bg-indigo-600"], [class~="bg-indigo-700"],
+  [class~="bg-purple-500"], [class~="bg-purple-600"], [class~="bg-purple-700"],
+  [class~="bg-violet-500"], [class~="bg-violet-600"], [class~="bg-violet-700"]
+) {
+  background-color: var(--vgt-control-primary-bg, var(--vgt-accent-solid, #7c3aed));
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--as-specular-soft, rgb(255 255 255 / .12)) 58%, transparent), transparent 78%);
+  border-color: var(--vgt-control-primary-border, var(--vgt-control-border, #7c3aed));
+  color: var(--vgt-control-primary-text, var(--vgt-on-accent, #fff));
+  box-shadow: inset 0 1px 0 var(--as-specular-soft, rgb(255 255 255 / .12)), var(--as-shadow-z1, 0 1px 2px rgb(0 0 0 / .16));
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(button, [role="button"])[class*="bg-blue-500/"],
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(button, [role="button"])[class*="bg-blue-600/"],
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(button, [role="button"])[class*="bg-indigo-500/"],
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(button, [role="button"])[class*="bg-purple-500/"],
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(button, [role="button"])[class*="bg-purple-600/"],
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(button, [role="button"])[class*="bg-violet-500/"],
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is(button, [role="button"])[class*="bg-cyan-500/"] {
+  background-color: var(--vgt-accent-soft, rgba(124, 58, 237, .18));
+  border-color: var(--vgt-control-border, var(--vgt-neutral-border, rgba(148, 163, 184, .18)));
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is([class*="text-blue-"], [class*="text-cyan-"], [class*="text-purple-"], [class*="text-violet-"]) {
+  color: var(--vgt-accent-strong, var(--vgt-control-info, #60a5fa));
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is([class*="text-emerald-"], [class*="text-green-"]) {
+  color: var(--vgt-control-success, #34d399);
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is([class*="text-amber-"], [class*="text-yellow-"]) {
+  color: var(--vgt-control-warning, #fbbf24);
+}
+
+.vgt-app-toolbar-band[data-vgt-app-toolbar-band] :is([class*="text-red-"], [class*="text-rose-"]) {
+  color: var(--vgt-control-danger, #f87171);
+}

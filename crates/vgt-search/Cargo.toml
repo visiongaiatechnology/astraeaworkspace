@@ -1,0 +1,14 @@
+[package]
+name = "vgt-search"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+blake3 = { workspace = true }
+vgt-object-model = { path = "../vgt-object-model" }
+vgt-crypto = { path = "../vgt-crypto" }

@@ -1,0 +1,8 @@
+// 💠 DIAMANT VGT SUPREME STATUS
+use crate::model::{PolicyDecision,PolicyRequest};
+use std::collections::VecDeque;
+pub const MAX_POLICY_AUDIT:usize=4096;
+#[derive(Debug,Clone,serde::Serialize,serde::Deserialize,PartialEq,Eq)]pub struct PolicyAuditEvent{pub sequence:u64,pub unix_ms:i64,pub event_code:String,pub policy_id:String,pub policy_version:u64,pub action:String,pub resource_class:String,pub effect:String,pub reason_code:String}
+#[derive(Debug,Default)]pub struct PolicyAudit{events:VecDeque<PolicyAuditEvent>,seq:u64}
+fn class(resource:&str)->String{resource.split(':').next().unwrap_or("resource").chars().take(64).collect()}
+impl PolicyAudit{pub fn record_change(&mut self,policy_id:&str,policy_version:u64,event_code:&str,unix_ms:i64){self.seq=self.seq.saturating_add(1);if self.events.len()>=MAX_POLICY_AUDIT{self.events.pop_front();}self.events.push_back(PolicyAuditEvent{sequence:self.seq,unix_ms,event_code:event_code.chars().take(64).collect(),policy_id:policy_id.chars().take(128).collect(),policy_version,action:"policy.lifecycle".into(),resource_class:"policy".into(),effect:"PrivilegedChange".into(),reason_code:"POLICY_CHANGE_AUDITED".into()});}pub fn record_decision(&mut self,req:&PolicyRequest,d:&PolicyDecision,unix_ms:i64){self.seq=self.seq.saturating_add(1);if self.events.len()>=MAX_POLICY_AUDIT{self.events.pop_front();}self.events.push_back(PolicyAuditEvent{sequence:self.seq,unix_ms,event_code:"POLICY_DECISION".into(),policy_id:d.policy_id.clone(),policy_version:d.policy_version,action:req.action.chars().take(96).collect(),resource_class:class(&req.resource),effect:format!("{:?}",d.effect),reason_code:d.reason_code.clone()});}pub fn events(&self)->impl Iterator<Item=&PolicyAuditEvent>{self.events.iter()}}

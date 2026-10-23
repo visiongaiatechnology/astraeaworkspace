@@ -1,0 +1,5 @@
+// STATUS: DIAMANT VGT SUPREME
+export function visibleAxisCount(total:number, hidden:readonly number[]=[]):number { const h=new Set(hidden); let c=0; for(let i=0;i<total;i++) if(!h.has(i)) c++; return c; }
+export function visibleIndexToModelIndex(visible:number,total:number,hidden:readonly number[]=[]):number { const h=new Set(hidden); let seen=-1; for(let i=0;i<total;i++){if(h.has(i))continue;seen++;if(seen===visible)return i;} return Math.max(0,total-1); }
+export function modelIndexToVisibleIndex(model:number,total:number,hidden:readonly number[]=[]):number { const h=new Set(hidden); if(h.has(model)) return -1; let v=0; for(let i=0;i<Math.min(model,total);i++) if(!h.has(i)) v++; return v; }
+export function buildSparseUsedRowIndices(cells:Record<string,unknown>,rowCount:number,alwaysInclude=200):number[]{ const rows=new Set<number>(); for(let i=0;i<Math.min(rowCount,alwaysInclude);i++)rows.add(i); for(const key of Object.keys(cells)){const m=/^[A-Z]+([1-9]\d*)$/i.exec(key);if(m){const r=Number(m[1])-1;if(r>=0&&r<rowCount)rows.add(r);}} return [...rows].sort((a,b)=>a-b); }

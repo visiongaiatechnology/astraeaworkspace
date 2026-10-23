@@ -1,0 +1,26 @@
+import React from 'react';
+import { Activity, AlertTriangle, Database, HardDrive, ShieldCheck, Wrench } from 'lucide-react';
+import type { VaultStorageHealthReport, } from './vaultStorageHealthEngine';
+import type { VaultStorageHealthState } from '../../contracts/workspace';
+
+interface Props {
+  state: VaultStorageHealthState;
+  scan: () => Promise<VaultStorageHealthReport>;
+  runIntegrityAndScan: () => Promise<VaultStorageHealthReport>;
+  cleanupIncomplete: () => { removed: string[] };
+  setReadOnly: (enabled: boolean, reason?: string) => VaultStorageHealthState;
+  showToast: (message: string) => void;
+}
+const fmt=(value?:number)=>value===undefined?'n/a':value<1024?`${value} B`:value<1024**2?`${(value/1024).toFixed(1)} KiB`:value<1024**3?`${(value/1024**2).toFixed(1)} MiB`:`${(value/1024**3).toFixed(2)} GiB`;
+export const VaultStorageHealthPanel:React.FC<Props>=({state,scan,runIntegrityAndScan,cleanupIncomplete,setReadOnly,showToast})=>{
+  const [report,setReport]=React.useState<VaultStorageHealthReport|null>(null);const [busy,setBusy]=React.useState(false);
+  const run=async(fn:()=>Promise<VaultStorageHealthReport>)=>{setBusy(true);try{const next=await fn();setReport(next);showToast(`Storage health: ${next.unsafeToWrite?'recovery recommended':'healthy'}.`);}catch(e){showToast(e instanceof Error?e.message:'Storage health failed.');}finally{setBusy(false);}};
+  const backup=report?.backupFreshness; const capacity=report?.capacity;
+  return <section className="space-y-3 rounded-2xl border border-white/[0.08] bg-slate-900/60 p-4 shadow-xl backdrop-blur-xl">
+    <div className="flex flex-wrap items-center justify-between gap-2"><div><h3 className="flex items-center gap-2 text-sm font-semibold text-slate-100"><Activity className="h-4 w-4 text-emerald-300"/>Storage health</h3><p className="mt-1 text-[10px] text-slate-500">Disk/quota capacity, logical Vault size, integrity, backup freshness, migrations and recovery safety. No file content is emitted in diagnostics.</p></div><div className="flex gap-2"><button type="button" disabled={busy} onClick={()=>void run(scan)} className="rounded-lg bg-emerald-700 px-3 py-2 text-xs font-semibold text-white disabled:opacity-50">Refresh health</button><button type="button" disabled={busy} onClick={()=>void run(runIntegrityAndScan)} className="rounded-lg border border-emerald-500/30 px-3 py-2 text-xs text-emerald-200"><ShieldCheck className="mr-1 inline h-3.5 w-3.5"/>Integrity scan</button></div></div>
+    {state.readOnlyRecoveryMode&&<div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 text-xs text-amber-200"><AlertTriangle className="mr-1 inline h-4 w-4"/>Read-only recovery mode is active: {state.readOnlyReason??'unsafe to write'}</div>}
+    {report&&<><div className="grid gap-2 md:grid-cols-2 xl:grid-cols-5"><div className="rounded-xl bg-black/20 p-3 text-[10px]"><HardDrive className="mb-1 h-4 w-4 text-cyan-300"/><b>{capacity?.source==='host_disk'?'Host disk':capacity?.source==='browser_quota'?'Browser quota':'Capacity unavailable'}</b><p className="text-slate-500">Free {fmt(capacity?.freeBytes)} / {fmt(capacity?.totalBytes)}</p></div><div className="rounded-xl bg-black/20 p-3 text-[10px]"><Database className="mb-1 h-4 w-4 text-violet-300"/><b>Vault {fmt(report.sizes.logicalVaultBytes)}</b><p className="text-slate-500">Files {fmt(report.sizes.activeFilesBytes)} · versions {fmt(report.sizes.versionBytes)} · trash {fmt(report.sizes.trashBytes)}</p></div><div className="rounded-xl bg-black/20 p-3 text-[10px]"><b>Backup {backup?.state}</b><p className="text-slate-500">Referenced encrypted packages {fmt(report.sizes.referencedBackupBytes)}</p></div><div className="rounded-xl bg-black/20 p-3 text-[10px]"><b>Key provider {report.keyProvider.state}</b><p className="text-slate-500">{report.keyProvider.platform} · {report.keyProvider.hardwareBacked?'hardware-backed':'hardware status unknown/software'}</p></div><div className="rounded-xl bg-black/20 p-3 text-[10px]"><b>Migration {report.migration}</b><p className="text-slate-500">Orphans {report.orphanRefs.length} · stale transactions {report.incompleteTransactions.length}</p></div></div>
+    <div className="flex flex-wrap gap-2"><button type="button" onClick={()=>{const r=cleanupIncomplete();showToast(`Cleaned ${r.removed.length} stale transaction(s).`);}} className="rounded-lg border border-white/10 px-3 py-2 text-xs text-slate-300"><Wrench className="mr-1 inline h-3.5 w-3.5"/>Cleanup incomplete transactions</button>{!state.readOnlyRecoveryMode&&report.unsafeToWrite&&<button type="button" onClick={()=>{setReadOnly(true,report.unsafeReasons.join(', '));showToast('Read-only recovery mode enabled.');}} className="rounded-lg border border-amber-500/30 px-3 py-2 text-xs text-amber-200">Enter read-only recovery</button>}{state.readOnlyRecoveryMode&&!report.unsafeToWrite&&<button type="button" onClick={()=>{setReadOnly(false);showToast('Read-only recovery mode disabled after healthy scan.');}} className="rounded-lg border border-emerald-500/30 px-3 py-2 text-xs text-emerald-200">Exit read-only recovery</button>}</div>
+    {(report.orphanRefs.length>0||report.unsafeReasons.length>0)&&<p className="text-[9px] text-amber-300">Findings: {[...report.unsafeReasons,...report.orphanRefs.slice(0,8)].join(' · ')}</p>}</>}
+  </section>;
+};

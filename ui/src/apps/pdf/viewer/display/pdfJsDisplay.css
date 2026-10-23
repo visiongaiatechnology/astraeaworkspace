@@ -1,0 +1,26 @@
+/* Astraea PDF Studio — minimal local PDF.js layer styling. */
+.pdfjs-page-shell { position: relative; isolation: isolate; background: white; box-shadow: 0 18px 60px rgba(0,0,0,.35); }
+.pdfjs-page-canvas { display: block; width: 100%; height: 100%; }
+.pdfjs-text-layer { position: absolute; inset: 0; overflow: hidden; line-height: 1; text-size-adjust: none; forced-color-adjust: none; transform-origin: 0 0; z-index: 10; }
+.pdfjs-text-layer :is(span, br) { position: absolute; color: transparent; white-space: pre; cursor: text; transform-origin: 0% 0%;   unicode-bidi: plaintext;
+  text-align: start;
+}
+.pdfjs-text-layer span::selection { background: rgba(59,130,246,.45); color: transparent; }
+.pdfjs-text-layer .pdfjs-search-hit { background: rgba(250,204,21,.48); border-radius: 2px; color: transparent; box-shadow: 0 0 0 1px rgba(250,204,21,.35); }
+/* The cursor's current finding, so "next match" has a visible destination and not only a scroll jump. */
+.pdfjs-text-layer .pdfjs-search-hit-active { background: rgba(249,115,22,.72); box-shadow: 0 0 0 2px rgba(249,115,22,.85); }
+.pdfjs-annotation-layer { position: absolute; inset: 0; z-index: 20; pointer-events: none; transform-origin: 0 0; }
+.pdfjs-annotation-layer > section { position: absolute; text-align: initial; pointer-events: auto; box-sizing: border-box; transform-origin: 0 0; }
+.pdfjs-annotation-layer .linkAnnotation > a { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pdfjs-annotation-layer .textWidgetAnnotation :is(input, textarea),
+.pdfjs-annotation-layer .choiceWidgetAnnotation select,
+.pdfjs-annotation-layer .buttonWidgetAnnotation input { width: 100%; height: 100%; box-sizing: border-box; border: 1px solid rgba(59,130,246,.35); background: rgba(255,255,255,.72); color: #111827; font: inherit; }
+.pdfjs-annotation-layer .textWidgetAnnotation textarea { resize: none; }
+.pdfjs-annotation-layer .popupAnnotation { position: absolute; }
+.pdfjs-page-shell[data-contrast='grayscale'] { filter: grayscale(1); }
+.pdfjs-page-shell[data-contrast='invert'] { filter: invert(1) hue-rotate(180deg); }
+.pdfjs-page-shell[data-contrast='high-contrast'] { filter: contrast(1.55) saturate(.82); }
+@media (forced-colors: active) {
+  .pdfjs-page-shell { outline: 1px solid CanvasText; }
+  .pdfjs-annotation-layer .textWidgetAnnotation :is(input, textarea), .pdfjs-annotation-layer .choiceWidgetAnnotation select { forced-color-adjust: auto; }
+}

@@ -1,0 +1,51 @@
+ASTRAEA WORKSPACE ALPHA 0.1 — WICHTIGE HINWEISE VOR DER INSTALLATION
+
+Bitte beachten Sie vor dem Fortfahren:
+
+1. TESTSOFTWARE
+   Dies ist eine Alpha-Version. Funktionen können fehlerhaft, unvollständig
+   oder noch nicht abnahmegerecht sein. Bitte verwenden Sie die Alpha nicht als
+   einzige Ablage für unersetzliche Daten.
+
+2. BACKUP
+   Erstellen Sie vor der Installation und vor jedem Update eine Sicherung Ihrer
+   vorhandenen Arbeitsdaten. Die Alpha ersetzt keine Datensicherung.
+
+3. DATENABLAGE
+   Arbeitsdaten, Wiederherstellungspunkte und Einstellungen liegen lokal in
+   Ihrem Benutzerprofil:
+     %APPDATA%\technology.visiongaia.astraea.workspace.opencore
+     %LOCALAPPDATA%\technology.visiongaia.astraea.workspace.opencore
+   Es ist kein Cloud-Konto erforderlich. Eine automatische Telemetrie an VGT
+   findet nicht statt; bekannte Telemetrie-Ziele werden durch das integrierte
+   Netzwerk-Gateway blockiert.
+
+4. DEINSTALLATION UND DATEN
+   Die Deinstallation entfernt standardmäßig nur das Programm. Arbeitsdaten
+   bleiben erhalten, sofern Sie bei der Deinstallation nicht ausdrücklich die
+   Option "Workspace-Daten löschen" aktivieren. Diese Löschung ist endgültig.
+
+5. SYSTEMVORAUSSETZUNGEN
+   Windows 10 (Build 17763) oder neuer, 64-bit · Microsoft Edge WebView2 Runtime
+   (bei Windows 11 in der Regel vorhanden) · Microsoft Visual C++ 2015–2022
+   Redistributable (x64). Der Installer prüft beides und zeigt fehlende
+   Komponenten sowie offizielle Downloadquellen an. Sofern die Laufzeiten im
+   Installationspaket enthalten sind, können sie über die letzte Seite
+   nachinstalliert werden.
+
+6. DATEIZUORDNUNGEN (OPTIONAL)
+   Auf der Aufgaben-Seite können Sie Dateizuordnungen für Astraea-Dateien
+   (.vwc, .vdoc, .vgrid, .vpresent, .vnote) aktivieren. Die Zuordnungen werden
+   ausschließlich für vorhandene Astraea-Dateitypen gesetzt und bei der
+   Deinstallation wieder entfernt. Es werden keine fremden Office-Endungen
+   (.docx, .xlsx, .pptx, .pdf) übernommen.
+
+7. KEIN AUTOSTART
+   Der Installer legt keinen Autostart-Eintrag an und startet keine Dienste.
+
+8. FEHLER MELDEN
+   Bitte melden Sie Fehler mit Build-Version, Windows-Version und einer kurzen
+   Beschreibung. Senden Sie keine vertraulichen Echtdaten.
+
+Mit "Weiter" setzen Sie die Installation fort. Die vollständigen
+Alpha-Bedingungen haben Sie auf der vorherigen Seite bestätigt.
