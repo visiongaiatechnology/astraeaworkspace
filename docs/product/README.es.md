@@ -1,5 +1,46 @@
+> [!IMPORTANT]
+> **Alpha 0.1 temprana — no es la Beta 0.1 prevista.**
+>
+> Aquí publicamos una **Alpha 0.1 temprana de Astraea Workspace**. Todavía no hemos alcanzado el
+> objetivo de calidad previsto para la **Beta 0.1**. El proyecto lo desarrolla **un único
+> desarrollador independiente** y actualmente **no hay dinero para acelerar el desarrollo**. Puedes
+> apoyar el proyecto: una donación ayuda a financiar el desarrollo y **los informes de errores nos
+> ayudan a descubrir fallos que aún no conocemos**.
+>
+> **Estado de las apps en esta compilación**
+>
+> | Nivel | Apps | Significado |
+> | --- | --- | --- |
+> | Early Beta (madurez relativa) | Writer, Grid, Present, Notes, Tasks | Flujos principales con rutas básicas probadas. Aún temprano, incompleto en partes y puede contener errores. |
+> | Alpha | Whiteboard, Draw, PDF Studio, Publish, Insight, Connect, Automate, Vault, Admin & Policy | Apps de vista previa, limitadas o bloqueadas. Pueden faltar funciones o cambiar; se esperan errores. Admin & Policy es de solo lectura y está bloqueada; Vault está revisado por el control de seguridad, pero sigue en Alpha. |
+> | No incluidas | Planner, Projects, Forms, Database, Spaces, GaiaCom | Solo Premium; no forman parte de Open Core. |
+>
+> **Todas las apps de esta compilación pueden contener errores. No uses esta Alpha temprana como
+> única copia de datos importantes.** El lanzamiento general sigue siendo **Alpha 0.1 temprana**,
+> aunque una app figure como Early Beta relativa.
+>
+> ### Apoyo
+>
+> Independent development is funded by people who want this stack to exist. If you want to support the work:
+>
+> | Method | Address |
+> | --- | --- |
+> | PayPal | [paypal.me/dergoldenelotus](https://paypal.me/dergoldenelotus) |
+> | Bitcoin | `bc1q3ue5gq822tddmkdrek79adlkm36fatat3lz0dm` |
+> | ETH / USDT (ERC-20) | `0xD37DEfb09e07bD775EaaE9ccDaFE3a5b2348Fe85` |
+>
+> Los informes de errores y las issues también son valiosos: usa el gestor de issues del repositorio
+> para que podamos reproducir y corregir los problemas.
+
 <p align="center">
   <img src="./astraeaworkspace1.png" alt="Astraea Workspace" width="680"/>
+</p>
+
+<p align="center">
+  <img alt="Status: Early Alpha 0.1" src="https://img.shields.io/badge/Status-Early%20Alpha%200.1-FFB300?style=for-the-badge"/>
+  <img alt="Edition: Open Core" src="https://img.shields.io/badge/Edition-Open%20Core-00C853?style=for-the-badge"/>
+  <img alt="License: AGPLv3" src="https://img.shields.io/badge/License-AGPLv3-00B0FF?style=for-the-badge"/>
+  <img alt="Platform: Windows" src="https://img.shields.io/badge/Platform-Windows-24C8D8?style=for-the-badge"/>
 </p>
 
 <p align="center">
@@ -18,17 +59,6 @@
 
 <p align="center">
 </p>
-
----
-
-> [!IMPORTANT]
-> ## Estado del lanzamiento público
->
-> **Astraea Workspace se encuentra en su fase final de endurecimiento previa al lanzamiento.**
->
-> El hito de implementación del núcleo está completo. La fase actual se centra en la separación de ediciones, verificación de flujos de trabajo de extremo a extremo, Workspace Explorer, coherencia de diseño, accesibilidad, localización, evidencias de seguridad, empaquetado y pruebas de regresión finales.
->
-> Los paquetes oficiales de distribución se publicarán únicamente tras superar los controles de calidad (release gates). Hasta entonces, un hito de lista de control interna no debe confundirse con una versión pública lanzada y verificada.
 
 ---
 
@@ -464,7 +494,7 @@ Astraea Premium se distribuirá mediante una **licencia comercial perpetua**, si
 
 | Edición | Disponibilidad prevista | Precio único previsto | Actualización mayor prevista |
 |---|---:|---:|---:|
-| **Premium Beta Early-Bird** | Nov 2026 – Feb 2027 | **39,99 €** | **~45,99 €** |
+| **Premium Alpha Early-Bird** | Nov 2026 – Feb 2027 | **39,99 €** | **~45,99 €** |
 | **Premium Regular** | Desde marzo 2027 | **69,00 €** | **~45,99 €** |
 | **Entidades sin ánimo de lucro y educación** | Organizaciones elegibles | **36,99 €** | **9,99 €** |
 
@@ -549,7 +579,7 @@ Esta cifra certifica la compleción de la lista de tareas de la implementación 
 
 Por sí sola, **no** equivale a que el lanzamiento público esté concluido.
 
-La beta pública se somete a una fase específica de consolidación que comprende:
+La alpha pública se somete a una fase específica de consolidación que comprende:
 
 ```text
 Separación física del código fuente de ambas ediciones
@@ -572,7 +602,7 @@ Generación de SBOM / hashes / trazabilidad de compilación
 Revisión de defectos visibles previa a la publicación
 ```
 
-El estado del repositorio pasará de **Pre-Release** a **Beta** únicamente cuando estas condiciones estén plenamente evidenciadas en el árbol de publicación real.
+El estado del repositorio pasará de **Pre-Release** a **Alpha** únicamente cuando estas condiciones estén plenamente evidenciadas en el árbol de publicación real.
 
 ---
 

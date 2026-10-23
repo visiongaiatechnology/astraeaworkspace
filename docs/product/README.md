@@ -1,5 +1,46 @@
+> [!IMPORTANT]
+> **Early Alpha 0.1 — not the planned Beta 0.1 release.**
+>
+> This repository publishes an **early Alpha 0.1 of Astraea Workspace**. We have not reached the
+> quality target we planned for **Beta 0.1**. The project is developed by **one independent
+> developer**, and there is currently **no money available to accelerate development**. You are
+> welcome to support the project: a donation helps fund development, and **issue reports help us
+> find bugs we do not know yet**.
+>
+> **App maturity in this build**
+>
+> | Tier | Apps | What it means |
+> | --- | --- | --- |
+> | Early Beta (relative maturity) | Writer, Grid, Present, Notes, Tasks | Core workflows with tested core paths. Still early, incomplete in places and may contain bugs. |
+> | Alpha | Whiteboard, Draw, PDF Studio, Publish, Insight, Connect, Automate, Vault, Admin & Policy | Preview, limited or gated apps. Features can be missing or change, and bugs are expected. Admin & Policy is read-only and gated; Vault is security-gate reviewed but still Alpha. |
+> | Not included | Planner, Projects, Forms, Database, Spaces, GaiaCom | Premium-only; not part of Open Core. |
+>
+> **All apps in this build can contain errors. Do not use this early Alpha as the only copy of
+> important data.** The overall release is **Early Alpha 0.1**, even where an app is listed as
+> relative Early Beta.
+>
+> ### Support
+>
+> Independent development is funded by people who want this stack to exist. If you want to support the work:
+>
+> | Method | Address |
+> | --- | --- |
+> | PayPal | [paypal.me/dergoldenelotus](https://paypal.me/dergoldenelotus) |
+> | Bitcoin | `bc1q3ue5gq822tddmkdrek79adlkm36fatat3lz0dm` |
+> | ETH / USDT (ERC-20) | `0xD37DEfb09e07bD775EaaE9ccDaFE3a5b2348Fe85` |
+>
+> Bug reports and issues are just as valuable: please use the repository issue tracker so we can
+> reproduce and fix problems.
+
 <p align="center">
   <img src="./astraeaworkspace1.png" alt="Astraea Workspace" width="680"/>
+</p>
+
+<p align="center">
+  <img alt="Status: Early Alpha 0.1" src="https://img.shields.io/badge/Status-Early%20Alpha%200.1-FFB300?style=for-the-badge"/>
+  <img alt="Edition: Open Core" src="https://img.shields.io/badge/Edition-Open%20Core-00C853?style=for-the-badge"/>
+  <img alt="License: AGPLv3" src="https://img.shields.io/badge/License-AGPLv3-00B0FF?style=for-the-badge"/>
+  <img alt="Platform: Windows" src="https://img.shields.io/badge/Platform-Windows-24C8D8?style=for-the-badge"/>
 </p>
 
 > [!IMPORTANT]
@@ -25,17 +66,6 @@
 
 <p align="center">
 </p>
-
----
-
-> [!IMPORTANT]
-> ## Public release status
->
-> **Astraea Workspace is in final pre-release hardening.**
->
-> The core implementation milestone is complete. The current release pass is focused on edition separation, end-to-end workflow verification, the Workspace Explorer, design consistency, accessibility, localization, security evidence, packaging, and final regression testing.
->
-> Official release bundles will be published only after the release gates pass. Until then, a checklist milestone must not be confused with a shipped, verified public release.
 
 ---
 
@@ -471,7 +501,7 @@ Astraea Premium is planned as a **perpetual commercial license**, not a mandator
 
 | Edition | Planned availability | Planned one-time price | Planned major-version upgrade |
 |---|---:|---:|---:|
-| **Premium Beta Early-Bird** | Nov 2026 – Feb 2027 | **€39.99** | **~€45.99** |
+| **Premium Alpha Early-Bird** | Nov 2026 – Feb 2027 | **€39.99** | **~€45.99** |
 | **Premium Regular** | From Mar 2027 | **€69.00** | **~€45.99** |
 | **Non-Profit & Education** | Eligible organizations | **€36.99** | **€9.99** |
 
@@ -556,7 +586,7 @@ That number represents completion of the core implementation checklist.
 
 It does **not** by itself claim that a public release is finished.
 
-The public beta has a separate release-readiness pass covering:
+The public alpha has a separate release-readiness pass covering:
 
 ```text
 Dual-edition source separation
@@ -579,7 +609,7 @@ SBOM / hashes / provenance
 Release-visible defect gates
 ```
 
-The repository status should move from **Pre-Release** to **Beta** only when those gates are evidenced by the actual release tree.
+The repository status should move from **Pre-Release** to **Alpha** only when those gates are evidenced by the actual release tree.
 
 ---
 

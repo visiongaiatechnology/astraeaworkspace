@@ -1,5 +1,46 @@
+> [!IMPORTANT]
+> **Alpha 0.1 précoce — pas la Beta 0.1 prévue.**
+>
+> Nous publions ici une **Alpha 0.1 précoce d'Astraea Workspace**. L'objectif de qualité prévu pour
+> la **Beta 0.1** n'est pas encore atteint. Le projet est développé par **un seul développeur
+> indépendant** et il n'y a actuellement **pas d'argent pour accélérer le développement**. Vous
+> pouvez soutenir le projet : un don finance le développement et **les rapports de bugs nous aident
+> à découvrir des erreurs que nous ne connaissons pas encore**.
+>
+> **État des applications dans cette version**
+>
+> | Niveau | Applications | Signification |
+> | --- | --- | --- |
+> | Early Beta (maturité relative) | Writer, Grid, Present, Notes, Tasks | Flux principaux avec des parcours de base testés. Encore précoce, incomplet par endroits et susceptible de contenir des bugs. |
+> | Alpha | Whiteboard, Draw, PDF Studio, Publish, Insight, Connect, Automate, Vault, Admin & Policy | Applications d'aperçu, limitées ou bloquées. Des fonctions peuvent manquer ou changer ; des bugs sont attendus. Admin & Policy est en lecture seule et bloquée ; Vault est vérifié par le security gate mais reste en Alpha. |
+> | Non incluses | Planner, Projects, Forms, Database, Spaces, GaiaCom | Premium uniquement ; ne font pas partie d'Open Core. |
+>
+> **Toutes les applications de cette build peuvent contenir des erreurs. N'utilisez pas cette
+> Alpha précoce comme seule copie de données importantes.** La version globale reste **Alpha 0.1
+> précoce**, même lorsqu'une application est indiquée comme Early Beta relative.
+>
+> ### Soutien
+>
+> Independent development is funded by people who want this stack to exist. If you want to support the work:
+>
+> | Method | Address |
+> | --- | --- |
+> | PayPal | [paypal.me/dergoldenelotus](https://paypal.me/dergoldenelotus) |
+> | Bitcoin | `bc1q3ue5gq822tddmkdrek79adlkm36fatat3lz0dm` |
+> | ETH / USDT (ERC-20) | `0xD37DEfb09e07bD775EaaE9ccDaFE3a5b2348Fe85` |
+>
+> Les rapports de bugs et les issues sont tout aussi précieux : utilisez le tracker d'issues du
+> dépôt pour nous aider à reproduire et corriger les problèmes.
+
 <p align="center">
   <img src="./astraeaworkspace1.png" alt="Astraea Workspace" width="680"/>
+</p>
+
+<p align="center">
+  <img alt="Status: Early Alpha 0.1" src="https://img.shields.io/badge/Status-Early%20Alpha%200.1-FFB300?style=for-the-badge"/>
+  <img alt="Edition: Open Core" src="https://img.shields.io/badge/Edition-Open%20Core-00C853?style=for-the-badge"/>
+  <img alt="License: AGPLv3" src="https://img.shields.io/badge/License-AGPLv3-00B0FF?style=for-the-badge"/>
+  <img alt="Platform: Windows" src="https://img.shields.io/badge/Platform-Windows-24C8D8?style=for-the-badge"/>
 </p>
 
 <p align="center">
@@ -18,17 +59,6 @@
 
 <p align="center">
 </p>
-
----
-
-> [!IMPORTANT]
-> ## Statut de la version publique
->
-> **Astraea Workspace est en phase finale de durcissement pré-version.**
->
-> Le jalon de mise en œuvre du noyau (core) est franchi. Le cycle actuel se concentre sur la séparation physique des éditions, la vérification complète des flux de travail de bout en bout, le Workspace Explorer, la cohérence visuelle, l'accessibilité, la localisation, les preuves de sécurité formelles, le packaging et les tests de non-régression finaux.
->
-> Les paquets officiels ne seront publiés qu'une fois l'ensemble des critères de publication (release gates) validé. D'ici là, l'atteinte d'un jalon sur une liste de contrôle interne ne doit pas être assimilée à une version publique définitivement livrée et éprouvée.
 
 ---
 
@@ -464,7 +494,7 @@ Astraea Premium est proposé sous la forme d'une **licence commerciale perpétue
 
 | Formule | Période de disponibilité | Tarif unique prévu | Mise à niveau majeure prévue |
 |---|---:|---:|---:|
-| **Premium Beta Early-Bird** | Nov 2026 – Fév 2027 | **39,99 €** | **~45,99 €** |
+| **Premium Alpha Early-Bird** | Nov 2026 – Fév 2027 | **39,99 €** | **~45,99 €** |
 | **Premium Standard** | À partir de mars 2027 | **69,00 €** | **~45,99 €** |
 | **Éducation & ONG** | Structures éligibles | **36,99 €** | **9,99 €** |
 
@@ -549,7 +579,7 @@ Cette valeur témoigne de l'accomplissement exhaustif de la feuille de route d'i
 
 Elle **n'équivaut pas** pour autant à une diffusion publique effective et stabilisée.
 
-La phase préparatoire de bêta publique comprend des contrôles d'homologation dédiés :
+La phase préparatoire de alpha publique comprend des contrôles d'homologation dédiés :
 
 ```text
 Scission matérielle des arborescences des deux éditions
@@ -572,7 +602,7 @@ Génération des SBOM / signatures / métadonnées de build
 Contrôle des anomalies visuelles avant mise à disposition
 ```
 
-Le dépôt ne passera de l'état **Pre-Release** au statut **Beta** qu'une fois ces exigences formellement attestées par les artéfacts de l'arborescence finale.
+Le dépôt ne passera de l'état **Pre-Release** au statut **Alpha** qu'une fois ces exigences formellement attestées par les artéfacts de l'arborescence finale.
 
 ---
 

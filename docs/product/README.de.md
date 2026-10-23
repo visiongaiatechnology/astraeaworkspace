@@ -1,5 +1,46 @@
+> [!IMPORTANT]
+> **Frühe Alpha 0.1 – nicht die geplante Beta 0.1.**
+>
+> Hier wird eine **frühe Alpha 0.1 von Astraea Workspace** veröffentlicht. Das geplante
+> Qualitätsziel für **Beta 0.1** wurde noch nicht erreicht. Das Projekt wird von **einem einzelnen,
+> unabhängigen Entwickler** entwickelt; aktuell ist **kein Geld vorhanden, um die Entwicklung zu
+> beschleunigen**. Du kannst das Projekt gerne unterstützen: Eine Spende hilft bei der Finanzierung,
+> und **Issue-Meldungen helfen uns, noch unbekannte Fehler zu finden**.
+>
+> **App-Stand in diesem Build**
+>
+> | Stufe | Apps | Bedeutung |
+> | --- | --- | --- |
+> | Early Beta (relativer Reifegrad) | Writer, Grid, Present, Notes, Tasks | Kern-Workflows mit getesteten Kernpfaden. Noch früh, teilweise unvollständig und fehleranfällig. |
+> | Alpha | Whiteboard, Draw, PDF Studio, Publish, Insight, Connect, Automate, Vault, Admin & Policy | Vorschau-, begrenzte oder gesperrte Apps. Funktionen können fehlen oder sich ändern; Fehler sind zu erwarten. Admin & Policy ist schreibgeschützt und gesperrt; Vault ist sicherheitsgeprüft, aber weiterhin Alpha. |
+> | Nicht enthalten | Planner, Projects, Forms, Database, Spaces, GaiaCom | Nur Premium; nicht Teil von Open Core. |
+>
+> **Alle Apps in diesem Build können Fehler enthalten. Nutze diese frühe Alpha nicht als einzige
+> Kopie wichtiger Daten.** Das Gesamtprojekt bleibt **frühe Alpha 0.1**, auch wenn eine App relativ
+> als Early Beta eingeordnet ist.
+>
+> ### Unterstützung
+>
+> Independent development is funded by people who want this stack to exist. If you want to support the work:
+>
+> | Method | Address |
+> | --- | --- |
+> | PayPal | [paypal.me/dergoldenelotus](https://paypal.me/dergoldenelotus) |
+> | Bitcoin | `bc1q3ue5gq822tddmkdrek79adlkm36fatat3lz0dm` |
+> | ETH / USDT (ERC-20) | `0xD37DEfb09e07bD775EaaE9ccDaFE3a5b2348Fe85` |
+>
+> Fehlerberichte und Issues sind genauso wertvoll: Nutze bitte den Issue-Tracker des Repositories,
+> damit wir Probleme nachvollziehen und beheben können.
+
 <p align="center">
   <img src="./astraeaworkspace1.png" alt="Astraea Workspace" width="680"/>
+</p>
+
+<p align="center">
+  <img alt="Status: Early Alpha 0.1" src="https://img.shields.io/badge/Status-Early%20Alpha%200.1-FFB300?style=for-the-badge"/>
+  <img alt="Edition: Open Core" src="https://img.shields.io/badge/Edition-Open%20Core-00C853?style=for-the-badge"/>
+  <img alt="License: AGPLv3" src="https://img.shields.io/badge/License-AGPLv3-00B0FF?style=for-the-badge"/>
+  <img alt="Platform: Windows" src="https://img.shields.io/badge/Platform-Windows-24C8D8?style=for-the-badge"/>
 </p>
 
 <p align="center">
@@ -18,17 +59,6 @@
 
 <p align="center">
 </p>
-
----
-
-> [!IMPORTANT]
-> ## Status der öffentlichen Veröffentlichung
->
-> **Astraea Workspace befindet sich in der finalen Pre-Release-Härtung.**
->
-> Der Meilenstein der Core-Implementierung ist abgeschlossen. Der aktuelle Release-Durchlauf konzentriert sich auf die Editionstrennung, End-to-End-Workflow-Verifikation, den Workspace Explorer, Design-Konsistenz, Barrierefreiheit (Accessibility), Lokalisierung, Sicherheitsnachweise (Evidence), Paketierung und abschließende Regressionstests.
->
-> Offizielle Release-Builds werden erst nach Bestehen aller Release-Gates veröffentlicht. Bis dahin darf ein Meilenstein der internen Checkliste nicht mit einem fertig ausgelieferten, verifizierten öffentlichen Release verwechselt werden.
 
 ---
 
@@ -464,7 +494,7 @@ Astraea Premium ist als **dauerhafte kommerzielle Lizenz (Perpetual License)** g
 
 | Edition | Geplante Verfügbarkeit | Geplanter Einmalpreis | Geplantes Major-Version-Upgrade |
 |---|---:|---:|---:|
-| **Premium Beta Early-Bird** | Nov 2026 – Feb 2027 | **39,99 €** | **~45,99 €** |
+| **Premium Alpha Early-Bird** | Nov 2026 – Feb 2027 | **39,99 €** | **~45,99 €** |
 | **Premium Regulär** | Ab März 2027 | **69,00 €** | **~45,99 €** |
 | **Non-Profit & Bildung** | Berechtigte Organisationen | **36,99 €** | **9,99 €** |
 
@@ -549,7 +579,7 @@ Diese Kennzahl steht für den vollständigen Abschluss der internen Implementier
 
 Sie besagt für sich genommen **nicht**, dass ein öffentliches Release bereits fertiggestellt ist.
 
-Die öffentliche Beta durchläuft einen separaten Release-Readiness-Durchlauf:
+Die öffentliche Alpha durchläuft einen separaten Release-Readiness-Durchlauf:
 
 ```text
 Physische Trennung beider Editionen
@@ -572,7 +602,7 @@ SBOM / Hashes / Provenance
 Prüfung sichtbarer Release-Mängel
 ```
 
-Der Repository-Status wechselt erst dann von **Pre-Release** auf **Beta**, wenn diese Qualitäts-Gates durch den realen Release-Zustand nachgewiesen sind.
+Der Repository-Status wechselt erst dann von **Pre-Release** auf **Alpha**, wenn diese Qualitäts-Gates durch den realen Release-Zustand nachgewiesen sind.
 
 ---
 

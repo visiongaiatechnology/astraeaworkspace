@@ -1,3 +1,9 @@
+> [!IMPORTANT]
+> **Early Alpha 0.1 — not the planned Beta 0.1.** This snapshot is an early Alpha developed by one
+> independent developer. The product descriptions below are product documentation, not a claim that
+> every capability is implemented. See the root README and the multilingual READMEs for the exact
+> app maturity boundary and support information.
+
 # Product documentation
 
 This directory contains the multilingual product READMEs, concept documents and whitepapers supplied
