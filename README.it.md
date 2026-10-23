@@ -55,8 +55,6 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Public%20Beta%20Pre--Release-FFB300?style=for-the-badge" alt="Public Beta Pre-Release"/>
-  <img src="https://img.shields.io/badge/Core%20Milestone-3334%2F3334-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Core traguardo 3334/3334"/>
   <img src="https://img.shields.io/badge/Core-Rust%202021-DEA584?style=for-the-badge&logo=rust&logoColor=white" alt="Rust Core"/>
   <img src="https://img.shields.io/badge/Shell-Tauri%20v2-24C8D8?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri v2"/>
   <img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React e TypeScript"/>
@@ -64,15 +62,6 @@
 </p>
 
 ---
-
-> [!IMPORTANT]
-> ## Stato del rilascio pubblico
->
-> **Astraea Workspace è nella fase finale di blindatura pre-rilascio.**
->
-> Il traguardo di implementazione del core è completo. L'attuale ciclo di rilascio è focalizzato su separazione delle edizioni, verifica end-to-end dei flussi di lavoro, Workspace Explorer, coerenza del design, accessibilità, localizzazione, prove di sicurezza (evidence), pacchettizzazione e test di regressione finali.
->
-> I pacchetti di rilascio ufficiali saranno pubblicati solo dopo il superamento dei gate di rilascio. Fino ad allora, un traguardo di checklist non deve essere confuso con un rilascio pubblico distribuito e verificato.
 
 ---
 

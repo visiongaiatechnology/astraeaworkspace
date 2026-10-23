@@ -55,8 +55,6 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Statut-Public%20Beta%20Pre--Release-FFB300?style=for-the-badge" alt="Public Beta Pre-Release"/>
-  <img src="https://img.shields.io/badge/Core%20Jalon-3334%2F3334-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Core jalon 3334/3334"/>
   <img src="https://img.shields.io/badge/Core-Rust%202021-DEA584?style=for-the-badge&logo=rust&logoColor=white" alt="Rust Core"/>
   <img src="https://img.shields.io/badge/Shell-Tauri%20v2-24C8D8?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri v2"/>
   <img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React et TypeScript"/>
@@ -64,15 +62,6 @@
 </p>
 
 ---
-
-> [!IMPORTANT]
-> ## Statut de la version publique
->
-> **Astraea Workspace est en phase finale de durcissement pré-version.**
->
-> Le jalon de mise en œuvre du noyau (core) est franchi. Le cycle actuel se concentre sur la séparation physique des éditions, la vérification complète des flux de travail de bout en bout, le Workspace Explorer, la cohérence visuelle, l'accessibilité, la localisation, les preuves de sécurité formelles, le packaging et les tests de non-régression finaux.
->
-> Les paquets officiels ne seront publiés qu'une fois l'ensemble des critères de publication (release gates) validé. D'ici là, l'atteinte d'un jalon sur une liste de contrôle interne ne doit pas être assimilée à une version publique définitivement livrée et éprouvée.
 
 ---
 

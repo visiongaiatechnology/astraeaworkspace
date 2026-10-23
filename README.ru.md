@@ -54,8 +54,6 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Статус-Public%20Beta%20Pre--Release-FFB300?style=for-the-badge" alt="Public Beta Pre-Release"/>
-  <img src="https://img.shields.io/badge/Core%20Этап-3334%2F3334-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Core этап 3334/3334"/>
   <img src="https://img.shields.io/badge/Core-Rust%202021-DEA584?style=for-the-badge&logo=rust&logoColor=white" alt="Rust Core"/>
   <img src="https://img.shields.io/badge/Shell-Tauri%20v2-24C8D8?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri v2"/>
   <img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React и TypeScript"/>
@@ -63,15 +61,6 @@
 </p>
 
 ---
-
-> [!IMPORTANT]
-> ## Статус публичного релиза
->
-> **Astraea Workspace находится на финальном этапе предрелизной стабилизации и укрепления.**
->
-> Базовый этап реализации ядра полностью завершен. Текущий цикл сосредоточен на физическом разделении редакций, сквозной проверке пользовательских сценариев (end-to-end), Workspace Explorer, целостности дизайна, доступности (accessibility), локализации, доказательствах безопасности (security evidence), сборке дистрибутивов и окончательном регрессионном тестировании.
->
-> Официальные установочные пакеты будут опубликованы только после успешного прохождения всех критериев релиза (release gates). До этого момента внутренние контрольные этапы чеклистов не следует отождествлять с готовым и проверенным публичным релизом.
 
 ---
 

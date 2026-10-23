@@ -55,8 +55,6 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Public%20Beta%20Pre--Release-FFB300?style=for-the-badge" alt="Public Beta Pre-Release"/>
-  <img src="https://img.shields.io/badge/Core%20Hito-3334%2F3334-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Core hito 3334/3334"/>
   <img src="https://img.shields.io/badge/Core-Rust%202021-DEA584?style=for-the-badge&logo=rust&logoColor=white" alt="Rust Core"/>
   <img src="https://img.shields.io/badge/Shell-Tauri%20v2-24C8D8?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri v2"/>
   <img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React y TypeScript"/>
@@ -64,15 +62,6 @@
 </p>
 
 ---
-
-> [!IMPORTANT]
-> ## Estado del lanzamiento público
->
-> **Astraea Workspace se encuentra en su fase final de endurecimiento previa al lanzamiento.**
->
-> El hito de implementación del núcleo está completo. La fase actual se centra en la separación de ediciones, verificación de flujos de trabajo de extremo a extremo, Workspace Explorer, coherencia de diseño, accesibilidad, localización, evidencias de seguridad, empaquetado y pruebas de regresión finales.
->
-> Los paquetes oficiales de distribución se publicarán únicamente tras superar los controles de calidad (release gates). Hasta entonces, un hito de lista de control interna no debe confundirse con una versión pública lanzada y verificada.
 
 ---
 

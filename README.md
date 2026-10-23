@@ -55,8 +55,6 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Public%20Beta%20Pre--Release-FFB300?style=for-the-badge" alt="Public Beta Pre-Release"/>
-  <img src="https://img.shields.io/badge/Core%20Milestone-3334%2F3334-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Core milestone 3334/3334"/>
   <img src="https://img.shields.io/badge/Core-Rust%202021-DEA584?style=for-the-badge&logo=rust&logoColor=white" alt="Rust Core"/>
   <img src="https://img.shields.io/badge/Shell-Tauri%20v2-24C8D8?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri v2"/>
   <img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React and TypeScript"/>
@@ -64,15 +62,6 @@
 </p>
 
 ---
-
-> [!IMPORTANT]
-> ## Public release status
->
-> **Astraea Workspace is in final pre-release hardening.**
->
-> The core implementation milestone is complete. The current release pass is focused on edition separation, end-to-end workflow verification, the Workspace Explorer, design consistency, accessibility, localization, security evidence, packaging, and final regression testing.
->
-> Official release bundles will be published only after the release gates pass. Until then, a checklist milestone must not be confused with a shipped, verified public release.
 
 ---
 
@@ -593,7 +582,7 @@ That number represents completion of the core implementation checklist.
 
 It does **not** by itself claim that a public release is finished.
 
-The public beta has a separate release-readiness pass covering:
+The public alpha has a separate release-readiness pass covering:
 
 ```text
 Dual-edition source separation
