@@ -36,13 +36,6 @@
 </p>
 
 <p align="center">
-  <img alt="Status: Early Alpha 0.1" src="https://img.shields.io/badge/Status-Early%20Alpha%200.1-FFB300?style=for-the-badge"/>
-  <img alt="Edition: Open Core" src="https://img.shields.io/badge/Edition-Open%20Core-00C853?style=for-the-badge"/>
-  <img alt="License: AGPLv3" src="https://img.shields.io/badge/License-AGPLv3-00B0FF?style=for-the-badge"/>
-  <img alt="Platform: Windows" src="https://img.shields.io/badge/Platform-Windows-24C8D8?style=for-the-badge"/>
-</p>
-
-<p align="center">
   <a href="./README.md">English</a> ·
   <a href="./README.de.md">Deutsch</a> ·
   <a href="./README.it.md">Italiano</a> ·
@@ -57,7 +50,24 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Статус-Public%20Beta%20Pre--Release-FFB300?style=for-the-badge" alt="Public Beta Pre-Release"/>
+  <img src="https://img.shields.io/badge/Core%20Этап-3334%2F3334-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Core этап 3334/3334"/>
+  <img src="https://img.shields.io/badge/Core-Rust%202021-DEA584?style=for-the-badge&logo=rust&logoColor=white" alt="Rust Core"/>
+  <img src="https://img.shields.io/badge/Shell-Tauri%20v2-24C8D8?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri v2"/>
+  <img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React и TypeScript"/>
+  <img src="https://img.shields.io/badge/Лицензия-AGPLv3-00B0FF?style=for-the-badge" alt="AGPLv3"/>
 </p>
+
+---
+
+> [!IMPORTANT]
+> ## Статус публичного релиза
+>
+> **Astraea Workspace находится на финальном этапе предрелизной стабилизации и укрепления.**
+>
+> Базовый этап реализации ядра полностью завершен. Текущий цикл сосредоточен на физическом разделении редакций, сквозной проверке пользовательских сценариев (end-to-end), Workspace Explorer, целостности дизайна, доступности (accessibility), локализации, доказательствах безопасности (security evidence), сборке дистрибутивов и окончательном регрессионном тестировании.
+>
+> Официальные установочные пакеты будут опубликованы только после успешного прохождения всех критериев релиза (release gates). До этого момента внутренние контрольные этапы чеклистов не следует отождествлять с готовым и проверенным публичным релизом.
 
 ---
 
@@ -493,7 +503,7 @@ Astraea Premium распространяется по модели **бесср�
 
 | Редакция | Планируемый срок | Планируемый разовый платеж | Обновление мажорных версий |
 |---|---:|---:|---:|
-| **Premium Alpha Early-Bird** | Ноябрь 2026 – Февраль 2027 | **39,99 €** | **~45,99 €** |
+| **Premium Beta Early-Bird** | Ноябрь 2026 – Февраль 2027 | **39,99 €** | **~45,99 €** |
 | **Premium Regular** | С марта 2027 года | **69,00 €** | **~45,99 €** |
 | **Некоммерческие и образовательные организации** | Для зарегистрированных структур | **36,99 €** | **9,99 €** |
 
@@ -578,7 +588,7 @@ cargo tauri build
 
 Оно **не означает**, что публичный релиз завершен и готов к отгрузке.
 
-Подготовка публичной альфа-версии предусматривает отдельный этап проверок:
+Подготовка публичной бета-версии предусматривает отдельный этап проверок:
 
 ```text
 Физическое разделение исходных деревьев редакций
@@ -601,7 +611,7 @@ cargo tauri build
 Аудит визуальных недочетов перед публикацией
 ```
 
-Статус репозитория сменится с **Pre-Release** на **Alpha** только тогда, когда выполнение этих условий будет доказано реальными компонентами сборки.
+Статус репозитория сменится с **Pre-Release** на **Beta** только тогда, когда выполнение этих условий будет доказано реальными компонентами сборки.
 
 ---
 
@@ -653,8 +663,8 @@ cargo tauri build
 
 Подробности:
 
-- [`LICENSE`](../../LICENSE)
-- [`NOTICE`](../../NOTICE) при наличии
+- [`LICENSE`](./LICENSE)
+- [`NOTICE`](./NOTICE) при наличии
 - Лицензионные уведомления библиотек и итоговый SBOM
 
 Редакция Astraea Premium лицензируется на коммерческой основе отдельно.

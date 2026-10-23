@@ -37,13 +37,6 @@
 </p>
 
 <p align="center">
-  <img alt="Status: Early Alpha 0.1" src="https://img.shields.io/badge/Status-Early%20Alpha%200.1-FFB300?style=for-the-badge"/>
-  <img alt="Edition: Open Core" src="https://img.shields.io/badge/Edition-Open%20Core-00C853?style=for-the-badge"/>
-  <img alt="License: AGPLv3" src="https://img.shields.io/badge/License-AGPLv3-00B0FF?style=for-the-badge"/>
-  <img alt="Platform: Windows" src="https://img.shields.io/badge/Platform-Windows-24C8D8?style=for-the-badge"/>
-</p>
-
-<p align="center">
   <a href="./README.md">English</a> ·
   <a href="./README.de.md">Deutsch</a> ·
   <b>Italiano</b> ·
@@ -58,7 +51,24 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Status-Public%20Beta%20Pre--Release-FFB300?style=for-the-badge" alt="Public Beta Pre-Release"/>
+  <img src="https://img.shields.io/badge/Core%20Milestone-3334%2F3334-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Core traguardo 3334/3334"/>
+  <img src="https://img.shields.io/badge/Core-Rust%202021-DEA584?style=for-the-badge&logo=rust&logoColor=white" alt="Rust Core"/>
+  <img src="https://img.shields.io/badge/Shell-Tauri%20v2-24C8D8?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri v2"/>
+  <img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React e TypeScript"/>
+  <img src="https://img.shields.io/badge/Licenza-AGPLv3-00B0FF?style=for-the-badge" alt="AGPLv3"/>
 </p>
+
+---
+
+> [!IMPORTANT]
+> ## Stato del rilascio pubblico
+>
+> **Astraea Workspace è nella fase finale di blindatura pre-rilascio.**
+>
+> Il traguardo di implementazione del core è completo. L'attuale ciclo di rilascio è focalizzato su separazione delle edizioni, verifica end-to-end dei flussi di lavoro, Workspace Explorer, coerenza del design, accessibilità, localizzazione, prove di sicurezza (evidence), pacchettizzazione e test di regressione finali.
+>
+> I pacchetti di rilascio ufficiali saranno pubblicati solo dopo il superamento dei gate di rilascio. Fino ad allora, un traguardo di checklist non deve essere confuso con un rilascio pubblico distribuito e verificato.
 
 ---
 
@@ -494,7 +504,7 @@ Astraea Premium è pianificato con una **licenza commerciale perpetua**, non com
 
 | Edizione | Disponibilità prevista | Prezzo una tantum previsto | Upgrade major version previsto |
 |---|---:|---:|---:|
-| **Premium Alpha Early-Bird** | Nov 2026 – Feb 2027 | **€39,99** | **~€45,99** |
+| **Premium Beta Early-Bird** | Nov 2026 – Feb 2027 | **€39,99** | **~€45,99** |
 | **Premium Regular** | Da marzo 2027 | **€69,00** | **~€45,99** |
 | **Non-Profit & Istruzione** | Organizzazioni ammissibili | **€36,99** | **€9,99** |
 
@@ -579,7 +589,7 @@ Questo traguardo attesta il completamento della checklist di implementazione del
 
 Esso **non** implica di per sé che il rilascio pubblico sia concluso.
 
-La alpha pubblica richiede un processo di preparazione dedicato che include:
+La beta pubblica richiede un processo di preparazione dedicato che include:
 
 ```text
 Separazione fisica del sorgente delle due edizioni
@@ -602,7 +612,7 @@ SBOM / hash / tracciabilità della build
 Controllo dei difetti visibili al rilascio
 ```
 
-Lo stato del repository passerà da **Pre-Release** a **Alpha** unicamente quando tali requisiti saranno attestati dall'effettivo albero di rilascio.
+Lo stato del repository passerà da **Pre-Release** a **Beta** unicamente quando tali requisiti saranno attestati dall'effettivo albero di rilascio.
 
 ---
 
@@ -654,8 +664,8 @@ Questo README evita intenzionalmente di mantenere una tabella manuale delle dipe
 
 Vedere:
 
-- [`LICENSE`](../../LICENSE)
-- [`NOTICE`](../../NOTICE), ove presente
+- [`LICENSE`](./LICENSE)
+- [`NOTICE`](./NOTICE), ove presente
 - Note specifiche per le singole dipendenze e SBOM di rilascio
 
 Astraea Premium è distribuito separatamente con licenza commerciale proprietaria.

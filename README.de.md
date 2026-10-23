@@ -37,13 +37,6 @@
 </p>
 
 <p align="center">
-  <img alt="Status: Early Alpha 0.1" src="https://img.shields.io/badge/Status-Early%20Alpha%200.1-FFB300?style=for-the-badge"/>
-  <img alt="Edition: Open Core" src="https://img.shields.io/badge/Edition-Open%20Core-00C853?style=for-the-badge"/>
-  <img alt="License: AGPLv3" src="https://img.shields.io/badge/License-AGPLv3-00B0FF?style=for-the-badge"/>
-  <img alt="Platform: Windows" src="https://img.shields.io/badge/Platform-Windows-24C8D8?style=for-the-badge"/>
-</p>
-
-<p align="center">
   <a href="./README.md">English</a> ·
   <b>Deutsch</b> ·
   <a href="./README.it.md">Italiano</a> ·
@@ -58,7 +51,24 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Status-Public%20Beta%20Pre--Release-FFB300?style=for-the-badge" alt="Public Beta Pre-Release"/>
+  <img src="https://img.shields.io/badge/Core%20Milestone-3334%2F3334-00C853?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Core Meilenstein 3334/3334"/>
+  <img src="https://img.shields.io/badge/Core-Rust%202021-DEA584?style=for-the-badge&logo=rust&logoColor=white" alt="Rust Core"/>
+  <img src="https://img.shields.io/badge/Shell-Tauri%20v2-24C8D8?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri v2"/>
+  <img src="https://img.shields.io/badge/UI-React%2019%20%7C%20TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React und TypeScript"/>
+  <img src="https://img.shields.io/badge/Lizenz-AGPLv3-00B0FF?style=for-the-badge" alt="AGPLv3"/>
 </p>
+
+---
+
+> [!IMPORTANT]
+> ## Status der öffentlichen Veröffentlichung
+>
+> **Astraea Workspace befindet sich in der finalen Pre-Release-Härtung.**
+>
+> Der Meilenstein der Core-Implementierung ist abgeschlossen. Der aktuelle Release-Durchlauf konzentriert sich auf die Editionstrennung, End-to-End-Workflow-Verifikation, den Workspace Explorer, Design-Konsistenz, Barrierefreiheit (Accessibility), Lokalisierung, Sicherheitsnachweise (Evidence), Paketierung und abschließende Regressionstests.
+>
+> Offizielle Release-Builds werden erst nach Bestehen aller Release-Gates veröffentlicht. Bis dahin darf ein Meilenstein der internen Checkliste nicht mit einem fertig ausgelieferten, verifizierten öffentlichen Release verwechselt werden.
 
 ---
 
@@ -494,7 +504,7 @@ Astraea Premium ist als **dauerhafte kommerzielle Lizenz (Perpetual License)** g
 
 | Edition | Geplante Verfügbarkeit | Geplanter Einmalpreis | Geplantes Major-Version-Upgrade |
 |---|---:|---:|---:|
-| **Premium Alpha Early-Bird** | Nov 2026 – Feb 2027 | **39,99 €** | **~45,99 €** |
+| **Premium Beta Early-Bird** | Nov 2026 – Feb 2027 | **39,99 €** | **~45,99 €** |
 | **Premium Regulär** | Ab März 2027 | **69,00 €** | **~45,99 €** |
 | **Non-Profit & Bildung** | Berechtigte Organisationen | **36,99 €** | **9,99 €** |
 
@@ -579,7 +589,7 @@ Diese Kennzahl steht für den vollständigen Abschluss der internen Implementier
 
 Sie besagt für sich genommen **nicht**, dass ein öffentliches Release bereits fertiggestellt ist.
 
-Die öffentliche Alpha durchläuft einen separaten Release-Readiness-Durchlauf:
+Die öffentliche Beta durchläuft einen separaten Release-Readiness-Durchlauf:
 
 ```text
 Physische Trennung beider Editionen
@@ -602,7 +612,7 @@ SBOM / Hashes / Provenance
 Prüfung sichtbarer Release-Mängel
 ```
 
-Der Repository-Status wechselt erst dann von **Pre-Release** auf **Alpha**, wenn diese Qualitäts-Gates durch den realen Release-Zustand nachgewiesen sind.
+Der Repository-Status wechselt erst dann von **Pre-Release** auf **Beta**, wenn diese Qualitäts-Gates durch den realen Release-Zustand nachgewiesen sind.
 
 ---
 
@@ -654,8 +664,8 @@ Diese README verzichtet bewusst darauf, eine fehleranfällige manuelle Abhängig
 
 Siehe:
 
-- [`LICENSE`](../../LICENSE)
-- [`NOTICE`](../../NOTICE), sofern vorhanden
+- [`LICENSE`](./LICENSE)
+- [`NOTICE`](./NOTICE), sofern vorhanden
 - Spezifische Hinweise der Abhängigkeiten und das Release-SBOM
 
 Astraea Premium wird separat unter einer kommerziellen Lizenz vertrieben.
