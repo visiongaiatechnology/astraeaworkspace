@@ -1,7 +1,7 @@
 > [!IMPORTANT]
-> **Early Alpha 0.1 — not the planned Beta 0.1 release.**
+> **Public Alpha 0.1 — not the planned Beta 0.1 release.**
 >
-> This repository publishes an **early Alpha 0.1 of Astraea Workspace**. We have not reached the
+> This repository publishes the **first public Alpha 0.1 of Astraea Workspace**. We have not reached the
 > quality target we planned for **Beta 0.1**. The project is developed by **one independent
 > developer**, and there is currently **no money available to accelerate development**. You are
 > welcome to support the project: a donation helps fund development, and **issue reports help us
@@ -16,7 +16,7 @@
 > | Not included | Planner, Projects, Forms, Database, Spaces, GaiaCom | Premium-only; not part of Open Core. |
 >
 > **All apps in this build can contain errors. Do not use this early Alpha as the only copy of
-> important data.** The overall release is **Early Alpha 0.1**, even where an app is listed as
+> important data.** The overall release is **Public Alpha 0.1**, even where an app is listed as
 > relative Early Beta.
 >
 > ### Support
@@ -31,6 +31,10 @@
 >
 > Bug reports and issues are just as valuable: please use the repository issue tracker so we can
 > reproduce and fix problems.
+
+<p align="center">
+  <img alt="Status: Public Alpha 0.1" src="https://img.shields.io/badge/Status-Public%20Alpha%200.1-FFB300?style=for-the-badge"/>
+</p>
 
 <p align="center">
   <img src="./astraeaworkspace1.png" alt="Astraea Workspace" width="680"/>
