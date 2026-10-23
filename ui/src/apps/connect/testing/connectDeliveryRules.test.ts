@@ -26,7 +26,7 @@ import { countPendingMessages, selectVisibleMessages } from '../domain/connectMa
 import type { ConnectDocumentModel, ConnectMessage } from '../domain/types';
 
 const base: ConnectMessage = {
-  id: 'm1', sender: 'Me', senderEmail: 'me@vgt.internal', recipients: ['peer@vgt.internal'],
+  id: 'm1', sender: 'Me', senderEmail: 'me@example.test', recipients: ['peer@example.test'],
   subject: 'S', snippet: 's', body: 'b', timestamp: 1_000, folder: 'sent',
   isUnread: false, isStarred: false, isEncrypted: false,
 };

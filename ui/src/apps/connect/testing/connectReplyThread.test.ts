@@ -31,7 +31,7 @@ import type { ConnectMessage } from '../domain/types';
 import type { ConnectAttachment } from '../../../platform/connectors/connectCoreTypes';
 
 const msg = (overrides: Partial<ConnectMessage> & { id: string }): ConnectMessage => ({
-  sender: 'Sovereign Auditor', senderEmail: 'auditor@vgt.internal', recipients: ['engineer@vgt.internal'],
+  sender: 'Sovereign Auditor', senderEmail: 'auditor@example.test', recipients: ['engineer@example.test'],
   subject: 'Security Review', snippet: 's', body: 'line one\nline two', timestamp: 1_700_000_000_000,
   folder: 'inbox', isUnread: true, isStarred: false, isEncrypted: false, ...overrides,
 });
@@ -43,12 +43,12 @@ const attachment = (overrides: Partial<ConnectAttachment> = {}): ConnectAttachme
 
 describe('Connect reply headers (RFC 5322)', () => {
   it('builds In-Reply-To, References and exactly one Re: prefix', () => {
-    const parent = msg({ id: 'm1', messageId: '<m1@vgt.internal>', subject: 'Re: Fwd: Security Review' });
-    const headers = buildReplyHeaders({ message: parent, selfAddress: 'engineer@vgt.internal' }, false);
+    const parent = msg({ id: 'm1', messageId: '<m1@example.test>', subject: 'Re: Fwd: Security Review' });
+    const headers = buildReplyHeaders({ message: parent, selfAddress: 'engineer@example.test' }, false);
     expect(headers.subject).toBe('Re: Security Review');
-    expect(headers.inReplyTo).toBe('<m1@vgt.internal>');
-    expect(headers.references).toEqual(['<m1@vgt.internal>']);
-    expect(headers.to).toEqual(['auditor@vgt.internal']);
+    expect(headers.inReplyTo).toBe('<m1@example.test>');
+    expect(headers.references).toEqual(['<m1@example.test>']);
+    expect(headers.to).toEqual(['auditor@example.test']);
   });
 
   it('never doubles a prefix and never strips a meaningful one from the body', () => {
@@ -70,8 +70,8 @@ describe('Connect reply headers (RFC 5322)', () => {
   });
 
   it('validates message ids instead of accepting hostile header text', () => {
-    expect(normalizeMessageId('<m1@vgt.internal>')).toBe('<m1@vgt.internal>');
-    expect(normalizeMessageId('m1@vgt.internal')).toBe('<m1@vgt.internal>');
+    expect(normalizeMessageId('<m1@example.test>')).toBe('<m1@example.test>');
+    expect(normalizeMessageId('m1@example.test')).toBe('<m1@example.test>');
     expect(normalizeMessageId('not an id')).toBeUndefined();
     expect(normalizeMessageId('<a@b> Bcc: evil@x')).toBeUndefined();
     expect(normalizeMessageId('<a@b>')).toBe('<a@b>');
@@ -80,21 +80,21 @@ describe('Connect reply headers (RFC 5322)', () => {
 
   it('reply-all keeps the other recipients in Cc and never lists the user twice', () => {
     const parent = msg({
-      id: 'm1', messageId: '<m1@vgt.internal>', senderEmail: 'auditor@vgt.internal',
-      recipients: ['engineer@vgt.internal', 'lead@vgt.internal'], cc: ['sec@vgt.internal', 'lead@vgt.internal', 'engineer@vgt.internal'],
+      id: 'm1', messageId: '<m1@example.test>', senderEmail: 'auditor@example.test',
+      recipients: ['engineer@example.test', 'lead@example.test'], cc: ['sec@example.test', 'lead@example.test', 'engineer@example.test'],
     });
-    const all = buildReplyHeaders({ message: parent, selfAddress: 'engineer@vgt.internal' }, true);
-    expect(all.to).toEqual(['auditor@vgt.internal']);
-    expect(all.cc).toEqual(['lead@vgt.internal', 'sec@vgt.internal']);
-    expect(all.cc).not.toContain('engineer@vgt.internal');
+    const all = buildReplyHeaders({ message: parent, selfAddress: 'engineer@example.test' }, true);
+    expect(all.to).toEqual(['auditor@example.test']);
+    expect(all.cc).toEqual(['lead@example.test', 'sec@example.test']);
+    expect(all.cc).not.toContain('engineer@example.test');
 
-    const single = buildReplyHeaders({ message: parent, selfAddress: 'engineer@vgt.internal' }, false);
+    const single = buildReplyHeaders({ message: parent, selfAddress: 'engineer@example.test' }, false);
     expect(single.cc).toEqual([]);
   });
 
   it('forward starts a new conversation and carries no references', () => {
-    const parent = msg({ id: 'm1', messageId: '<m1@vgt.internal>', references: ['<older@x>'], inReplyTo: '<older@x>' });
-    const headers = buildForwardHeaders({ message: parent, selfAddress: 'engineer@vgt.internal' });
+    const parent = msg({ id: 'm1', messageId: '<m1@example.test>', references: ['<older@x>'], inReplyTo: '<older@x>' });
+    const headers = buildForwardHeaders({ message: parent, selfAddress: 'engineer@example.test' });
     expect(headers.inReplyTo).toBe('');
     expect(headers.references).toEqual([]);
     expect(headers.subject).toBe('Fwd: Security Review');
@@ -104,7 +104,7 @@ describe('Connect reply headers (RFC 5322)', () => {
   it('quotes the original body with an attribution line', () => {
     const parent = msg({ id: 'm1' });
     const quoted = quoteOriginalBody(parent, 'reply');
-    expect(quoted).toContain('auditor@vgt.internal');
+    expect(quoted).toContain('auditor@example.test');
     expect(quoted).toContain('> line one');
     expect(quoted).toContain('> line two');
     const forwarded = quoteOriginalBody(parent, 'forward');
@@ -113,23 +113,23 @@ describe('Connect reply headers (RFC 5322)', () => {
   });
 
   it('produces complete drafts for both paths', () => {
-    const parent = msg({ id: 'm1', messageId: '<m1@vgt.internal>' });
-    const reply = buildReplyDraft({ message: parent, selfAddress: 'engineer@vgt.internal' }, true);
-    expect(reply).toMatchObject({ to: 'auditor@vgt.internal', subject: 'Re: Security Review', references: ['<m1@vgt.internal>'], replyToMessageId: 'm1' });
+    const parent = msg({ id: 'm1', messageId: '<m1@example.test>' });
+    const reply = buildReplyDraft({ message: parent, selfAddress: 'engineer@example.test' }, true);
+    expect(reply).toMatchObject({ to: 'auditor@example.test', subject: 'Re: Security Review', references: ['<m1@example.test>'], replyToMessageId: 'm1' });
     expect(reply.forwardOfMessageId).toBeUndefined();
-    const forward = buildForwardDraft({ message: parent, selfAddress: 'engineer@vgt.internal' });
+    const forward = buildForwardDraft({ message: parent, selfAddress: 'engineer@example.test' });
     expect(forward).toMatchObject({ to: '', subject: 'Fwd: Security Review', references: [], forwardOfMessageId: 'm1' });
   });
 
   it('refuses a parent whose stored Message-ID is unusable, and derives a local one otherwise', () => {
     const broken = msg({ id: 'm1', messageId: 'not a message id at all' });
     // A stored id that cannot be a Message-ID is rejected rather than silently replaced.
-    expect(() => buildReplyHeaders({ message: broken, selfAddress: 'engineer@vgt.internal' }, false))
+    expect(() => buildReplyHeaders({ message: broken, selfAddress: 'engineer@example.test' }, false))
       .toThrowError(expect.objectContaining({ code: 'reply-parent-message-id-invalid' }));
     // A legacy record without any Message-ID gets a deterministic local one.
     const legacy = msg({ id: 'legacy-7', messageId: undefined });
     expect(messageIdOf(legacy)).toBe('<legacy-7@astraea.local>');
-    expect(buildReplyHeaders({ message: legacy, selfAddress: 'engineer@vgt.internal' }, false).references)
+    expect(buildReplyHeaders({ message: legacy, selfAddress: 'engineer@example.test' }, false).references)
       .toEqual(['<legacy-7@astraea.local>']);
   });
 });
@@ -192,19 +192,19 @@ describe('Connect thread grouping (header graph, not subject)', () => {
 
 describe('Connect compose draft transitions', () => {
   it('seeds reply, reply-all and forward from a message', () => {
-    const parent = msg({ id: 'm1', messageId: '<m1@x>', recipients: ['me@vgt.internal', 'lead@vgt.internal'] });
-    expect(seedComposeDraft({ mode: 'new', selfAddress: 'me@vgt.internal' })).toMatchObject({ mode: 'new', to: '', subject: '' });
-    const reply = seedComposeDraft({ mode: 'reply', message: parent, selfAddress: 'me@vgt.internal' });
-    expect(reply).toMatchObject({ mode: 'reply', to: 'auditor@vgt.internal', subject: 'Re: Security Review', inReplyTo: '<m1@x>', replyToMessageId: 'm1' });
+    const parent = msg({ id: 'm1', messageId: '<m1@x>', recipients: ['me@example.test', 'lead@example.test'] });
+    expect(seedComposeDraft({ mode: 'new', selfAddress: 'me@example.test' })).toMatchObject({ mode: 'new', to: '', subject: '' });
+    const reply = seedComposeDraft({ mode: 'reply', message: parent, selfAddress: 'me@example.test' });
+    expect(reply).toMatchObject({ mode: 'reply', to: 'auditor@example.test', subject: 'Re: Security Review', inReplyTo: '<m1@x>', replyToMessageId: 'm1' });
     expect(reply.body).toContain('> line one');
-    const all = seedComposeDraft({ mode: 'reply-all', message: parent, selfAddress: 'me@vgt.internal' });
-    expect(all.cc).toBe('lead@vgt.internal');
-    const forward = seedComposeDraft({ mode: 'forward', message: parent, selfAddress: 'me@vgt.internal' });
+    const all = seedComposeDraft({ mode: 'reply-all', message: parent, selfAddress: 'me@example.test' });
+    expect(all.cc).toBe('lead@example.test');
+    const forward = seedComposeDraft({ mode: 'forward', message: parent, selfAddress: 'me@example.test' });
     expect(forward).toMatchObject({ mode: 'forward', to: '', subject: 'Fwd: Security Review', forwardOfMessageId: 'm1' });
   });
 
   it('validates recipients, subject, body and attachments before queueing', () => {
-    const base = seedComposeDraft({ mode: 'new', selfAddress: 'me@vgt.internal' });
+    const base = seedComposeDraft({ mode: 'new', selfAddress: 'me@example.test' });
     expect(validateComposeDraft(base)).toEqual({ ok: false, code: 'recipient-required' });
     expect(validateComposeDraft({ ...base, to: 'not-an-address' })).toEqual({ ok: false, code: 'recipient-invalid' });
     expect(validateComposeDraft({ ...base, to: 'a@b.c' })).toEqual({ ok: true });
@@ -213,7 +213,7 @@ describe('Connect compose draft transitions', () => {
   });
 
   it('refuses a rejected attachment and bounds the total size — visibly, with a reason', () => {
-    const base: ConnectComposeDraft = { ...seedComposeDraft({ mode: 'new', selfAddress: 'me@vgt.internal' }), to: 'a@b.c' };
+    const base: ConnectComposeDraft = { ...seedComposeDraft({ mode: 'new', selfAddress: 'me@example.test' }), to: 'a@b.c' };
     const ok = addDraftAttachment(base, attachment());
     expect(ok.accepted).toBe(true);
     expect(ok.draft.attachments).toHaveLength(1);

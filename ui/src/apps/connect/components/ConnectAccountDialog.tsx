@@ -2,7 +2,7 @@
 //
 // MEASURED GAP before this batch: there was no way to enter an IMAP account anywhere in
 // `apps/connect` (no reference to `ConnectAccount`), and the sidebar footer claimed a connection to
-// `engineer@vgt.internal` with a hardcoded green dot. This dialog is the visible entry that AST-1566
+// `engineer@example.test` with a hardcoded green dot. This dialog is the visible entry that AST-1566
 // asks for; it drives the pure state machine in `domain/connectAccountSetup.ts` and never stores a
 // secret itself.
 

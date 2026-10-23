@@ -21,8 +21,8 @@ vi.mock('../../../shell/localization/workspaceLocale', () => ({
 const model = structuredClone(DEFAULT_CONNECT_MODEL);
 
 const queuedMessage: ConnectMessage = {
-  id: 'msg-queued', sender: 'Me (Sovereign Node)', senderEmail: 'engineer@vgt.internal',
-  recipients: ['peer@vgt.internal'], subject: 'Queued subject', snippet: 'queued body',
+  id: 'msg-queued', sender: 'Me (Sovereign Node)', senderEmail: 'engineer@example.test',
+  recipients: ['peer@example.test'], subject: 'Queued subject', snippet: 'queued body',
   body: 'queued body', timestamp: 1_700_000_000_000, folder: 'sent', delivery: 'queued',
   isUnread: false, isStarred: false, isEncrypted: false,
 };
@@ -65,7 +65,7 @@ describe('Connect delivery state decision (pure)', () => {
 
 describe('Connect compose path produces a queued draft, not a sent encrypted mail', () => {
   it('queueCompose is synchronous — a crypto operation could not have run', () => {
-    const queued = queueCompose('peer@vgt.internal', 'Subject', 'Body', 1_000);
+    const queued = queueCompose('peer@example.test', 'Subject', 'Body', 1_000);
     expect(queued.state).toBe('queued');
     expect(queued.createdAt).toBe(1_000);
     expect(queued.releaseAt).toBeGreaterThanOrEqual(11_000);

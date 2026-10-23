@@ -55,7 +55,7 @@ describe('Connect source contract: no control is a decorated no-op', () => {
 
   it('no longer hardcodes a connected state or a mail address in the sidebar', () => {
     expect(sidebar).not.toMatch(/rounded-full\s+bg-emerald-400/);
-    expect(sidebar).not.toContain('engineer@vgt.internal');
+    expect(sidebar).not.toContain('engineer@example.test');
     expect(sidebar).toContain('connectionStatusText(extra, connection)');
     expect(sidebar).toContain('data-connect-connection-glyph');
     // The account entry, the sync entry and the notification tray are reachable.

@@ -35,7 +35,7 @@ describe('Connect connection status is never a hardcoded claim', () => {
     expect(markup).toContain('data-connect-connection-status="disconnected"');
     expect(markup).toContain('data-connect-connection-glyph="disconnected"');
     expect(markup).toContain(extra.statusDisconnected);
-    expect(markup).not.toContain('engineer@vgt.internal');
+    expect(markup).not.toContain('engineer@example.test');
     // The queue view and the compose button stay reachable.
     expect(markup).toContain('data-connect-queue-view="true"');
     expect(markup).toContain(copy.compose);
@@ -47,7 +47,7 @@ describe('Connect connection status is never a hardcoded claim', () => {
     const markup = renderToStaticMarkup(
       <ConnectSidebar
         model={model({
-          accounts: [{ id: 'a', name: 'A', address: 'auditor@vgt.internal', kind: 'imap+local', host: 'imap.vgt.internal', port: 993, tls: 'starttls-required', username: 'u', credentialHandle: 'keyvault://x/y', tlsCertificate: 'failed', isDefault: true, createdAt: 1 }],
+          accounts: [{ id: 'a', name: 'A', address: 'auditor@example.test', kind: 'imap+local', host: 'imap.example.test', port: 993, tls: 'starttls-required', username: 'u', credentialHandle: 'keyvault://x/y', tlsCertificate: 'failed', isDefault: true, createdAt: 1 }],
           connection: { status: 'failed', adapter: 'imap', code: 'imap-certificate-failure', checkedAt: 1_700_000_000_000 },
         })}
         onUpdateModel={vi.fn()}
@@ -58,7 +58,7 @@ describe('Connect connection status is never a hardcoded claim', () => {
     expect(markup).toContain('data-connect-connection-glyph="failed"');
     expect(markup).toContain(extra.statusFailed('imap-certificate-failure'));
     expect(markup).toContain(extra.statusAdapter('imap'));
-    expect(markup).toContain('auditor@vgt.internal');
+    expect(markup).toContain('auditor@example.test');
   });
 
   it('shows a real address and the connected word only for a connected state', () => {
@@ -106,7 +106,7 @@ describe('Connect account dialog is fail-closed', () => {
   it('reports BLOCKED instead of connected when this build cannot activate the adapter', () => {
     // The state machine is the source of the wording; the dialog renders its verdict.
     const state = completeSetupWithoutProbe(
-      attachCredential({ step: 'entering-imap', draft: { displayName: 'A', address: 'a@b.c', host: 'imap.vgt.internal', port: '993', username: 'u' } }, { stored: true, handle: 'keyvault://connect/imap/a' }),
+      attachCredential({ step: 'entering-imap', draft: { displayName: 'A', address: 'a@b.c', host: 'imap.example.test', port: '993', username: 'u' } }, { stored: true, handle: 'keyvault://connect/imap/a' }),
       'acc-1',
       1_000,
     );

@@ -22,7 +22,7 @@ interface ConnectMailViewerProps {
 }
 
 /** The identity used for reply self-exclusion. A configured account wins; the legacy value is the fallback. */
-const SELF_ADDRESS_FALLBACK = 'engineer@vgt.internal';
+const SELF_ADDRESS_FALLBACK = 'engineer@example.test';
 
 export const ConnectMailViewer: React.FC<ConnectMailViewerProps> = ({
   model,

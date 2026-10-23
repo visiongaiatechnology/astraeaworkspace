@@ -43,7 +43,7 @@ const PASSWORD = 'correct horse battery staple';
 
 const filled = (overrides: Partial<typeof EMPTY_ACCOUNT_DRAFT> = {}, credential = HANDLE) => {
   let state: ConnectAccountSetupState = INITIAL_ACCOUNT_SETUP;
-  const draft = { ...EMPTY_ACCOUNT_DRAFT, displayName: 'Engineer Mailbox', address: 'engineer@vgt.internal', host: 'imap.vgt.internal', port: '993', username: 'engineer', ...overrides };
+  const draft = { ...EMPTY_ACCOUNT_DRAFT, displayName: 'Engineer Mailbox', address: 'engineer@example.test', host: 'imap.example.test', port: '993', username: 'engineer', ...overrides };
   for (const [key, value] of Object.entries(draft)) state = updateAccountDraft(state, key as keyof typeof draft, value);
   if (!credential) return state;
   return attachCredential(state, { stored: true, handle: credential });
@@ -54,14 +54,14 @@ const fullyConfigured = () => completeSetupWithoutProbe(filled(), 'acc-1', 1_000
 const emptySync: ConnectSyncState = { folders: [], pending: [], inProgress: false, conflicts: [] };
 
 const coreMessage = (id: string, overrides: Partial<ConnectMessage> = {}): ConnectMessage => ({
-  id, sender: 'Peer', senderEmail: 'peer@vgt.internal', recipients: ['engineer@vgt.internal'],
+  id, sender: 'Peer', senderEmail: 'peer@example.test', recipients: ['engineer@example.test'],
   subject: 'Subject', snippet: 's', body: 'b', timestamp: 1_700_000_000_000, folder: 'inbox',
   isUnread: true, isStarred: false, isEncrypted: false, ...overrides,
 });
 
 describe('Connect account setup (AST-1566/1567, fail-closed)', () => {
   const draftWith = (overrides: Partial<typeof EMPTY_ACCOUNT_DRAFT>) => ({
-    ...EMPTY_ACCOUNT_DRAFT, displayName: 'A', address: 'a@b.c', host: 'imap.vgt.internal', port: '993', username: 'u', ...overrides,
+    ...EMPTY_ACCOUNT_DRAFT, displayName: 'A', address: 'a@b.c', host: 'imap.example.test', port: '993', username: 'u', ...overrides,
   });
 
   it('validates every field with a bounded code and never accepts a bad host or port', () => {
@@ -72,7 +72,7 @@ describe('Connect account setup (AST-1566/1567, fail-closed)', () => {
       .toMatchObject({ outcome: 'blocked', code: 'local-account-network-adapter-blocked', adapterEnabled: false });
     for (const [field, value, code] of [
       ['host', 'not a host', 'endpoint-invalid'],
-      ['host', 'imap.vgt.internal]', 'endpoint-invalid'],
+      ['host', 'imap.example.test]', 'endpoint-invalid'],
       ['port', '0', 'endpoint-port-invalid'],
       ['port', '70000', 'endpoint-port-invalid'],
       ['port', '99x', 'endpoint-port-invalid'],
@@ -163,7 +163,7 @@ describe('Connect credential boundary (AST-1571…1575)', () => {
     const cases: Array<[unknown, string]> = [
       [{ accounts: [{ credentialHandle: HANDLE, password: 'hunter2' }] }, 'inline-secret-field'],
       [{ headers: { Authorization: 'Bearer abcdefghijklmnopqrstuvwxyz1234' } }, 'inline-bearer-token'],
-      [{ body: 'imap://engineer:hunter2@imap.vgt.internal' }, 'inline-url-userinfo'],
+      [{ body: 'imap://engineer:hunter2@imap.example.test' }, 'inline-url-userinfo'],
       [{ body: 'someone wrote password=letmein here' }, 'inline-assigned-password'],
       [{ credential: { note: '-----BEGIN RSA PRIVATE KEY-----\nMIIE' } }, 'inline-private-key-block'],
       [{ accessToken: 'ghp_abcdefghijklmnopqrstuvwxyz0123456789' }, 'inline-oauth-token'],
@@ -179,7 +179,7 @@ describe('Connect credential boundary (AST-1571…1575)', () => {
       { body: 'The token expired yesterday, see the ticket.' },
       { subject: 'Security review: Zero-Knowledge KeyVault & NetGate policies' },
       { headers: { 'message-id': '<x@astraea.local>' } },
-      { body: 'Contact https://vgt.internal/docs for details' },
+      { body: 'Contact https://example.test/docs for details' },
     ]) {
       expect(() => assertNoInlineCredentials(benign)).not.toThrow();
     }
@@ -199,7 +199,7 @@ describe('Connect credential boundary (AST-1571…1575)', () => {
 
   it('seals an account that itself passes the boundary check', () => {
     const sealed = sealAccountWithCredentialReference(
-      { id: 'a', name: 'A', address: 'a@b.c', kind: 'imap+local', host: 'imap.vgt.internal', port: 993, tls: 'starttls-required', username: 'u', tlsCertificate: 'trusted', isDefault: true, createdAt: 1 },
+      { id: 'a', name: 'A', address: 'a@b.c', kind: 'imap+local', host: 'imap.example.test', port: 993, tls: 'starttls-required', username: 'u', tlsCertificate: 'trusted', isDefault: true, createdAt: 1 },
       toCredentialReference({ accountId: 'a', protocol: 'imap', secret: 'hunter2', stored: true, handle: HANDLE }),
     );
     expect(sealed.credentialHandle).toBe(HANDLE);

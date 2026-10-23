@@ -26,9 +26,9 @@ const attachment = (overrides: Partial<ConnectAttachment> = {}): ConnectAttachme
 });
 
 const message = (overrides: Partial<ConnectMessage> = {}): ConnectMessage => ({
-  id: 'm1', accountId: 'acc', messageId: '<m1@vgt.internal>', threadId: 'thread:<m1@vgt.internal>',
-  folderId: 'acc:inbox', labels: [], from: { name: 'Sovereign Auditor', address: 'auditor@vgt.internal' },
-  to: [{ address: 'engineer@vgt.internal' }], cc: [], bcc: [], subject: 'Security Review', bodyText: 'Hello\nTeam',
+  id: 'm1', accountId: 'acc', messageId: '<m1@example.test>', threadId: 'thread:<m1@example.test>',
+  folderId: 'acc:inbox', labels: [], from: { name: 'Sovereign Auditor', address: 'auditor@example.test' },
+  to: [{ address: 'engineer@example.test' }], cc: [], bcc: [], subject: 'Security Review', bodyText: 'Hello\nTeam',
   format: 'plain', receivedAt: 1_700_000_000_000, priority: 'normal', readReceiptRequested: false, isRead: false,
   isStarred: false, isPinned: false, isFlagged: false, attachments: [], headers: {},
   remoteContentAllowed: false, security: { phishingIndicators: [], remoteContentBlocked: true }, ...overrides,
@@ -78,10 +78,10 @@ describe('Connect MIME codec', () => {
   });
 
   it('parses address lists with display names, quoting and mailto', () => {
-    expect(parseAddressList('"Doe, Jane" <jane@vgt.internal>, bob@vgt.internal, mailto:CARL@vgt.internal')).toEqual([
-      { name: 'Doe, Jane', address: 'jane@vgt.internal' },
-      { address: 'bob@vgt.internal' },
-      { address: 'carl@vgt.internal' },
+    expect(parseAddressList('"Doe, Jane" <jane@example.test>, bob@example.test, mailto:CARL@example.test')).toEqual([
+      { name: 'Doe, Jane', address: 'jane@example.test' },
+      { address: 'bob@example.test' },
+      { address: 'carl@example.test' },
     ]);
   });
 });
@@ -113,37 +113,37 @@ describe('Connect EML export/import fidelity', () => {
   });
 
   it('preserves In-Reply-To and References so threading survives the round trip', () => {
-    const source = message({ headers: { 'in-reply-to': '<parent@vgt.internal>', references: '<root@vgt.internal> <parent@vgt.internal>' } });
+    const source = message({ headers: { 'in-reply-to': '<parent@example.test>', references: '<root@example.test> <parent@example.test>' } });
     const eml = exportEml(source);
-    expect(eml).toContain('In-Reply-To: <parent@vgt.internal>');
-    expect(eml).toContain('References: <root@vgt.internal> <parent@vgt.internal>');
+    expect(eml).toContain('In-Reply-To: <parent@example.test>');
+    expect(eml).toContain('References: <root@example.test> <parent@example.test>');
 
     const imported = importEml(eml, 'acc', 'acc:inbox');
-    expect(imported.headers['in-reply-to']).toBe('<parent@vgt.internal>');
-    expect(imported.headers['references']).toContain('<root@vgt.internal>');
-    expect(imported.messageId).toBe('<m1@vgt.internal>');
+    expect(imported.headers['in-reply-to']).toBe('<parent@example.test>');
+    expect(imported.headers['references']).toContain('<root@example.test>');
+    expect(imported.messageId).toBe('<m1@example.test>');
   });
 
   it('cannot have a new header line injected through a header value, and rejects a non-Message-ID', () => {
     // `exportEml` collapses CR/LF in every header value, so an injected "Bcc:" cannot become a header.
-    const hostile = message({ subject: 'X\r\nBcc: evil@vgt.internal' });
+    const hostile = message({ subject: 'X\r\nBcc: evil@example.test' });
     const eml = exportEml(hostile);
     expect(eml).not.toMatch(/\r\nBcc:/);
-    expect(importEml(eml, 'acc', 'acc:inbox').to.map((entry) => entry.address)).not.toContain('evil@vgt.internal');
+    expect(importEml(eml, 'acc', 'acc:inbox').to.map((entry) => entry.address)).not.toContain('evil@example.test');
 
     // A value that is not a Message-ID is dropped by the shared validator, so it never enters the graph.
     const bad = exportEml(message({ headers: { 'in-reply-to': 'not a message id' } }));
     expect(importEml(bad, 'acc', 'acc:inbox').headers['in-reply-to']).toBeUndefined();
     // …while a syntactically valid Message-ID is preserved (same rule as the reply builder).
-    const good = exportEml(message({ headers: { 'in-reply-to': '<parent@vgt.internal>' } }));
-    expect(importEml(good, 'acc', 'acc:inbox').headers['in-reply-to']).toBe('<parent@vgt.internal>');
+    const good = exportEml(message({ headers: { 'in-reply-to': '<parent@example.test>' } }));
+    expect(importEml(good, 'acc', 'acc:inbox').headers['in-reply-to']).toBe('<parent@example.test>');
   });
 
   it('round-trips a Cc list and a non-ASCII subject', () => {
-    const source = message({ cc: [{ address: 'sec@vgt.internal' }], subject: 'Prüfung der Sicherheit' });
+    const source = message({ cc: [{ address: 'sec@example.test' }], subject: 'Prüfung der Sicherheit' });
     const eml = exportEml(source);
     const imported = importEml(eml, 'acc', 'acc:inbox');
-    expect(imported.cc.map((entry) => entry.address)).toEqual(['sec@vgt.internal']);
+    expect(imported.cc.map((entry) => entry.address)).toEqual(['sec@example.test']);
     expect(imported.subject).toBe('Prüfung der Sicherheit');
   });
 
@@ -154,10 +154,10 @@ describe('Connect EML export/import fidelity', () => {
   });
 
   it('exports and imports MBOX with the same fidelity', () => {
-    const mbox = exportMbox([message({ id: 'a' }), message({ id: 'b', messageId: '<b@vgt.internal>' })]);
-    expect(mbox.startsWith('From auditor@vgt.internal ')).toBe(true);
+    const mbox = exportMbox([message({ id: 'a' }), message({ id: 'b', messageId: '<b@example.test>' })]);
+    expect(mbox.startsWith('From auditor@example.test ')).toBe(true);
     const imported = importMbox(mbox, 'acc', 'acc:inbox');
-    expect(imported.map((entry) => entry.messageId)).toEqual(['<m1@vgt.internal>', '<b@vgt.internal>']);
+    expect(imported.map((entry) => entry.messageId)).toEqual(['<m1@example.test>', '<b@example.test>']);
   });
 
   it('states its PST/OST policy instead of pretending to convert', () => {
@@ -204,10 +204,10 @@ describe('Connect ICS interop (complex all-day and recurring events)', () => {
 
 describe('Connect vCard interop (Unicode and multiple e-mails)', () => {
   it('preserves unicode and multiple e-mail addresses through VCF', () => {
-    const card = importVCard('BEGIN:VCARD\r\nVERSION:4.0\r\nUID:u1\r\nFN:Jürgen Müller\r\nEMAIL:a@vgt.internal\r\nEMAIL:b@vgt.internal\r\nTEL:+49 170 000000\r\nORG:VisionGaia\r\nEND:VCARD', 'acc', 1);
+    const card = importVCard('BEGIN:VCARD\r\nVERSION:4.0\r\nUID:u1\r\nFN:Jürgen Müller\r\nEMAIL:a@example.test\r\nEMAIL:b@example.test\r\nTEL:+49 170 000000\r\nORG:VisionGaia\r\nEND:VCARD', 'acc', 1);
     expect(card).toHaveLength(1);
     expect(card[0].displayName.value).toBe('Jürgen Müller');
-    expect(card[0].emails.map((entry) => entry.value)).toEqual(['a@vgt.internal', 'b@vgt.internal']);
+    expect(card[0].emails.map((entry) => entry.value)).toEqual(['a@example.test', 'b@example.test']);
     const exported = exportVCard(card[0]);
     expect(exported).toContain('FN:Jürgen Müller');
     expect(exported.match(/EMAIL:/g)).toHaveLength(2);
@@ -223,9 +223,9 @@ describe('Connect vCard interop (Unicode and multiple e-mails)', () => {
   });
 
   it('scores duplicates deterministically and previews a merge without writing', () => {
-    const a = importVCard('BEGIN:VCARD\r\nUID:a\r\nFN:Jane Doe\r\nEMAIL:jane@vgt.internal\r\nTEL:+49 170 111\r\nEND:VCARD', 'acc', 1)[0];
-    const b = importVCard('BEGIN:VCARD\r\nUID:b\r\nFN:Jane Doe\r\nEMAIL:jane@vgt.internal\r\nTEL:+49 170 222\r\nEND:VCARD', 'acc', 1)[0];
-    const c = importVCard('BEGIN:VCARD\r\nUID:c\r\nFN:Other Person\r\nEMAIL:other@vgt.internal\r\nEND:VCARD', 'acc', 1)[0];
+    const a = importVCard('BEGIN:VCARD\r\nUID:a\r\nFN:Jane Doe\r\nEMAIL:jane@example.test\r\nTEL:+49 170 111\r\nEND:VCARD', 'acc', 1)[0];
+    const b = importVCard('BEGIN:VCARD\r\nUID:b\r\nFN:Jane Doe\r\nEMAIL:jane@example.test\r\nTEL:+49 170 222\r\nEND:VCARD', 'acc', 1)[0];
+    const c = importVCard('BEGIN:VCARD\r\nUID:c\r\nFN:Other Person\r\nEMAIL:other@example.test\r\nEND:VCARD', 'acc', 1)[0];
     expect(duplicateScore(a, b)).toBe(1);
     expect(duplicateScore(a, c)).toBeLessThan(1);
     const preview = previewContactMerge(a, b);

@@ -114,7 +114,7 @@ describe('Connect HTML sanitiser: bounds and helpers', () => {
   });
 
   it('classifies URLs fail-closed', () => {
-    expect(classifyMailUrl('https://vgt.internal/docs')).toMatchObject({ verdict: 'safe', displayHost: 'vgt.internal' });
+    expect(classifyMailUrl('https://example.test/docs')).toMatchObject({ verdict: 'safe', displayHost: 'example.test' });
     expect(classifyMailUrl('javascript:alert(1)').verdict).toBe('unsafe-scheme');
     expect(classifyMailUrl('data:text/html,<b>').verdict).toBe('unsafe-scheme');
     expect(classifyMailUrl('https://x.test/p?utm_medium=mail').verdict).toBe('remote-blocked');

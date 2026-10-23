@@ -29,7 +29,7 @@ import type { ConnectFocusState, ConnectLabel, ConnectMailRuleSetting, ConnectMe
 import type { ConnectMessage as CoreMessage, ConnectMailRule } from '../../../platform/connectors/connectCoreTypes';
 
 const msg = (overrides: Partial<ConnectMessage> & { id: string }): ConnectMessage => ({
-  sender: 'Peer', senderEmail: 'peer@vgt.internal', recipients: ['me@vgt.internal'], subject: 'Subject',
+  sender: 'Peer', senderEmail: 'peer@example.test', recipients: ['me@example.test'], subject: 'Subject',
   snippet: 's', body: 'body', timestamp: 1_700_000_000_000, folder: 'inbox',
   isUnread: true, isStarred: false, isEncrypted: false, ...overrides,
 });
@@ -136,7 +136,7 @@ describe('Connect rule application: no silent deletion', () => {
   it('stays compatible with the platform rule engine', () => {
     const core: CoreMessage = {
       id: 'm', accountId: 'a', messageId: '<m@x>', threadId: 't', folderId: 'a:inbox', labels: [],
-      from: { address: 'peer@vgt.internal' }, to: [{ address: 'me@vgt.internal' }], cc: [], bcc: [],
+      from: { address: 'peer@example.test' }, to: [{ address: 'me@example.test' }], cc: [], bcc: [],
       subject: 'Audit report', bodyText: 'body', format: 'plain', receivedAt: 1, priority: 'normal',
       readReceiptRequested: false, isRead: true, isStarred: false, isPinned: false, isFlagged: false,
       attachments: [], headers: {}, remoteContentAllowed: false, security: { phishingIndicators: [], remoteContentBlocked: true },
@@ -161,7 +161,7 @@ describe('Connect spam triage is advisory only', () => {
   });
 
   it('downgrades a trusted sender and a VIP subject', () => {
-    const trusted = triageMessage(msg({ id: 'a', senderEmail: 'auditor@vgt.internal' }), [], ['auditor@vgt.internal']);
+    const trusted = triageMessage(msg({ id: 'a', senderEmail: 'auditor@example.test' }), [], ['auditor@example.test']);
     expect(trusted.level).toBe('clean');
     const vip = triageMessage(msg({ id: 'a', subject: 'Release 0.1 validated' }), [{ severity: 'info', kind: 'remote-tracker', explanation: 'tracker' }], [], ['release']);
     expect(vip.level).toBe('clean');

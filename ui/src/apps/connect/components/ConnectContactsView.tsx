@@ -1,7 +1,7 @@
 // STATUS: DIAMANT VGT SUPREME — Astraea Connect Contacts View
 //
 // BATCH-CONNECT-7: `handleAddContact` used to insert a fabricated contact — "New Sovereign Peer",
-// `peer@vgt.internal`, "Peer Enclave" and a **made-up GPG fingerprint** — and then called
+// `peer@example.test`, "Peer Enclave" and a **made-up GPG fingerprint** — and then called
 // `legacyContactToCore` only for its throwing side effect. The locale also promised a "cryptographically
 // verified GPG address book", but nothing verifies a fingerprint. Both are fixed here: the form requires
 // real data, the contact is validated by the platform core, and a fingerprint is shown as *stored*, not

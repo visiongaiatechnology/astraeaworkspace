@@ -275,8 +275,8 @@ export const DEFAULT_CONNECT_MODEL: ConnectDocumentModel = {
     {
       id: 'msg-1',
       sender: 'Sovereign Audit Board',
-      senderEmail: 'auditor@vgt.internal',
-      recipients: ['engineer@vgt.internal'],
+      senderEmail: 'auditor@example.test',
+      recipients: ['engineer@example.test'],
       subject: 'Review abgeschlossen: Richtlinienpruefung der lokalen Ablage',
       snippet: 'Der Bericht zur Richtlinienpruefung liegt vor; die Pruefpunkte sind aufgezeichnet...',
       body: 'Hallo Team,\n\nDie Durchsicht der lokalen Ablage- und Richtlinienebene ist abgeschlossen. Die Entscheidungspunkte zeichnen ihre Ergebnisse in den lokalen Journalen auf. Hinweis: Dieser Build fuehrt keine Schluesseloperationen aus; die Journale sind nicht verschluesselt.\n\nBeste Gruesse\nSovereign Audit Board',
@@ -292,8 +292,8 @@ export const DEFAULT_CONNECT_MODEL: ConnectDocumentModel = {
     {
       id: 'msg-2',
       sender: 'Sovereign Mesh Coordinator',
-      senderEmail: 'mesh-daemon@connect.local',
-      recipients: ['engineer@vgt.internal'],
+      senderEmail: 'mesh-daemon@example.test',
+      recipients: ['engineer@example.test'],
       subject: 'Peer-Verbindung aufgebaut: Knoten 0x7F4A',
       snippet: 'Lokale Peer-Verbindung steht; die Uebertragung laeuft im Richtlinienrahmen...',
       body: 'Eine Peer-Verbindung zu Knoten 0x7F4A wurde im lokalen Netz aufgebaut. Die Uebertragung laeuft unter dem Zero-Trust-Richtlinienrahmen. Hinweis: Dieser Build richtet keine Sitzungsschluessel ein; die Verbindung ist nicht verschluesselt.',
@@ -306,8 +306,8 @@ export const DEFAULT_CONNECT_MODEL: ConnectDocumentModel = {
     {
       id: 'msg-3',
       sender: 'Astraea Release Manager',
-      senderEmail: 'release@astraea.internal',
-      recipients: ['engineer@vgt.internal'],
+      senderEmail: 'release@example.test',
+      recipients: ['engineer@example.test'],
       subject: 'Alpha 0.1 Source Release Candidate Validated',
       snippet: 'Clean build verified with 212 files and 0 compilation errors...',
       body: 'The Alpha 0.1 Source Release Candidate build has passed all integrity gates. All 22 modules are confirmed operational.',
@@ -329,7 +329,7 @@ export const DEFAULT_CONNECT_MODEL: ConnectDocumentModel = {
       endTime: '09:45',
       location: 'Sovereign Room A (Encrypted)',
       category: 'engineering',
-      attendees: ['lead@vgt.internal', 'sec@vgt.internal'],
+      attendees: ['lead@example.test', 'sec@example.test'],
       description: 'Review of Dual-Tier Umsetzungsplan and Phase 2 deep native engines.',
     },
     {
@@ -341,7 +341,7 @@ export const DEFAULT_CONNECT_MODEL: ConnectDocumentModel = {
       endTime: '15:30',
       location: 'Virtual Mesh Enclave',
       category: 'security',
-      attendees: ['sec@vgt.internal', 'auditor@vgt.internal'],
+      attendees: ['sec@example.test', 'auditor@example.test'],
       description: 'Audit of outbound connector rules and zero-telemetry enforcement.',
     },
   ],
@@ -349,7 +349,7 @@ export const DEFAULT_CONNECT_MODEL: ConnectDocumentModel = {
     {
       id: 'cnt-1',
       fullName: 'Master Architect',
-      email: 'architect@vgt.internal',
+      email: 'architect@example.test',
       phone: '+49 170 000000',
       organization: 'VisionGaia Technology',
       role: 'Principal Distinguished Engineer',
@@ -358,7 +358,7 @@ export const DEFAULT_CONNECT_MODEL: ConnectDocumentModel = {
     {
       id: 'cnt-2',
       fullName: 'Sovereign Auditor',
-      email: 'auditor@vgt.internal',
+      email: 'auditor@example.test',
       organization: 'Sovereignty Compliance Group',
       role: 'Chief Security Officer',
       gpgFingerprint: '44C0 77E1 AA90 9B2E 4D1A 88CF 0122 34EE B099 11FA',

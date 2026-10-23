@@ -1,7 +1,7 @@
 // STATUS: DIAMANT VGT SUPREME — Astraea Connect Calendar View
 //
 // BATCH-CONNECT-7: `handleAddEvent` used to insert a fixed event — subject `copy.newEvent`, a hardcoded
-// date `2026-09-12`, a hardcoded attendee `lead@vgt.internal` and a fixed description — and then called
+// date `2026-09-12`, a hardcoded attendee `lead@example.test` and a fixed description — and then called
 // `legacyEventToCore` for its throwing side effect only. The user was shown an event they never created,
 // with an attendee who never existed. The form below requires the real fields and validates them through
 // the platform event validator before anything is stored.

@@ -71,8 +71,8 @@ const ALL_MODEL_FIELDS = [
 const message = (id: string, overrides: Partial<ConnectMessage> = {}): ConnectMessage => ({
   id,
   sender: 'Peer',
-  senderEmail: 'peer@vgt.internal',
-  recipients: ['engineer@vgt.internal'],
+  senderEmail: 'peer@example.test',
+  recipients: ['engineer@example.test'],
   subject: `Subject ${id}`,
   snippet: 'snippet',
   body: 'body',
@@ -89,8 +89,8 @@ const filledDraft = (overrides: Partial<typeof EMPTY_ACCOUNT_DRAFT> = {}): Conne
   const draft = {
     ...EMPTY_ACCOUNT_DRAFT,
     displayName: 'Engineer Mailbox',
-    address: 'engineer@vgt.internal',
-    host: 'imap.vgt.internal',
+    address: 'engineer@example.test',
+    host: 'imap.example.test',
     port: '993',
     username: 'engineer',
     ...overrides,
@@ -240,13 +240,13 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
   });
 
   it('AST-1588 · P05 · a draft with recipient, subject and body survives reopen', async () => {
-    const seeded = seedComposeDraft({ mode: 'new', selfAddress: 'engineer@vgt.internal' });
-    const draftFields = { ...seeded, to: 'peer@vgt.internal', cc: 'audit@vgt.internal', subject: 'Quarterly report', body: 'Hello, attached is the report.' };
+    const seeded = seedComposeDraft({ mode: 'new', selfAddress: 'engineer@example.test' });
+    const draftFields = { ...seeded, to: 'peer@example.test', cc: 'audit@example.test', subject: 'Quarterly report', body: 'Hello, attached is the report.' };
     expect(validateComposeDraft(draftFields).ok).toBe(true);
     const draft: ConnectMessage = message('draft-1', {
       folder: 'drafts',
-      recipients: ['peer@vgt.internal'],
-      cc: ['audit@vgt.internal'],
+      recipients: ['peer@example.test'],
+      cc: ['audit@example.test'],
       subject: draftFields.subject,
       body: draftFields.body,
       isUnread: false,
@@ -259,7 +259,7 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
     expect(back.folder).toBe('drafts');
     expect(back.subject).toBe('Quarterly report');
     expect(back.body).toBe('Hello, attached is the report.');
-    expect(back.cc).toEqual(['audit@vgt.internal']);
+    expect(back.cc).toEqual(['audit@example.test']);
     // A draft must never be persisted as "sent" and must never claim encryption.
     expect(back.delivery).toBeUndefined();
     expect(back.isEncrypted).toBe(false);
@@ -290,13 +290,13 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
   });
 
   it('AST-1598 · P07 · In-Reply-To / References headers survive reopen and still thread', async () => {
-    const parent: ConnectMessage = message('p1', { messageId: '<p1@vgt.internal>', folder: 'archive' });
-    const reply = buildReplyDraft({ message: parent, selfAddress: 'engineer@vgt.internal' }, false);
+    const parent: ConnectMessage = message('p1', { messageId: '<p1@example.test>', folder: 'archive' });
+    const reply = buildReplyDraft({ message: parent, selfAddress: 'engineer@example.test' }, false);
     const child: ConnectMessage = message('c1', {
-      messageId: '<c1@vgt.internal>',
+      messageId: '<c1@example.test>',
       inReplyTo: reply.inReplyTo,
       references: reply.references,
-      replyTo: 'replies@vgt.internal',
+      replyTo: 'replies@example.test',
       subject: reply.subject,
       folder: 'drafts',
     });
@@ -304,12 +304,12 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
     const { before, reopened, fromCanonical } = await saveCloseReopen(model);
     expectIdentical(before, reopened, model);
     const back = reopened.messages.find((m) => m.id === 'c1')!;
-    expect(back.inReplyTo).toBe('<p1@vgt.internal>');
+    expect(back.inReplyTo).toBe('<p1@example.test>');
     expect(back.references).toEqual(reply.references);
-    expect(back.replyTo).toBe('replies@vgt.internal');
+    expect(back.replyTo).toBe('replies@example.test');
     // Headers are canonical fields, so they survive even without the projection.
     const canonicalChild = fromCanonical.messages.find((m) => m.id === 'c1')!;
-    expect(canonicalChild.inReplyTo).toBe('<p1@vgt.internal>');
+    expect(canonicalChild.inReplyTo).toBe('<p1@example.test>');
     expect(canonicalChild.references).toEqual(reply.references);
   });
 
@@ -317,7 +317,7 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
     const eml = exportEml(
       {
         id: 'src-1', accountId: 'connect-ui-local', messageId: '<src-1@astraea.local>', threadId: 'thread:src-1', folderId: 'connect-ui-local:inbox', labels: [],
-        from: { name: 'Peer', address: 'peer@vgt.internal' }, to: [{ address: 'engineer@vgt.internal' }], cc: [], bcc: [], subject: 'With attachment',
+        from: { name: 'Peer', address: 'peer@example.test' }, to: [{ address: 'engineer@example.test' }], cc: [], bcc: [], subject: 'With attachment',
         bodyText: 'see attached', format: 'plain', receivedAt: 1_700_000_000_000, priority: 'normal', readReceiptRequested: false, isRead: false,
         isStarred: false, isPinned: false, isFlagged: false, headers: {}, remoteContentAllowed: false, security: { phishingIndicators: [], remoteContentBlocked: true },
         attachments: [{ id: 'a1', name: 'proof.pdf', sizeBytes: 3, declaredMime: 'application/pdf', detectedMime: 'application/pdf', safePreview: false, malwareScanState: 'not-scanned' }],
@@ -371,21 +371,21 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
   });
 
   it('AST-1613 · P10 · thread identity and the reference graph survive reopen', async () => {
-    const root: ConnectMessage = message('t-root', { messageId: '<root@vgt.internal>', threadId: 'thread:root', folder: 'archive' });
+    const root: ConnectMessage = message('t-root', { messageId: '<root@example.test>', threadId: 'thread:root', folder: 'archive' });
     const mid: ConnectMessage = message('t-mid', {
-      messageId: '<mid@vgt.internal>',
+      messageId: '<mid@example.test>',
       threadId: 'thread:root',
-      inReplyTo: '<root@vgt.internal>',
-      references: ['<root@vgt.internal>'],
+      inReplyTo: '<root@example.test>',
+      references: ['<root@example.test>'],
       folder: 'archive',
     });
     // The forward of the middle message carries the whole chain plus its own parent.
-    const forward = buildReplyDraft({ message: mid, selfAddress: 'engineer@vgt.internal' }, false);
+    const forward = buildReplyDraft({ message: mid, selfAddress: 'engineer@example.test' }, false);
     const last: ConnectMessage = message('t-leaf', {
-      messageId: '<leaf@vgt.internal>',
+      messageId: '<leaf@example.test>',
       threadId: 'thread:root',
       inReplyTo: mid.messageId,
-      references: [...forward.references, '<mid@vgt.internal>'],
+      references: [...forward.references, '<mid@example.test>'],
       subject: forward.subject,
       folder: 'drafts',
     });
@@ -394,12 +394,12 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
     expectIdentical(before, reopened, model);
     // All three still belong to one thread, and the chain is intact.
     expect(new Set(reopened.messages.map((m) => m.threadId))).toEqual(new Set(['thread:root']));
-    expect(reopened.messages.find((m) => m.id === 't-leaf')?.references).toContain('<mid@vgt.internal>');
+    expect(reopened.messages.find((m) => m.id === 't-leaf')?.references).toContain('<mid@example.test>');
     expect(new Set(fromCanonical.messages.map((m) => m.threadId))).toEqual(new Set(['thread:root']));
   });
 
   it('AST-1618 · P11 · the last search query survives reopen and is stored as the saved search', async () => {
-    const query = 'from:auditor@vgt.internal has:attachment';
+    const query = 'from:auditor@example.test has:attachment';
     const model: ConnectDocumentModel = { ...structuredClone(DEFAULT_CONNECT_MODEL), searchQuery: query, selectedFolder: 'inbox' };
     const { before, reopened } = await saveCloseReopen(model);
     expectIdentical(before, reopened, model);
@@ -416,9 +416,9 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
   });
 
   it('AST-1623 · P12 · a filter rule moves mail and never deletes it — across reopen', async () => {
-    const rule = { id: 'r1', name: 'Spam', enabled: true, match: 'spam@vgt.internal', action: 'move' as const, target: 'junk' };
+    const rule = { id: 'r1', name: 'Spam', enabled: true, match: 'spam@example.test', action: 'move' as const, target: 'junk' };
     const folders = listFolders('connect-ui-local');
-    const outcome = applyMailboxRule(message('junk-1', { senderEmail: 'spam@vgt.internal', subject: 'Cheap offer' }), rule, folders);
+    const outcome = applyMailboxRule(message('junk-1', { senderEmail: 'spam@example.test', subject: 'Cheap offer' }), rule, folders);
     expect(outcome.applied).toBe(true);
     expect(outcome.movedTo).toBe('junk');
     const model: ConnectDocumentModel = {
@@ -449,12 +449,12 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
 
   it('AST-1633 · P14 · an EML/MBOX import survives reopen with its headers and MIME parts', async () => {
     const eml = [
-      'Message-ID: <import-1@vgt.internal>',
-      'From: Peer <peer@vgt.internal>',
-      'To: engineer@vgt.internal',
+      'Message-ID: <import-1@example.test>',
+      'From: Peer <peer@example.test>',
+      'To: engineer@example.test',
       'Subject: Imported mail',
-      'In-Reply-To: <parent@vgt.internal>',
-      'References: <parent@vgt.internal>',
+      'In-Reply-To: <parent@example.test>',
+      'References: <parent@example.test>',
       'MIME-Version: 1.0',
       'Content-Type: multipart/mixed; boundary="b1"',
       '',
@@ -472,7 +472,7 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
       '',
     ].join('\r\n');
     const imported = importEml(eml, 'connect-ui-local', 'connect-ui-local:inbox', 5);
-    const fromMbox = importMbox(`From peer@vgt.internal Thu Jan 01 00:00:00 2026\n${eml}`, 'connect-ui-local', 'connect-ui-local:inbox');
+    const fromMbox = importMbox(`From peer@example.test Thu Jan 01 00:00:00 2026\n${eml}`, 'connect-ui-local', 'connect-ui-local:inbox');
     const asLegacy = (m: typeof imported): ConnectMessage =>
       message(m.id, {
         messageId: m.messageId,
@@ -487,8 +487,8 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
     const { before, reopened } = await saveCloseReopen(model);
     expectIdentical(before, reopened, model);
     const back = reopened.messages[0];
-    expect(back.messageId).toBe('<import-1@vgt.internal>');
-    expect(back.inReplyTo).toBe('<parent@vgt.internal>');
+    expect(back.messageId).toBe('<import-1@example.test>');
+    expect(back.inReplyTo).toBe('<parent@example.test>');
     expect(back.attachments?.[0].name).toBe('proof.pdf');
     expect(back.attachmentBytes?.[0].sizeBytes).toBe(3);
     expect(back.body).toContain('imported body');
@@ -558,7 +558,7 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
       'BEGIN:VEVENT',
-      'UID:ics-1@vgt.internal',
+      'UID:ics-1@example.test',
       'DTSTART:20260912T000000Z',
       'DTEND:20260913T000000Z',
       'SUMMARY:All day workshop',
@@ -639,7 +639,7 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
   });
 
   it('AST-1658 · P19 · a contact created, changed and searched survives reopen', async () => {
-    const created = { id: 'cnt-new', fullName: 'Ada Lovelace', email: 'ada@vgt.internal', phone: '+49 170 111111', organization: 'VGT', role: 'Analyst' };
+    const created = { id: 'cnt-new', fullName: 'Ada Lovelace', email: 'ada@example.test', phone: '+49 170 111111', organization: 'VGT', role: 'Analyst' };
     const changed = { ...created, phone: '+49 170 222222', role: 'Senior Analyst' };
     const model: ConnectDocumentModel = { ...structuredClone(DEFAULT_CONNECT_MODEL), viewMode: 'contacts', contacts: [changed] };
     const { before, reopened, fromCanonical } = await saveCloseReopen(model);
@@ -648,7 +648,7 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
     expect(reopened.contacts[0].phone).toBe('+49 170 222222');
     const back = fromCanonical.contacts[0];
     expect(back.fullName).toBe('Ada Lovelace');
-    expect(back.email).toBe('ada@vgt.internal');
+    expect(back.email).toBe('ada@example.test');
     expect(back.phone).toBe('+49 170 222222');
     expect(back.organization).toBe('VGT');
     expect(back.role).toBe('Senior Analyst');
@@ -660,8 +660,8 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
       'VERSION:4.0',
       'UID:vcf-1',
       'FN:Jörg Müller-Ångström 寿',
-      'EMAIL:joerg@vgt.internal',
-      'EMAIL:j.mueller@vgt.internal',
+      'EMAIL:joerg@example.test',
+      'EMAIL:j.mueller@example.test',
       'TEL:+49 170 333333',
       'ORG:VisionGaia Technologie',
       'END:VCARD',
@@ -669,13 +669,13 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
     ].join('\r\n');
     const imported = importVCard(vcf, 'connect-ui-local', 11);
     // Both addresses really are in the imported card.
-    expect(imported[0].emails.map((e) => e.value)).toEqual(['joerg@vgt.internal', 'j.mueller@vgt.internal']);
+    expect(imported[0].emails.map((e) => e.value)).toEqual(['joerg@example.test', 'j.mueller@example.test']);
     expect(imported[0].displayName.value).toBe('Jörg Müller-Ångström 寿');
     // The vCard that goes back out is the interoperable check: Unicode and both addresses are there.
     const roundTripped = exportVCard(imported[0]);
     expect(roundTripped).toContain('FN:Jörg Müller-Ångström 寿');
-    expect(roundTripped.split('\r\n').filter((line) => line.startsWith('EMAIL:'))).toEqual(['EMAIL:joerg@vgt.internal', 'EMAIL:j.mueller@vgt.internal']);
-    expect(importVCard(roundTripped, 'connect-ui-local', 12)[0].emails.map((e) => e.value)).toEqual(['joerg@vgt.internal', 'j.mueller@vgt.internal']);
+    expect(roundTripped.split('\r\n').filter((line) => line.startsWith('EMAIL:'))).toEqual(['EMAIL:joerg@example.test', 'EMAIL:j.mueller@example.test']);
+    expect(importVCard(roundTripped, 'connect-ui-local', 12)[0].emails.map((e) => e.value)).toEqual(['joerg@example.test', 'j.mueller@example.test']);
 
     const model: ConnectDocumentModel = {
       ...structuredClone(DEFAULT_CONNECT_MODEL),
@@ -694,7 +694,7 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
     const { before, reopened, fromCanonical } = await saveCloseReopen(model);
     expectIdentical(before, reopened, model);
     expect(reopened.contacts[0].fullName).toBe('Jörg Müller-Ångström 寿');
-    expect(reopened.contacts[0].email).toBe('joerg@vgt.internal');
+    expect(reopened.contacts[0].email).toBe('joerg@example.test');
     // The canonical store keeps the field the legacy shape has room for.
     const store = toConnectStore(structuredClone(model), 10);
     expect(store.contacts[0].displayName.value).toBe('Jörg Müller-Ångström 寿');
@@ -706,7 +706,7 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
   });
 
   it('AST-1668 · P21 · a CardDAV change with its etag survives reopen', async () => {
-    const base = importVCard(['BEGIN:VCARD', 'VERSION:4.0', 'UID:card-1', 'FN:Peer One', 'EMAIL:one@vgt.internal', 'END:VCARD', ''].join('\r\n'), 'connect-ui-local', 12)[0];
+    const base = importVCard(['BEGIN:VCARD', 'VERSION:4.0', 'UID:card-1', 'FN:Peer One', 'EMAIL:one@example.test', 'END:VCARD', ''].join('\r\n'), 'connect-ui-local', 12)[0];
     const applied = applyCardDavSync(
       [base],
       {
@@ -720,7 +720,7 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
               ...base,
               id: 'card-2',
               displayName: { ...base.displayName, value: 'Peer Two' },
-              emails: [{ ...base.emails[0], value: 'two@vgt.internal' }],
+              emails: [{ ...base.emails[0], value: 'two@example.test' }],
             },
           },
         ],
@@ -738,7 +738,7 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
     expect(reopened.contacts.map((c) => c.fullName)).toEqual(['Peer One', 'Peer Two']);
     expect(reopened.sync?.syncToken).toBe('card-token-9');
     // The externally created change is really visible in the workspace document.
-    expect(reopened.contacts.find((c) => c.id === 'card-2')?.email).toBe('two@vgt.internal');
+    expect(reopened.contacts.find((c) => c.id === 'card-2')?.email).toBe('two@example.test');
     // Measured: the etag lives in the *contact provenance*, and `legacyContactToCore` writes a fixed
     // local source, so the carddav etag does **not** reach the canonical store from the legacy model.
     // The record it does carry is asserted as-is; the etag gap is reported as a finding.
@@ -794,9 +794,9 @@ describe('Connect WOM/Persistenz — Save→Close→Reopen per point (Paket 01�
 
   it('AST-1683 · P24 · mailbox, calendar and contacts together survive one reopen', async () => {
     const ready = readyAccount();
-    const contact = { id: 'cnt-x', fullName: 'Auditor X', email: 'x@vgt.internal', organization: 'VGT', role: 'CSO' };
+    const contact = { id: 'cnt-x', fullName: 'Auditor X', email: 'x@example.test', organization: 'VGT', role: 'CSO' };
     const event = legacyEvent(
-      { title: 'Joint acceptance', startDate: '2026-09-12', startTime: '10:00', endDate: '2026-09-12', endTime: '11:00', timezone: 'UTC', category: 'review', attendees: ['x@vgt.internal'] },
+      { title: 'Joint acceptance', startDate: '2026-09-12', startTime: '10:00', endDate: '2026-09-12', endTime: '11:00', timezone: 'UTC', category: 'review', attendees: ['x@example.test'] },
       'evt-joint',
     );
     const model: ConnectDocumentModel = {
@@ -908,7 +908,7 @@ describe('Connect WOM/Persistenz — the reader must not substitute a different 
           attendees: ['a@b.c'],
         },
       ],
-      contacts: [{ id: 'only-contact', fullName: 'UNIQUE-STORED-CONTACT', email: 'unique@vgt.internal', organization: 'VGT', role: 'Lead' }],
+      contacts: [{ id: 'only-contact', fullName: 'UNIQUE-STORED-CONTACT', email: 'unique@example.test', organization: 'VGT', role: 'Lead' }],
     };
     const { bytes } = await persistConnectModel(structuredClone(model), PASSWORD, 10);
     // A file written before the projection existed, or by another writer, has no `vgtConnectView`.

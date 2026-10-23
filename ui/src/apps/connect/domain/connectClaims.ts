@@ -4,7 +4,7 @@
 //  - `components/ConnectMailViewer.tsx:71` stored `folder: 'sent'` for a message that `queueCompose`
 //    (`application/connectUiBridge.ts:12` = `queueDraft(...)`, `domain/connectMailCore.ts:149`) never
 //    sent. BATCH-60 already added `delivery: 'queued'` next to it — re-measured here and still green.
-//  - `components/ConnectSidebar.tsx:169` renders a hardcoded green dot + `engineer@vgt.internal`
+//  - `components/ConnectSidebar.tsx:169` renders a hardcoded green dot + `engineer@example.test`
 //    footer: a permanent "connected" claim with no state behind it. → ConnectAccount.status.
 //  - `components/ConnectMailList.tsx:88` / `ConnectMailViewer.tsx:241` show a lock badge from
 //    `isEncrypted`. Nothing in apps/connect derives that field from a key operation for outgoing mail.

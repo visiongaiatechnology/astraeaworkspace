@@ -1,7 +1,7 @@
 // STATUS: PLATIN — BATCH-CONNECT-2: the account-setup wizard as a pure, fail-closed state machine.
 //
 // Measured gap before this batch: `components/ConnectSidebar.tsx:169` printed a hardcoded green dot and
-// `engineer@vgt.internal` — an account no code ever configured — and there was no way to enter IMAP
+// `engineer@example.test` — an account no code ever configured — and there was no way to enter IMAP
 // data at all (no reference to `ConnectAccount` anywhere in `apps/connect`). The platform already owns
 // the canonical account validator (`platform/connectors/connectAccountCore.ts:9`); this module only
 // drives it, so no second account model is introduced.

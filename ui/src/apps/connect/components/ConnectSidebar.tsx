@@ -39,7 +39,7 @@ export const ConnectSidebar: React.FC<ConnectSidebarProps> = ({
   const pendingCount = countPendingMessages(messages);
   const connection = model.connection;
   // MEASURED (BATCH-CONNECT-7): the footer used to render a hardcoded green dot plus
-  // `engineer@vgt.internal`, i.e. a permanent "connected" claim with nothing behind it. The dot class
+  // `engineer@example.test`, i.e. a permanent "connected" claim with nothing behind it. The dot class
   // and the address are now derived from the real connection state and the configured accounts.
   const isConnected = connection?.status === 'connected';
   const account = model.accounts?.[0];
